@@ -1,0 +1,52 @@
+%---------------------------------------------------------------------
+%
+%                          Apéndice 1
+%
+%---------------------------------------------------------------------
+
+\chapter{Manual de usuario}
+
+%-------------------------------------------------------------------
+\section{Requisitos previos}
+%-------------------------------------------------------------------
+\label{ap1:intro}
+
+Como ya hemos indicado en las secciones de la memoria, nuestro proyecto actualmente sólo funciona en sistemas operativos LINUX, por tanto en lo siguiente supondremos que se trabaja bajo este sistema operativo.
+
+Por otro lado para poder ejecutar el sistema que hemos desarrollado será necesario cumplir una serie de requisitos software previos. En concreto deberemos tener instalados los siguientes componentes:
+
+\begin{itemize}
+\item Java Runtime Environment o JRE de 32 bits, versión 1.6 o superior.\\
+Para ello desde la propia página recomiendan, en lo relativo a requisitos hardware, contar con un Pentium 2 a 266 MHz o un procesador más rápido con al menos 128 MB de RAM física.\\
+Enlace de descarga: 
+\url{http://www.java.com/es/download/}
+\item Clang. Al comienzo del proyecto la última versión disponible era la 3.5, por lo que esta fue la que se utilizó. \\
+Para poder compilar nuestra herramienta de generación del AST2XML, cuyos pasos detallados de instalación comentamos en la próxima sección, es necesario tener instalado Clang en nuestro sistema. Puesto que la instalación y requisitos ya están detallados en la propia web de Clang no vamos a detenernos a comentarlos uno a uno.
+\begin {itemize}
+\item Requisitos LLVM System \\
+Enlace de requisitos:
+\url{http://llvm.org/docs/GettingStarted.html#requirements}
+\item Python. Para compilar Clang es necesario tener instalado Python en nuestro sistema. \\
+Enlace de descarga:
+\url{https://www.python.org/download}
+\item Compilacion de Clang \\
+Enlace con los pasos detallados
+\url {http://clang.llvm.org/get_started.html}
+\end {itemize} 
+
+\end {itemize}
+
+
+%-------------------------------------------------------------------
+\section{Instalación Clang}
+%-------------------------------------------------------------------
+\label{ap2:clang}
+
+ 
+% Variable local para emacs, para  que encuentre el fichero maestro de
+% compilación y funcionen mejor algunas teclas rápidas de AucTeX
+%%%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Tesis.tex"
+%%% End:

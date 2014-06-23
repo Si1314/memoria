@@ -1,0 +1,214 @@
+%---------------------------------------------------------------------
+%
+%                          Capítulo 1
+%
+%---------------------------------------------------------------------
+
+\chapter{Introducción}
+
+%-------------------------------------------------------------------
+\section{Título del proyecto}
+%-------------------------------------------------------------------
+\label{cap1:sec:introduccion}
+
+Desarrollo de una herramienta de depuración simbólica para las asignaturas de iniciación a la programación en C++ en las facultades de Informática y Estudios Estadísticos.
+
+%-------------------------------------------------------------------
+\section{Motivación de la propuesta}
+%-------------------------------------------------------------------
+\label{cap1:sec:motivacion}
+
+El proyecto nace de la idea y la necesidad de utilizar una herramienta útil para los estudiantes de iniciación a la programación, en este caso concreto en el lenguaje C++ por ser el lenguaje que se utiliza en los primeros curos de los grados de las Facultades de Informática, Estudios Estadísticos y Matemáticas. 
+
+El problema al que se enfrentan los estudiantes es cuando los problemas a resolver crecen en complejidad, los programas también y normalmente no se comportan como deben para todos los casos. Escribir programas totalmente correctos requiere el uso de una serie de metodologías que en general resultan muy complejas para los estudiantes en los primeros cursos. La mayoría de ellos siguen una mecánica de prueba-error, es decir, escriben los programas sin pararse a pensar demasiado acerca de su corrección, y luego los prueban para ver si se comportan como esperan. Estas pruebas normalmente no son lo suficientemente exhaustivas y por lo tanto los estudiantes normalmente no son ni siquiera conscientes de las incorrecciones de sus programas. Desgraciadamente, los mecanismos y herramientas que ayudan en el testing y depuración de programas son en general demasiado avanzados para poder ser utilizados por programadores inexpertos.
+
+Dado este problema aparece nuestro proyecto, como una herramienta sencilla e intuitiva que pueda mostrar de un modo sencillo el recorrido de un programa por sus diferentes ramas y los resultados que obtendría en cada uno de ellos.
+
+%-------------------------------------------------------------------
+\section{Estado del arte}
+%-------------------------------------------------------------------
+\label{cap1:sec:estado}
+
+
+%-------------------------------------------------------------------
+\subsection{C++ un lenguaje con historia}
+%-------------------------------------------------------------------
+\label{ap1:sec:c++}
+
+C++ es un lenguaje de programación diseñado a mediados de los años 1980 por Bjarne Stroustrup. La intención de su creación fue el extender al exitoso lenguaje de programación C con mecanismos que permitan la manipulación de objetos. En ese sentido, desde el punto de vista de los lenguajes orientados a objetos, el C++ es un lenguaje híbrido.Posteriormente se añadieron facilidades de programación genérica, que se sumó a los otros dos paradigmas que ya estaban admitidos (programación estructurada y la programación orientada a objetos). Por esto se suele decir que el C++ es un lenguaje de programación multiparadigma.
+Actualmente existe un estándar, denominado ISO C++, al que se han adherido la mayoría de los fabricantes de compiladores más modernos. Existen también algunos intérpretes, tales como ROOT.
+
+%-------------------------------------------------------------------
+\subsection{Un mundo hambriento de software}
+%-------------------------------------------------------------------
+\label{ap2:sec:mundo}
+
+Actualmente el software es uno de los productos más requeridos en el mundo. Tal demanda de software implica procesos de desarrollo más intensos, exhaustivos y menos prestos a errores. Siendo la corrección de fallos la etapa en la que más recursos se invierten y en la que hay más interés por mejorar su eficiencia. 
+
+%-------------------------------------------------------------------
+\subsection{El software debe estar correcto}
+%-------------------------------------------------------------------
+\label{ap2:sec:correcto}
+
+A día de hoy en el mercado existen paquetes de herramientas capaces de ofrecer a los desarrolladores detección de errores y estudios sobre la ejecución de sus programas. Existen varias maneras de verificar la correctitud de un programa:
+
+%-------------------------------------------------------------------
+\subsubsection{Revisiones (Software Reviews)}
+%-------------------------------------------------------------------
+\label{ap1:sec:revisiones}
+
+Hechas por personas, por lo general involucradas en el proceso de desarrollo, expertas en la materia. Son reuniones en las que los revisores analizan el código y lo estudian en grupo con el objetivo de encontrar errores. Existen protocolos estandarizados por la asociación IEEE que rigen el orden de estas revisiones. Dependiendo de los conductores del análisis y del objetivo de este, cambia la denominación de la revisión.
+
+%-------------------------------------------------------------------
+\subsubsection*{Peer Review}
+%-------------------------------------------------------------------
+\label{ap1:peer}
+
+Realizada por el propio autor del código o un compañero y su objetivo es evaluar el contenido técnico y la calidad del software.
+
+%-------------------------------------------------------------------
+\subsubsection*{Management Reviews}
+%-------------------------------------------------------------------
+\label{ap2:management}
+
+Cuentan con la asistencia de los directivos o superiores, el objetivo es comprobar el trabajo realizado y sopesar el trabajo futuro.
+
+%-------------------------------------------------------------------
+\subsubsection*{Audit Reviews}
+%-------------------------------------------------------------------
+\label{ap2:audit}
+
+La realiza personal externo al proyecto y busca irregularidades en cuanto a las especificaciones, estándares o acuerdos empresariales.
+
+%-------------------------------------------------------------------
+\subsubsection{Análisis dinámico}
+%-------------------------------------------------------------------
+\label{ap1:sec:dinamico}
+
+Supone la ejecución del programa y observar su comportamiento. Para que el anáilisis sea efectivo de debe realizar con los suficientes casos de prueba. 
+Estos casos de prueba representan los comportamientos que se esperan del programa en distintas condiciones de ejecución. Para asegurar la efectividad de las pruebas se pueden usar distintas técnicas como estudiar la cobertura del código (comprobar que en diferentes ejecuciones de un programa se pasa por todas las instruccciones al menos una vez) o el uso de programas fuzzers que ayudan a asegurar que una porción adecuada del conjunto de posibles comportamientos del programa ha sido observada.
+
+%-------------------------------------------------------------------
+\subsubsection{Análisis estático }
+%-------------------------------------------------------------------
+\label{ap1:sec:dinamico}
+
+Consiste en el análisis, generalmente automático, por parte de una herramienta sobre el programa sin que este se ejecute. Puede realizarse sobre el código fuente o sobre el código objeto. La industria ha reconocido los métodos de análisis estático como elementos clave a la hora de mejorar la calidad de programas complejos, siendo usos muy generalizados en el ámbito de la medicina, la aviación y la energía nuclear, campos en los que no se pueden permitir errores ni riesgos. En la mayoría de los casos se emplea con el objetivo de localizar errores de codificación o vulnerabilidades en el código, pero también se incluyen una variedad de métodos formales que verifican ciertas propiedades del programa.
+
+%-------------------------------------------------------------------
+\subsubsection*{Verificacion de modelos(Model cheking)}
+%-------------------------------------------------------------------
+\label{ap1:verificacion}
+
+Método en el cual el programa y su especificación se expresan matemáticamente con el objetivo de verivicar su correctitud.
+
+%-------------------------------------------------------------------
+\subsubsection*{Lógica de Hoare}
+%-------------------------------------------------------------------
+\label{ap1:hoare}
+
+Se emplea un sistema con un conjunto de reglas lógicas con las que razonar rigurosamente la correctitud del programa.
+
+%-------------------------------------------------------------------
+\subsubsection*{Análisis del flujo de datos}
+%-------------------------------------------------------------------
+\label{ap2:flujo}
+
+Es una técnica en la que se recoge información acerca del conjunto de posibles valores calculados en distintos puntos del programa. Se utiliza para estudiar a que partes del programa se podría propagar un valor en particular asginado a una variable. 
+
+%-------------------------------------------------------------------
+\subsubsection*{Interpretación abstracta}
+%-------------------------------------------------------------------
+\label{ap3:abstracta}
+
+Es un método que modela el efecto de las instrucciones del programa en la máquina mediante una ``ejecución'' basada en las propiedades matemáticas de cada instrucción. La máquina sobre la que ésta se lleva a cabo es una representación simplificada de la máquina verdadera. Esta máquina abstracta aproxima el comportamiento del sistema haciéndolo más fácil de analizar.
+
+%-------------------------------------------------------------------
+\subsubsection*{Ejecución simbólica}
+%-------------------------------------------------------------------
+\label{ap4:simbolica}
+
+Es un caso particular de Interpretación abstracta. Consiste en analizar el programa para luego concluir qué conjunto de entradas ejecutan qué partes del código. Un intérprete recorre el programa asumiendo valores simbólicos para las entradas en vez de solicitarlas al usuario, llegando al final con un conjunto de expresiones en términos de esos valores simbólicos de los cuales deduce los posibles valores reales. Este procedimiento aplicado al hardware recibe el nombre de Simulación simbólica.
+
+
+%-------------------------------------------------------------------
+\section{Objetivos}
+%-------------------------------------------------------------------
+\label{cap1:sec:objetivos}
+
+En este proyecto se estudiará y desarrollará una herramienta de ``depuración simbólica'' que permitirá estudiar el funcionamiento de programas informáticos sin ser ejecutados, a base de observar todas sus posibles ramas de ejecución (hasta un cierto nivel) así como los correspondientes pares entrada-salida. Dicha herramienta podría ayudar enormemente a los estudiantes de iniciación a la programación, y en general a programadores inexpertos, a la hora de razonar acerca de la corrección de sus programas.
+
+Sólo se utilizará como forma de comprobación, no como solucionador de errores ni sintácticos ni semánticos, es decir, no realiza la función de compilador; mostrará los resultados de ciertas posibles entradas para comprobar si ésa es la solución que esperabas, de no ser así, el alumno sabrá que el código estará mal planteado. Los alumnos que están empezando a programar en C++ saben si su programa compila gracias al entorno que estén utilizando pero les es más difícil de comprobar si su programa está correcto sin la ayuda de una interfaz o de algún medio para eso. Ahí es donde entra nuestra herramienta.
+
+La herramienta contará con una interfaz de usuario, proporcionando varias ventajas adicionales: el alumno podrá ver y actualizar cómodamente, en todo momento, el código que desee probar, podrá tanto escribir un código desde cero como importar un código ya creado, por otro lado, la herramienta marcará el recorrido que se ha realizado de forma que el alumno podrá corregir posibles errores más rápidamente, por ejemplo, al encontrar un recorrido que no era el deseado.
+
+Muchas veces, para ayudarnos en la búsqueda de posibles fallos, es aconsejable programar en módulos, es decir, utilizando subprogramas para encapsular el código mejor. Con nuestra herramienta podrás elegir el nombre de la función que quieres probar aunque haya muchas funciones escritas, esto es útil ya que podrás ir comprobando sólo las que quieras sin tener que cambiar el código.
+
+Este proyecto es muy ambicioso y posee una gran envergadura que supera las posibilidades de un proyecto de fin de carrera para ser abordado desde cero. Es por esto que nosotros, durante el desarrollo de este proyecto planteamos una herramienta que debe ser continuada en cursos posteriores para poder acaparar todas la sintaxis de C++ y para que pueda ser considerada una herramienta de depuración completa.
+
+%-------------------------------------------------------------------
+\section{Trabajos relacionados}
+%-------------------------------------------------------------------
+\label{cap1:sec:trabajos}
+
+Como hemos mencionado anteriormente la ejecución simbólica, no es algo nuevo y ha adquirido protagonismo en los últimos años. Es por esto que podemos encontrar varios proyectos orientados al testing de diversos estilos, aquí describimos algunos de ellos para contextualizar nuestro proyecto.
+
+%-------------------------------------------------------------------
+\subsection{PEX}
+%-------------------------------------------------------------------
+\label{ap1:sec:pex}
+
+PEX es una herramienta desarrollada por Microsoft par a la generación automática de casos de prueba. Esta herramienta genera entradas de test para programas .NET, por tanto puede analizar cualquier programa que se ejecute en una máquina virtual .NET y soporta lenguajes como C\#, Visual Basic y F\#.
+
+El enfoque de PEX se caracteriza por implementar la ejecución dinámica simbólica, pero también permite el uso de ejecucución concreta de valores para simplificar las restricciones, las cuales serían resuletas por el resolutor SMT. Por tanto, mediante un proceso iterativo, PEX realiza una ejecución concreta del método a analizar y examina la traza de ejecución buscando ramas no exploradas. Una vez ha encontrado una rama no explorada, usa la ejecu-ción simbólica y un sistema resolutor de restricciones para generar valores concretos que exploren dicha rama. Este proceso se repite hasta obtener el recubrimiento deseado.
+
+El hecho de combinar la ejecución simbólica con la concreta permite en muchos casos incrementar la escalabilidad y tratar con situaciones donde la ejecución no depende sólo del código sino de factores externos. Se entiende por factores externos el uso de librerías nativas, llamadas al sistema operativo o interacciones con el usuario. Ante este tipo de situaciones, la ejecución simbólica presenta grandes limitaciones y en general, no se puede aplicar.
+
+Esta herramienta se puede integrar en el entorno de desarrollo de Visual Studio facilitando su uso como un añadido (Add\-on).
+
+Como proyecto interesante relacionado con PEX existe el juego Code Hunt también desarrollado por Microsoft. En este juego el jugador debe escribir código para avanzar en el juego. La relacióncon PEX es que lo que se muestra al jugador son las entradas y salidas, y mediante ejecución simbólica se evaluará el código escrito y de este modo poder avanzar.
+
+%-------------------------------------------------------------------
+\subsection{PET}
+%-------------------------------------------------------------------
+\label{ap2:sec:pet}
+
+PET (Partial Evaluation-based Test Case Generator for Bytecode) es una herramienta cuyo propósito es generar casos de prueba de forma automática para programas escritos en bytecode (código de bytes de Java). PET adopta el enfoque previamente comentado, esto es, ejecuta el bytecode simbólicamente y devuelve como salida un conjunto de casos de prueba (test-cases). Cada caso de prueba está asociado a una rama del árbol y se expresa como un conjunto de restricciones sobre los valores de entrada y una descripción de los contenidos de la memoria dinámica (o heap).
+
+Las restricciones de la memoria dinámica imponen condiciones sobre la forma y contenidos de las estructuras de datos del programa alojadas en esta misma. PET utiliza de un resolutor de restricciones que genera valores concretos a partir de estas restricciones, permitiendo la construcción de los
+tests propiamente dichos.
+
+PET puede usarse a través de una interfaz de línea de comandos o bien usando una interfaz web. Además soporta una variedad de opciones interesantes, como la elección de criterios de recubrimiento o la generación de tests jUnit. Estas opciones se describen con más detalle en el segundo capítulo.
+
+%-------------------------------------------------------------------
+\subsection{jSYX}
+%-------------------------------------------------------------------
+\label{ap3:sec:jsyx}
+
+jSYX es un proyecto desarrollado el curso pasado como trabajo de Sistemas Informáticos. Este proyecto se basa en una máquina virtual de Java que permite la ejecución simbólica de archivos .class de Java, de este modo puede ser utilizado para el desarrollo automático de Tests. 
+
+El enfoque de jSYX es el uso de del Bytecode de Java como lenguaje de ejecución. Esta herramienta permite la ejecución recibiendo como parámetros una clase y su método, y de este modo permite la ejecución simbólicamente o de manera concreta. Por otra lado se podrá obtener información sobre el bytecode del archivo .class.
+
+%-------------------------------------------------------------------
+\subsection{jPET}
+%-------------------------------------------------------------------
+\label{ap4:sec:jpet}
+
+Al igual que el detallado en la sección anterior, jPET también se trata de un proyecto de Sistemas Informáticos, en este caso desarrollado durante el curso 2010/2011. Este proyecto se basa en PET, la herramienta detallada anteriormente, y es una extensión de dicha herramienta para poder utilizarse en programas Java de alto nivel e integrarse en Eclipse, con el objetivo de poder usar los resultados obtenidos por PET durante el proceso de desarrollo de software.
+
+El enfoque de jPET es el tratamiento de la información generada por PET con el objetivo de presentarla al usuario de una manera más fácil, sencilla e intuitiva. Es por esto que incorpora un visor de casos de prueba para mostrar el contenido de memoria antes y después de la ejecución, una herramienta de depuración, para ver los resultados mostrando la secuencia de instrucciones que el caso de prueba ejecutaría, y es capaz de analizar sintácticamente precondiciones de métodos para evitar la generación de casos de prueba poco interesantes.
+
+%-------------------------------------------------------------------
+%\section*{\ProximoCapitulo}
+%-------------------------------------------------------------------
+%\TocProximoCapitulo
+
+%...
+
+% Variable local para emacs, para  que encuentre el fichero maestro de
+% compilación y funcionen mejor algunas teclas rápidas de AucTeX
+%%%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Tesis.tex"
+%%% End:

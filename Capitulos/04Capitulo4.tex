@@ -1,0 +1,84 @@
+%---------------------------------------------------------------------
+%
+%                          Capítulo 1
+%
+%---------------------------------------------------------------------
+
+\chapter{Herramienta SymC++}
+
+\begin{FraseCelebre}
+\begin{Frase}
+...
+\end{Frase}
+\begin{Fuente}
+...
+\end{Fuente}
+\end{FraseCelebre}
+
+
+%-------------------------------------------------------------------
+\section{Introducción}
+%-------------------------------------------------------------------
+\label{cap1:sec:introduccion}
+
+En este capítulo explicaremos brevemente cual es la arquitectura de la interfaz desarrollada y su relación como núcleo central y enlace con todos los componentes de la herramienta.  Este capítulo está dirigido a aquellas personas interesadas en conocer las decisiones de diseño que hemos tomado, así como la estructura y funcionalidades implementadas.
+
+Este capítulo no pretende ser un manual de usuario o de instalación, el cual se encuentra en la sección de apéndices.
+
+%-------------------------------------------------------------------
+\section{Diseño}
+%-------------------------------------------------------------------
+\label{cap1:sec:disenio}
+
+A la hora de desarrollar la interfaz para el cliente, el principal problema al que nos enfrentamos era la búsqueda de una interfaz intuitiva, fácil y que ofreciera todas las funcionalidades de depuración que buscamos para los estudiantes a los que está orientada esta herramienta. 
+Es por esto que buscamos una vista de cliente, en la que toda la información resultante de la ejecución simbólica esté disponible en la vista principal.
+Para el desarrollo de la interfaz hemos utilizado una librería de Synthetica Look And Feel, librería bajo la licencia bajo licencia gratuita para usos no comerciales. Esta librería nos ha permitido dar una mayor vistosidad a la aplicación además de facilitarnos algunas cuestiones relativas al diseño.
+Por otro lado, todas las imágenes referentes a los botones también están bajo licencia gratuita para usos no comerciales. 
+
+Para la estructura de la interfaz, hemos utilizado un MigLayout, el cual se encuentra bajo licencia pública GNU GPL. Este layout nos facilita la distribución de la pantalla y del mismo modo, ofrece una mayor simplicidad y escalabilidad para la herramienta.
+
+%-------------------------------------------------------------------
+\section{Funcionalidades}
+%-------------------------------------------------------------------
+\label{cap1:sec:funcionalidad}
+
+Las funcionalidades referentes a la interfaz del cliente son las básicas de cualquier editor de texto e incluso compilador de código. Hay que partir de la base, de que en nuestro proyecto lo más relevante no es la interfaz, sino todo el trabajo que hay detrás con la ejecución simbólica.
+
+Como funcionalidades de depuración cabe destacar la visión en formato árbol de los XMLs generados tanto por Clang como por Prolog, los cuales contienen toda la información relativa al árbol sintáctico anotado del archivo C++ y al resultado de la ejecución simbólica respectivamente.
+
+Referente a la visión del área de texto, para darle un aspecto de editor de código hemos añadido la visibilidad del número de línea.
+
+Por tanto, para implementar las funcionalidades descritas, así como otras varias hemos utilizado las siguientes clases de código, todas bajo la licencia GNU:
+LineNumbers.java [1] (http://javaknowledge.info/jtextpane-line-number/)
+MultiLineCellRenderer.java[2] (http://www.java2s.com/Code/Java/Swing-Components/MultiLineCellExample.htm)
+XML2JTree.java [3] (cse.unl.edu/~reich/XML/DOM/XML2JTree.java)
+
+
+%-------------------------------------------------------------------
+\section{Conexión con el resto de secciones}
+%-------------------------------------------------------------------
+\label{cap1:sec:conexion}
+
+Como ya se ha indicado, la interfaz sirve de enlace entre la herramienta Clang, el intérprete Prolog y el usuario. Puesto que las llamadas a estas partes sólo se realizan puntualmente y de un único modo, es decir, cuando el usuario decide lanzar la ejecución simbólica, se han creado scripts con comandos shell, los cuales son llamados desde java como procesos externos.
+
+Hay que tener en cuenta, que la herramienta pedirá al inicio que se seleccione dónde se encuentra instalada la herramienta Clang, la cual se guardará en un archivo de configuración. Por tanto, al lanzar la ejecución, tomará dicho directorio como herramienta y será la encargada de generar el archivo XML del árbol de ejecución.    
+
+%-------------------------------------------------------------------
+\section{Directorio de archivos}
+%-------------------------------------------------------------------
+\label{cap1:sec:directorio}
+
+El sistema de archivos de la aplicación está dividido en varios directorios:
+files : Directorio en el que se almacenan todos los archivos generados, tanto los XMLs generados por Clang y el intérprete, como el archivo de c++ que se va a ejecutar. En este directorio, se incluyen los archivos ``BuiltinsIO.h'' y ``BuiltinsSTD.h'' necesarios para el uso de las funciones de entrada y salida.
+tools: En este directorio se incluyen los archivos prolog necesarios para que el intérprete funcione y los comandos shell que realizan la llamada tanto a la herramienta Clang como al intérprete Prolog.
+img: Directorio en el que se incluyen todas las imágenes necesarias para la interfaz.
+libs: Directorio en el que se incluyen todas las librerías necesarias para que la interfaz funcione, las cuales son las referentes al estilo, synthetica, y al layout, miglayout.
+
+
+% Variable local para emacs, para  que encuentre el fichero maestro de
+% compilación y funcionen mejor algunas teclas rápidas de AucTeX
+%%%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Tesis.tex"
+%%% End:
