@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.6.12)  23 JUN 2014 12:00
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.6.12)  1 JUL 2014 20:04
 entering extended mode
 **Tesis.tex
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Tesis.tex
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Tesis.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -32,11 +32,11 @@ File: bk12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \bibindent=\dimen102
 )
 \@input{config.aux}
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\config.tex)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\TeXiS/TeXiS.s
-ty
+(C:\Users\Raquel\Documents\facultad\SI\memoria\config.tex)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS/TeXiS.sty
 Package: TeXiS/TeXiS 
- ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
 Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks14
 \verbatim@line=\toks15
@@ -45,9 +45,8 @@ Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \example@out=\write3
 
 \@input{TeXiS/TeXiS_pream.aux}
-
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\TeXiS/TeXiS_p
-ream.tex ("C:\Program Files\MiKTeX 2.9\tex\latex\base\shortvrb.sty"
+(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS/TeXiS_pream.tex
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\shortvrb.sty"
 Package: shortvrb 2010/02/04 v2.1e Standard LaTeX documentation package (FMi)
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
@@ -416,9 +415,7 @@ Package: titlesec 2011/12/15 v2.10.0 Sectioning titles
 \titlewidthfirst=\dimen145
 ))
 \@input{TeXiS/TeXiS_cab.aux}
-
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\TeXiS/TeXiS_c
-ab.tex
+(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS/TeXiS_cab.tex
 (C:\Users\Raquel\AppData\Roaming\MiKTeX\2.9\tex\latex\fancyhdr\fancyhdr.sty
 \fancy@headwidth=\skip60
 \f@ncyO@elh=\skip61
@@ -429,52 +426,41 @@ ab.tex
 \f@ncyO@erf=\skip66
 \f@ncyO@olf=\skip67
 \f@ncyO@orf=\skip68
-))
+)
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 128.
+
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 129.
+
+)
 \@input{TeXiS/TeXiS_cover.aux}
-
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\TeXiS/TeXiS_c
-over.tex)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS/TeXiS_cover.tex)
 \@input{TeXiS/TeXiS_part.aux}
-
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\TeXiS/TeXiS_p
-art.tex)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS/TeXiS_part.tex)
 \@input{TeXiS/TeXiS_dedic.aux}
-
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\TeXiS/TeXiS_d
-edic.tex)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS/TeXiS_dedic.tex)
 \@input{TeXiS/TeXiS_bib.aux}
-
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\TeXiS/TeXiS_b
-ib.tex))
+(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS/TeXiS_bib.tex))
 \@input{constantes.aux}
-
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\constantes.te
-x)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\constantes.tex)
 Copyright Clara Antolin Garcia, Carlos Gabriel Giraldo Garcia y Raquel Peces Mu
 noz
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Tesis.aux
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/cove
-r.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/auto
-rizacion.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/dedi
-catoria.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/agra
-decimientos.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/resu
-men.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/abst
-ract.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\TeXiS/TeXiS_t
-oc.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Capitulos/01C
-apitulo1.aux
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Tesis.aux
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/cover.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/autorizacion.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/dedicatoria.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/agradecimientos.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/resumen.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/abstract.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS/TeXiS_toc.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/01Capitulo1.aux
 
 LaTeX Warning: Label `ap1:sec:dinamico' multiply defined.
 
-)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Capitulos/02C
-apitulo2.aux
+) (C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/02Capitulo2.aux
 
 LaTeX Warning: Label `fig:todo' multiply defined.
 
@@ -487,9 +473,7 @@ LaTeX Warning: Label `fig:todo' multiply defined.
 
 LaTeX Warning: Label `fig:todo' multiply defined.
 
-)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Capitulos/03C
-apitulo3.aux
+) (C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/03Capitulo3.aux
 
 LaTeX Warning: Label `fig:todo' multiply defined.
 
@@ -499,25 +483,17 @@ LaTeX Warning: Label `fig:todo' multiply defined.
 
 LaTeX Warning: Label `fig:todo' multiply defined.
 
-)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Capitulos/04C
-apitulo4.aux
+) (C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/04Capitulo4.aux
 
 LaTeX Warning: Label `cap1:sec:introduccion' multiply defined.
 
-)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Capitulos/05C
-apitulo5.aux
+) (C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/05Capitulo5.aux
 
 LaTeX Warning: Label `cap1:sec:introduccion' multiply defined.
 
-)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Apendices/01A
-pendiceA.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/bibl
-iografia.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/fin.
-aux))
+) (C:\Users\Raquel\Documents\facultad\SI\memoria\Apendices/01ApendiceA.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/bibliografia.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/fin.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 106.
 LaTeX Font Info:    ... okay on input line 106.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 106.
@@ -534,7 +510,8 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 106.
 LaTeX Font Info:    ... okay on input line 106.
 \AtBeginShipoutBox=\box56
 Package hyperref Info: Link coloring OFF on input line 106.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
@@ -546,8 +523,8 @@ LaTeX Info: Redefining \ref on input line 106.
 LaTeX Info: Redefining \pageref on input line 106.
 LaTeX Info: Redefining \nameref on input line 106.
 
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Tesis.out)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Tesis.out)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Tesis.out)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Tesis.out)
 \@outlinefile=\write5
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
@@ -568,11 +545,8 @@ Package caption Info: End \AtBeginDocument code.
 \MPnumerator=\count138
 \makeMPintoPDFobject=\count139
 \everyMPtoPDFconversion=\toks25
-)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\guionado.tex)
-
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/cove
-r.tex
+) (C:\Users\Raquel\Documents\facultad\SI\memoria\guionado.tex)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/cover.tex
 \cambioIzquierdo=\skip69
 \cambioDerecho=\skip70
 \margenPortada=\skip71
@@ -617,8 +591,7 @@ Package pdftex.def Info: Imagenes/Vectorial/escudoUCM.pdf used on input line 16
 
 
 {C:/Users/Raquel/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/R
-aquel/Documents/facultad/SI/memoria/TeXiS-NightlyBuild/Imagenes/Vectorial/escud
-oUCM.pdf>] [2]
+aquel/Documents/facultad/SI/memoria/Imagenes/Vectorial/escudoUCM.pdf>] [2]
 
 ! LaTeX Error: There's no line here to end.
 
@@ -641,8 +614,12 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 164.
 ) [4]
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/auto
-rizacion.tex
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/autorizacion.tex
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 44.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 47--50
 
  []
@@ -706,46 +683,56 @@ Underfull \hbox (badness 10000) in paragraph at lines 51--62
 
 
 
-]
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/dedi
-catoria.tex [6
+] (C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/dedicatoria.tex
+[6
 
 
 
-] [7] [8])
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/agra
-decimientos.tex) [9
+] [7])
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/agradecimientos.tex
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 44.
+
+) [8
 
 
 
-]
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/resu
-men.tex [10
+] (C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/resumen.tex
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 14.
+
+) [9
 
 
 
-]) [11]
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/abst
-ract.tex [12
+] (C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/abstract.tex
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 14.
+
+) [10
 
 
 
-]) [13]
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\TeXiS/TeXiS_t
-oc.tex [14
+] (C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS/TeXiS_toc.tex
 
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 77.
 
-
-]
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Tesis.toc
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Tesis.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 8.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 8.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 8.
+ [11
 
-[15])
+
+
+])
 \tf@toc=\write6
 
 
@@ -754,32 +741,37 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[16]
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Tesis.lof)
+[12]
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 88.
+
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Tesis.lof)
 \tf@lof=\write7
-
-[17
-
-] [18
+ [13
 
 ]
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Tesis.lot)
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 105.
+
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Tesis.lot)
 \tf@lot=\write8
+ [14
 
-[19]) [20
+])
 
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 135.
 
-]
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Capitulos/01C
-apitulo1.tex
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/01Capitulo1.tex
 Cap\'itulo 1.
 [1
 
 
+
+
 ]
-Underfull \vbox (badness 2818) has occurred while \output is active []
-
-
 
 Package Fancyhdr Warning: \headheight is too small (14.0pt): 
  Make it at least 14.49998pt.
@@ -801,9 +793,6 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [4]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 Package Fancyhdr Warning: \headheight is too small (14.0pt): 
  Make it at least 14.49998pt.
@@ -811,9 +800,6 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [5]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 Package Fancyhdr Warning: \headheight is too small (14.0pt): 
  Make it at least 14.49998pt.
@@ -834,15 +820,13 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8]
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Capitulos/02C
-apitulo2.tex
+[8] (C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/02Capitulo2.tex
 Cap\'itulo 2.
 [9
 
 
 
-] <Imagenes/Vectorial/figura1.jpg, id=434, 515.67656pt x 283.81032pt>
+] <Imagenes/Vectorial/figura1.jpg, id=409, 515.67656pt x 283.81032pt>
 File: Imagenes/Vectorial/figura1.jpg Graphic file (type jpg)
 
 <use Imagenes/Vectorial/figura1.jpg>
@@ -855,13 +839,13 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[10 <C:/Users/Raquel/Documents/facultad/SI/memoria/TeXiS-NightlyBuild/Imagenes/
-Vectorial/figura1.jpg>]
+[10 <C:/Users/Raquel/Documents/facultad/SI/memoria/Imagenes/Vectorial/figura1.j
+pg>]
 Overfull \hbox (15.3469pt too wide) in paragraph at lines 61--61
  |[]\T1/cmr/bx/n/17.28 Instrucciones co-mo no-dos de un fi-che-ro XML| 
  []
 
-<Imagenes/Vectorial/figura2.jpg, id=439, 264.23718pt x 124.21407pt>
+<Imagenes/Vectorial/figura2.jpg, id=414, 264.23718pt x 124.21407pt>
 File: Imagenes/Vectorial/figura2.jpg Graphic file (type jpg)
 
 <use Imagenes/Vectorial/figura2.jpg>
@@ -874,9 +858,8 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[11 <C:/Users/Raquel/Documents/facultad/SI/memoria/TeXiS-NightlyBuild/Imagenes/
-Vectorial/figura2.jpg>]
-<Imagenes/Vectorial/Todo.pdf, id=445, 408.52625pt x 256.96pt>
+[11 <C:/Users/Raquel/Documents/facultad/SI/memoria/Imagenes/Vectorial/figura2.j
+pg>] <Imagenes/Vectorial/Todo.pdf, id=420, 408.52625pt x 256.96pt>
 File: Imagenes/Vectorial/Todo.pdf Graphic file (type pdf)
 
 <use Imagenes/Vectorial/Todo.pdf>
@@ -889,19 +872,19 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[12 <C:/Users/Raquel/Documents/facultad/SI/memoria/TeXiS-NightlyBuild/Imagenes/
-Vectorial/Todo.pdf>]
+[12 <C:/Users/Raquel/Documents/facultad/SI/memoria/Imagenes/Vectorial/Todo.pdf>
+]
 File: Imagenes/Vectorial/Todo.pdf Graphic file (type pdf)
  <use Imagenes/Vectorial/Todo.pdf>
 Package pdftex.def Info: Imagenes/Vectorial/Todo.pdf used on input line 103.
 (pdftex.def)             Requested size: 195.0pt x 122.65323pt.
 File: Imagenes/Vectorial/Todo.pdf Graphic file (type pdf)
-
-<use Imagenes/Vectorial/Todo.pdf>
+ <use Imagenes/Vectorial/Todo.pdf>
 Package pdftex.def Info: Imagenes/Vectorial/Todo.pdf used on input line 108.
 (pdftex.def)             Requested size: 195.0pt x 122.65323pt.
 File: Imagenes/Vectorial/Todo.pdf Graphic file (type pdf)
- <use Imagenes/Vectorial/Todo.pdf>
+
+<use Imagenes/Vectorial/Todo.pdf>
 Package pdftex.def Info: Imagenes/Vectorial/Todo.pdf used on input line 113.
 (pdftex.def)             Requested size: 195.0pt x 122.65323pt.
 
@@ -923,9 +906,7 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[14]
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Capitulos/03C
-apitulo3.tex
+[14] (C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/03Capitulo3.tex
 Cap\'itulo 3.
 [15
 
@@ -936,10 +917,6 @@ Overfull \hbox (4.89494pt too wide) in paragraph at lines 35--37
 []\T1/cmr/m/n/12 http://ktiml.mff.cuni.cz/ bar-ta-k/-down-load-s/WDS99.pdf La p
 ro-gra-ma-ción
  []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 
 
 Package Fancyhdr Warning: \headheight is too small (14.0pt): 
@@ -959,7 +936,7 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[17] <Imagenes/Vectorial/figura3.jpg, id=476, 319.1925pt x 171.64125pt>
+[17] <Imagenes/Vectorial/figura3.jpg, id=451, 319.1925pt x 171.64125pt>
 File: Imagenes/Vectorial/figura3.jpg Graphic file (type jpg)
 
 <use Imagenes/Vectorial/figura3.jpg>
@@ -970,29 +947,22 @@ File: Imagenes/Vectorial/Todo.pdf Graphic file (type pdf)
 Package pdftex.def Info: Imagenes/Vectorial/Todo.pdf used on input line 98.
 (pdftex.def)             Requested size: 195.0pt x 122.65323pt.
 
-Underfull \vbox (badness 5893) has occurred while \output is active []
-
-
 
 Package Fancyhdr Warning: \headheight is too small (14.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[18 <C:/Users/Raquel/Documents/facultad/SI/memoria/TeXiS-NightlyBuild/Imagenes/
-Vectorial/figura3.jpg>]
+[18 <C:/Users/Raquel/Documents/facultad/SI/memoria/Imagenes/Vectorial/figura3.j
+pg>]
 File: Imagenes/Vectorial/Todo.pdf Graphic file (type pdf)
  <use Imagenes/Vectorial/Todo.pdf>
 Package pdftex.def Info: Imagenes/Vectorial/Todo.pdf used on input line 114.
 (pdftex.def)             Requested size: 195.0pt x 122.65323pt.
 File: Imagenes/Vectorial/Todo.pdf Graphic file (type pdf)
-
-<use Imagenes/Vectorial/Todo.pdf>
+ <use Imagenes/Vectorial/Todo.pdf>
 Package pdftex.def Info: Imagenes/Vectorial/Todo.pdf used on input line 119.
 (pdftex.def)             Requested size: 195.0pt x 122.65323pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 
 
 Package Fancyhdr Warning: \headheight is too small (14.0pt): 
@@ -1001,9 +971,6 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [19])
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 Package Fancyhdr Warning: \headheight is too small (14.0pt): 
  Make it at least 14.49998pt.
@@ -1017,15 +984,13 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[21]
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Capitulos/04C
-apitulo4.tex [22
+[21] (C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/04Capitulo4.tex
+Cap\'itulo 4.
+[22
 
 
 
 ]
-Cap\'itulo 4.
-[23]
 Overfull \hbox (45.18796pt too wide) in paragraph at lines 51--55
 \T1/cmr/m/n/12 number/) Mul-ti-Li-ne-Cell-Ren-de-rer.java[2] (http://www.java2s
 .com/Code/Java/Swing-
@@ -1043,108 +1008,86 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[24])
+[23])
 
 Package Fancyhdr Warning: \headheight is too small (14.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25]
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Capitulos/05C
-apitulo5.tex [26
-
-
-
-]
+[24] (C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/05Capitulo5.tex
 Cap\'itulo 5.
-[27]
-Underfull \vbox (badness 1742) has occurred while \output is active []
-
-
-
-Package Fancyhdr Warning: \headheight is too small (14.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[28])
-
-Package Fancyhdr Warning: \headheight is too small (14.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[29]
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Apendices/01A
-pendiceA.tex [30
+[25
 
 
 
 ]
+
+Package Fancyhdr Warning: \headheight is too small (14.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[26])
+
+Package Fancyhdr Warning: \headheight is too small (14.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[27] (C:\Users\Raquel\Documents\facultad\SI\memoria\Apendices/01ApendiceA.tex
 Ap\'{e}ndice A.
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 22.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-) [31])
+) [28
+
+
+
+])
 
 Package Fancyhdr Warning: \headheight is too small (14.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[32]
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/bibl
-iografia.tex
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Tesis.bbl
+[29] (C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/bibliografia.tex
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 81.
+
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Tesis.bbl
 
 Package natbib Warning: Empty `thebibliography' environment on input line 4.
 
-)) [33
+)) [30
 
 
 
 
-]
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/fin.
-tex [34
+] (C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/fin.tex
+[31
 
 
-] [35])
+] [32])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 196.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 196.
-
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Tesis.aux
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/cove
-r.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/auto
-rizacion.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/dedi
-catoria.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/agra
-decimientos.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/resu
-men.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/abst
-ract.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\TeXiS/TeXiS_t
-oc.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Capitulos/01C
-apitulo1.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Capitulos/02C
-apitulo2.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Capitulos/03C
-apitulo3.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Capitulos/04C
-apitulo4.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Capitulos/05C
-apitulo5.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Apendices/01A
-pendiceA.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/bibl
-iografia.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS-NightlyBuild\Cascaras/fin.
-aux))
+ (C:\Users\Raquel\Documents\facultad\SI\memoria\Tesis.aux
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/cover.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/autorizacion.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/dedicatoria.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/agradecimientos.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/resumen.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/abstract.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS/TeXiS_toc.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/01Capitulo1.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/02Capitulo2.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/03Capitulo3.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/04Capitulo4.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/05Capitulo5.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Apendices/01ApendiceA.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/bibliografia.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/fin.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 196.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 196.
 Package rerunfilecheck Info: File `Tesis.out' has not changed.
@@ -1156,9 +1099,9 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 196.
  ) 
 Here is how much of TeX's memory you used:
- 10213 strings out of 493921
- 157305 string characters out of 3147279
- 242412 words of memory out of 3000000
+ 10204 strings out of 493921
+ 154708 string characters out of 3147279
+ 242388 words of memory out of 3000000
  12879 multiletter control sequences out of 15000+200000
  17733 words of font info for 39 fonts, out of 3000000 for 9000
  1079 hyphenation exceptions out of 8191
@@ -1182,9 +1125,9 @@ quel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1728.pk> <
 C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecb
 x2488.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 >
-Output written on Tesis.pdf (55 pages, 795463 bytes).
+Output written on Tesis.pdf (46 pages, 785309 bytes).
 PDF statistics:
- 1155 PDF objects out of 1200 (max. 8388607)
- 127 named destinations out of 1000 (max. 500000)
+ 1099 PDF objects out of 1200 (max. 8388607)
+ 118 named destinations out of 1000 (max. 500000)
  458 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,9 +1,9 @@
 \select@language {spanish}
 \contentsline {chapter}{Autorizaci\'on}{\es@scroman {v}}{chapter*.1}
-\contentsline {chapter}{}{\es@scroman {vii}}{chapter*.2}
-\contentsline {chapter}{Agradecimientos}{\es@scroman {ix}}{chapter*.3}
-\contentsline {chapter}{Resumen}{\es@scroman {xi}}{chapter*.4}
-\contentsline {chapter}{Abstract}{\es@scroman {xiii}}{chapter*.5}
+\contentsline {chapter}{}{\es@scroman {vi}}{chapter*.2}
+\contentsline {chapter}{Agradecimientos}{\es@scroman {viii}}{chapter*.3}
+\contentsline {chapter}{Resumen}{\es@scroman {ix}}{chapter*.4}
+\contentsline {chapter}{Abstract}{\es@scroman {x}}{chapter*.5}
 \contentsline {chapter}{\numberline {1}Introducci\'on}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}T\IeC {\'\i }tulo del proyecto}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Motivaci\'on de la propuesta}{1}{section.1.2}
@@ -36,16 +36,16 @@
 \contentsline {section}{\numberline {3.5}Aspectos relevantes de la implementaci\'on}{17}{section.3.5}
 \contentsline {section}{\numberline {3.6}Dise\~no del int\'erprete}{17}{section.3.6}
 \contentsline {section}{\numberline {3.7}Ciclo de ejecuci\'on del int\'erprete}{19}{section.3.7}
-\contentsline {chapter}{\numberline {4}Herramienta SymC++}{23}{chapter.4}
-\contentsline {section}{\numberline {4.1}Introducci\'on}{23}{section.4.1}
-\contentsline {section}{\numberline {4.2}Dise\~no}{23}{section.4.2}
-\contentsline {section}{\numberline {4.3}Funcionalidades}{24}{section.4.3}
-\contentsline {section}{\numberline {4.4}Conexi\'on con el resto de secciones}{24}{section.4.4}
-\contentsline {section}{\numberline {4.5}Directorio de archivos}{25}{section.4.5}
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{27}{chapter.5}
-\contentsline {section}{\numberline {5.1}Conclusiones}{27}{section.5.1}
-\contentsline {section}{\numberline {5.2}Ampliaciones potenciales y trabajo futuro}{28}{section.5.2}
-\contentsline {chapter}{\numberline {A}Manual de usuario}{31}{appendix.Alph1}
-\contentsline {section}{\numberline {A.1}Requisitos previos}{31}{section.Alph1.1}
-\contentsline {section}{\numberline {A.2}Instalaci\'on Clang}{32}{section.Alph1.2}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{33}{appendix*.20}
+\contentsline {chapter}{\numberline {4}Herramienta SymC++}{22}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introducci\'on}{22}{section.4.1}
+\contentsline {section}{\numberline {4.2}Dise\~no}{22}{section.4.2}
+\contentsline {section}{\numberline {4.3}Funcionalidades}{23}{section.4.3}
+\contentsline {section}{\numberline {4.4}Conexi\'on con el resto de secciones}{23}{section.4.4}
+\contentsline {section}{\numberline {4.5}Directorio de archivos}{24}{section.4.5}
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{25}{chapter.5}
+\contentsline {section}{\numberline {5.1}Conclusiones}{25}{section.5.1}
+\contentsline {section}{\numberline {5.2}Ampliaciones potenciales y trabajo futuro}{26}{section.5.2}
+\contentsline {chapter}{\numberline {A}Manual de usuario}{28}{appendix.Alph1}
+\contentsline {section}{\numberline {A.1}Requisitos previos}{28}{section.Alph1.1}
+\contentsline {section}{\numberline {A.2}Instalaci\'on Clang}{29}{section.Alph1.2}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{30}{appendix*.20}
