@@ -7,25 +7,20 @@
 \chapter{Introducción}
 
 %-------------------------------------------------------------------
-\section{Título del proyecto}
-%-------------------------------------------------------------------
-\label{cap1:sec:introduccion}
-
-Desarrollo de una herramienta de depuración simbólica para las asignaturas de iniciación a la programación en C++ en las facultades de Informática y Estudios Estadísticos.
-
-%-------------------------------------------------------------------
 \section{Motivación de la propuesta}
 %-------------------------------------------------------------------
 \label{cap1:sec:motivacion}
 
-El proyecto nace de la idea y la necesidad de utilizar una herramienta útil para los estudiantes de iniciación a la programación, en este caso concreto en el lenguaje C++ por ser el lenguaje que se utiliza en los primeros curos de los grados de las Facultades de Informática, Estudios Estadísticos y Matemáticas. 
+El proyecto nace de la idea y la necesidad de utilizar una herramienta útil para los estudiantes de iniciación a la programación.
 
-El problema al que se enfrentan los estudiantes es cuando los problemas a resolver crecen en complejidad, los programas también y normalmente no se comportan como deben para todos los casos. Escribir programas totalmente correctos requiere el uso de una serie de metodologías que en general resultan muy complejas para los estudiantes en los primeros cursos. La mayoría de ellos siguen una mecánica de prueba-error, es decir, escriben los programas sin pararse a pensar demasiado acerca de su corrección, y luego los prueban para ver si se comportan como esperan. Estas pruebas normalmente no son lo suficientemente exhaustivas y por lo tanto los estudiantes normalmente no son ni siquiera conscientes de las incorrecciones de sus programas. Desgraciadamente, los mecanismos y herramientas que ayudan en el testing y depuración de programas son en general demasiado avanzados para poder ser utilizados por programadores inexpertos.
+El problema al que se enfrentan los estudiantes es cuando los ejercicios a resolver crecen en complejidad, los programas también y normalmente no se comportan como deben para todos los casos. Escribir programas totalmente correctos requiere el uso de una serie de metodologías que en general resultan muy complejas para los estudiantes en los primeros cursos. La mayoría de ellos siguen una mecánica de prueba-error, es decir, escriben los programas sin pararse a pensar demasiado acerca de su corrección, y luego los prueban para ver si se comportan como esperan. Estas pruebas normalmente no son lo suficientemente exhaustivas y por lo tanto los estudiantes normalmente no son ni siquiera conscientes de las incorrecciones de sus programas. Desgraciadamente, los mecanismos y herramientas que ayudan en el testing y depuración de programas son en general demasiado avanzados, como por ejemplo lo son los para poder ser utilizados por programadores inexpertos.
 
-Dado este problema aparece nuestro proyecto, como una herramienta sencilla e intuitiva que pueda mostrar de un modo sencillo el recorrido de un programa por sus diferentes ramas y los resultados que obtendría en cada uno de ellos.
+En este caso concreto, la herramienta está desarrollada para el lenguaje de C++, puesto que es el utilizado en los primeros cursos de los grados de las Facultades de Informática, Estudios Estadísticos y Matématicas, y concretamente es el utilizado en la asignatura de primer curso de Fundamentos de Programación en nuestra Facultad.
+
+Dado este problema aparece nuestro proyecto, como una herramienta sencilla e intuitiva que pueda mostrar de un modo natural el recorrido de un programa por sus diferentes ramas y los resultados que obtendría en cada uno de ellos.
 
 %-------------------------------------------------------------------
-\section{Estado del arte}
+\section{Estado del arte y trabajos relacionados}
 %-------------------------------------------------------------------
 \label{cap1:sec:estado}
 
@@ -132,21 +127,6 @@ Es un caso particular de Interpretación abstracta. Consiste en analizar el progr
 
 
 %-------------------------------------------------------------------
-\section{Objetivos}
-%-------------------------------------------------------------------
-\label{cap1:sec:objetivos}
-
-En este proyecto se estudiará y desarrollará una herramienta de ``depuración simbólica'' que permitirá estudiar el funcionamiento de programas informáticos sin ser ejecutados, a base de observar todas sus posibles ramas de ejecución (hasta un cierto nivel) así como los correspondientes pares entrada-salida. Dicha herramienta podría ayudar enormemente a los estudiantes de iniciación a la programación, y en general a programadores inexpertos, a la hora de razonar acerca de la corrección de sus programas.
-
-Sólo se utilizará como forma de comprobación, no como solucionador de errores ni sintácticos ni semánticos, es decir, no realiza la función de compilador; mostrará los resultados de ciertas posibles entradas para comprobar si ésa es la solución que esperabas, de no ser así, el alumno sabrá que el código estará mal planteado. Los alumnos que están empezando a programar en C++ saben si su programa compila gracias al entorno que estén utilizando pero les es más difícil de comprobar si su programa está correcto sin la ayuda de una interfaz o de algún medio para eso. Ahí es donde entra nuestra herramienta.
-
-La herramienta contará con una interfaz de usuario, proporcionando varias ventajas adicionales: el alumno podrá ver y actualizar cómodamente, en todo momento, el código que desee probar, podrá tanto escribir un código desde cero como importar un código ya creado, por otro lado, la herramienta marcará el recorrido que se ha realizado de forma que el alumno podrá corregir posibles errores más rápidamente, por ejemplo, al encontrar un recorrido que no era el deseado.
-
-Muchas veces, para ayudarnos en la búsqueda de posibles fallos, es aconsejable programar en módulos, es decir, utilizando subprogramas para encapsular el código mejor. Con nuestra herramienta podrás elegir el nombre de la función que quieres probar aunque haya muchas funciones escritas, esto es útil ya que podrás ir comprobando sólo las que quieras sin tener que cambiar el código.
-
-Este proyecto es muy ambicioso y posee una gran envergadura que supera las posibilidades de un proyecto de fin de carrera para ser abordado desde cero. Es por esto que nosotros, durante el desarrollo de este proyecto planteamos una herramienta que debe ser continuada en cursos posteriores para poder acaparar todas la sintaxis de C++ y para que pueda ser considerada una herramienta de depuración completa.
-
-%-------------------------------------------------------------------
 \section{Trabajos relacionados}
 %-------------------------------------------------------------------
 \label{cap1:sec:trabajos}
@@ -197,6 +177,22 @@ El enfoque de jSYX es el uso de del Bytecode de Java como lenguaje de ejecución.
 Al igual que el detallado en la sección anterior, jPET también se trata de un proyecto de Sistemas Informáticos, en este caso desarrollado durante el curso 2010/2011. Este proyecto se basa en PET, la herramienta detallada anteriormente, y es una extensión de dicha herramienta para poder utilizarse en programas Java de alto nivel e integrarse en Eclipse, con el objetivo de poder usar los resultados obtenidos por PET durante el proceso de desarrollo de software.
 
 El enfoque de jPET es el tratamiento de la información generada por PET con el objetivo de presentarla al usuario de una manera más fácil, sencilla e intuitiva. Es por esto que incorpora un visor de casos de prueba para mostrar el contenido de memoria antes y después de la ejecución, una herramienta de depuración, para ver los resultados mostrando la secuencia de instrucciones que el caso de prueba ejecutaría, y es capaz de analizar sintácticamente precondiciones de métodos para evitar la generación de casos de prueba poco interesantes.
+
+
+%-------------------------------------------------------------------
+\section{Objetivos}
+%-------------------------------------------------------------------
+\label{cap1:sec:objetivos}
+
+En este proyecto se estudiará y desarrollará una herramienta de ``depuración simbólica'' que permitirá estudiar el funcionamiento de programas informáticos sin ser ejecutados, a base de observar todas sus posibles ramas de ejecución (hasta un cierto nivel) así como los correspondientes pares entrada-salida. Dicha herramienta podría ayudar enormemente a los estudiantes de iniciación a la programación, y en general a programadores inexpertos, a la hora de razonar acerca de la corrección de sus programas.
+
+Sólo se utilizará como forma de comprobación, no como solucionador de errores ni sintácticos ni semánticos, es decir, no realiza la función de compilador; mostrará los resultados de ciertas posibles entradas para comprobar si ésa es la solución que esperabas, de no ser así, el alumno sabrá que el código estará mal planteado. Los alumnos que están empezando a programar en C++ saben si su programa compila gracias al entorno que estén utilizando pero les es más difícil de comprobar si su programa está correcto sin la ayuda de una interfaz o de algún medio para eso. Ahí es donde entra nuestra herramienta.
+
+La herramienta contará con una interfaz de usuario, proporcionando varias ventajas adicionales: el alumno podrá ver y actualizar cómodamente, en todo momento, el código que desee probar, podrá tanto escribir un código desde cero como importar un código ya creado, por otro lado, la herramienta marcará el recorrido que se ha realizado de forma que el alumno podrá corregir posibles errores más rápidamente, por ejemplo, al encontrar un recorrido que no era el deseado.
+
+Muchas veces, para ayudarnos en la búsqueda de posibles fallos, es aconsejable programar en módulos, es decir, utilizando subprogramas para encapsular el código mejor. Con nuestra herramienta podrás elegir el nombre de la función que quieres probar aunque haya muchas funciones escritas, esto es útil ya que podrás ir comprobando sólo las que quieras sin tener que cambiar el código.
+
+Este proyecto es muy ambicioso y posee una gran envergadura que supera las posibilidades de un proyecto de fin de carrera para ser abordado desde cero. Es por esto que nosotros, durante el desarrollo de este proyecto planteamos una herramienta que debe ser continuada en cursos posteriores para poder acaparar todas la sintaxis de C++ y para que pueda ser considerada una herramienta de depuración completa.
 
 %-------------------------------------------------------------------
 %\section*{\ProximoCapitulo}
