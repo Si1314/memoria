@@ -27,12 +27,15 @@ Como ya hemos indicado antes, AST2XML devuelve un archivo en formato XML con una
 \label{ap1:prog}
 
 La Programación por restricciones es un paradigma de la programación en informática donde las las variables está relacionadas mediante restricciones (ecuaciones). Se emplea en la descripción y resolución de problemas combinatorios, especialmente en las áreas de planificación y programación de tareas (calendarización). La programación con restricciones se basa principalmente en buscar un estado en el cual una gran cantidad de restricciones sean satisfechas simultáneamente, expresándose un problema como un conjunto de restricciones iniciales a partir de las cuales el sistema construye las relaciones que expresan una solución.
-Actualmente existen muchos frentes de desarrollo relacionados con la programción con restricciones. Entre ellos destacan:
-Oz: Lenguaje multiparadigma y esotérico basado en la rama concurrente de la programación por restricciones. En él que se expresa música a partir de unas restricciones expresadas explícitamente por el programador. Se utiliza en proyectos tales como Mozart y Strasheela.
-Choco: Es una librería que añade satisfacción de restricciones a Java. Está construida en una estructura basada en la propagación de eventos. Ha sido utilizada en otros proyectos de ejecución simbólica como JsyX.
-Gecode: Es un proyecto abierto que cuenta con un conjunto de herramientas basado en C/C++ para el desarrollo de sistema y aplicaciones nativas que se apoyen en restricciones. 
 
-http://ktiml.mff.cuni.cz/~bartak/downloads/WDS99.pdf
+Actualmente existen muchos frentes de desarrollo relacionados con la programción con restricciones. Entre ellos destacan:
+\begin{itemize}
+\item Oz: Lenguaje multiparadigma y esotérico basado en la rama concurrente de la programación por restricciones. En él que se expresa música a partir de unas restricciones expresadas explícitamente por el programador. Se utiliza en proyectos tales como Mozart y Strasheela.
+\item Choco: Es una librería que añade satisfacción de restricciones a Java. Está construida en una estructura basada en la propagación de eventos. Ha sido utilizada en otros proyectos de ejecución simbólica como JsyX.
+\item Gecode: Es un proyecto abierto que cuenta con un conjunto de herramientas basado en C/C++ para el desarrollo de sistema y aplicaciones nativas que se apoyen en restricciones. 
+\end{itemize}
+%http://ktiml.mff.cuni.cz/~bartak/downloads/WDS99.pdf
+
 La programación por restricciones está intimamente relacionada con la programación lógica. Por ende existe la programación lógica con restricciones. Ésta es una extensión de la programación lógica en la que se añade el concepto de satisfacción de restricciones. 
 
 Para el desarrollo de nuestro intérprete optamos por el lenguaje de programación lógica Prolog. En gran parte debido a la familiaridad que nos supone y al conjunto de facilidades relacionadas con la programación por restricciones que ya conocíamos de antemano
@@ -44,7 +47,7 @@ Para el desarrollo de nuestro intérprete optamos por el lenguaje de programación
 
 La Programación Lógica tiene sus orígenes más cercanos en los trabajos de prueba automática de teoremas de los años sesenta. J. A. Robinson propone en 1965 una regla de inferencia a la que llama resolución, mediante la cual la demostración de un teorema puede ser llevada a cabo de manera automática. La resolución es una regla que se aplica sobre cierto tipo de fórmulas del Cálculo de Predicados de Primer Orden, llamadas cláusulas y la demostración de teoremas bajo esta regla de inferencia se lleva a cabo por reducción al absurdo. La realización del paradigma de la programación lógica es el lenguaje Prolog
 
-Prolog es un  lenguaje de programación ideado a principios de los años 70 en la Universidad de Aix-Marseille I (Marsella, Francia). No tiene como objetivo la traducción de un lenguaje de programación, sino la clasificación algorítmica de lenguajes naturales. [1]
+Prolog es un  lenguaje de programación ideado a principios de los años 70 en la Universidad de Aix-Marseille I (Marsella, Francia). No tiene como objetivo la traducción de un lenguaje de programación, sino la clasificación algorítmica de lenguajes naturales.
 
 %-------------------------------------------------------------------
 \section{Conceptos de Prolog}
@@ -72,14 +75,14 @@ Una ventaja de la incorporación de las restricciones al lenguaje de programación
 El intérprete está encapsulado en dos módulos para hacer más fácil su diseño: VariablesTable.pl e Interpreter.pl. 
 
 %-------------------------------------------------------------------
-\section*{VariablesTable.pl}
+\subsection*{VariablesTable.pl}
 %-------------------------------------------------------------------
 \label{ap1:varTab}
 
 El intérprete irá guardando las variables y su respectivo valor en una tabla de variables representado en prolog mediante una lista, de forma que todas las posibles operaciones que se puedan aplicar sobre ella estén encapsuladas en un mismo módulo. Por ejemplo, funciones como añadir un elemento a la tabla (add), obtener el valor de una variable (getValue), modificar el nombre de una variable (updateNames), etc. son funciones que sólo se aplican sobre la tabla de variables.
 
 %-------------------------------------------------------------------
-\section*{Interpreter.pl}
+\subsection*{Interpreter.pl}
 %-------------------------------------------------------------------
 \label{ap2:inter}
 
@@ -118,15 +121,18 @@ nos saldría una lista así:
 \figura{Vectorial/Todo}{width=.5\textwidth}{fig:todo}%
 {Figura utilizada para marcar una imagen por hacer.}
 
-Teniendo esto en cuenta simplificamos . Cada element tiene tres argumentos: el nombre del nodo, los atributos del nodo y el cuerpo del nodo.
+Teniendo esto en cuenta simplificamos. Cada element tiene tres argumentos: el nombre del nodo, los atributos del nodo y el cuerpo del nodo.
+
 De esta forma buscaremos previamente la función que el usuario nos haya indicado e iremos pasando por cada una de las instrucciones del código de dicha función y ejecutándolas mediante las sucesivas llamadas a la función execute.
 
 %-------------------------------------------------------------------
-\section*{execute/3}
+\subsection*{execute/3}
 %-------------------------------------------------------------------
 \label{ap1:execute}
 
-Es un predicado cuyos argumentos son: el estado previo a la ejecución de unas instrucciones, la lista que contiene las instrucciones y el estado posterior a la ejecución. Este predicado se planteó de forma que pudiéramos controlar cada una de las posibles instrucciones que puede llegar a haber en el código. Para conseguirlo en cada una de estas posibilidades expresamos explícitamente los casos de forma que la instrucción que se ejecuta en un momento dado es el primer elemento de la lista de instrucciones que recibe la función. Una vez se hayan completado los pasos que simulan el comportamiento de dicha instrucción se hace una ``llamada'' recursiva a execute con el estado resultante de la ejecución, el resto de la lista de instrucciones y el estado posterior. 
+Es un predicado cuyos argumentos son: el estado previo a la ejecución de unas instrucciones, la lista que contiene las instrucciones y el estado posterior a la ejecución. Este predicado se planteó de forma que pudiéramos controlar cada una de las posibles instrucciones que puede llegar a haber en el código. 
+
+Para conseguirlo en cada una de estas posibilidades expresamos explícitamente los casos de forma que la instrucción que se ejecuta en un momento dado es el primer elemento de la lista de instrucciones que recibe la función. Una vez se hayan completado los pasos que simulan el comportamiento de dicha instrucción se hace una ``llamada'' recursiva a execute con el estado resultante de la ejecución, el resto de la lista de instrucciones y el estado posterior. 
 
 Esta forma de realizar los pasos de cómputo se asemeja, en un aspecto más teórico, a la semántica de paso corto (semántica operacional), aunque dicha similitud no es completa puesto que al trabajar con instrucciones puntuales llevamos a cabo muchos pasos intermedios.
 
@@ -137,20 +143,86 @@ Es importante destacar que el bactracking inherente de prolog se restringe en el
 %-------------------------------------------------------------------
 \label{ap2:execute2}
 
+El predicado executeLoop es llamado por execute cuando se encuentra una instrucción de bucle while o for. Igualmente recibe un estado de entrada, la lista de instrucciones, un valor numérico y devuelve el estado de salida. El valor numérico nos servirá para limitar el número de vueltas que realice el bucle, de forma que no haya posibilidad de recursión infinita, o un número de vueltas tan elevado que sea inviable devolver una solución. El número lo determina el usuario mediante la interfaz con valor del maxDepth.
+Hemos limitado el backtracking a la evaluación de condiciones ya que éstas son las que realmente definen el flujo del programa.
+Se pueden diferenciar 3 tipos de executeLoop: 
+\begin {itemize}
+\item El primero: el caso en el que se llega a la última vuelta permitida por la variable maxDepth.
+
+executeLoop(Entrada,[...Condicion...|RestoInstrucciones],1,_,Salida)
+
+Cuando maxDepth alcanza el valor 1 comprobamos que la condición se cumple y llamamos a ejecutar el resto de las instrucciones.
+
+\item El segundo: el caso en el que la condición no se hace cierta, es decir hemos llegado al fin del bucle por lo que llamamos a ejecutar al resto de las instrucciones.
+
+executeLoop(Entrada,[...|RestoInstrucciones],N,0,Salida)
+
+\item El tercero: el caso en el que la condición se hace cierta y aún no hemos llegado a la profundidad máxima permitida por lo que ejecutamos el cuerpo del bucle.
+
+executeLoop(Entrada,[...CuerpoBucle...|RestoInstrucciones],N,1,Salida)
+\end {itemize}
+
 %-------------------------------------------------------------------
 \section*{executeBranch/4}
 %-------------------------------------------------------------------
 \label{ap3:execute3}
+
+Es un predicado cuya funcionalidad extiende la del execute del if para el caso del then y del else. Igualmente recibe un estado de entrada y devuelve otro de salida, recibe la lista de instrucciones.
+executeBranch(Entrada,[Then..Else..Body])|Instrucciones],ResulCond,Salida)
+Aquí diferenciamos los dos casos posibles: Then y Else
+\begin {itemize}
+\item Caso then: Se ha cumplido la condición del if por lo que la variable ResulCond pasa a valer 1 realizando por tanto la ejecución del cuerpo del then y posteriormente se llamará a ejecutar al resto de las instrucciones.
+
+executeBranch(Entrada,[...Then...)|RestoInstrucciones],1,Salida)
+\item Caso else: No se ha cumplido la condición del if por lo que la variable ResulCond pasa a valer 0, en este caso realizaremos la ejecución del cuerpo del else y posteriormente se llamará a ejecutar al resto de las instrucciones.
+
+executeBranch(Entrada,[...Else...)|RestoInstrucciones],0,Salida)
+\end {itemize}
 
 %-------------------------------------------------------------------
 \section*{resolveExpression/4}
 %-------------------------------------------------------------------
 \label{ap4:execute4}
 
+Este predicado servirá para resolver las distintas expresiones que existan. La estructura de llamada de este predicado es la que sigue:
+
+resolveExpression(Entrada,CuerpoExpresion,ValorRetorno,Salida),
+
+Entrada y Salida corresponden a la tabla de variables que entra y la tabla de variables actualizada después de la resolución de la expresión. CuerpoExpresion es la expresión concreta que queremos resolver y ValorRetorno el valor resultante devuelto.
+
+
 %-------------------------------------------------------------------
 \section*{work/3}
 %-------------------------------------------------------------------
 \label{ap1:execute4}
+
+Execute diferenciará los siguientes tipos de instrucciones:
+\begin{itemize}
+\item Comienzo de una función
+\item Listado de parámetros
+\item Cuerpo de un bloque de instrucciones
+\item Declaración de una variables o conjunto de declaraciones de varias variables
+\item Asignaciones
+\item Operaciones binarias
+\item Operaciones unarias (++, --)
+\item Salida por consola
+\item Return
+\item Estructuras de control de flujo:
+\item Sentencia if-then-else
+\item Sentencia while
+\item Sentencia for
+\end{itemize}
+
+Iremos almacenando en cada paso el estado actual donde nos encontramos con la siguiente información:
+\begin {itemize}
+\item Table
+Llevamos la tabla de variables correspondientes al estado en el que nos encontramos. En esta tabla contemplamos la posiblidad de estructurarla en ámbitos de forma que el acceso a las variables sea consistente en cada momento.
+\item Cin Cout
+        Listas con los valores de entrada (Cin) o salida (Cout) si procede.
+\item Trace
+Lista que conserva el número de las líneas de las instrucciones por las que hemos pasado para poder más tarde marcarlas en la interfaz
+\end {itemize}
+
 
 % Variable local para emacs, para  que encuentre el fichero maestro de
 % compilación y funcionen mejor algunas teclas rápidas de AucTeX

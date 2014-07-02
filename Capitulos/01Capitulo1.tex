@@ -15,37 +15,106 @@ El proyecto nace de la idea y la necesidad de utilizar una herramienta útil para
 
 El problema al que se enfrentan los estudiantes es cuando los ejercicios a resolver crecen en complejidad, los programas también y normalmente no se comportan como deben para todos los casos. Escribir programas totalmente correctos requiere el uso de una serie de metodologías que en general resultan muy complejas para los estudiantes en los primeros cursos. La mayoría de ellos siguen una mecánica de prueba-error, es decir, escriben los programas sin pararse a pensar demasiado acerca de su corrección, y luego los prueban para ver si se comportan como esperan. Estas pruebas normalmente no son lo suficientemente exhaustivas y por lo tanto los estudiantes normalmente no son ni siquiera conscientes de las incorrecciones de sus programas. Desgraciadamente, los mecanismos y herramientas que ayudan en el testing y depuración de programas son en general demasiado avanzados, como por ejemplo lo son los para poder ser utilizados por programadores inexpertos.
 
-En este caso concreto, la herramienta está desarrollada para el lenguaje de C++, puesto que es el utilizado en los primeros cursos de los grados de las Facultades de Informática, Estudios Estadísticos y Matématicas, y concretamente es el utilizado en la asignatura de primer curso de Fundamentos de Programación en nuestra Facultad.
+En este caso concreto, la herramienta está desarrollada para el lenguaje de C++, puesto que es el utilizado en los primeros cursos de los grados de las Facultades de Informática, Estudios Estadísticos y Matemáticas, y concretamente es el utilizado en la asignatura de primer curso de Fundamentos de Programación en nuestra Facultad.
 
 Dado este problema aparece nuestro proyecto, como una herramienta sencilla e intuitiva que pueda mostrar de un modo natural el recorrido de un programa por sus diferentes ramas y los resultados que obtendría en cada uno de ellos.
 
 %-------------------------------------------------------------------
 \section{Estado del arte y trabajos relacionados}
 %-------------------------------------------------------------------
-\label{cap1:sec:estado}
-
+\label{cap1:sec:estytra}
 
 %-------------------------------------------------------------------
-\subsection{C++ un lenguaje con historia}
+\subsection{C++ y Clang}
 %-------------------------------------------------------------------
 \label{ap1:sec:c++}
 
-C++ es un lenguaje de programación diseñado a mediados de los años 1980 por Bjarne Stroustrup. La intención de su creación fue el extender al exitoso lenguaje de programación C con mecanismos que permitan la manipulación de objetos. En ese sentido, desde el punto de vista de los lenguajes orientados a objetos, el C++ es un lenguaje híbrido.Posteriormente se añadieron facilidades de programación genérica, que se sumó a los otros dos paradigmas que ya estaban admitidos (programación estructurada y la programación orientada a objetos). Por esto se suele decir que el C++ es un lenguaje de programación multiparadigma.
+%-------------------------------------------------------------------
+\subsubsection*{C++, un lenguaje con historia}
+%-------------------------------------------------------------------
+\label{ap1:sec:c++}
+
+C++ es un lenguaje de programación diseñado a mediados de los años 1980 por Bjarne Stroustrup en los Laboratorios de Bell. C++ nació como extensión del lenguaje de programación C, al mismo tiempo que proporciona un cierto número de características que \"engalanan\" dicho lenguaje. El nombre de C++ fue propuesto por Rick Mascitti en el año 1983, cuando el lenguaje fue utilizado por primera vez fuera de un laboratorio científico. Hasta ese momento se había utilizado el nombre de \"C con clases\". 
+
+Se puede decir que C++ es un lenguaje que abarca tres paradigmas de programación: la programación estructurada, la programación genérica y la programación orientada a objetos. Es un lenguaje de programación intermedio, puesto que se puede utilizar tanto para escribir software de bajo nivel, como drivers y componentes de sistemas operativos, como para el desarrollo rápido de aplicaciones.
+
 Actualmente existe un estándar, denominado ISO C++, al que se han adherido la mayoría de los fabricantes de compiladores más modernos. Existen también algunos intérpretes, tales como ROOT.
 
+Las príncipales características de este lenguaje son las facilidades que proporciona para la programación orientada a objetos y para el uso de plantillas o programación genérica. Además posee una serie de propiedades dificiles de encontrar en otros lenguajes como es la posibilidad de redefinir los operadores o poder crear nuevos tipos, que se comporten como tipos fundamentales.
+
 %-------------------------------------------------------------------
-\subsection{Un mundo hambriento de software}
+\subsubsection*{Clang y LLVM}
 %-------------------------------------------------------------------
-\label{ap2:sec:mundo}
+\label{ap2:sec:clang}
+
+Clang es un front end de compilador para los lenguajes de programación C, C++, Objective-C y Objective-C++. Usa LLVM como su back-end y ha sido parte del ciclo de lanzamiento de LLVM desde la versión 2.6. Está diseñado para ofrecer un reemplazo de GNU Compiler Collection (GCC). Es open-source, y varias compañías de software están involucradas en su desarrollo, incluyendo a Google y Apple. Su código fuente está bajo la licencia University of Illinois/NCSA. El proyecto Clang incluye además un analizador estático de software y varias herramientas de análisis de código.
+
+Por otro lado, LLVM (anteriormente conocido como Low Level Virtual Machine, o Máquina Virtual de Nivel Bajo) es una infraestructura para desarrollar compiladores, escrita a su vez en el lenguaje de programación C++, que está diseñada para optimizar el tiempo de compilación, el tiempo de enlazado, el tiempo de ejecución y el \"tiempo ocioso\" en cualquier lenguaje de programación que el usuario quiera definir. Implementado originalmente para compilar C y C++, el diseño agnóstico de LLVM con respecto al lenguaje, y el éxito del proyecto han engendrado una amplia variedad de lenguajes, incluyendo Objective-C, Fortran, Ada, Haskell, bytecode de Java, Python, Ruby y otros.
+
+LLVM suministra las capas intermedias de un sistema de compilado completo, tomando el código en formato intermedio (IF, en sus siglas en inglés) de un compilador y emitiendo un IF optimizado. Este nuevo IF puede ser convertido y enlazado en un código ensamblador dependiente de la máquina concreta para una plataforma objetivo. LLVM puede aceptar el IF generado por la cadena de herramientas GCC, permitiendo así que sea utilizado con todos los lenguages que a su vez son aceptados por GCC. LLVM también puede generar código máquina relocalizable en el momento de compilación o de enlazado, o incluso código máquina binario en el momento de ejecución.
+
+%-------------------------------------------------------------------
+\subsection{Verificación y Análisis}
+%-------------------------------------------------------------------
+\label{ap1:sec:c++}
 
 Actualmente el software es uno de los productos más requeridos en el mundo. Tal demanda de software implica procesos de desarrollo más intensos, exhaustivos y menos prestos a errores. Siendo la corrección de fallos la etapa en la que más recursos se invierten y en la que hay más interés por mejorar su eficiencia. 
 
-%-------------------------------------------------------------------
-\subsection{El software debe estar correcto}
-%-------------------------------------------------------------------
-\label{ap2:sec:correcto}
+A día de hoy en el mercado existen paquetes de herramientas capaces de ofrecer a los desarrolladores detección de errores y estudios sobre la ejecución de sus programas. Existen varias maneras de verificar la correctitud de un programa.
 
-A día de hoy en el mercado existen paquetes de herramientas capaces de ofrecer a los desarrolladores detección de errores y estudios sobre la ejecución de sus programas. Existen varias maneras de verificar la correctitud de un programa:
+%-------------------------------------------------------------------
+\subsubsection*{Lógicas}
+%-------------------------------------------------------------------
+\label{ap2:sec:clang}
+
+%-------------------------------------------------------------------
+\subsubsection*{Sistemas de tipos}
+%-------------------------------------------------------------------
+\label{ap2:sec:clang}
+
+Asignar tipos de datos (tipificar) da significado a colecciones de bits. Los tipos de datos normalmente tienen asociaciones tanto con valores en la memoria o con objetos como con variables. Como cualquier valor simplemente consiste en un conjunto de bits de un ordenador, el hardware no hace distinción entre dirección de memoria, código de instrucción, caracteres, enteros y números en coma flotante. Los tipos de datos informan a los programas y programadores cómo deben ser tratados esos bits.
+
+Al proceso de verificar e imponer los límites impuestos por los tipos de datos, conocido como comprobación o checkeo de tipificación, puede ocurrir tanto en la compilación (comprobación estática) o en la ejecución (comprobación dinámica). La elección entre sistemas de tipificación dinámico y estático requiere algunas contraprestaciones:
+
+\begin{itemize}
+\item El tipado estático busca errores en los tipos de datos durante la compilación. Esto debería incrementar la fiabilidad de los programas procesados. Sin embargo, los programadores, normalmente, están en desacuerdo en cómo los errores de tipos de datos más comunes ocurren, y en qué proporción de estos errores que se han escrito podrían haberse cazado con un tipado estático.  Los defensores de los lenguajes fuertemente tipados han sugerido que casi todos los errores pueden ser considerados errores de los tipos de datos.
+\item El tipado dinámico permite a los compiladores e intérpretes ejecutarse más rápidamente, debido a que los cambios en el código fuente en los lenguajes dinámicamente tipados puede resultar en menores comprobaciones y menos código que revisar. Esto también reduce el ciclo editar-compilar-comprobar-depurar. El tipado dinámico típicamente hace que la metaprogramación sea más poderosa y fácil de usar.
+\end{itemize}
+
+
+%-------------------------------------------------------------------
+\subsubsection*{Análisis estático}
+%-------------------------------------------------------------------
+\label{ap2:sec:clang}
+
+El análisis estático de software es un tipo de análisis que se realiza sin ejecutar el programa. En la mayoría de los casos se realiza sobre el código fuente y en otros casos se realiza sobre el código objeto.
+
+Dicho término se aplica a los análisis realizados por parte de una herramienta automática sobre el programa sin que este se ejecute. La industria ha reconocido los métodos de análisis estático como elementos clave a la hora de mejorar la calidad de programas complejos. Un uso comercial creciente del análisis estático es la verificación de las propiedades de software utilizadas en sistemas informáticos críticos para la seguridad y la localización de código vulnerable, pero también se incluyen una viariedad de métodos formales que verifican ciertas propiedades del programa. Por ejemplo, el uso de este tipo de análisis está muy extendido en los campos de la medicina, la aviación o la energía nuclear, donde no se pueden permitir errores ni riestos.
+
+
+%-------------------------------------------------------------------
+\subsubsection*{Chequeo de modelos (Model checking)}
+%-------------------------------------------------------------------
+\label{ap2:sec:clang}
+
+La verificación de modelos (o Model checking) es un método automático de verificación de un sistema formal, en la mayoría de las ocasiones derivado del hardware o del software de un sistema informático. El sistema es descrito mediante un modelo, que debe satisfacer una especificación formal descrita mediante una fórmula, a menudo escrita en alguna variedad de lógica temporal.
+
+El modelo suele estar expresado como un sistema de transiciones, es decir, un grafo dirigido, que consta de un conjunto de vértices y arcos. Un conjunto de proposiciones atómicas se asocia a cada nodo. Así pues, los nodos representan los estados posibles de un sistema, los arcos posibles evoluciones del mismo, mediante ejecuciones permitidas, que alteran el estado, mientras que las proposiciones representan las propiedades básicas que se satisfacen en cada punto de la ejecución.
+
+Formalmente, el problema se representa de la siguiente manera: Dada una propiedad deseada, expresada como una fórmula en lógica temporal p, y un modelo M con un estado inicial s; decidir si M,s \models p.
+
+Los inventores del método, Edmund M. Clarke, E. Allen Emerson y Joseph Sifakis, recibieron el Premio Turing 2007 de la ACM, en reconocimiento de su fundamental contribución al campo de las ciencias de la computación.
+
+%-------------------------------------------------------------------
+\subsubsection*{Ejecución simbólica}
+%-------------------------------------------------------------------
+\label{ap2:sec:clang}
+
+Es un caso particular de Interpretación abstracta. Consiste en analizar el programa para luego concluir qué conjunto de entradas ejecutan qué partes del código. Un intérprete recorre el programa asumiendo valores simbólicos para las entradas en vez de solicitarlas al usuario, llegando al final con un conjunto de expresiones en términos de esos valores simbólicos de los cuales deduce los posibles valores reales. Este procedimiento aplicado al hardware recibe el nombre de Simulación simbólica.
+
+
+
+
 
 %-------------------------------------------------------------------
 \subsubsection{Revisiones (Software Reviews)}
@@ -84,13 +153,6 @@ Supone la ejecución del programa y observar su comportamiento. Para que el anáil
 Estos casos de prueba representan los comportamientos que se esperan del programa en distintas condiciones de ejecución. Para asegurar la efectividad de las pruebas se pueden usar distintas técnicas como estudiar la cobertura del código (comprobar que en diferentes ejecuciones de un programa se pasa por todas las instruccciones al menos una vez) o el uso de programas fuzzers que ayudan a asegurar que una porción adecuada del conjunto de posibles comportamientos del programa ha sido observada.
 
 %-------------------------------------------------------------------
-\subsubsection{Análisis estático }
-%-------------------------------------------------------------------
-\label{ap1:sec:dinamico}
-
-Consiste en el análisis, generalmente automático, por parte de una herramienta sobre el programa sin que este se ejecute. Puede realizarse sobre el código fuente o sobre el código objeto. La industria ha reconocido los métodos de análisis estático como elementos clave a la hora de mejorar la calidad de programas complejos, siendo usos muy generalizados en el ámbito de la medicina, la aviación y la energía nuclear, campos en los que no se pueden permitir errores ni riesgos. En la mayoría de los casos se emplea con el objetivo de localizar errores de codificación o vulnerabilidades en el código, pero también se incluyen una variedad de métodos formales que verifican ciertas propiedades del programa.
-
-%-------------------------------------------------------------------
 \subsubsection*{Verificacion de modelos(Model cheking)}
 %-------------------------------------------------------------------
 \label{ap1:verificacion}
@@ -117,14 +179,6 @@ Es una técnica en la que se recoge información acerca del conjunto de posibles v
 \label{ap3:abstracta}
 
 Es un método que modela el efecto de las instrucciones del programa en la máquina mediante una ``ejecución'' basada en las propiedades matemáticas de cada instrucción. La máquina sobre la que ésta se lleva a cabo es una representación simplificada de la máquina verdadera. Esta máquina abstracta aproxima el comportamiento del sistema haciéndolo más fácil de analizar.
-
-%-------------------------------------------------------------------
-\subsubsection*{Ejecución simbólica}
-%-------------------------------------------------------------------
-\label{ap4:simbolica}
-
-Es un caso particular de Interpretación abstracta. Consiste en analizar el programa para luego concluir qué conjunto de entradas ejecutan qué partes del código. Un intérprete recorre el programa asumiendo valores simbólicos para las entradas en vez de solicitarlas al usuario, llegando al final con un conjunto de expresiones en términos de esos valores simbólicos de los cuales deduce los posibles valores reales. Este procedimiento aplicado al hardware recibe el nombre de Simulación simbólica.
-
 
 %-------------------------------------------------------------------
 \section{Trabajos relacionados}

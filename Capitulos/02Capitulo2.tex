@@ -31,17 +31,24 @@ Al inicio del curso nos dimos cuenta de que nos podíamos aproximar al problema d
 LLVM nació como proyecto en el año 2000 en la Universidad de Illinois en Urbana-Champaign. En 2005, junto con Apple Inc., se empezó a adaptar el sistema para varios usos dentro del ecosistema de desarrollo de Apple. Actualmente LLVM está integrado en las últimas herramientas de desarrollo de Apple para sus sistemas operativos.
 
 
-El un principio ``LLVM'' eran las iniciales de ``Low Level Virtual Machine'' (Máquina Virtual de Bajo Nivel), pero esta denominación causó una confusión ampliamente difundida, puesto que las máquinas virtuales son solo una de las aplicaciones de LLVM. Cuando la extensión del proyecto se amplió incluso más, LLVM se convirtió en un proyecto que engloba una gran varriedad de otros compiladores y tecnologías de bajo nivel. Por tanto, el proyecto abandonó las iniciales y actualmente, LLVM es la manera de referirse a todas esas utilidades.
+El un principio ``LLVM'' eran las iniciales de ``Low Level Virtual Machine'' (Máquina Virtual de Bajo Nivel), pero esta denominación causó una confusión ampliamente difundida, puesto que las máquinas virtuales son solo una de las aplicaciones de LLVM. Cuando la extensión del proyecto se amplió incluso más, LLVM se convirtió en un proyecto que engloba una gran variedad de otros compiladores y tecnologías de bajo nivel. Por tanto, el proyecto abandonó las iniciales y actualmente, LLVM es la manera de referirse a todas esas utilidades.
 
 
-El amplio interés que ha recibido LLVM ha llevado a una serie de tentativas para desarrollar front-ends totalmente nuevos para una variedad de lenguajes. El que ha recibido la mayor atención es Clang, un nuevo compilador que soporta otros lenguajes de la familia de C (Objective-C, C++, etc..). Apoyado principalmente por Apple, se espera que Clang sustituya al comiplador del sistema GCC.
+El amplio interés que ha recibido LLVM ha llevado a una serie de tentativas para desarrollar front-ends totalmente nuevos para una variedad de lenguajes. El que ha recibido la mayor atención es Clang, un nuevo compilador que soporta otros lenguajes de la familia de C (Objective-C, C++, etc..). Apoyado principalmente por Apple, se espera que Clang sustituya al compilador del sistema GCC.
+
+%-------------------------------------------------------------------
+\section{¿Cómo funciona Clang?}
+%-------------------------------------------------------------------
+\label{cap2:sec:arbol}
+
+En la mayoría de los casos Clang ejecutará el preprocesado y parseará el código formando un árbol de sintáxis abstracta. Esta estructura de árbol es más manejable que el propio código con el añadido de que cualquier subestructura mantiene referencias al código fuente.
 
 %-------------------------------------------------------------------
 \section{Usando el árbol de sintaxis abstracta}
 %-------------------------------------------------------------------
 \label{cap2:sec:arbol}
 
-La herramienta AST2XML efectúa como primer paso en la adaptación del código su arbol de sintaxis abstracta (Abstract Syntax Tree). 
+La herramienta AST2XML se apoya en la adaptación del código, por parte de Clang, en su arbol de sintaxis abstracta (Abstract Syntax Tree). La representación del AST que emplea Clang se diferencia de la de otros compiladores en cuanto a que mantiene la semejanza con el código escrito y con el estándar de C++.
 
 Un árbol de sintaxis abstracta (AST) es una representación de árbol de la estructura sintáctica abstracta (simplificada) del código fuente ampliamente utilizada en los distintos compiladores del mercado. Cada nodo del árbol denota una construcción que ocurre en el código fuente. La representación del AST que emplea Clang se diferencia de la de otros compiladores en cuanto a que mantiene la semejanza con el código escrito y con el estándar de C++.
 
@@ -56,6 +63,41 @@ Esta estructura es obtenida mediante el uso de las distintas utilidades incluida
 \label{cap2:sec:manipulacion}
 
 Como se puede apreciar en la figura, la representación que se obtiene directamente de clang puede llegar a parecer abrumadoramente compleja y redundante. En momentos iniciales del proyecto tomamos la decisión de que información como la ubicación de los elementos, los tipos de las variables, o incluso el tipo de los nodos no serían necesarias en cada momento. Decidimos pues optar por una representación más acotada, clara y concisa que, expresando lo mismo, fuera lo suficientemente sencilla de manipular por el intérprete de prolog.
+
+%-------------------------------------------------------------------
+\subsection{LibTooling}
+%-------------------------------------------------------------------
+\label{cap2:sec:manipulacion}
+
+Es una librería que tiene un papel muy importante en la arquitectura de la herramienta. Libtooling da soporte al diseño de herramientas autónomas basadas en Clang, proveyendo de la infraestructura necesaria para la realización de análisis sintácticos y semánticos de programas. 
+En la implementación de nuestra herramienta destacan los roles de estos elementos que nos aporta la librería:
+
+\begin {itemize}
+\item CommonOptionParser: Es una utilidad que se encarga del análisis de los argumentos que recibe la llamada del ejecutable ast2xml. Aporta los mensajes por defecto de las utilidades básicas de las herramientas que se pueden implementar.
+\item ToXMLVisitor: Es el núcleo de la herramienta. Hereda de la interfaz RecursiveASTVisitor, que como su nombre indica, se encarga de hacer un recorrido recursivo y en profundidad de la estructura. Dentro de nuestro visitor hay que implementar los diferentes métodos específicos que se amoldan a los distíntos nodos que vaya a visitar dentro del AST.
+\item ToXMLASTConsumer: Es la clase que desencadena la ejecución del visitor.
+\item ToXMLFrontendAction: Es la clase que encapsula el comportamiento de nuestra herramienta. Hereda de la clase abstracta ASTFrontendAction del paquete FrontendAction. Devuelve una instancia de nuestro consumidor en el momento de comenzar a recorrer el AST.
+\end {itemize}
+
+%-------------------------------------------------------------------
+\section{Estructura del AST}
+%-------------------------------------------------------------------
+\label{cap2:sec:instrucciones}
+
+La estructura que emplea Clang para representar el AST de un código se basa principalmente en la interacción de dos clases base muy flexibles a partir de las cuales se construyen todas los demás: Decl (Declarations), que engloba toda las declaraciones (funciones, variables, templates, etc… ),Stmt (Statement) que abarca las instrucciones. 
+
+La mayoría de las clases que se derivan de ellas se explican por sí mismas, como por ejemplo: BinaryOperator (operador binario), FunctionDecl (declaración de función), etc… 
+
+
+%-------------------------------------------------------------------
+\section{Recorriendo el AST}
+%-------------------------------------------------------------------
+\label{cap2:sec:instrucciones}
+
+El recorrido que hace el RecursiveASTVisitor a lo largo del AST se realiza mediante llamadas a funciones Traverse. Estas funciones son específicas para cada clase que funciona como nodo del AST, aunque existen sus versiones genéricas: TraverseDecl() y TraverseStmt().
+
+El comportamiento de ambas es muy similar.
+
 
 %-------------------------------------------------------------------
 \section{Instrucciones como nodos de un fichero XML}
@@ -85,7 +127,9 @@ C + + es un lenguaje fuertemente tipado, y requiere que cada variable esté decla
 
 Cuando se declara una variable, adquiere un valor indeterminado hasta que se le asigne alguno explícitamente. En C++ se contemplan tres maneras de inicializar el valor de una variable, aunque en nuestro proyecto, de cara a el uso de nuestra herramienta por parte de alumnos que están aprendiendo a programar, admitimos únicamente la forma más sencilla. 
 
-Los nodos declaration contienen información acerca del tipo de la variable, su nombre, la línea en la que se encuentra la declaración y la expresión cuyo valor se le va a asignar.
+Un nodo declarations contiene las declaraciones de las variables de un mismo tipo que han sido declaradas en la misma línea. Obtienen su información del nodo del AST de clang DeclStmt. 
+
+Los nodos declaration contienen información acerca del tipo de la variable, su nombre, la línea en la que se encuentra la declaración y la expresión cuyo valor se le va a asignar. La información surge de los nodos VarDecl que emplea el AST de clang. 
 
 \figura{Vectorial/Todo}{width=.5\textwidth}{fig:todo}%
 {Figura utilizada para marcar una imagen por hacer.}
@@ -102,12 +146,12 @@ El nodo de la instrucción if contiene el número de línea, y los nodos correspond
 \figura{Vectorial/Todo}{width=.5\textwidth}{fig:todo}%
 {Figura utilizada para marcar una imagen por hacer.}
 
-La instrucción while se traduce a un nodo que alberga como atributo el número de línea donde comienza la instrucción, y los nodos de la expresión de su condición y el bloque de instrucciones de su cuerpo.
+La instrucción while se traduce a un nodo que alberga como atributo el número de línea donde comienza la instrucción, y los nodos de la expresión de su condición y el bloque de instrucciones de su cuerpo. Toda esta información es una fracción de la que contiene el nodo del AST de clang WhileStmt.
 
 \figura{Vectorial/Todo}{width=.5\textwidth}{fig:todo}%
 {Figura utilizada para marcar una imagen por hacer.}
 
-La estructura del nodo de la instrucción for mantiene el número de línea, y en su interior los nodos de la declaración de su variable de control, la condición, la instrucción de avance y el cuerpo del bucle.
+La estructura del nodo de la instrucción for mantiene el número de línea, y en su interior los nodos de la declaración de su variable de control, la condición, la instrucción de avance y el cuerpo del bucle. Obtiene su información a partir del nodo del AST de clang ForStmt.
 
  \figura{Vectorial/Todo}{width=.5\textwidth}{fig:todo}%
 {Figura utilizada para marcar una imagen por hacer.}
@@ -121,19 +165,44 @@ Las expresiones escritas en C++ se traducen a nuestro formato en XML en nodos de
 
 En caso de que estos nodos hagan referencia a un operador, contienen información acerca del tipo de este (binario, unario, asignación, etc...) y de las expresiones que contienen. 
 
-Las expresiones que se refieren a variables almacenan el nombre de estas y de forma equivalente las que representan constantes guardan su valor.
-
-Un caso particular de las expresiones sería el de las llamadas a función. Dado que en el subconjunto de C++ en el que se mueve nuestra herramienta tan sólo contemplamos la utilización de funciones, la llamada a otros métodos.
+Las expresiones que se refieren a variables almacenan el nombre de estas y de forma equivalente las que representan constantes guardan su valor. Un caso particular de expresión sería el de las llamadas a funciones.
 
 %-------------------------------------------------------------------
 \section*{Operadores de asignación}
 %-------------------------------------------------------------------
 \label{ap4:operadores}
 
-Para representar las instrucciones de asignación nos expresamos mediante los nodos assignment y assignmentOperator, conteniendo el nombre de la variable, la línea y la expresión de la cual se calcula el valor. 
+Para representar las instrucciones de asignación nos expresamos mediante los nodos assignment y assignmentOperation, conteniendo el nombre de la variable, la línea y la expresión de la cual se calcula el valor. 
 
- \figura{Vectorial/Todo}{width=.5\textwidth}{fig:todo}%
+A pesar de que esta distinción no existe como tal en Clang, la hacemos evidente para diferenciar las asignaciones corrientes (AssignmentOperator en Clang) de las asignaciones con operadores (CompountAssignmentOperator en Clang).
+
+\figura{Vectorial/Todo}{width=.5\textwidth}{fig:todo}%
 {Figura utilizada para marcar una imagen por hacer.}
+
+Esta distinción se hace con los estudiantes noveles de programación en mente con la finalidad de que, en caso de estudiar detenidamente el XML final de su código, tengan una visión más clara de su funcionamiento.
+
+%-------------------------------------------------------------------
+\section*{Operadores unarios}
+%-------------------------------------------------------------------
+\label{ap4:operadores}
+
+En C++ existen numerosos operadores unarios pero, considerando los conocimientos que hacen falta en etapas tempranas de la iniciación a la programación, nos hemos centrado en dar soporte a los operadores unarios de incremento, decremento, indicador de signo y el not lógico. 
+
+Distinguimos los operadores de incremento y decremento se presentan a los programadores en un principio como parte esencial de los bucles cumpliendo la función de instrucción de avance. 
+
+\figura{Vectorial/Todo}{width=.5\textwidth}{fig:todo}%
+{Figura utilizada para marcar una imagen por hacer.}
+
+Por otro lado el indicador de signo cumple un papel importante a la hora de operar con valores negativos y de ayuda explícita al programador junior en caso de que quiera asegurar el valor de su variable.
+
+\figura{Vectorial/Todo}{width=.5\textwidth}{fig:todo}%
+{Figura utilizada para marcar una imagen por hacer.}
+
+El not lógico no aporta más expresividad pero permite simplificar programación de expresiones booleanas. 
+
+\figura{Vectorial/Todo}{width=.5\textwidth}{fig:todo}%
+{Figura utilizada para marcar una imagen por hacer.}
+
 
 
 %-------------------------------------------------------------------
