@@ -17,7 +17,7 @@ El problema al que se enfrentan los estudiantes es cuando los ejercicios a resol
 
 En este caso concreto, la herramienta está desarrollada para el lenguaje de C++, puesto que es el utilizado en los primeros cursos de los grados de las Facultades de Informática, Estudios Estadísticos y Matemáticas, y concretamente es el utilizado en la asignatura de primer curso de Fundamentos de Programación en nuestra Facultad.
 
-Dado este problema aparece nuestro proyecto, como una herramienta sencilla e intuitiva que pueda mostrar de un modo natural el recorrido de un programa por sus diferentes ramas y los resultados que obtendría en cada uno de ellos.
+Dado este problema aparece nuestro proyecto, como una herramienta sencilla e intuitiva que pueda mostrar de un modo natural el recorrido de un programa por sus diferentes ramas y los resultados que obtendría en cada uno de ellos. Esta herramienta ofrecerá una solución a la verificación de programas sencillos para estudiantes de iniciación, y de este modo acercar las herramientas de testing y depuración de un modo más visual y fácil.
 
 %-------------------------------------------------------------------
 \section{Estado del arte y trabajos relacionados}
@@ -67,6 +67,8 @@ A día de hoy en el mercado existen paquetes de herramientas capaces de ofrecer a
 %-------------------------------------------------------------------
 \label{ap2:sec:clang}
 
+
+
 %-------------------------------------------------------------------
 \subsubsection*{Sistemas de tipos}
 %-------------------------------------------------------------------
@@ -110,75 +112,126 @@ Los inventores del método, Edmund M. Clarke, E. Allen Emerson y Joseph Sifakis, 
 %-------------------------------------------------------------------
 \label{ap2:sec:clang}
 
-Es un caso particular de Interpretación abstracta. Consiste en analizar el programa para luego concluir qué conjunto de entradas ejecutan qué partes del código. Un intérprete recorre el programa asumiendo valores simbólicos para las entradas en vez de solicitarlas al usuario, llegando al final con un conjunto de expresiones en términos de esos valores simbólicos de los cuales deduce los posibles valores reales. Este procedimiento aplicado al hardware recibe el nombre de Simulación simbólica.
+La ejecución simbólica o evaluación simbólica es un modo de analizar programas para determinar qué entradas causan cada parte del programa a ejecutar. En este tipo de programas, un intérprete recorre el programa donde cada variable asume un valor simbólico acotado. Este recorrido dará como resultado expresiones en términos de dichos símbolos de expresiones y variables y las limitaciones en cuanto a los símbolos de los posibles resultados de cada rama condicional. 
+
+Dicho recorrido nos permite determinar las condiciones que deben ser verificadas por los datos de ingreso para que un camino particular se ejecute, y la relación entre los valores ingresados y producidos en la ejecución de un programa. 
+
+Este procedicimiento aplicado al hardware recibe el nombre de simulación simbólica.
 
 
+%-------------------------------------------------------------------
+\subsection{Testing}
+%-------------------------------------------------------------------
+\label{ap1:sec:c++}
+
+En relación con la sección anterior nacen las pruebas de software(o testing en inglés) son las investigaciones empíricas y técnicas cuyo objetivo es proporcionar información objetiva e independiente sobre la calidad del producto a la parte interesada.
+
+Estas pruebas se diferencian de las herramientas de verificación y análisis en que las pruebas garantizan la correctitud de los programas para esos test, pero es posible que dichos test no abarquen todas las posibilidades o ramas de ejecución de un programa, de tal modo que el programa podría no estar correcto para todas sus posibilidades como si garantiza la verificación y el análisis. A continuación detallamos algunas de estas herramientas de testing.
+
+%-------------------------------------------------------------------
+\subsubsection*{Frameworks xUnit}
+%-------------------------------------------------------------------
+\label{ap2:sec:clang}L
+
+Durante su trabajo en los laboratorios de Xerox Park, Kent Beck desarrollo un framework para realizar test unitarios en el lenguaje de programación {\it Smalltalk} que estaba desarrollando. Dicho framework se llamaba sUnit. sUnit Permitía agrupar los tests en suites, el lanzamiento jerárquico de éstos y realizar para cada test la comparación entre el valor obtenido y el valor esperado para determinar la corrección de la funcionalidad testeada. Este framework ha sido llevado a una gran variedad de lenguajes de programación ({\it JUnit}, {\it XSLTUnit}, {\it PhpUnit}, {\it PyUnit}...). xUnit es el nombre con el que se designa genéricamente a todos estos frameworks.
+
+Una de las características de los tests xUnit es la expansión y el alto grado de utilización de esta herramienta por todo el mundo.
 
 
 
 %-------------------------------------------------------------------
-\subsubsection{Revisiones (Software Reviews)}
+\subsubsection*{Generación de tests}
 %-------------------------------------------------------------------
-\label{ap1:sec:revisiones}
+\label{ap2:sec:clang}
 
-Hechas por personas, por lo general involucradas en el proceso de desarrollo, expertas en la materia. Son reuniones en las que los revisores analizan el código y lo estudian en grupo con el objetivo de encontrar errores. Existen protocolos estandarizados por la asociación IEEE que rigen el orden de estas revisiones. Dependiendo de los conductores del análisis y del objetivo de este, cambia la denominación de la revisión.
+El objetivo de las pruebas es presentar información sobre la calidad del producto a las personas responsables, por tanto la información requerida puede ser de lo más variada. Esto hace que el proceso de testing sea dependiente del contexto, no existen las {\it mejores pruebas}, toda prueba puede ser ideal para una situación o completamente inutil o perjudicial para otra. A continuación detallamos algunas de los diferentes enfoques para la generación de tests:
+\begin{itemize}
+\item Pruebas de caja blanca (white-box). Estas pruebas se centran en los detalles procedimentales del software, por lo que su diseño está fuertemente ligado al código fuente. El testeador escoge distintos valores de entrada para examinar cada uno de los posibles flujos de ejecución y cerciorarse de que se devuelven los valores de salida adecuados. Puesto que están basados en una implementación concreta, si esta se modifica, normalmente también tendrán que rediseñarse las pruebas. A pesar de que este enfoque permite diseñar pruebas que cubran una amplia variedad de casos podría pasar por alto partes incompletas de la especificación o requisitos faltantes.
+\item Pruebas de caja negra (black-box). Estas pruebas se centran en el estudio de las entradas y las salidas generadas, independientemente de su funcionamiento interno, es decir, nos interesa su forma de interactuar entendiendo {\it qué es lo que hace} pero sin importarnos el {\it cómo lo hace}. Unas pruebas de test basadas en este sistema será más fácil de entender ya que permitirá dar una visión más clara del conjunto, el sistema también será más robusto y fácil de mantener, en caso de fallo este podrá ser aislado y abordado más ágilmente.
+\item Testing aleatorio o random. Buscando ampliar el ámbito de pruebas de unidad, se han aplicado diversas técnicas que van desde la automatización de pasos, hasta los enfoques de generación de objetos de manera aleatoria. En este caso concreteo, la generación de tests de forma aleatoria es un caso particular de las pruebas de caja negra, donde las pruebas se realizan con entradas generadas de manera aleatoria e independiente. Los resultados se comparan con las especificaciones del software en prueba para verificar si los resultados pasan el test o no.
 
-%-------------------------------------------------------------------
-\subsubsection*{Peer Review}
-%-------------------------------------------------------------------
-\label{ap1:peer}
-
-Realizada por el propio autor del código o un compañero y su objetivo es evaluar el contenido técnico y la calidad del software.
-
-%-------------------------------------------------------------------
-\subsubsection*{Management Reviews}
-%-------------------------------------------------------------------
-\label{ap2:management}
-
-Cuentan con la asistencia de los directivos o superiores, el objetivo es comprobar el trabajo realizado y sopesar el trabajo futuro.
+\end{itemize}
 
 %-------------------------------------------------------------------
-\subsubsection*{Audit Reviews}
+\subsection{Programación con restricciones}
 %-------------------------------------------------------------------
-\label{ap2:audit}
+\label{ap1:sec:c++}
 
-La realiza personal externo al proyecto y busca irregularidades en cuanto a las especificaciones, estándares o acuerdos empresariales.
+La programación con restricciones es un paradigma de la programación en informática, donde las relaciones entre las variables son expresadas en terminos de restricciones o ecuaciones. Este paradigma representa uno de los mayores desarrollos en los lenguajes de programación desde 1990 y ha sido identificada como una dirección estratégica en la investigación en computación.
 
-%-------------------------------------------------------------------
-\subsubsection{Análisis dinámico}
-%-------------------------------------------------------------------
-\label{ap1:sec:dinamico}
+Se trata de un paradigma de programación basado en la especificación de un conjunto de restricciones las cuales deben ser satisfechas por cualquier solución del problema planteado, en lugar de especificar los pasos para obtener dicha solución. El enfoque de este tipo de programación se basa principalmente en especificar un estado en el cual una gran cantidad de restricciones sean satisfechas simultaneamente. Un problema se define típicamente como un estado de la realidad	en el cual existe un número de variables con valor desconocido. Un programa basado en restricciones busca dichos valores para todas las variables.
 
-Supone la ejecución del programa y observar su comportamiento. Para que el anáilisis sea efectivo de debe realizar con los suficientes casos de prueba. 
-Estos casos de prueba representan los comportamientos que se esperan del programa en distintas condiciones de ejecución. Para asegurar la efectividad de las pruebas se pueden usar distintas técnicas como estudiar la cobertura del código (comprobar que en diferentes ejecuciones de un programa se pasa por todas las instruccciones al menos una vez) o el uso de programas fuzzers que ayudan a asegurar que una porción adecuada del conjunto de posibles comportamientos del programa ha sido observada.
+La programación con restricciones se relaciona mucho con la programación lógica, de hecho cualquier programa lógico puede ser traducido a un programa con restricciones y viceversa, en muchas ocasiones los programas lógicos son traducidos a programas con restricciones puesto que la solución es mucho más eficiente. 
 
-%-------------------------------------------------------------------
-\subsubsection*{Verificacion de modelos(Model cheking)}
-%-------------------------------------------------------------------
-\label{ap1:verificacion}
+Los lenguajes de programación con restricciones son típicamente ampliaciones de otro lenguaje. El primer lenguaje utilizado a tal efecto fue Prolog. Por esta razón este campo fue llamado inicialmente Programación Lógica con Restricciones.
 
-Método en el cual el programa y su especificación se expresan matemáticamente con el objetivo de verivicar su correctitud.
+La programación lógica con restricciones es un caso particular de la programación con restricciones, en el cual la programación lógica se extiende para incluir conceptos de la programación con restricciones. Por tanto, un programa lógico con restricciones es un programa lógico que contiene restricciones en el cuerpo de sus claúsulas. Por ejemplo, la claúsula {\it A(X,Y) :- X+Y>0, B(X), C(Y)} es un ejemplo de una cláusula con restricciones donde {\it X+Y>0} es la restriccion y {\it B(X), C(Y)} son literales al igual que en programación lógica.
+
+Al igual que en la programación lógica, los programas se ejecutan buscando demostrar un objetivo que puede contener restricciones además de los literales. Una prueba para un objetivo se compone de claúsulas cuyos cuerpos satisfacen las restricciones y literales que se pueden probar usando otras claúsulas. La ejecución se realiza a través de un intérprete, que empieza desde un objetivo y recursivamente escanea el resto de claúsulas para probar el objetivo.
 
 %-------------------------------------------------------------------
-\subsubsection*{Lógica de Hoare}
+%\subsubsection{Revisiones (Software Reviews)}
 %-------------------------------------------------------------------
-\label{ap1:hoare}
+%\label{ap1:sec:revisiones}
 
-Se emplea un sistema con un conjunto de reglas lógicas con las que razonar rigurosamente la correctitud del programa.
-
-%-------------------------------------------------------------------
-\subsubsection*{Análisis del flujo de datos}
-%-------------------------------------------------------------------
-\label{ap2:flujo}
-
-Es una técnica en la que se recoge información acerca del conjunto de posibles valores calculados en distintos puntos del programa. Se utiliza para estudiar a que partes del programa se podría propagar un valor en particular asginado a una variable. 
+%Hechas por personas, por lo general involucradas en el proceso de desarrollo, expertas en la materia. Son reuniones en las que los revisores analizan el código y lo estudian en grupo con el objetivo de encontrar errores. Existen protocolos estandarizados por la asociación IEEE que rigen el orden de estas revisiones. Dependiendo de los conductores del análisis y del objetivo de este, cambia la denominación de la revisión.
 
 %-------------------------------------------------------------------
-\subsubsection*{Interpretación abstracta}
+%\subsubsection*{Peer Review}
 %-------------------------------------------------------------------
-\label{ap3:abstracta}
+%\label{ap1:peer}
 
-Es un método que modela el efecto de las instrucciones del programa en la máquina mediante una ``ejecución'' basada en las propiedades matemáticas de cada instrucción. La máquina sobre la que ésta se lleva a cabo es una representación simplificada de la máquina verdadera. Esta máquina abstracta aproxima el comportamiento del sistema haciéndolo más fácil de analizar.
+%Realizada por el propio autor del código o un compañero y su objetivo es evaluar el contenido técnico y la calidad del software.
+
+%-------------------------------------------------------------------
+%\subsubsection*{Management Reviews}
+%-------------------------------------------------------------------
+%\label{ap2:management}
+
+%Cuentan con la asistencia de los directivos o superiores, el objetivo es comprobar el trabajo realizado y sopesar el trabajo futuro.
+
+%-------------------------------------------------------------------
+%\subsubsection*{Audit Reviews}
+%-------------------------------------------------------------------
+%\label{ap2:audit}
+
+%La realiza personal externo al proyecto y busca irregularidades en cuanto a las especificaciones, estándares o acuerdos empresariales.
+
+%-------------------------------------------------------------------
+%\subsubsection{Análisis dinámico}
+%-------------------------------------------------------------------
+%\label{ap1:sec:dinamico}
+
+%Supone la ejecución del programa y observar su comportamiento. Para que el anáilisis sea efectivo de debe realizar con los suficientes casos de prueba. 
+%Estos casos de prueba representan los comportamientos que se esperan del programa en distintas condiciones de ejecución. Para asegurar la efectividad de las pruebas se pueden usar distintas técnicas como estudiar la cobertura del código (comprobar que en diferentes ejecuciones de un programa se pasa por todas las instruccciones al menos una vez) o el uso de programas fuzzers que ayudan a asegurar que una porción adecuada del conjunto de posibles comportamientos del programa ha sido observada.
+
+%-------------------------------------------------------------------
+%\subsubsection*{Verificacion de modelos(Model cheking)}
+%-------------------------------------------------------------------
+%\label{ap1:verificacion}
+
+%Método en el cual el programa y su especificación se expresan matemáticamente con el objetivo de verivicar su correctitud.
+
+%-------------------------------------------------------------------
+%\subsubsection*{Lógica de Hoare}
+%-------------------------------------------------------------------
+%\label{ap1:hoare}
+
+%Se emplea un sistema con un conjunto de reglas lógicas con las que razonar rigurosamente la correctitud del programa.
+
+%-------------------------------------------------------------------
+%\subsubsection*{Análisis del flujo de datos}
+%-------------------------------------------------------------------
+%\label{ap2:flujo}
+
+%Es una técnica en la que se recoge información acerca del conjunto de posibles valores calculados en distintos puntos del programa. Se utiliza para estudiar a que partes del programa se podría propagar un valor en particular asginado a una variable. 
+
+%-------------------------------------------------------------------
+%\subsubsection*{Interpretación abstracta}
+%-------------------------------------------------------------------
+%\label{ap3:abstracta}
+
+%Es un método que modela el efecto de las instrucciones del programa en la máquina mediante una ``ejecución'' basada en las propiedades matemáticas de cada instrucción. La máquina sobre la que ésta se lleva a cabo es una representación simplificada de la máquina verdadera. Esta máquina abstracta aproxima el comportamiento del sistema haciéndolo más fácil de analizar.
 
 %-------------------------------------------------------------------
 \section{Trabajos relacionados}

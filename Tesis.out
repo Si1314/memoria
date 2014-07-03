@@ -14,43 +14,45 @@
 \BOOKMARK [1][-]{section.1.2}{Estado del arte y trabajos relacionados}{chapter.1}% 14
 \BOOKMARK [2][-]{subsection.1.2.1}{C++ y Clang}{section.1.2}% 15
 \BOOKMARK [2][-]{subsection.1.2.2}{Verificaci\363n y An\341lisis}{section.1.2}% 16
-\BOOKMARK [1][-]{section.1.3}{Trabajos relacionados}{chapter.1}% 17
-\BOOKMARK [2][-]{subsection.1.3.1}{PEX}{section.1.3}% 18
-\BOOKMARK [2][-]{subsection.1.3.2}{PET}{section.1.3}% 19
-\BOOKMARK [2][-]{subsection.1.3.3}{jSYX}{section.1.3}% 20
-\BOOKMARK [2][-]{subsection.1.3.4}{jPET}{section.1.3}% 21
-\BOOKMARK [1][-]{section.1.4}{Objetivos}{chapter.1}% 22
-\BOOKMARK [0][-]{chapter.2}{Herramienta de Clang}{}% 23
-\BOOKMARK [1][-]{section.2.1}{Introducci\363n}{chapter.2}% 24
-\BOOKMARK [1][-]{section.2.2}{AST2XMLtool}{chapter.2}% 25
-\BOOKMARK [1][-]{section.2.3}{Historia de LLVM}{chapter.2}% 26
-\BOOKMARK [1][-]{section.2.4}{\277C\363mo funciona Clang?}{chapter.2}% 27
-\BOOKMARK [1][-]{section.2.5}{Usando el \341rbol de sintaxis abstracta}{chapter.2}% 28
-\BOOKMARK [1][-]{section.2.6}{Manipulaci\363n de un AST con clang}{chapter.2}% 29
-\BOOKMARK [2][-]{subsection.2.6.1}{LibTooling}{section.2.6}% 30
-\BOOKMARK [1][-]{section.2.7}{Estructura del AST}{chapter.2}% 31
-\BOOKMARK [1][-]{section.2.8}{Recorriendo el AST}{chapter.2}% 32
-\BOOKMARK [1][-]{section.2.9}{Instrucciones como nodos de un fichero XML}{chapter.2}% 33
-\BOOKMARK [1][-]{section.2.10}{Bloques de instrucciones}{chapter.2}% 34
-\BOOKMARK [0][-]{chapter.3}{Int\351rprete con restricciones}{}% 35
-\BOOKMARK [1][-]{section.3.1}{Introducci\363n}{chapter.3}% 36
-\BOOKMARK [1][-]{section.3.2}{Implementacion}{chapter.3}% 37
-\BOOKMARK [1][-]{section.3.3}{Prolog}{chapter.3}% 38
-\BOOKMARK [1][-]{section.3.4}{Conceptos de Prolog}{chapter.3}% 39
-\BOOKMARK [1][-]{section.3.5}{Aspectos relevantes de la implementaci\363n}{chapter.3}% 40
-\BOOKMARK [1][-]{section.3.6}{Dise\361o del int\351rprete}{chapter.3}% 41
-\BOOKMARK [1][-]{section.3.7}{Ciclo de ejecuci\363n del int\351rprete}{chapter.3}% 42
-\BOOKMARK [0][-]{chapter.4}{Herramienta SymC++}{}% 43
-\BOOKMARK [1][-]{section.4.1}{Introducci\363n}{chapter.4}% 44
-\BOOKMARK [1][-]{section.4.2}{Dise\361o}{chapter.4}% 45
-\BOOKMARK [1][-]{section.4.3}{Funcionalidades}{chapter.4}% 46
-\BOOKMARK [1][-]{section.4.4}{Conexi\363n con el resto de secciones}{chapter.4}% 47
-\BOOKMARK [1][-]{section.4.5}{Directorio de archivos}{chapter.4}% 48
-\BOOKMARK [0][-]{chapter.5}{Conclusiones y trabajo futuro}{}% 49
-\BOOKMARK [1][-]{section.5.1}{Conclusiones}{chapter.5}% 50
-\BOOKMARK [1][-]{section.5.2}{Ampliaciones potenciales y trabajo futuro}{chapter.5}% 51
-\BOOKMARK [0][-]{appendix.Alph1}{Manual de usuario}{}% 52
-\BOOKMARK [1][-]{section.Alph1.1}{Requisitos previos}{appendix.Alph1}% 53
-\BOOKMARK [1][-]{section.Alph1.2}{Instalaci\363n Clang}{appendix.Alph1}% 54
-\BOOKMARK [0][-]{appendix*.23}{Bibliograf\355a}{}% 55
-\BOOKMARK [0][-]{fin.0}{Fin}{}% 56
+\BOOKMARK [2][-]{subsection.1.2.3}{Testing}{section.1.2}% 17
+\BOOKMARK [2][-]{subsection.1.2.4}{Programaci\363n con restricciones}{section.1.2}% 18
+\BOOKMARK [1][-]{section.1.3}{Trabajos relacionados}{chapter.1}% 19
+\BOOKMARK [2][-]{subsection.1.3.1}{PEX}{section.1.3}% 20
+\BOOKMARK [2][-]{subsection.1.3.2}{PET}{section.1.3}% 21
+\BOOKMARK [2][-]{subsection.1.3.3}{jSYX}{section.1.3}% 22
+\BOOKMARK [2][-]{subsection.1.3.4}{jPET}{section.1.3}% 23
+\BOOKMARK [1][-]{section.1.4}{Objetivos}{chapter.1}% 24
+\BOOKMARK [0][-]{chapter.2}{Herramienta de Clang}{}% 25
+\BOOKMARK [1][-]{section.2.1}{Introducci\363n}{chapter.2}% 26
+\BOOKMARK [1][-]{section.2.2}{AST2XMLtool}{chapter.2}% 27
+\BOOKMARK [1][-]{section.2.3}{Historia de LLVM}{chapter.2}% 28
+\BOOKMARK [1][-]{section.2.4}{\277C\363mo funciona Clang?}{chapter.2}% 29
+\BOOKMARK [1][-]{section.2.5}{Usando el \341rbol de sintaxis abstracta}{chapter.2}% 30
+\BOOKMARK [1][-]{section.2.6}{Manipulaci\363n de un AST con clang}{chapter.2}% 31
+\BOOKMARK [2][-]{subsection.2.6.1}{LibTooling}{section.2.6}% 32
+\BOOKMARK [1][-]{section.2.7}{Estructura del AST}{chapter.2}% 33
+\BOOKMARK [1][-]{section.2.8}{Recorriendo el AST}{chapter.2}% 34
+\BOOKMARK [1][-]{section.2.9}{Instrucciones como nodos de un fichero XML}{chapter.2}% 35
+\BOOKMARK [1][-]{section.2.10}{Bloques de instrucciones}{chapter.2}% 36
+\BOOKMARK [0][-]{chapter.3}{Int\351rprete con restricciones}{}% 37
+\BOOKMARK [1][-]{section.3.1}{Introducci\363n}{chapter.3}% 38
+\BOOKMARK [1][-]{section.3.2}{Implementacion}{chapter.3}% 39
+\BOOKMARK [1][-]{section.3.3}{Prolog}{chapter.3}% 40
+\BOOKMARK [1][-]{section.3.4}{Conceptos de Prolog}{chapter.3}% 41
+\BOOKMARK [1][-]{section.3.5}{Aspectos relevantes de la implementaci\363n}{chapter.3}% 42
+\BOOKMARK [1][-]{section.3.6}{Dise\361o del int\351rprete}{chapter.3}% 43
+\BOOKMARK [1][-]{section.3.7}{Ciclo de ejecuci\363n del int\351rprete}{chapter.3}% 44
+\BOOKMARK [0][-]{chapter.4}{Herramienta SymC++}{}% 45
+\BOOKMARK [1][-]{section.4.1}{Introducci\363n}{chapter.4}% 46
+\BOOKMARK [1][-]{section.4.2}{Dise\361o}{chapter.4}% 47
+\BOOKMARK [1][-]{section.4.3}{Funcionalidades}{chapter.4}% 48
+\BOOKMARK [1][-]{section.4.4}{Conexi\363n con el resto de secciones}{chapter.4}% 49
+\BOOKMARK [1][-]{section.4.5}{Directorio de archivos}{chapter.4}% 50
+\BOOKMARK [0][-]{chapter.5}{Conclusiones y trabajo futuro}{}% 51
+\BOOKMARK [1][-]{section.5.1}{Conclusiones}{chapter.5}% 52
+\BOOKMARK [1][-]{section.5.2}{Ampliaciones potenciales y trabajo futuro}{chapter.5}% 53
+\BOOKMARK [0][-]{appendix.Alph1}{Manual de usuario}{}% 54
+\BOOKMARK [1][-]{section.Alph1.1}{Requisitos previos}{appendix.Alph1}% 55
+\BOOKMARK [1][-]{section.Alph1.2}{Instalaci\363n Clang}{appendix.Alph1}% 56
+\BOOKMARK [0][-]{appendix*.23}{Bibliograf\355a}{}% 57
+\BOOKMARK [0][-]{fin.0}{Fin}{}% 58
