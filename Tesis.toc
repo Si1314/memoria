@@ -11,42 +11,42 @@
 \contentsline {subsection}{\numberline {1.2.2}Verificaci\'on y An\'alisis}{3}{subsection.1.2.2}
 \contentsline {subsection}{\numberline {1.2.3}Testing}{6}{subsection.1.2.3}
 \contentsline {subsection}{\numberline {1.2.4}Programaci\'on con restricciones}{7}{subsection.1.2.4}
-\contentsline {section}{\numberline {1.3}Trabajos relacionados}{8}{section.1.3}
-\contentsline {subsection}{\numberline {1.3.1}PEX}{8}{subsection.1.3.1}
-\contentsline {subsection}{\numberline {1.3.2}PET}{9}{subsection.1.3.2}
-\contentsline {subsection}{\numberline {1.3.3}jSYX}{10}{subsection.1.3.3}
-\contentsline {subsection}{\numberline {1.3.4}jPET}{10}{subsection.1.3.4}
-\contentsline {section}{\numberline {1.4}Objetivos}{10}{section.1.4}
-\contentsline {chapter}{\numberline {2}Herramienta de Clang}{12}{chapter.2}
-\contentsline {section}{\numberline {2.1}Introducci\'on}{12}{section.2.1}
-\contentsline {section}{\numberline {2.2}AST2XMLtool}{12}{section.2.2}
-\contentsline {section}{\numberline {2.3}Historia de LLVM}{12}{section.2.3}
-\contentsline {section}{\numberline {2.4}\IeC {\textquestiondown }C\'omo funciona Clang?}{13}{section.2.4}
-\contentsline {section}{\numberline {2.5}Usando el \'arbol de sintaxis abstracta}{13}{section.2.5}
-\contentsline {section}{\numberline {2.6}Manipulaci\'on de un AST con clang}{14}{section.2.6}
-\contentsline {subsection}{\numberline {2.6.1}LibTooling}{14}{subsection.2.6.1}
-\contentsline {section}{\numberline {2.7}Estructura del AST}{15}{section.2.7}
-\contentsline {section}{\numberline {2.8}Recorriendo el AST}{15}{section.2.8}
-\contentsline {section}{\numberline {2.9}Instrucciones como nodos de un fichero XML}{15}{section.2.9}
-\contentsline {section}{\numberline {2.10}Bloques de instrucciones}{16}{section.2.10}
-\contentsline {chapter}{\numberline {3}Int\'erprete con restricciones}{22}{chapter.3}
-\contentsline {section}{\numberline {3.1}Introducci\'on}{22}{section.3.1}
-\contentsline {section}{\numberline {3.2}Implementacion}{22}{section.3.2}
-\contentsline {section}{\numberline {3.3}Prolog}{23}{section.3.3}
-\contentsline {section}{\numberline {3.4}Conceptos de Prolog}{24}{section.3.4}
-\contentsline {section}{\numberline {3.5}Aspectos relevantes de la implementaci\'on}{24}{section.3.5}
-\contentsline {section}{\numberline {3.6}Dise\~no del int\'erprete}{24}{section.3.6}
-\contentsline {section}{\numberline {3.7}Ciclo de ejecuci\'on del int\'erprete}{26}{section.3.7}
-\contentsline {chapter}{\numberline {4}Herramienta SymC++}{31}{chapter.4}
-\contentsline {section}{\numberline {4.1}Introducci\'on}{31}{section.4.1}
-\contentsline {section}{\numberline {4.2}Dise\~no}{31}{section.4.2}
-\contentsline {section}{\numberline {4.3}Funcionalidades}{32}{section.4.3}
-\contentsline {section}{\numberline {4.4}Conexi\'on con el resto de secciones}{32}{section.4.4}
-\contentsline {section}{\numberline {4.5}Directorio de archivos}{33}{section.4.5}
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{34}{chapter.5}
-\contentsline {section}{\numberline {5.1}Conclusiones}{34}{section.5.1}
-\contentsline {section}{\numberline {5.2}Ampliaciones potenciales y trabajo futuro}{35}{section.5.2}
-\contentsline {chapter}{\numberline {A}Manual de usuario}{37}{appendix.Alph1}
-\contentsline {section}{\numberline {A.1}Requisitos previos}{37}{section.Alph1.1}
-\contentsline {section}{\numberline {A.2}Instalaci\'on Clang}{38}{section.Alph1.2}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{39}{appendix*.23}
+\contentsline {subsection}{\numberline {1.2.5}Trabajos relacionados}{8}{subsection.1.2.5}
+\contentsline {subsubsection}{\numberline {1.2.5.1}PEX}{8}{subsubsection.1.2.5.1}
+\contentsline {subsubsection}{\numberline {1.2.5.2}PET}{9}{subsubsection.1.2.5.2}
+\contentsline {subsubsection}{\numberline {1.2.5.3}jSYX}{10}{subsubsection.1.2.5.3}
+\contentsline {subsubsection}{\numberline {1.2.5.4}jPET}{10}{subsubsection.1.2.5.4}
+\contentsline {section}{\numberline {1.3}Objetivos}{10}{section.1.3}
+\contentsline {chapter}{\numberline {2}Herramienta de Clang}{13}{chapter.2}
+\contentsline {section}{\numberline {2.1}Introducci\'on}{13}{section.2.1}
+\contentsline {section}{\numberline {2.2}AST2XMLtool}{13}{section.2.2}
+\contentsline {section}{\numberline {2.3}Historia de LLVM}{13}{section.2.3}
+\contentsline {section}{\numberline {2.4}\IeC {\textquestiondown }C\'omo funciona Clang?}{14}{section.2.4}
+\contentsline {section}{\numberline {2.5}Usando el \'arbol de sintaxis abstracta}{14}{section.2.5}
+\contentsline {section}{\numberline {2.6}Manipulaci\'on de un AST con clang}{15}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}LibTooling}{15}{subsection.2.6.1}
+\contentsline {section}{\numberline {2.7}Estructura del AST}{16}{section.2.7}
+\contentsline {section}{\numberline {2.8}Recorriendo el AST}{16}{section.2.8}
+\contentsline {section}{\numberline {2.9}Instrucciones como nodos de un fichero XML}{16}{section.2.9}
+\contentsline {section}{\numberline {2.10}Bloques de instrucciones}{17}{section.2.10}
+\contentsline {chapter}{\numberline {3}Int\'erprete con restricciones}{23}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introducci\'on}{23}{section.3.1}
+\contentsline {section}{\numberline {3.2}Implementacion}{23}{section.3.2}
+\contentsline {section}{\numberline {3.3}Prolog}{24}{section.3.3}
+\contentsline {section}{\numberline {3.4}Conceptos de Prolog}{25}{section.3.4}
+\contentsline {section}{\numberline {3.5}Aspectos relevantes de la implementaci\'on}{25}{section.3.5}
+\contentsline {section}{\numberline {3.6}Dise\~no del int\'erprete}{25}{section.3.6}
+\contentsline {section}{\numberline {3.7}Ciclo de ejecuci\'on del int\'erprete}{27}{section.3.7}
+\contentsline {chapter}{\numberline {4}Herramienta SymC++}{32}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introducci\'on}{32}{section.4.1}
+\contentsline {section}{\numberline {4.2}Dise\~no}{32}{section.4.2}
+\contentsline {section}{\numberline {4.3}Funcionalidades}{33}{section.4.3}
+\contentsline {section}{\numberline {4.4}Conexi\'on con el resto de secciones}{33}{section.4.4}
+\contentsline {section}{\numberline {4.5}Directorio de archivos}{34}{section.4.5}
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{35}{chapter.5}
+\contentsline {section}{\numberline {5.1}Conclusiones}{35}{section.5.1}
+\contentsline {section}{\numberline {5.2}Ampliaciones potenciales y trabajo futuro}{36}{section.5.2}
+\contentsline {chapter}{\numberline {A}Manual de usuario}{38}{appendix.Alph1}
+\contentsline {section}{\numberline {A.1}Requisitos previos}{38}{section.Alph1.1}
+\contentsline {section}{\numberline {A.2}Instalaci\'on Clang}{39}{section.Alph1.2}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{40}{appendix*.25}
