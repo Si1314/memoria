@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.6.12)  4 JUL 2014 17:32
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.6.12)  4 JUL 2014 17:40
 entering extended mode
 **Tesis.tex
 (C:\Users\Raquel\Documents\facultad\SI\memoria\Tesis.tex
@@ -461,50 +461,11 @@ LaTeX Warning: Label `ap2:sec:clang' multiply defined.
 
 ) (C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/02Capitulo2.aux
 
-LaTeX Warning: Label `cap2:sec:arbol' multiply defined.
-
-
-LaTeX Warning: Label `cap2:sec:manipulacion' multiply defined.
-
-
-LaTeX Warning: Label `cap2:sec:instrucciones' multiply defined.
-
-
-LaTeX Warning: Label `cap2:sec:instrucciones' multiply defined.
-
-
-LaTeX Warning: Label `fig:todo' multiply defined.
-
-
-LaTeX Warning: Label `fig:todo' multiply defined.
-
-
-LaTeX Warning: Label `fig:todo' multiply defined.
-
-
-LaTeX Warning: Label `fig:todo' multiply defined.
-
-
-LaTeX Warning: Label `ap4:operadores' multiply defined.
-
-
-LaTeX Warning: Label `fig:todo' multiply defined.
-
-
-LaTeX Warning: Label `fig:todo' multiply defined.
-
-
-LaTeX Warning: Label `fig:todo' multiply defined.
+LaTeX Warning: Label `ap11:operadores' multiply defined.
 
 ) (C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/03Capitulo3.aux
 
-LaTeX Warning: Label `fig:todo' multiply defined.
-
-
-LaTeX Warning: Label `fig:todo' multiply defined.
-
-
-LaTeX Warning: Label `fig:todo' multiply defined.
+LaTeX Warning: Label `ap41:execute4' multiply defined.
 
 ) (C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/04Capitulo4.aux)
 (C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/05Capitulo5.aux
@@ -920,12 +881,6 @@ Package pdftex.def Info: Imagenes/Vectorial/Todo.pdf used on input line 122.
 (pdftex.def)             Requested size: 195.0pt x 122.65323pt.
  [27]
 [28]
-Overfull \hbox (4.69348pt too wide) in paragraph at lines 162--163
-[]\T1/cmr/m/n/12 executeLoop(Entrada,[...CuerpoBucle...|RestoInstrucciones],N,1
-,Salida) 
- []
-
-
 Overfull \hbox (233.59453pt too wide) in paragraph at lines 170--173
 \T1/cmr/m/n/12 otro de sa-li-da, re-ci-be la lis-ta de ins-truc-cio-nes. exe-cu
 -te-Branch(Entrada,[Then..Else..Body])|Instrucciones],ResulCond,Salida)
@@ -1015,10 +970,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 196.
  ) 
 Here is how much of TeX's memory you used:
- 10723 strings out of 493921
- 160919 string characters out of 3147279
- 278784 words of memory out of 3000000
- 13340 multiletter control sequences out of 15000+200000
+ 10736 strings out of 493921
+ 161109 string characters out of 3147279
+ 279802 words of memory out of 3000000
+ 13353 multiletter control sequences out of 15000+200000
  19573 words of font info for 42 fonts, out of 3000000 for 9000
  1079 hyphenation exceptions out of 8191
  55i,12n,70p,1014b,1269s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1044,7 +999,7 @@ m1095.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
 jknappen\ec\dpi600\ecbx1728.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts
 \pk\ljfour\jknappen\ec\dpi600\ecbx2488.pk><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Tesis.pdf (57 pages, 875186 bytes).
+Output written on Tesis.pdf (57 pages, 875012 bytes).
 PDF statistics:
  1276 PDF objects out of 1440 (max. 8388607)
  151 named destinations out of 1000 (max. 500000)
