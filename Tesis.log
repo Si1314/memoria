@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.6.12)  4 JUL 2014 17:30
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.6.12)  4 JUL 2014 17:32
 entering extended mode
 **Tesis.tex
 (C:\Users\Raquel\Documents\facultad\SI\memoria\Tesis.tex
@@ -920,43 +920,10 @@ Package pdftex.def Info: Imagenes/Vectorial/Todo.pdf used on input line 122.
 (pdftex.def)             Requested size: 195.0pt x 122.65323pt.
  [27]
 [28]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.152 ...,[...Condicion...|RestoInstrucciones],1,_
-                                                  ,Salida)
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.153 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.153 
-      
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Extra }, or forgotten \endgroup.
-\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
-                                                  \fi 
-l.153 
-      
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
+Overfull \hbox (4.69348pt too wide) in paragraph at lines 162--163
+[]\T1/cmr/m/n/12 executeLoop(Entrada,[...CuerpoBucle...|RestoInstrucciones],N,1
+,Salida) 
+ []
 
 
 Overfull \hbox (233.59453pt too wide) in paragraph at lines 170--173
@@ -1076,13 +1043,10 @@ m1095.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
 \dpi600\ecbx1440.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\
 jknappen\ec\dpi600\ecbx1728.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts
 \pk\ljfour\jknappen\ec\dpi600\ecbx2488.pk><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
-y10.pfb>
-Output written on Tesis.pdf (57 pages, 899990 bytes).
+pe1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Tesis.pdf (57 pages, 875186 bytes).
 PDF statistics:
- 1288 PDF objects out of 1440 (max. 8388607)
+ 1276 PDF objects out of 1440 (max. 8388607)
  151 named destinations out of 1000 (max. 500000)
  479 words of extra memory for PDF output out of 10000 (max. 10000000)
 

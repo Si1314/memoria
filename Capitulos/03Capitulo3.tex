@@ -149,13 +149,13 @@ Se pueden diferenciar 3 tipos de executeLoop:
 \begin {itemize}
 \item El primero: el caso en el que se llega a la última vuelta permitida por la variable maxDepth.
 
-executeLoop(Entrada,[...Condicion...|RestoInstrucciones],1,_,Salida)
+%executeLoop(Entrada,[...Condicion...|RestoInstrucciones],1,_,Salida)
 
 Cuando maxDepth alcanza el valor 1 comprobamos que la condición se cumple y llamamos a ejecutar el resto de las instrucciones.
 
 \item El segundo: el caso en el que la condición no se hace cierta, es decir hemos llegado al fin del bucle por lo que llamamos a ejecutar al resto de las instrucciones.
 
-executeLoop(Entrada,[...|RestoInstrucciones],N,0,Salida)
+%xecuteLoop(Entrada,[...|RestoInstrucciones],N,0,Salida)
 
 \item El tercero: el caso en el que la condición se hace cierta y aún no hemos llegado a la profundidad máxima permitida por lo que ejecutamos el cuerpo del bucle.
 
