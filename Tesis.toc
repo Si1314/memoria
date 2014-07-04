@@ -34,20 +34,20 @@
 \contentsline {section}{\numberline {3.1}Introducci\'on}{23}{section.3.1}
 \contentsline {section}{\numberline {3.2}Implementacion}{23}{section.3.2}
 \contentsline {section}{\numberline {3.3}Prolog}{24}{section.3.3}
-\contentsline {section}{\numberline {3.4}Conceptos de Prolog}{25}{section.3.4}
-\contentsline {section}{\numberline {3.5}Aspectos relevantes de la implementaci\'on}{25}{section.3.5}
+\contentsline {section}{\numberline {3.4}Conceptos de Prolog}{24}{section.3.4}
+\contentsline {section}{\numberline {3.5}Aspectos relevantes de la implementaci\'on}{24}{section.3.5}
 \contentsline {section}{\numberline {3.6}Dise\~no del int\'erprete}{25}{section.3.6}
 \contentsline {section}{\numberline {3.7}Ciclo de ejecuci\'on del int\'erprete}{27}{section.3.7}
-\contentsline {chapter}{\numberline {4}Herramienta SymC++}{32}{chapter.4}
-\contentsline {section}{\numberline {4.1}Introducci\'on}{32}{section.4.1}
-\contentsline {section}{\numberline {4.2}Dise\~no}{32}{section.4.2}
-\contentsline {section}{\numberline {4.3}Funcionalidades}{33}{section.4.3}
-\contentsline {section}{\numberline {4.4}Conexi\'on con el resto de secciones}{33}{section.4.4}
-\contentsline {section}{\numberline {4.5}Directorio de archivos}{34}{section.4.5}
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{35}{chapter.5}
-\contentsline {section}{\numberline {5.1}Conclusiones}{35}{section.5.1}
-\contentsline {section}{\numberline {5.2}Ampliaciones potenciales y trabajo futuro}{36}{section.5.2}
-\contentsline {chapter}{\numberline {A}Manual de usuario}{38}{appendix.Alph1}
-\contentsline {section}{\numberline {A.1}Requisitos previos}{38}{section.Alph1.1}
-\contentsline {section}{\numberline {A.2}Instalaci\'on Clang}{39}{section.Alph1.2}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{40}{appendix*.26}
+\contentsline {chapter}{\numberline {4}Herramienta SymC++}{36}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introducci\'on}{36}{section.4.1}
+\contentsline {section}{\numberline {4.2}Dise\~no}{36}{section.4.2}
+\contentsline {section}{\numberline {4.3}Funcionalidades}{37}{section.4.3}
+\contentsline {section}{\numberline {4.4}Conexi\'on con el resto de secciones}{37}{section.4.4}
+\contentsline {section}{\numberline {4.5}Directorio de archivos}{38}{section.4.5}
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{39}{chapter.5}
+\contentsline {section}{\numberline {5.1}Conclusiones}{39}{section.5.1}
+\contentsline {section}{\numberline {5.2}Ampliaciones potenciales y trabajo futuro}{40}{section.5.2}
+\contentsline {chapter}{\numberline {A}Manual de usuario}{42}{appendix.Alph1}
+\contentsline {section}{\numberline {A.1}Requisitos previos}{42}{section.Alph1.1}
+\contentsline {section}{\numberline {A.2}Instalaci\'on Clang}{43}{section.Alph1.2}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{44}{appendix*.23}

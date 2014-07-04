@@ -567,6 +567,7 @@
 % Para poder  incluir código  fuente resaltado fácilmente.   El tamaño
 % básico de la letra, pequeño.
 \usepackage{listings}
+\renewcommand{\lstlistingname}{C\'odigo}
 \usepackage{color}
 
 \lstset{basicstyle=\small}
@@ -594,6 +595,37 @@
   identifierstyle=\color{blue},
   stringstyle=\color{orange},
 }
+
+\lstdefinestyle{customxml}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  numbers=left,
+  language=XML,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{mygreen},
+  commentstyle=\itshape\color{purple},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+\lstdefinestyle{custompl}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  numbers=none,
+  language=Prolog,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{mygreen},
+  commentstyle=\itshape\color{purple},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
 
 % Para poder utilizar el entorno tabularx, que sirve para hacer tablas
 % con  párrafos, sin tener  que indicar  el ancho  de cada  columna de

@@ -11,7 +11,7 @@
 %-------------------------------------------------------------------
 \label{cap3:sec:introduccion}
 
-En este capítulo hablaremos sobre la parte principal de nuestro proyecto. Esta consiste en el intérprete que recibe el árbol sintáctico de la herramienta AST2XML. El cometido del intérprete, a grandes rasgos, será el de realizar una ejecución simbólica del código devolviendo un conjunto de valores de entrada y salida que se corresponden con lo programado..
+En este capítulo hablaremos sobre la parte principal de nuestro proyecto. Esta consiste en el intérprete que recibe el árbol sintáctico de la herramienta AST2XML. El cometido del intérprete, a grandes rasgos, será el de realizar una ejecución simbólica del código devolviendo un conjunto de valores de entrada y salida que se corresponden con lo programado.cxvb 
 
 
 %-------------------------------------------------------------------
@@ -21,24 +21,10 @@ En este capítulo hablaremos sobre la parte principal de nuestro proyecto. Esta c
 
 Como ya hemos indicado antes, AST2XML devuelve un archivo en formato XML con una versión simplificada del árbol sintáctico que emplea Clang con el que realizaremos la ejecución simbólica. Para llevar a cabo una ejecución simbólica es necesario tener un sistema capaz de establecer restricciones lógicas y matemáticas y que aparte las pueda resolver.
 
-%-------------------------------------------------------------------
-\section*{Programación por restricciones}
-%-------------------------------------------------------------------
-\label{ap21:prog}
-
-La Programación por restricciones es un paradigma de la programación en informática donde las las variables está relacionadas mediante restricciones (ecuaciones). Se emplea en la descripción y resolución de problemas combinatorios, especialmente en las áreas de planificación y programación de tareas (calendarización). La programación con restricciones se basa principalmente en buscar un estado en el cual una gran cantidad de restricciones sean satisfechas simultáneamente, expresándose un problema como un conjunto de restricciones iniciales a partir de las cuales el sistema construye las relaciones que expresan una solución.
-
-Actualmente existen muchos frentes de desarrollo relacionados con la programción con restricciones. Entre ellos destacan:
-\begin{itemize}
-\item Oz: Lenguaje multiparadigma y esotérico basado en la rama concurrente de la programación por restricciones. En él que se expresa música a partir de unas restricciones expresadas explícitamente por el programador. Se utiliza en proyectos tales como Mozart y Strasheela.
-\item Choco: Es una librería que añade satisfacción de restricciones a Java. Está construida en una estructura basada en la propagación de eventos. Ha sido utilizada en otros proyectos de ejecución simbólica como JsyX.
-\item Gecode: Es un proyecto abierto que cuenta con un conjunto de herramientas basado en C/C++ para el desarrollo de sistema y aplicaciones nativas que se apoyen en restricciones. 
-\end{itemize}
-%http://ktiml.mff.cuni.cz/~bartak/downloads/WDS99.pdf
-
-La programación por restricciones está intimamente relacionada con la programación lógica. Por ende existe la programación lógica con restricciones. Ésta es una extensión de la programación lógica en la que se añade el concepto de satisfacción de restricciones. 
-
-Para el desarrollo de nuestro intérprete optamos por el lenguaje de programación lógica Prolog. En gran parte debido a la familiaridad que nos supone y al conjunto de facilidades relacionadas con la programación por restricciones que ya conocíamos de antemano
+Como ya detallamos en el capítulo de introducción, la programación con restricciones es una herramienta que nos facilita el desarrollo de nuestra herramienta, es por esto que para nuestro intérprete optamos por el lenguaje de
+programación lógica Prolog. En gran parte debido a la familiaridad que nos
+supone y al conjunto de facilidades relacionadas con la programación por
+restricciones que ya conocíamos de antemano.
 
 %-------------------------------------------------------------------
 \section{Prolog}
@@ -65,7 +51,7 @@ En Prolog, los predicados se contrastan en orden , la ejecución se basa en dos c
 
 Hemos utilizado la programación lógica basada en restricciones que consiste en reemplazar la unificación de términos de la programación lógica por el manejo de restricciones en un dominio concreto, es un algoritmo especializado e incremental ya que cuando se añade una nueva restricción a un conjunto de restricciones ya resuelto, el resolvedor de restricciones no tiene que resolver el conjunto de restricciones S desde el principio.
 
-Una ventaja de la incorporación de las restricciones al lenguaje de programación es la sencillez al mostrar restricciones como datos de salida. La programación lógica basada en restricciones sobre dominios finitos (use\_module(library(clpfd))) proporciona una aritmética completa para variables restringidas a valores enteros o elementos atómicos. 
+Una ventaja de la incorporación de las restricciones al lenguaje de programación es la sencillez al mostrar restricciones como datos de salida. La programación lógica basada en restricciones sobre dominios finitos {\it (use\_module(library(clpfd)))} proporciona una aritmética completa para variables restringidas a valores enteros o elementos atómicos. 
 
 %-------------------------------------------------------------------
 \section{Diseño del intérprete}
@@ -88,22 +74,32 @@ El intérprete irá guardando las variables y su respectivo valor en una tabla de 
 
 Por otro lado, este módulo representa el Intérprete que será llamado por la interfaz y el que devolverá la solución. Los parámetros de entrada son: fichero de entrada, fichero de salida, Inf, Sup, MaxDepth y nombre de función.
 
-Fichero de entrada
+%-------------------------------------------------------------------
+\subsubsection*{Fichero de entrada}
+%-------------------------------------------------------------------
+
 Indica el nombre del fichero .xml donde está el código traducido por clang. 
 
-\figura{Vectorial/figura3}{width=.5\textwidth}{fig:figura3}%
-{Figura con ejemplo de archivo XML de entrada.}
+\lstinputlisting[caption=Ejemplo de XML obtenido por Clang, style=customxml]{Codigos/ejemploXMLClang.xml}
 
-Fichero de salida
+%-------------------------------------------------------------------
+\subsubsection*{Fichero de salida}
+%-------------------------------------------------------------------
+
 Indica el nombre del fichero .xml de salida que el intérprete devolverá con las soluciones para una determinada función.
 
-\figura{Vectorial/Todo}{width=.5\textwidth}{fig:todo9}%
-{Figura utilizada para marcar una imagen por hacer.}
+\lstinputlisting[caption=Ejemplo de XML obtenido por Clang, style=customxml]{Codigos/ejemploXMLProlog.xml}
 
-Inf, Sup y MaxLoop
+%-------------------------------------------------------------------
+\subsubsection*{Inf, Sup y MaxLoop}
+%-------------------------------------------------------------------
+
 Inf y Sup son los valores que representan el límite del dominio de los valores de entrada de la función a interpretar. MaxLoop representa el valor del número máximo de veces que puede ejecutarse una estructura de control: while y for.
 
-Nombre de función
+%-------------------------------------------------------------------
+\subsubsection*{Nombre de la función}
+%-------------------------------------------------------------------
+
 Para indicar el nombre de la función que vamos a querer probar entre todas las funciones posibles contenidas en el fichero pasado en ``Fichero de entrada''.
 
 %-------------------------------------------------------------------
@@ -113,8 +109,7 @@ Para indicar el nombre de la función que vamos a querer probar entre todas las f
 
 El primer paso en la ejecución es la lectura del fichero xml y la conversión de la estructura en nodos a una de listas mediante la función que nos aporta la librería sgml:
 
-\figura{Vectorial/Todo}{width=.5\textwidth}{fig:todo10}%
-{Figura utilizada para marcar una imagen por hacer.}
+\lstinputlisting[caption=Lectura del XML, style=customxml]{Codigos/lecturaXML.xml}
 
 nos saldría una lista así:
 
@@ -123,20 +118,153 @@ nos saldría una lista así:
 
 Teniendo esto en cuenta simplificamos. Cada element tiene tres argumentos: el nombre del nodo, los atributos del nodo y el cuerpo del nodo.
 
-De esta forma buscaremos previamente la función que el usuario nos haya indicado e iremos pasando por cada una de las instrucciones del código de dicha función y ejecutándolas mediante las sucesivas llamadas a la función execute.
+De esta forma buscaremos previamente la función que el usuario nos haya indicado e iremos pasando por cada una de las instrucciones del código de dicha función y ejecutándolas mediante las sucesivas llamadas a la función {\it execute}.
 
 %-------------------------------------------------------------------
 \subsection*{execute/3}
 %-------------------------------------------------------------------
 \label{ap41:execute}
 
-Es un predicado cuyos argumentos son: el estado previo a la ejecución de unas instrucciones, la lista que contiene las instrucciones y el estado posterior a la ejecución. Este predicado se planteó de forma que pudiéramos controlar cada una de las posibles instrucciones que puede llegar a haber en el código. 
-
-Para conseguirlo en cada una de estas posibilidades expresamos explícitamente los casos de forma que la instrucción que se ejecuta en un momento dado es el primer elemento de la lista de instrucciones que recibe la función. Una vez se hayan completado los pasos que simulan el comportamiento de dicha instrucción se hace una ``llamada'' recursiva a execute con el estado resultante de la ejecución, el resto de la lista de instrucciones y el estado posterior. 
+Es un predicado encargado de ejecutar una instrucción. Sus argumentos son: el estado previo a la ejecución de unas instrucciones, la lista que contiene las instrucciones y el estado posterior a la ejecución. Este predicado se planteó de forma que pudiéramos controlar cada una de las posibles instrucciones que puede llegar a haber en el código. Para conseguirlo en cada una de estas posibilidades expresamos explícitamente los casos de forma que la instrucción que se ejecuta en un momento dado es el primer elemento de la lista de instrucciones que recibe la función. Una vez se hayan completado los pasos que simulan el comportamiento de dicha instrucción, se hace una “llamada” recursiva a execute con el estado resultante de la ejecución, el resto de la lista de instrucciones y el estado posterior.
 
 Esta forma de realizar los pasos de cómputo se asemeja, en un aspecto más teórico, a la semántica de paso corto (semántica operacional), aunque dicha similitud no es completa puesto que al trabajar con instrucciones puntuales llevamos a cabo muchos pasos intermedios.
 
-Es importante destacar que el bactracking inherente de prolog se restringe en el predicado execute. Esto se debe a que el orden de las instrucciones es siempre el mismo. En el intérprete hemos limitado el backtracking a la evaluación de condiciones puesto que éstas son las que realmente definen el flujo del programa. Es por ello que en las instrucciones de control llegamos a necesitar la presencia de otros predicados que además de dirigir el comportamiento de la ejecución permiten limitar el número de repeticiones que realiza un bucle. 
+Es importante destacar que el bactracking inherente de prolog se restringe en el predicado execute. Esto se debe a que el orden de las instrucciones es siempre el mismo. En el intérprete hemos limitado el backtracking a la evaluación de condiciones puesto que éstas son las que realmente definen el flujo del programa. 
+
+Es por ello que, en las instrucciones de control, llegamos a necesitar la presencia de otros predicados que, además de dirigir el comportamiento de la ejecución, permiten limitar el número de repeticiones que realiza un bucle.
+
+Iremos almacenando en cada paso el estado actual donde nos encontramos con la siguiente información:
+
+\begin{itemizer}
+\item Table.\\
+Llevamos la tabla de variables correspondientes al estado en el que nos encontramos. En esta tabla contemplamos la posiblidad de estructurarla en ámbitos de forma que el acceso a las variables sea consistente en cada momento.
+\item Cin Cout \\
+Listas con los valores de entrada (Cin) o salida (Cout) si procede.
+\item Trace \\
+Lista que conserva el número de las líneas de las instrucciones por las que hemos pasado para poder más tarde marcarlas en la interfaz.
+\end{itemizer}
+
+El tipo de instrucciones que el predicado execute contempla son:
+
+%-------------------------------------------------------------------
+\subsubsection*{El comienzo de la función}
+%-------------------------------------------------------------------
+
+\lstinputlisting[caption=Instrucción de comienzo, style=custompl, firstline=1, lastline=1]{Codigos/codigosProlog.pl}
+
+Ya sea el caso de la función principal o una llamada a una función esta instrucción se encargará de ejecutar el cuerpo de la función y después el resto de las instrucciones. Diferenciamos también si se trata de una función o procedimiento ya que en el caso de las funciones tiene que existir un valor de retorno, cosa que en un procedimiento no.
+
+%-------------------------------------------------------------------
+\subsubsection*{Los parámetros de entrada de una función}
+%-------------------------------------------------------------------
+
+\lstinputlisting[caption=Parámetros de entrada, style=custompl, firstline=3, lastline=3]{Codigos/codigosProlog.pl}
+
+Con esta instrucción insertaremos en la tabla de variables cada uno de los parámetros que formen parte de la variable Parámentros. Una vez actualizada la tabla llamaremos a ejecutar al resto de las instrucciones.
+
+%-------------------------------------------------------------------
+\subsubsection*{El cuerpo de un bloque}
+%-------------------------------------------------------------------
+
+\lstinputlisting[caption=Cuerpo de un bloque, style=custompl, firstline=5, lastline=5]{Codigos/codigosProlog.pl}
+
+Este es el caso en el que ejecutamos el cuerpo de cualquier bloque como el cuerpo de una función, el cuerpo de un bucle o asignacion if … Todo aquello que esté limitado por llaves {Cuerpo del bloque}. Llamamos a ejecutar la cuerpo de forma que creamos a su vez una nueva lista de variables para englobar las variables pertenecientes a ese ámbito.
+
+%-------------------------------------------------------------------
+\subsubsection*{Declaraciones en grupo}
+%-------------------------------------------------------------------
+
+\lstinputlisting[caption=Declaraciones en grupo, style=custompl, firstline=7, lastline=7]{Codigos/codigosProlog.pl}
+
+Recogemos, en una instrucción la posibilidad de guardar en la tabla de variables varias declaraciones de variables a la vez como por ejemplo:
+
+\begin{center}
+tipo variable1, variable2, variable3;
+\end{center}
+
+Internamente se llamará a la función encargada de guardar una a una las variables con sus tipos asignados pero sin valor ya que se trata únicamente de una declaración y no de una asignación, por tanto el predicado que recoge esta instrucción será:
+
+\lstinputlisting[caption=Declaraciones variable, style=custompl, firstline=9, lastline=9]{Codigos/codigosProlog.pl}
+
+A continuación se seguirá con la ejecución del resto de las instrucciones
+
+%-------------------------------------------------------------------
+\subsubsection*{Asignación de una variable}
+%-------------------------------------------------------------------
+
+\lstinputlisting[caption=Asignación de una variable, style=custompl, firstline=11, lastline=11]{Codigos/codigosProlog.pl}
+
+Momento en el que se le da valor a una variable anteriormente declarada y por tanto ya añadida a la tabla de variables. Ejecutaremos el cuerpo de la asignación para obtener el valor que tomará la variable y luego la actualizaremos. Se sigue la ejecución con la llamada de execute del resto de las instrucciones.
+
+%-------------------------------------------------------------------
+\subsubsection*{Asignación mediante un operador binario}
+%-------------------------------------------------------------------
+
+\lstinputlisting[caption=Asignación de una variable, style=custompl, firstline=13, lastline=13]{Codigos/codigosProlog.pl}
+
+Este es un caso especial de la asignación ya que se trata de una asignación mediante un operador binario. Esta ejecución la haremos con la llamada a resolveExpression (explicada más adelante) del cuerpo de la asignación. Como en el resto de los casos pasamos a continuación a ejecutar el resto de las instrucciones para seguir con el flujo del programa.
+
+%-------------------------------------------------------------------
+\subsubsection*{Operador unario}
+%-------------------------------------------------------------------
+
+\lstinputlisting[caption=Operador unario, style=custompl, firstline=15, lastline=15]{Codigos/codigosProlog.pl}
+
+La forma de ejecutar los operadores unarios tal que Operando operadorUnario la hemos planteado de forma que realizamos internamente una ejecución binaria de forma que Operando = Operando operadorUnario ‘1’.
+
+\begin{center}
+ej: a++; pasaría a ser a=a+1
+\end{center}
+
+Actualizamos el valor de la variable en la tabla de variables y continuamos con la ejecución del resto de las instrucciones
+
+%-------------------------------------------------------------------
+\subsubsection*{Console Out}
+%-------------------------------------------------------------------
+
+\lstinputlisting[caption=Consola de salida, style=custompl, firstline=17, lastline=17]{Codigos/codigosProlog.pl}
+
+Nos sirve para sacar por pantalla la el resultado de la expresión por lo que llamaremos a la función resuelveExpresión con la Expresión como parámetro y el resultado devuelto será incluido en el Cout anteriormente mencionado de forma que al final saldrá por pantalla todo aquello que se encuentre en esa variable. Ejecutamos el resto de las instrucciones.
+
+%-------------------------------------------------------------------
+\subsubsection*{Return}
+%-------------------------------------------------------------------
+
+\lstinputlisting[caption=Return, style=custompl, firstline=19, lastline=19]{Codigos/codigosProlog.pl}
+
+Instrucción de retorno del valor de una función. En la tabla de variables llevamos reservada una variable que nos servirá como variable de retorno por lo tanto en este predicado lo único que haremos será ejecutar con la llamada a execute del cuerpo del return y con el valor devuelto se actualizará esa variable reservada.
+
+En este caso no llamaremos a ejecutar al resto de instrucciones ya que como se trata de una instrucción return es la última instrucción que se debería de contemplar en esta función por tanto no deberíamos de seguir con el flujo del programa.
+
+%-------------------------------------------------------------------
+\subsubsection*{If}
+%-------------------------------------------------------------------
+
+\lstinputlisting[caption=Instrucción if, style=custompl, firstline=21, lastline=21]{Codigos/codigosProlog.pl}
+
+La estructura del if se puede ver fácilmente con el siguiente diagrama
+
+Primero resolveremos la condición y seguidamente llamaremos a executeBranch (detallada más adelante) con la solución obtenida, será ésta quien distinga si la condición ha salido verdadera o falsa. A continuación ejecutaremos el resto de las instrucciones para seguir con el resto del programa.
+
+%-------------------------------------------------------------------
+\subsubsection*{While}
+%-------------------------------------------------------------------
+
+\lstinputlisting[caption=Instrucción while, style=custompl, firstline=23, lastline=23]{Codigos/codigosProlog.pl}
+
+La estructura del while se puede entender de forma gráfica con el siguiente
+diagrama:
+
+Como en cualquier instrucción de flujo resolveremos la condición, en el caso del while, a diferencia del if, llamaremos al predicado executeLoop (explicada más adelante) con el cuerpo del while, será él quien distinga si la condición salió verdadera o falsa para ejecutar realmente el cuerpo del bucle o no. Llevaremos una variable de avance que será actualizada en el cuerpo del bucle y será quien determine cuándo parar. A continuación ejecutaremos el resto de las instrucciones para seguir con el resto del programa.
+
+%-------------------------------------------------------------------
+\subsubsection*{For}
+%-------------------------------------------------------------------
+
+\lstinputlisting[caption=Instrucción for, style=custompl, firstline=25, lastline=25]{Codigos/codigosProlog.pl}
+
+Donde A es la inicialización de la variable de avance, B es la condición, C es el avance de la variable de avance y D es el cuerpo del for. Es parecido al while ya que resolveremos la condición y llamaremos al predicado executeLoop (explicada más adelante) con el cuerpo del for, será él quien distinga si la condición salió verdadera o falsa para ejecutar realmente el cuerpo del bucle o no. A continuación ejecutaremos el resto de las instrucciones para seguir con el resto del programa.
+
 
 %-------------------------------------------------------------------
 \section*{executeLoop/5}
@@ -144,22 +272,26 @@ Es importante destacar que el bactracking inherente de prolog se restringe en el
 \label{ap41:execute2}
 
 El predicado executeLoop es llamado por execute cuando se encuentra una instrucción de bucle while o for. Igualmente recibe un estado de entrada, la lista de instrucciones, un valor numérico y devuelve el estado de salida. El valor numérico nos servirá para limitar el número de vueltas que realice el bucle, de forma que no haya posibilidad de recursión infinita, o un número de vueltas tan elevado que sea inviable devolver una solución. El número lo determina el usuario mediante la interfaz con valor del maxDepth.
+
 Hemos limitado el backtracking a la evaluación de condiciones ya que éstas son las que realmente definen el flujo del programa.
+
 Se pueden diferenciar 3 tipos de executeLoop: 
+
 \begin {itemize}
 \item El primero: el caso en el que se llega a la última vuelta permitida por la variable maxDepth.
 
-%executeLoop(Entrada,[...Condicion...|RestoInstrucciones],1,_,Salida)
+\lstinputlisting[style=custompl, firstline=27, lastline=27]{Codigos/codigosProlog.pl}
 
 Cuando maxDepth alcanza el valor 1 comprobamos que la condición se cumple y llamamos a ejecutar el resto de las instrucciones.
 
 \item El segundo: el caso en el que la condición no se hace cierta, es decir hemos llegado al fin del bucle por lo que llamamos a ejecutar al resto de las instrucciones.
 
-%xecuteLoop(Entrada,[...|RestoInstrucciones],N,0,Salida)
+\lstinputlisting[style=custompl, firstline=29, lastline=29]{Codigos/codigosProlog.pl}
 
 \item El tercero: el caso en el que la condición se hace cierta y aún no hemos llegado a la profundidad máxima permitida por lo que ejecutamos el cuerpo del bucle.
 
-%executeLoop(Entrada,[...CuerpoBucle...|RestoInstrucciones],N,1,Salida)
+\lstinputlisting[caption=Instrucción for, style=custompl, firstline=31, lastline=31]{Codigos/codigosProlog.pl}
+
 \end {itemize}
 
 %-------------------------------------------------------------------
@@ -168,60 +300,79 @@ Cuando maxDepth alcanza el valor 1 comprobamos que la condición se cumple y llam
 \label{ap41:execute3}
 
 Es un predicado cuya funcionalidad extiende la del execute del if para el caso del then y del else. Igualmente recibe un estado de entrada y devuelve otro de salida, recibe la lista de instrucciones.
-executeBranch(Entrada,[Then..Else..Body])|Instrucciones],ResulCond,Salida)
+
+\lstinputlisting[style=custompl, firstline=33, lastline=33]{Codigos/codigosProlog.pl}
+
 Aquí diferenciamos los dos casos posibles: Then y Else
 \begin {itemize}
 \item Caso then: Se ha cumplido la condición del if por lo que la variable ResulCond pasa a valer 1 realizando por tanto la ejecución del cuerpo del then y posteriormente se llamará a ejecutar al resto de las instrucciones.
 
-%executeBranch(Entrada,[...Then...)|RestoInstrucciones],1,Salida)
+\lstinputlisting[style=custompl, firstline=35, lastline=35]{Codigos/codigosProlog.pl}
+
 \item Caso else: No se ha cumplido la condición del if por lo que la variable ResulCond pasa a valer 0, en este caso realizaremos la ejecución del cuerpo del else y posteriormente se llamará a ejecutar al resto de las instrucciones.
 
-%executeBranch(Entrada,[...Else...)|RestoInstrucciones],0,Salida)
+\lstinputlisting[style=custompl, firstline=37, lastline=37]{Codigos/codigosProlog.pl}
+
 \end {itemize}
 
 %-------------------------------------------------------------------
 \section*{resolveExpression/4}
 %-------------------------------------------------------------------
-\label{ap41:execute4}
+\label{ap41:resolveExpression4}
 
 Este predicado servirá para resolver las distintas expresiones que existan. La estructura de llamada de este predicado es la que sigue:
 
-resolveExpression(Entrada,CuerpoExpresion,ValorRetorno,Salida),
+\lstinputlisting[style=custompl, firstline=39, lastline=39]{Codigos/codigosProlog.pl}
 
 Entrada y Salida corresponden a la tabla de variables que entra y la tabla de variables actualizada después de la resolución de la expresión. CuerpoExpresion es la expresión concreta que queremos resolver y ValorRetorno el valor resultante devuelto.
 
+Las expresiones que resolveremos serán:
+\begin{itemizer}
+\item notOperator: encargada de negar la expresión.
+\begin{center}
+ej: A = !B
+\end{center}
+\item signOperator: para expresiones positivas y negativas.
+\begin{center}
+ej: A = -B
+\end{center}
+\item binaryOperator: resuelve operaciones binarias.
+\beign{center}
+OperandoResultante = Operando1 operador Operando2
+\end{center}
+\end{itemizer}
+
+En este caso se resolverá cada expresión Operando1 y Operando2 de forma independiente mediante la llamada resursiva:
+
+\lstinputlisting[style=custompl, firstline=41, lastline=42]{Codigos/codigosProlog.pl}
+
+Y combinando los dos resultados de la siguiente forma, únicamente cuando los resultados son expresiones sencillas ya sea variable o constante de forma que ya no se pueda mas que operar:
+
+\lstinputlisting[style=custompl, firstline=44, lastline=44]{Codigos/codigosProlog.pl}
+
+cuya funcionalidad del predicado work es la mera ejecución de la expresión
+Resultado1 Operador Resultado2
+
+\begin{itemizer}
+\item variable o const: son los dos casos de expresiones sencillas indivisibles.
+\begin{center}
+ej: R = a + 5 (ejemplo de Variable + constante)
+\end{center}
+\item consoleIn: para resolver la llamada a función. Buscaremos la función a la que se está referenciando y la ejecutaremos de forma que consigamos el valor devuelto por la función como resultado de la expresión.
+\begin{center}
+ej: R = foo(a,b);
+\end{center}
+\end{itemizer}
 
 %-------------------------------------------------------------------
 \section*{work/3}
 %-------------------------------------------------------------------
-\label{ap41:execute4}
+\label{ap41:work3}
 
-Execute diferenciará los siguientes tipos de instrucciones:
-\begin{itemize}
-\item Comienzo de una función
-\item Listado de parámetros
-\item Cuerpo de un bloque de instrucciones
-\item Declaración de una variables o conjunto de declaraciones de varias variables
-\item Asignaciones
-\item Operaciones binarias
-\item Operaciones unarias (++, --)
-\item Salida por consola
-\item Return
-\item Estructuras de control de flujo:
-\item Sentencia if-then-else
-\item Sentencia while
-\item Sentencia for
-\end{itemize}
+Sirve para realizar la ejecución de una expresión simple: A = B op C siendo B y C una variable o constante.
 
-Iremos almacenando en cada paso el estado actual donde nos encontramos con la siguiente información:
-\begin {itemize}
-\item Table
-Llevamos la tabla de variables correspondientes al estado en el que nos encontramos. En esta tabla contemplamos la posiblidad de estructurarla en ámbitos de forma que el acceso a las variables sea consistente en cada momento.
-\item Cin Cout
-        Listas con los valores de entrada (Cin) o salida (Cout) si procede.
-\item Trace
-Lista que conserva el número de las líneas de las instrucciones por las que hemos pasado para poder más tarde marcarlas en la interfaz
-\end {itemize}
+En nuestro proyecto op únicamente podrá ser:
+
 
 
 % Variable local para emacs, para  que encuentre el fichero maestro de

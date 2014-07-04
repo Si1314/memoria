@@ -1,0 +1,14 @@
+<function name="llamadaFactorial" type="int" line="79">
+	<params>
+		<param type="int" name="a"/>
+	</params>
+	<body>
+		<return line="80">
+			<callFunction name="factorial" type="int">
+				<arg>
+					<variable name="a"/>
+				</arg>
+			</callFunction>
+		</return>
+	</body>
+</function>

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.6.12)  4 JUL 2014 17:43
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.6.12)  4 JUL 2014 21:01
 entering extended mode
 **Tesis.tex
 (C:\Users\Raquel\Documents\facultad\SI\memoria\Tesis.tex
@@ -455,24 +455,12 @@ noz
 (C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/resumen.aux)
 (C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/abstract.aux)
 (C:\Users\Raquel\Documents\facultad\SI\memoria\TeXiS/TeXiS_toc.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/01Capitulo1.aux
-
-LaTeX Warning: Label `ap2:sec:clang' multiply defined.
-
-) (C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/02Capitulo2.aux
-
-LaTeX Warning: Label `ap11:operadores' multiply defined.
-
-) (C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/03Capitulo3.aux
-
-LaTeX Warning: Label `ap41:execute4' multiply defined.
-
-) (C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/04Capitulo4.aux)
-(C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/05Capitulo5.aux
-
-LaTeX Warning: Label `cap1:sec:introduccion' multiply defined.
-
-) (C:\Users\Raquel\Documents\facultad\SI\memoria\Apendices/01ApendiceA.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/01Capitulo1.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/02Capitulo2.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/03Capitulo3.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/04Capitulo4.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/05Capitulo5.aux)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Apendices/01ApendiceA.aux)
 (C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/bibliografia.aux)
 (C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/fin.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 106.
@@ -535,12 +523,12 @@ Package caption Info: End \AtBeginDocument code.
 \oddsidemarginOriginal=\skip73
 \longTitulo=\skip74
 
-Overfull \hbox (5.5234pt too wide) in paragraph at lines 164--164
+Overfull \hbox (5.5234pt too wide) in paragraph at lines 165--165
  [] 
  []
 
 
-Overfull \hbox (5.5234pt too wide) in paragraph at lines 164--164
+Overfull \hbox (5.5234pt too wide) in paragraph at lines 165--165
  [][] 
  []
 
@@ -549,7 +537,7 @@ File: Imagenes/Vectorial/escudoUCM.pdf Graphic file (type pdf)
 
 <use Imagenes/Vectorial/escudoUCM.pdf>
 Package pdftex.def Info: Imagenes/Vectorial/escudoUCM.pdf used on input line 16
-4.
+5.
 (pdftex.def)             Requested size: 119.44412pt x 168.82776pt.
  [1
 
@@ -580,20 +568,20 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.164 \makeCover
+l.165 \makeCover
                 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 164.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 165.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 164.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 165.
 ) [4]
 (C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/autorizacion.tex
 Underfull \hbox (badness 10000) in paragraph at lines 47--50
@@ -825,43 +813,1440 @@ Cap\'itulo 3.
 
 
 ] [24]
-Overfull \hbox (60.43703pt too wide) in paragraph at lines 68--69
+Overfull \hbox (57.56006pt too wide) in paragraph at lines 54--55
 \T1/cmr/m/n/12 ma-ción ló-gi-ca ba-sa-da en res-tric-cio-nes so-bre do-mi-nios 
-fi-ni-tos (use_module(library(clpfd)))
+fi-ni-tos \T1/cmr/m/it/12 (use_module(library(clpfd)))
  []
 
-[25] <Imagenes/Vectorial/figura3.jpg, id=527, 319.1925pt x 171.64125pt>
-File: Imagenes/Vectorial/figura3.jpg Graphic file (type jpg)
+(C:\Users\Raquel\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstlang1.sty
+File: lstlang1.sty 2014/03/04 1.5c listings language file
+)
+(C:\Users\Raquel\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
+File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
+)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/ejemploXMLClang.xml
 
-<use Imagenes/Vectorial/figura3.jpg>
-Package pdftex.def Info: Imagenes/Vectorial/figura3.jpg used on input line 95.
-(pdftex.def)             Requested size: 195.0pt x 104.85814pt.
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 <function name="
+                    llamadaFactorial" type="int" line="79">
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 <function name="llamadaFactorial"
+                                      type="int" line="79">
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 <function name="llamadaFactorial"
+                                      type="int" line="79">
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 <function name="llamadaFactorial" type="
+                                            int" line="79">
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 <function name="llamadaFactorial" type="int"
+                                                 line="79">
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 <function name="llamadaFactorial" type="int"
+                                                 line="79">
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 ...n name="llamadaFactorial" type="int" line="
+                                                  79">
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 ...ame="llamadaFactorial" type="int" line="79"
+                                                  >
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 ...ame="llamadaFactorial" type="int" line="79"
+                                                  >
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 		<param type="
+                   int" name="a"/>
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 		<param type="int"
+                        name="a"/>
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 		<param type="int"
+                        name="a"/>
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 		<param type="int" name="
+                              a"/>
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 		<param type="int" name="a"
+                                />
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 		<param type="int" name="a"
+                                />
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[25]
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 		<return line="
+                    80">
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 		<return line="80"
+                       >
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 		<return line="80"
+                       >
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 			<callFunction name="
+                           factorial" type="int">
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 			<callFunction name="factorial"
+                                      type="int">
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 			<callFunction name="factorial"
+                                      type="int">
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 			<callFunction name="factorial" type="
+                                            int">
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 			<callFunction name="factorial" type="int"
+                                                >
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 			<callFunction name="factorial" type="int"
+                                                >
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.9 					<variable name="
+                         a"/>
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.9 					<variable name="a"
+                           />
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.9 					<variable name="a"
+                           />
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) (C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/ejemploXMLProlog.xml
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 	<variable name="
+                     ret" value="-1"/>
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 	<variable name="ret"
+                          value="-1"/>
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 	<variable name="ret"
+                          value="-1"/>
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 	<variable name="ret" value="
+                                 -1"/>
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 	<variable name="ret" value="-1"
+                                    />
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 	<variable name="ret" value="-1"
+                                    />
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 	<variable name="
+                     a" value="-5"/>
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 	<variable name="a"
+                        value="-5"/>
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 	<variable name="a"
+                        value="-5"/>
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 	<variable name="a" value="
+                               -5"/>
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 	<variable name="a" value="-5"
+                                  />
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 	<variable name="a" value="-5"
+                                  />
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) [26] (C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/lecturaXML.xml
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 <function name="
+                    llamadaFactorial" type="int" line="79">
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 <function name="llamadaFactorial"
+                                      type="int" line="79">
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 <function name="llamadaFactorial"
+                                      type="int" line="79">
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 <function name="llamadaFactorial" type="
+                                            int" line="79">
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 <function name="llamadaFactorial" type="int"
+                                                 line="79">
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 <function name="llamadaFactorial" type="int"
+                                                 line="79">
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 ...n name="llamadaFactorial" type="int" line="
+                                                  79">
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 ...ame="llamadaFactorial" type="int" line="79"
+                                                  >
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 ...ame="llamadaFactorial" type="int" line="79"
+                                                  >
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+)
 File: Imagenes/Vectorial/Todo.pdf Graphic file (type pdf)
  <use Imagenes/Vectorial/Todo.pdf>
-Package pdftex.def Info: Imagenes/Vectorial/Todo.pdf used on input line 101.
-(pdftex.def)             Requested size: 195.0pt x 122.65323pt.
- [26 <C:/Users/Raquel/Documents/facultad/SI/memoria/Imagenes/Vectorial/figura3.
-jpg>]
-File: Imagenes/Vectorial/Todo.pdf Graphic file (type pdf)
-
-<use Imagenes/Vectorial/Todo.pdf>
 Package pdftex.def Info: Imagenes/Vectorial/Todo.pdf used on input line 117.
 (pdftex.def)             Requested size: 195.0pt x 122.65323pt.
-File: Imagenes/Vectorial/Todo.pdf Graphic file (type pdf)
- <use Imagenes/Vectorial/Todo.pdf>
-Package pdftex.def Info: Imagenes/Vectorial/Todo.pdf used on input line 122.
-(pdftex.def)             Requested size: 195.0pt x 122.65323pt.
- [27]
-[28]
-Overfull \hbox (233.59453pt too wide) in paragraph at lines 170--173
-\T1/cmr/m/n/12 otro de sa-li-da, re-ci-be la lis-ta de ins-truc-cio-nes. exe-cu
--te-Branch(Entrada,[Then..Else..Body])|Instrucciones],ResulCond,Salida)
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `latin1'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.128 ...iento de dicha instrucción, se hace una “
+                                                  llamada” recursiva a execu...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `latin1'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.128 ... dicha instrucción, se hace una “llamada”
+                                                   recursiva a execute con e...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+[27]
+
+! LaTeX Error: Environment itemizer undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.138 \begin{itemizer}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.139 \item T
+             able.\\
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 139
+[][]
  []
 
-[29] [30]) [31]
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 \item C
+             in Cout \\
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 141
+[][]
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.143 \item T
+             race \\
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 143
+[][]
+ []
+
+
+! LaTeX Error: \begin{document} ended by \end{itemizer}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 \end{itemizer}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(C:\Users\Raquel\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstlang1.sty
+File: lstlang1.sty 2014/03/04 1.5c listings language file
+)
+(C:\Users\Raquel\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstlang2.sty
+File: lstlang2.sty 2014/03/04 1.5c listings language file
+)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 execute(Entrada,[('
+                       function'...CuerpoFuncion)|RestoInstrucciones],Salida
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 execute(Entrada,[('function'
+                                ...CuerpoFuncion)|RestoInstrucciones],Salida
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 execute(Entrada,[('function'
+                                ...CuerpoFuncion)|RestoInstrucciones],Salida
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) [28] (C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 execute(Entrada,[('
+                       params'...Parametros)|RestoInstrucciones],Salida
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 execute(Entrada,[('params'
+                              ...Parametros)|RestoInstrucciones],Salida
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 execute(Entrada,[('params'
+                              ...Parametros)|RestoInstrucciones],Salida
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) (C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 execute(Entrada,[('
+                       body'...Body)|RestoInstrucciones],Salida)
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 execute(Entrada,[('body'
+                            ...Body)|RestoInstrucciones],Salida)
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 execute(Entrada,[('body'
+                            ...Body)|RestoInstrucciones],Salida)
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+)
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `latin1'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.171 ..., el cuerpo de un bucle o asignacion if …
+                                                   Todo aquello que esté lim...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 execute(Entrada,[('
+                       declarations'...Body)|RestoInstrucciones],Salida)
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 execute(Entrada,[('declarations'
+                                    ...Body)|RestoInstrucciones],Salida)
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 execute(Entrada,[('declarations'
+                                    ...Body)|RestoInstrucciones],Salida)
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) (C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.9 execute(Entrada,[('
+                       declaration'...Nombre...CuerpoDeclaracion)|RestoInstr...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.9 execute(Entrada,[('declaration'
+                                   ...Nombre...CuerpoDeclaracion)|RestoInstr...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.9 execute(Entrada,[('declaration'
+                                   ...Nombre...CuerpoDeclaracion)|RestoInstr...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) [29] (C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.11 execute(entrada,[('
+                        assignment'...Nombre...CuerpoAsignacion)|RestoInstru...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.11 execute(entrada,[('assignment'
+                                   ...Nombre...CuerpoAsignacion)|RestoInstru...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.11 execute(entrada,[('assignment'
+                                   ...Nombre...CuerpoAsignacion)|RestoInstru...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) (C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.13 execute(Entrada,[('
+                        assignmentOperator'...Name...Operator...Cuerpo)|Rest...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.13 execute(Entrada,[('assignmentOperator'
+                                           ...Name...Operator...Cuerpo)|Rest...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.13 execute(Entrada,[('assignmentOperator'
+                                           ...Name...Operator...Cuerpo)|Rest...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) (C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.15 execute(Entrada,[('
+                        unaryOperator'...Operando,Operador)|RestoInstruccion...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.15 execute(Entrada,[('unaryOperator'
+                                      ...Operando,Operador)|RestoInstruccion...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.15 execute(Entrada,[('unaryOperator'
+                                      ...Operando,Operador)|RestoInstruccion...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+)
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `latin1'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.213 ... que Operando = Operando operadorUnario ‘
+                                                  1’.
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `latin1'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.213 ...ue Operando = Operando operadorUnario ‘1’
+                                                  .
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+[30] (C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.17 execute(Entrada,[('
+                        consoleOut'...Expresion)|RestoInstrucciones],Salida)
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.17 execute(Entrada,[('consoleOut'
+                                   ...Expresion)|RestoInstrucciones],Salida)
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.17 execute(Entrada,[('consoleOut'
+                                   ...Expresion)|RestoInstrucciones],Salida)
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) (C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.19 execute(Entrada,[('
+                        return'...CuerpoReturn])|_],Salida)
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.19 execute(Entrada,[('return'
+                               ...CuerpoReturn])|_],Salida)
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.19 execute(Entrada,[('return'
+                               ...CuerpoReturn])|_],Salida)
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) (C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.21 execute(Entrada,[('
+                        if'...Condicion...Bloque_1...Bloque_2)|RestoInstrucc...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.21 execute(Entrada,[('if'
+                           ...Condicion...Bloque_1...Bloque_2)|RestoInstrucc...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.21 execute(Entrada,[('if'
+                           ...Condicion...Bloque_1...Bloque_2)|RestoInstrucc...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) (C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.23 execute(Entrada,[('
+                        while'...variableDeAvance,[Condicion,Operaciones])|R...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.23 execute(Entrada,[('while'
+                              ...variableDeAvance,[Condicion,Operaciones])|R...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.23 execute(Entrada,[('while'
+                              ...variableDeAvance,[Condicion,Operaciones])|R...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) [31] (C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.25 execute(Entrada,[('
+                        for',variableDeAvance,[Variable,Condition,Avance,Cue...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.25 execute(Entrada,[('for'
+                            ,variableDeAvance,[Variable,Condition,Avance,Cue...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Undefined color `orange'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.25 execute(Entrada,[('for'
+                            ,variableDeAvance,[Variable,Condition,Avance,Cue...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) (C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl)
+[32] (C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl)
+[33] (C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl)
+
+! LaTeX Error: Environment itemizer undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.330 \begin{itemizer}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.331 \item n
+             otOperator: encargada de negar la expresión.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 331
+[][]
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.335 \item s
+             ignOperator: para expresiones positivas y negativas.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 335
+[][]
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.339 \item b
+             inaryOperator: resuelve operaciones binarias.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 339
+[][]
+ []
+
+! Undefined control sequence.
+l.340 \beign
+            {center}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{document} ended by \end{center}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.342 \end{center}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{itemizer}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.343 \end{itemizer}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.343 \end{itemizer}
+                    
+Things are pretty mixed up, but I think the worst is over.
+
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigosProlog.pl)
+
+! LaTeX Error: Environment itemizer undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.356 \begin{itemizer}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.357 \item v
+             ariable o const: son los dos casos de expresiones sencillas ind...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 357
+[][]
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.361 \item c
+             onsoleIn: para resolver la llamada a función. Buscaremos la fun...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 361
+[][]
+ []
+
+
+! LaTeX Error: \begin{document} ended by \end{itemizer}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.365 \end{itemizer}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[34]) [35]
 (C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/04Capitulo4.tex
 Cap\'itulo 4.
-[32
+[36
 
 
 
@@ -883,36 +2268,36 @@ Overfull \hbox (52.5765pt too wide) in paragraph at lines 51--55
 .edu/ reich/XM-
  []
 
-[33]) [34]
+[37]) [38]
 (C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/05Capitulo5.tex
 Cap\'itulo 5.
-[35
+[39
 
 
 
-] [36]) [37]
+] [40]) [41]
 (C:\Users\Raquel\Documents\facultad\SI\memoria\Apendices/01ApendiceA.tex
 Ap\'{e}ndice A.
-[38
+[42
 
 
 
-]) [39]
+]) [43]
 (C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/bibliografia.tex
 (C:\Users\Raquel\Documents\facultad\SI\memoria\Tesis.bbl
 
 Package natbib Warning: Empty `thebibliography' environment on input line 4.
 
-)) [40
+)) [44
 
 
 
 
 ] (C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/fin.tex
-[41
+[45
 
 
-] [42])
+] [46])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 196.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 196.
  (C:\Users\Raquel\Documents\facultad\SI\memoria\Tesis.aux
@@ -933,47 +2318,62 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 196.
 (C:\Users\Raquel\Documents\facultad\SI\memoria\Cascaras/fin.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 196.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 196.
-Package rerunfilecheck Info: File `Tesis.out' has not changed.
-(rerunfilecheck)             Checksum: 32035373341954AF7290E63CC810BE3F;3767.
 
 
-LaTeX Warning: There were multiply-defined labels.
+Package rerunfilecheck Warning: File `Tesis.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Tesis.out':
+(rerunfilecheck)             Before: BF2876ED11C1C6036373DD06C932C151;3767
+(rerunfilecheck)             After:  62454D2B08F0073E87A610053F91C582;3767.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 196.
  ) 
 Here is how much of TeX's memory you used:
- 10736 strings out of 493921
- 161109 string characters out of 3147279
- 279802 words of memory out of 3000000
- 13353 multiletter control sequences out of 15000+200000
+ 11168 strings out of 493921
+ 169960 string characters out of 3147279
+ 305638 words of memory out of 3000000
+ 13641 multiletter control sequences out of 15000+200000
  19573 words of font info for 42 fonts, out of 3000000 for 9000
  1079 hyphenation exceptions out of 8191
- 55i,12n,70p,1014b,1269s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
-\ectt1200.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappe
-n\ec\dpi600\ecti1095.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
-our\jknappen\ec\dpi600\ecrm0800.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\f
-onts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk> <C:\Users\Raquel\AppData\Local\M
-iKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk> <C:\Users\Raquel\AppD
-ata\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecxc1200.pk> <C:\Users\
-Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk>
+ 55i,12n,70p,1014b,1957s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{figure.caption.24} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.23} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{appendix*.25} has been referenced but does not exis
+t, replaced by a fixed one
+
  <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\e
-cti1200.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
-ec\dpi600\eccc1200.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
-r\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fon
-ts\pk\ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\Users\Raquel\AppData\Local\MiK
-TeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1440.pk> <C:\Users\Raquel\AppDat
-a\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm2488.pk> <C:\Users\Ra
-quel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1095.pk> <
-C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecr
-m1095.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
-\dpi600\ecbx1440.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\
-jknappen\ec\dpi600\ecbx1728.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts
-\pk\ljfour\jknappen\ec\dpi600\ecbx2488.pk><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Tesis.pdf (57 pages, 875027 bytes).
+ctt1200.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
+ec\dpi600\ecti1095.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
+r\jknappen\ec\dpi600\ecrm0800.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fon
+ts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk> <C:\Users\Raquel\AppData\Local\MiK
+TeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk> <C:\Users\Raquel\AppDat
+a\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecxc1200.pk> <C:\Users\Ra
+quel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <
+C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ect
+i1200.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
+\dpi600\eccc1200.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\
+jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts
+\pk\ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\Users\Raquel\AppData\Local\MiKTe
+X\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1440.pk> <C:\Users\Raquel\AppData\
+Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm2488.pk> <C:\Users\Raqu
+el\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1095.pk> <C:
+\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1
+095.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\d
+pi600\ecbx1440.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jk
+nappen\ec\dpi600\ecbx1728.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\p
+k\ljfour\jknappen\ec\dpi600\ecbx2488.pk><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Tesis.pdf (61 pages, 882295 bytes).
 PDF statistics:
- 1276 PDF objects out of 1440 (max. 8388607)
- 151 named destinations out of 1000 (max. 500000)
- 479 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1430 PDF objects out of 1440 (max. 8388607)
+ 231 named destinations out of 1000 (max. 500000)
+ 474 words of extra memory for PDF output out of 10000 (max. 10000000)
 
