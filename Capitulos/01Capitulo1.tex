@@ -27,12 +27,12 @@ Dado este problema aparece nuestro proyecto, como una herramienta sencilla e int
 %-------------------------------------------------------------------
 \subsection{C++ y Clang}
 %-------------------------------------------------------------------
-\label{ap1:sec:c++}
+\label{ap2:sec:c++yclang}
 
 %-------------------------------------------------------------------
 \subsubsection*{C++, un lenguaje con historia}
 %-------------------------------------------------------------------
-\label{ap1:sec:c++}
+\label{ap2:sec:c++}
 
 C++ es un lenguaje de programación diseñado a mediados de los años 1980 por Bjarne Stroustrup en los Laboratorios de Bell. C++ nació como extensión del lenguaje de programación C, al mismo tiempo que proporciona un cierto número de características que \"engalanan\" dicho lenguaje. El nombre de C++ fue propuesto por Rick Mascitti en el año 1983, cuando el lenguaje fue utilizado por primera vez fuera de un laboratorio científico. Hasta ese momento se había utilizado el nombre de \"C con clases\". 
 
@@ -56,7 +56,7 @@ LLVM suministra las capas intermedias de un sistema de compilado completo, toman
 %-------------------------------------------------------------------
 \subsection{Verificación y Análisis}
 %-------------------------------------------------------------------
-\label{ap1:sec:c++}
+\label{ap2:sec:veryana}
 
 Actualmente el software es uno de los productos más requeridos en el mundo. Tal demanda de software implica procesos de desarrollo más intensos, exhaustivos y menos prestos a errores. Siendo la corrección de fallos la etapa en la que más recursos se invierten y en la que hay más interés por mejorar su eficiencia. 
 
@@ -65,7 +65,7 @@ A día de hoy en el mercado existen paquetes de herramientas capaces de ofrecer a
 %-------------------------------------------------------------------
 \subsubsection*{Lógicas}
 %-------------------------------------------------------------------
-\label{ap2:sec:clang}
+\label{ap2:sec:logicas}
 
 
 
@@ -87,7 +87,7 @@ Al proceso de verificar e imponer los límites impuestos por los tipos de datos, 
 %-------------------------------------------------------------------
 \subsubsection*{Análisis estático}
 %-------------------------------------------------------------------
-\label{ap2:sec:clang}
+\label{ap2:sec:analis}
 
 El análisis estático de software es un tipo de análisis que se realiza sin ejecutar el programa. En la mayoría de los casos se realiza sobre el código fuente y en otros casos se realiza sobre el código objeto.
 
@@ -97,7 +97,7 @@ Dicho término se aplica a los análisis realizados por parte de una herramienta a
 %-------------------------------------------------------------------
 \subsubsection*{Chequeo de modelos (Model checking)}
 %-------------------------------------------------------------------
-\label{ap2:sec:clang}
+\label{ap2:sec:modelchecking}
 
 La verificación de modelos (o Model checking) es un método automático de verificación de un sistema formal, en la mayoría de las ocasiones derivado del hardware o del software de un sistema informático. El sistema es descrito mediante un modelo, que debe satisfacer una especificación formal descrita mediante una fórmula, a menudo escrita en alguna variedad de lógica temporal.
 
@@ -110,7 +110,7 @@ Los inventores del método, Edmund M. Clarke, E. Allen Emerson y Joseph Sifakis, 
 %-------------------------------------------------------------------
 \subsubsection*{Ejecución simbólica}
 %-------------------------------------------------------------------
-\label{ap2:sec:clang}
+\label{ap2:sec:SE}
 
 La ejecución simbólica o evaluación simbólica es un modo de analizar programas para determinar qué entradas causan cada parte del programa a ejecutar. En este tipo de programas, un intérprete recorre el programa donde cada variable asume un valor simbólico acotado. Este recorrido dará como resultado expresiones en términos de dichos símbolos de expresiones y variables y las limitaciones en cuanto a los símbolos de los posibles resultados de cada rama condicional. 
 
@@ -122,7 +122,7 @@ Este procedicimiento aplicado al hardware recibe el nombre de simulación simbóli
 %-------------------------------------------------------------------
 \subsection{Testing}
 %-------------------------------------------------------------------
-\label{ap1:sec:c++}
+\label{ap1:sec:testing}
 
 En relación con la sección anterior nacen las pruebas de software(o testing en inglés) son las investigaciones empíricas y técnicas cuyo objetivo es proporcionar información objetiva e independiente sobre la calidad del producto a la parte interesada.
 
@@ -131,7 +131,7 @@ Estas pruebas se diferencian de las herramientas de verificación y análisis en q
 %-------------------------------------------------------------------
 \subsubsection*{Frameworks xUnit}
 %-------------------------------------------------------------------
-\label{ap2:sec:clang}
+\label{ap2:sec:xUnit}
 
 Durante su trabajo en los laboratorios de Xerox Park, Kent Beck desarrollo un framework para realizar test unitarios en el lenguaje de programación {\it Smalltalk} que estaba desarrollando. Dicho framework se llamaba sUnit. sUnit Permitía agrupar los tests en suites, el lanzamiento jerárquico de éstos y realizar para cada test la comparación entre el valor obtenido y el valor esperado para determinar la corrección de la funcionalidad testeada. Este framework ha sido llevado a una gran variedad de lenguajes de programación ({\it JUnit}, {\it XSLTUnit}, {\it PhpUnit}, {\it PyUnit}...). xUnit es el nombre con el que se designa genéricamente a todos estos frameworks.
 
@@ -142,7 +142,7 @@ Una de las características de los tests xUnit es la expansión y el alto grado de
 %-------------------------------------------------------------------
 \subsubsection*{Generación de tests}
 %-------------------------------------------------------------------
-\label{ap2:sec:clang}
+\label{ap2:sec:test}
 
 El objetivo de las pruebas es presentar información sobre la calidad del producto a las personas responsables, por tanto la información requerida puede ser de lo más variada. Esto hace que el proceso de testing sea dependiente del contexto, no existen las {\it mejores pruebas}, toda prueba puede ser ideal para una situación o completamente inutil o perjudicial para otra. A continuación detallamos algunas de los diferentes enfoques para la generación de tests:
 \begin{itemize}
@@ -155,7 +155,7 @@ El objetivo de las pruebas es presentar información sobre la calidad del product
 %-------------------------------------------------------------------
 \subsection{Programación con restricciones}
 %-------------------------------------------------------------------
-\label{ap1:sec:c++}
+\label{ap1:sec:CP}
 
 La programación con restricciones es un paradigma de la programación en informática, donde las relaciones entre las variables son expresadas en terminos de restricciones o ecuaciones. Este paradigma representa uno de los mayores desarrollos en los lenguajes de programación desde 1990 y ha sido identificada como una dirección estratégica en la investigación en computación.
 
@@ -236,14 +236,14 @@ Al igual que en la programación lógica, los programas se ejecutan buscando demos
 %-------------------------------------------------------------------
 \subsection{Trabajos relacionados}
 %-------------------------------------------------------------------
-\label{cap1:sec:trabajos}
+\label{ap2:sec:trabajos}
 
 Como hemos mencionado anteriormente la ejecución simbólica, no es algo nuevo y ha adquirido protagonismo en los últimos años. Es por esto que podemos encontrar varios proyectos orientados al testing de diversos estilos, aquí describimos algunos de ellos para contextualizar nuestro proyecto.
 
 %-------------------------------------------------------------------
 \subsubsection{PEX}
 %-------------------------------------------------------------------
-\label{ap1:sec:pex}
+\label{ap25:sec:pex}
 
 PEX es una herramienta desarrollada por Microsoft par a la generación automática de casos de prueba. Esta herramienta genera entradas de test para programas .NET, por tanto puede analizar cualquier programa que se ejecute en una máquina virtual .NET y soporta lenguajes como C\#, Visual Basic y F\#.
 
@@ -258,7 +258,7 @@ Como proyecto interesante relacionado con PEX existe el juego Code Hunt también 
 %-------------------------------------------------------------------
 \subsubsection{PET}
 %-------------------------------------------------------------------
-\label{ap2:sec:pet}
+\label{ap25:sec:pet}
 
 PET (Partial Evaluation-based Test Case Generator for Bytecode) es una herramienta cuyo propósito es generar casos de prueba de forma automática para programas escritos en bytecode (código de bytes de Java). PET adopta el enfoque previamente comentado, esto es, ejecuta el bytecode simbólicamente y devuelve como salida un conjunto de casos de prueba (test-cases). Cada caso de prueba está asociado a una rama del árbol y se expresa como un conjunto de restricciones sobre los valores de entrada y una descripción de los contenidos de la memoria dinámica (o heap).
 
@@ -270,7 +270,7 @@ PET puede usarse a través de una interfaz de línea de comandos o bien usando una
 %-------------------------------------------------------------------
 \subsubsection{jSYX}
 %-------------------------------------------------------------------
-\label{ap3:sec:jsyx}
+\label{ap25:sec:jsyx}
 
 jSYX es un proyecto desarrollado el curso pasado como trabajo de Sistemas Informáticos. Este proyecto se basa en una máquina virtual de Java que permite la ejecución simbólica de archivos .class de Java, de este modo puede ser utilizado para el desarrollo automático de Tests. 
 
@@ -279,7 +279,7 @@ El enfoque de jSYX es el uso de del Bytecode de Java como lenguaje de ejecución.
 %-------------------------------------------------------------------
 \subsubsection{jPET}
 %-------------------------------------------------------------------
-\label{ap4:sec:jpet}
+\label{ap25:sec:jpet}
 
 Al igual que el detallado en la sección anterior, jPET también se trata de un proyecto de Sistemas Informáticos, en este caso desarrollado durante el curso 2010/2011. Este proyecto se basa en PET, la herramienta detallada anteriormente, y es una extensión de dicha herramienta para poder utilizarse en programas Java de alto nivel e integrarse en Eclipse, con el objetivo de poder usar los resultados obtenidos por PET durante el proceso de desarrollo de software.
 
@@ -327,7 +327,7 @@ Lo que significaría que para el primer resultado, las entradas valen en este cas
 %-------------------------------------------------------------------
 \section{SymC++, una breve introducción}
 %-------------------------------------------------------------------
-\label{cap1:sec:objetivos}
+\label{cap1:sec:symc++}
 
 Para poder obtener estos resultados, la herramienta hará uso de tres componentes principales, cuyo ciclo de ejecución será el detallado en la siguiente figura:
 

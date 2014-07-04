@@ -111,12 +111,12 @@
 % Hacemos un poco más alta la cabecera, ya que el valor por defecto
 % (12) no es suficiente para el tipo de letra y contenido de cabecera
 % elegido, lo que provoca warnings contínuos en la compilación
-\addtolength{\headheight}{2pt}
+\addtolength{\headheight}{3pt}
 
 % Establecemos el resto de parámetros de apariencia
 \newcommand{\restauraCabecera}{
-\fancyhead[LO]{\rightmark}
-\fancyhead[RE]{\leftmark}
+%\fancyhead[LO]{\rightmark}
+%\fancyhead[RE]{\leftmark}
 }
 
 \renewcommand{\headrulewidth}{0.2pt}
@@ -126,7 +126,7 @@
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
 \fancyhf{}
 \restauraCabecera
-\fancyhead[RO,LE]{\thepage}
+%\fancyhead[RO,LE]{\thepage}
 
 % Para los capítulos que no tienen numeración en el índice ni tienen
 % secciones, se debe cambiar la cabecera, para que no aparezca algo
@@ -142,8 +142,8 @@
 % cuando el capítulo YA HA TERMINADO, y se ha empezado el siguiente, o
 % forzando final de página con \newpage (\newpage\restauracabecera).
 \newcommand{\cabeceraEspecial}[1]{
-\fancyhead[LO]{\textsc{#1}}
-\fancyhead[RE]{\textsc{#1}}
+%\fancyhead[LO]{\textsc{#1}}
+%\fancyhead[RE]{\textsc{#1}}
 }
 
 % La forma  "*" de  chapters y  sections NO llaman  a los  comandos de
