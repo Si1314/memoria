@@ -567,9 +567,33 @@
 % Para poder  incluir código  fuente resaltado fácilmente.   El tamaño
 % básico de la letra, pequeño.
 \usepackage{listings}
+\usepackage{color}
+
 \lstset{basicstyle=\small}
 \lstset{showstringspaces=false}
 \lstset{tabsize=3}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{light-gray}{gray}{0.9}
+
+\lstset{
+  backgroundcolor=\color{light-gray}
+}
+
+\lstdefinestyle{customcpp}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  numbers=left,
+  language=C++,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{mygreen},
+  commentstyle=\itshape\color{purple},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
 
 % Para poder utilizar el entorno tabularx, que sirve para hacer tablas
 % con  párrafos, sin tener  que indicar  el ancho  de cada  columna de

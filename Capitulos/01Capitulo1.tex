@@ -299,27 +299,7 @@ La herramienta contará con una interfaz de usuario, proporcionando varias ventaj
 
 Para ilustrar mejor el funcionamiento de nuestra herramienta detallamos aquí un pequeño ejemplo para una función cuya estructura es un pequeño decodificador:
 
-\begin{center}
-\fbox{
-\begin{minipage}{2\textwidth}
-\begin{tabbing}
-\hspace*{1cm}\=\hspace*{1cm}\=\hspace*{1cm}\=\hspace*{1cm}\= \kill
-function deco(int a, int b)\{\\
-\>if (a>0)\\
-\>\>if (b>0)\\
-\>\>\>return 0;\\
-\>\>else\\
-\>\>\>return 1;\\
-\>else\\
-\>\>if (b>0)\\
-\>\>\>return 2;\\
-\>\>else\\
-\>\>\>return 3;\\
-\}
-\end{tabbing}
-\end{minipage}
-}
-\end{center}
+\lstinputlisting[caption=Código de ejemplo, style=customcpp]{Codigos/codigoEjemplo.cpp}
 
 La ejecución de este programa en nuestra herramienta generaría la siguiente tabla de resultados:
 
@@ -344,12 +324,19 @@ nº & Variable y valor & Traza \\
 
 Lo que significaría que para el primer resultado, las entradas valen en este caso {\it 1, 1} haciendo referencia a que son valores mayores que 0, y el valor del return es el valor de salida, y los números que indican la traza son los números de las líneas que se han recorrido del programa para esta solución.
 
+%-------------------------------------------------------------------
+\section{SymC++, una breve introducción}
+%-------------------------------------------------------------------
+\label{cap1:sec:objetivos}
+
 Para poder obtener estos resultados, la herramienta hará uso de tres componentes principales, cuyo ciclo de ejecución será el detallado en la siguiente figura:
 
 \figura{Vectorial/esquemaEjecucion}{width=.9\textwidth}{fig:esquemaEjecucion}%
 {Figura que muestra el ciclo de ejecución de nuestra herramienta.}
 
 Por tanto como hemos nombrado en el parrafo anterior la herramienta consta de tres partes diferenciadas, una herramienta desarrollada a través de Clang para obtener el arbol de sintaxis anotado con la información que nos interesa, a esta herramienta la hemos llamado ast2xmltool, la cual detallamos en el siguiente capítulo. La parte central del proyecto, es decir, el intérprete prolog que se encarga de obtener la traza de ejecución para la diferentes ramas del programa a través de sus entradas y salidas, esta parte la detallaremos en el tercer capítulo. Y por último, la herramienta que funciona como enlace entre las dos partes nombradas anteriormente y el usuario, la cual hemos denominado SymC++ y la detallaremos en el cuarto capítulo de esta memoria.
+
+
 
 %Muchas veces, para ayudarnos en la búsqueda de posibles fallos, es aconsejable programar en módulos, es decir, utilizando subprogramas para encapsular el código mejor. Con nuestra herramienta podrás elegir el nombre de la función que quieres probar aunque haya muchas funciones escritas, esto es útil ya que podrás ir comprobando sólo las que quieras sin tener que cambiar el código.
 

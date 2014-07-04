@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.6.12)  3 JUL 2014 18:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.6.12)  4 JUL 2014 17:14
 entering extended mode
 **Tesis.tex
 (C:\Users\Raquel\Documents\facultad\SI\memoria\Tesis.tex
@@ -336,6 +336,18 @@ File: listings.cfg 2014/03/04 1.5c listings configuration
 ))
 Package: listings 2014/03/04 1.5c (Carsten Heinz)
 
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+\Gread@gobject=\count127
+))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\tabularx.sty"
 Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
 
@@ -352,7 +364,7 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \TX@old@col=\dimen132
 \TX@target=\dimen133
 \TX@delta=\dimen134
-\TX@cols=\count127
+\TX@cols=\count128
 \TX@ftn=\toks22
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
@@ -378,11 +390,7 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
-File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-\Gread@gobject=\count128
-))
+)
 \Gin@req@height=\dimen135
 \Gin@req@width=\dimen136
 )
@@ -614,7 +622,7 @@ Overfull \hbox (5.5234pt too wide) in paragraph at lines 164--164
  [][] 
  []
 
-<Imagenes/Vectorial/escudoUCM.pdf, id=219, 597.23125pt x 844.15375pt>
+<Imagenes/Vectorial/escudoUCM.pdf, id=223, 597.23125pt x 844.15375pt>
 File: Imagenes/Vectorial/escudoUCM.pdf Graphic file (type pdf)
 
 <use Imagenes/Vectorial/escudoUCM.pdf>
@@ -804,11 +812,20 @@ less on input line 88.
 ]
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 105.
+less on input line 101.
 
 (C:\Users\Raquel\Documents\facultad\SI\memoria\Tesis.lot)
 \tf@lot=\write8
  [14
+
+]
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 113.
+
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Tesis.lol)
+\tf@lol=\write9
+ [15
 
 ])
 
@@ -886,18 +903,26 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [10]
+(C:\Users\Raquel\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstlang1.sty
+File: lstlang1.sty 2014/03/04 1.5c listings language file
+)
+(C:\Users\Raquel\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstlang1.sty
+File: lstlang1.sty 2014/03/04 1.5c listings language file
+)
+(C:\Users\Raquel\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
+File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 302.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 302.
 
-Package Fancyhdr Warning: \headheight is too small (14.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
 
-[11] <Imagenes/Vectorial/Todo.pdf, id=427, 408.52625pt x 256.96pt>
-File: Imagenes/Vectorial/Todo.pdf Graphic file (type pdf)
-
-<use Imagenes/Vectorial/Todo.pdf>
-Package pdftex.def Info: Imagenes/Vectorial/Todo.pdf used on input line 353.
-(pdftex.def)             Requested size: 195.0pt x 122.65323pt.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
+File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Codigos/codigoEjemplo.cpp
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 1.
 )
 
 Package Fancyhdr Warning: \headheight is too small (14.0pt): 
@@ -905,14 +930,30 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[12 <C:/Users/Raquel/Documents/facultad/SI/memoria/Imagenes/Vectorial/Todo.pdf>
-] (C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/02Capitulo2.tex
+[11]
+<Imagenes/Vectorial/esquemaEjecucion.jpg, id=455, 526.21594pt x 223.58531pt>
+File: Imagenes/Vectorial/esquemaEjecucion.jpg Graphic file (type jpg)
+
+<use Imagenes/Vectorial/esquemaEjecucion.jpg>
+Package pdftex.def Info: Imagenes/Vectorial/esquemaEjecucion.jpg used on input 
+line 335.
+(pdftex.def)             Requested size: 350.99762pt x 149.14291pt.
+)
+
+Package Fancyhdr Warning: \headheight is too small (14.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[12 <C:/Users/Raquel/Documents/facultad/SI/memoria/Imagenes/Vectorial/esquemaEj
+ecucion.jpg>]
+(C:\Users\Raquel\Documents\facultad\SI\memoria\Capitulos/02Capitulo2.tex
 Cap\'itulo 2.
 [13
 
 
 
-] <Imagenes/Vectorial/figura1.jpg, id=442, 515.67656pt x 283.81032pt>
+] <Imagenes/Vectorial/figura1.jpg, id=465, 515.67656pt x 283.81032pt>
 File: Imagenes/Vectorial/figura1.jpg Graphic file (type jpg)
 
 <use Imagenes/Vectorial/figura1.jpg>
@@ -966,7 +1007,7 @@ Overfull \hbox (15.3469pt too wide) in paragraph at lines 103--103
  |[]\T1/cmr/bx/n/17.28 Instrucciones co-mo no-dos de un fi-che-ro XML| 
  []
 
-<Imagenes/Vectorial/figura2.jpg, id=451, 264.23718pt x 124.21407pt>
+<Imagenes/Vectorial/figura2.jpg, id=474, 264.23718pt x 124.21407pt>
 File: Imagenes/Vectorial/figura2.jpg Graphic file (type jpg)
 
 <use Imagenes/Vectorial/figura2.jpg>
@@ -988,9 +1029,10 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [17 <C:/Users/Raquel/Documents/facultad/SI/memoria/Imagenes/Vectorial/figura2.j
-pg>]
+pg>] <Imagenes/Vectorial/Todo.pdf, id=484, 408.52625pt x 256.96pt>
 File: Imagenes/Vectorial/Todo.pdf Graphic file (type pdf)
- <use Imagenes/Vectorial/Todo.pdf>
+
+<use Imagenes/Vectorial/Todo.pdf>
 Package pdftex.def Info: Imagenes/Vectorial/Todo.pdf used on input line 135.
 (pdftex.def)             Requested size: 195.0pt x 122.65323pt.
 File: Imagenes/Vectorial/Todo.pdf Graphic file (type pdf)
@@ -1004,7 +1046,8 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[18]
+[18 <C:/Users/Raquel/Documents/facultad/SI/memoria/Imagenes/Vectorial/Todo.pdf>
+]
 File: Imagenes/Vectorial/Todo.pdf Graphic file (type pdf)
  <use Imagenes/Vectorial/Todo.pdf>
 Package pdftex.def Info: Imagenes/Vectorial/Todo.pdf used on input line 152.
@@ -1084,7 +1127,7 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25] <Imagenes/Vectorial/figura3.jpg, id=494, 319.1925pt x 171.64125pt>
+[25] <Imagenes/Vectorial/figura3.jpg, id=523, 319.1925pt x 171.64125pt>
 File: Imagenes/Vectorial/figura3.jpg Graphic file (type jpg)
 
 <use Imagenes/Vectorial/figura3.jpg>
@@ -1197,9 +1240,15 @@ Cap\'itulo 4.
 
 
 ]
-Overfull \hbox (45.18796pt too wide) in paragraph at lines 51--55
-\T1/cmr/m/n/12 number/) Mul-ti-Li-ne-Cell-Ren-de-rer.java[2] (http://www.java2s
-.com/Code/Java/Swing-
+Overfull \hbox (16.28122pt too wide) in paragraph at lines 51--55
+\T1/cmr/m/n/12 plir nues-tro di-se-ño : Li-ne-Num-bers.java [1] (http://javakno
+wledge.info/jtextpane-
+ []
+
+
+Overfull \hbox (67.37697pt too wide) in paragraph at lines 51--55
+\T1/cmr/m/n/12 line-number/) Mul-ti-Li-ne-Cell-Ren-de-rer.java[2] (http://www.j
+ava2s.com/Code/Java/Swing-
  []
 
 
@@ -1243,10 +1292,7 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
 
 [37] (C:\Users\Raquel\Documents\facultad\SI\memoria\Apendices/01ApendiceA.tex
 Ap\'{e}ndice A.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 22.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
-File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-) [38
+[38
 
 
 
@@ -1303,49 +1349,49 @@ Package rerunfilecheck Warning: File `Tesis.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `Tesis.out':
-(rerunfilecheck)             Before: 48F385ACA7A5B6DEF5991ED42CF59840;3585
-(rerunfilecheck)             After:  DF931FAD05CF984160344E985A43BEE9;3585.
+(rerunfilecheck)             Before: 4E0B7C96BCA153645DE50E836AE4E991;3686
+(rerunfilecheck)             After:  32035373341954AF7290E63CC810BE3F;3767.
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 196.
  ) 
 Here is how much of TeX's memory you used:
- 10221 strings out of 493921
- 154845 string characters out of 3147279
- 241894 words of memory out of 3000000
- 12878 multiletter control sequences out of 15000+200000
- 18497 words of font info for 40 fonts, out of 3000000 for 9000
+ 10740 strings out of 493921
+ 160956 string characters out of 3147279
+ 278375 words of memory out of 3000000
+ 13357 multiletter control sequences out of 15000+200000
+ 19573 words of font info for 42 fonts, out of 3000000 for 9000
  1079 hyphenation exceptions out of 8191
- 55i,11n,53p,1014b,588s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{appendix*.24} has been referenced but does not ex
-ist, replaced by a fixed one
-
+ 55i,12n,70p,1014b,1269s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
+\ectt1200.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappe
+n\ec\dpi600\ecti1095.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
+our\jknappen\ec\dpi600\ecrm0800.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\f
+onts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk> <C:\Users\Raquel\AppData\Local\M
+iKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk> <C:\Users\Raquel\AppD
+ata\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecxc1200.pk> <C:\Users\
+Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk>
  <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\e
-ctt1200.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
-ec\dpi600\ecti1095.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
-r\jknappen\ec\dpi600\ecrm0800.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fon
-ts\pk\ljfour\jknappen\ec\dpi600\ecxc1200.pk> <C:\Users\Raquel\AppData\Local\MiK
-TeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\Raquel\AppDat
-a\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1200.pk> <C:\Users\Ra
-quel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1200.pk> <
+cti1200.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
+ec\dpi600\eccc1200.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
+r\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fon
+ts\pk\ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\Users\Raquel\AppData\Local\MiK
+TeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1440.pk> <C:\Users\Raquel\AppDat
+a\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm2488.pk> <C:\Users\Ra
+quel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1095.pk> <
 C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecr
-m1200.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
-\dpi600\ecrm1440.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\
-jknappen\ec\dpi600\ecti1440.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts
-\pk\ljfour\jknappen\ec\dpi600\ecrm2488.pk> <C:\Users\Raquel\AppData\Local\MiKTe
-X\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1095.pk> <C:\Users\Raquel\AppData\
-Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1095.pk> <C:\Users\Raqu
-el\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:
-\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1
-728.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\d
-pi600\ecbx2488.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Tesis.pdf (56 pages, 853084 bytes).
+m1095.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
+\dpi600\ecbx1440.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\
+jknappen\ec\dpi600\ecbx1728.pk> <C:\Users\Raquel\AppData\Local\MiKTeX\2.9\fonts
+\pk\ljfour\jknappen\ec\dpi600\ecbx2488.pk><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
+y10.pfb>
+Output written on Tesis.pdf (57 pages, 902912 bytes).
 PDF statistics:
- 1217 PDF objects out of 1440 (max. 8388607)
- 135 named destinations out of 1000 (max. 500000)
- 458 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1289 PDF objects out of 1440 (max. 8388607)
+ 151 named destinations out of 1000 (max. 500000)
+ 471 words of extra memory for PDF output out of 10000 (max. 10000000)
 

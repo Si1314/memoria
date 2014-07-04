@@ -98,13 +98,25 @@
 % Índice de tablas
 % Como antes, pero ahora .lot (List Of Tables)
 
+\cabeceraEspecial{\'Indice de tablas}
+
 \ifpdf
    \pdfbookmark[1]{Índice de tablas}{indice de tablas}
 \fi
 
-\cabeceraEspecial{\'Indice de tablas}
-
 \listoftables
+
+\newpage
+
+% Índice de código
+
+\cabeceraEspecial{\'Indice de listados de c\'odigo}
+
+\ifpdf
+	\pdfbookmark[1]{Índice de listados de código}{indice de listados de codigo}
+\fi
+
+\lstlistoflistings
 
 \newpage
 
