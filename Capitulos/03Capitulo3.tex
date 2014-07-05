@@ -125,7 +125,7 @@ De esta forma buscaremos previamente la función que el usuario nos haya indicado
 %-------------------------------------------------------------------
 \label{ap41:execute}
 
-Es un predicado encargado de ejecutar una instrucción. Sus argumentos son: el estado previo a la ejecución de unas instrucciones, la lista que contiene las instrucciones y el estado posterior a la ejecución. Este predicado se planteó de forma que pudiéramos controlar cada una de las posibles instrucciones que puede llegar a haber en el código. Para conseguirlo en cada una de estas posibilidades expresamos explícitamente los casos de forma que la instrucción que se ejecuta en un momento dado es el primer elemento de la lista de instrucciones que recibe la función. Una vez se hayan completado los pasos que simulan el comportamiento de dicha instrucción, se hace una “llamada” recursiva a execute con el estado resultante de la ejecución, el resto de la lista de instrucciones y el estado posterior.
+Es un predicado encargado de ejecutar una instrucción. Sus argumentos son: el estado previo a la ejecución de unas instrucciones, la lista que contiene las instrucciones y el estado posterior a la ejecución. Este predicado se planteó de forma que pudiéramos controlar cada una de las posibles instrucciones que puede llegar a haber en el código. Para conseguirlo en cada una de estas posibilidades expresamos explícitamente los casos de forma que la instrucción que se ejecuta en un momento dado es el primer elemento de la lista de instrucciones que recibe la función. Una vez se hayan completado los pasos que simulan el comportamiento de dicha instrucción, se hace una ''llamada'' recursiva a execute con el estado resultante de la ejecución, el resto de la lista de instrucciones y el estado posterior.
 
 Esta forma de realizar los pasos de cómputo se asemeja, en un aspecto más teórico, a la semántica de paso corto (semántica operacional), aunque dicha similitud no es completa puesto que al trabajar con instrucciones puntuales llevamos a cabo muchos pasos intermedios.
 
@@ -135,14 +135,14 @@ Es por ello que, en las instrucciones de control, llegamos a necesitar la presen
 
 Iremos almacenando en cada paso el estado actual donde nos encontramos con la siguiente información:
 
-\begin{itemizer}
+\begin{itemize}
 \item Table.\\
 Llevamos la tabla de variables correspondientes al estado en el que nos encontramos. En esta tabla contemplamos la posiblidad de estructurarla en ámbitos de forma que el acceso a las variables sea consistente en cada momento.
 \item Cin Cout \\
 Listas con los valores de entrada (Cin) o salida (Cout) si procede.
 \item Trace \\
 Lista que conserva el número de las líneas de las instrucciones por las que hemos pasado para poder más tarde marcarlas en la interfaz.
-\end{itemizer}
+\end{itemize}
 
 El tipo de instrucciones que el predicado execute contempla son:
 
@@ -168,7 +168,7 @@ Con esta instrucción insertaremos en la tabla de variables cada uno de los parám
 
 \lstinputlisting[caption=Cuerpo de un bloque, style=custompl, firstline=5, lastline=5]{Codigos/codigosProlog.pl}
 
-Este es el caso en el que ejecutamos el cuerpo de cualquier bloque como el cuerpo de una función, el cuerpo de un bucle o asignacion if … Todo aquello que esté limitado por llaves {Cuerpo del bloque}. Llamamos a ejecutar la cuerpo de forma que creamos a su vez una nueva lista de variables para englobar las variables pertenecientes a ese ámbito.
+Este es el caso en el que ejecutamos el cuerpo de cualquier bloque como el cuerpo de una función, el cuerpo de un bucle o asignacion if \ldots Todo aquello que esté limitado por llaves \{Cuerpo del bloque\}. Llamamos a ejecutar la cuerpo de forma que creamos a su vez una nueva lista de variables para englobar las variables pertenecientes a ese ámbito.
 
 %-------------------------------------------------------------------
 \subsubsection*{Declaraciones en grupo}
@@ -210,7 +210,7 @@ Este es un caso especial de la asignación ya que se trata de una asignación medi
 
 \lstinputlisting[caption=Operador unario, style=custompl, firstline=15, lastline=15]{Codigos/codigosProlog.pl}
 
-La forma de ejecutar los operadores unarios tal que Operando operadorUnario la hemos planteado de forma que realizamos internamente una ejecución binaria de forma que Operando = Operando operadorUnario ‘1’.
+La forma de ejecutar los operadores unarios tal que Operando operadorUnario la hemos planteado de forma que realizamos internamente una ejecución binaria de forma que Operando = Operando operadorUnario 1.
 
 \begin{center}
 ej: a++; pasaría a ser a=a+1
@@ -327,7 +327,7 @@ Este predicado servirá para resolver las distintas expresiones que existan. La e
 Entrada y Salida corresponden a la tabla de variables que entra y la tabla de variables actualizada después de la resolución de la expresión. CuerpoExpresion es la expresión concreta que queremos resolver y ValorRetorno el valor resultante devuelto.
 
 Las expresiones que resolveremos serán:
-\begin{itemizer}
+\begin{itemize}
 \item notOperator: encargada de negar la expresión.
 \begin{center}
 ej: A = !B
@@ -337,10 +337,10 @@ ej: A = !B
 ej: A = -B
 \end{center}
 \item binaryOperator: resuelve operaciones binarias.
-\beign{center}
+\begin{center}
 OperandoResultante = Operando1 operador Operando2
 \end{center}
-\end{itemizer}
+\end{itemize}
 
 En este caso se resolverá cada expresión Operando1 y Operando2 de forma independiente mediante la llamada resursiva:
 
@@ -353,7 +353,7 @@ Y combinando los dos resultados de la siguiente forma, únicamente cuando los res
 cuya funcionalidad del predicado work es la mera ejecución de la expresión
 Resultado1 Operador Resultado2
 
-\begin{itemizer}
+\begin{itemize}
 \item variable o const: son los dos casos de expresiones sencillas indivisibles.
 \begin{center}
 ej: R = a + 5 (ejemplo de Variable + constante)
@@ -362,7 +362,7 @@ ej: R = a + 5 (ejemplo de Variable + constante)
 \begin{center}
 ej: R = foo(a,b);
 \end{center}
-\end{itemizer}
+\end{itemize}
 
 %-------------------------------------------------------------------
 \section*{work/3}
