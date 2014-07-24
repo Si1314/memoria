@@ -241,7 +241,7 @@ Para ilustrar mejor el funcionamiento de nuestra herramienta detallamos aqu\'i u
 
 La ejecuci\'on de este programa en nuestra herramienta generar\'ia la siguiente tabla de resultados:
 
-\begin{table}
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{| l | l | l | l ||}
 \hline
@@ -266,8 +266,16 @@ La herramienta que hemos desarrollado la hemos denominado {\it SymC++} por su re
 
 Dicha herramienta har\'a uso de tres componentes principales, cuyo ciclo de ejecuci\'on detallamos en la siguiente figura:
 
-\figura{Vectorial/esquemaEjecucion}{width=.9\textwidth}{fig:esquemaEjecucion}%
-{Figura que muestra el ciclo de ejecuci\'on de nuestra herramienta.}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.3\textwidth]%
+{Imagenes/Vectorial/esquemaEjecucion}
+\caption{Figura que muestra el ciclo de ejecuci\'on de nuestra herramienta.}
+\end{center}
+\end{figure}
+
+%\figura{Vectorial/esquemaEjecucion}{width=.9\textwidth}{fig:esquemaEjecucion}%
+%{Figura que muestra el ciclo de ejecuci\'on de nuestra herramienta.}
 
 Por tanto como hemos nombrado en la secci\'on anterior la herramienta consta de tres partes diferenciadas, una herramienta desarrollada a trav\'es de Clang para obtener el arbol de sintaxis anotado con la informaci\'on que nos interesa, a esta herramienta la hemos llamado ast2xmltool, la cual detallamos en el siguiente cap\'itulo. La parte central del proyecto, es decir, el int\'erprete prolog que se encarga de obtener las posibles soluciones para cada una de las ramas del programa, as\'i como la traza de ejecuci\'on a trav\'es de sus entradas y salidas, esta parte la detallaremos en el tercer cap\'itulo. Y por \'ultimo, la herramienta que funciona como enlace entre las dos partes nombradas anteriormente y el usuario, la cual hemos denominado SymC++ y la detallaremos en el cuarto cap\'itulo de esta memoria.
 
