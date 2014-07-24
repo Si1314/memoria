@@ -1,28 +1,28 @@
 %---------------------------------------------------------------------
 %
-%                          Capítulo 1
+%                          Cap\'itulo 1
 %
 %---------------------------------------------------------------------
 
-\chapter{Introducción}
+\chapter{Introducci\'on}
 
 %-------------------------------------------------------------------
-\section{Motivación de la propuesta}
+\section{Motivaci\'on de la propuesta}
 %-------------------------------------------------------------------
 \label{cap1:sec:motivacion}
 
-El proyecto nace de la idea y la necesidad de utilizar una herramienta útil para los estudiantes de iniciación a la programación.
+El proyecto nace de la idea y necesidad de utilizar una herramienta \'util para los estudiantes de iniciaci\'on a la programaci\'on. El problema al que se enfrentan los estudiantes cuando los ejercicios a resolver crecen en complejidad, los programas tambi\'en y normalmente no se comportan como deben para todos los casos. Escribir programas totalmente correctos requiere el uso de una serie de metodolog\'ias que en general resultan muy complejas para los estudiantes en los primeros cursos. La mayor\'ia de ellos siguen una mec\'anica de prueba-error, es decir, escriben los programas sin pararse a pensar demasiado acerca de su correcci\'on, y luego los prueban para ver si se comportan como esperan. Estas pruebas normalmente no son lo suficientemente exhaustivas y por lo tanto los estudiantes no son ni siquiera conscientes de las incorrecciones de sus programas. Desgraciadamente, los mecanismos y herramientas que ayudan en el testing y depuraci\'on de programas son en general demasiado avanzados, como para poder ser utilizados por programadores inexpertos.
 
-El problema al que se enfrentan los estudiantes es cuando los ejercicios a resolver crecen en complejidad, los programas también y normalmente no se comportan como deben para todos los casos. Escribir programas totalmente correctos requiere el uso de una serie de metodologías que en general resultan muy complejas para los estudiantes en los primeros cursos. La mayoría de ellos siguen una mecánica de prueba-error, es decir, escriben los programas sin pararse a pensar demasiado acerca de su corrección, y luego los prueban para ver si se comportan como esperan. Estas pruebas normalmente no son lo suficientemente exhaustivas y por lo tanto los estudiantes normalmente no son ni siquiera conscientes de las incorrecciones de sus programas. Desgraciadamente, los mecanismos y herramientas que ayudan en el testing y depuración de programas son en general demasiado avanzados, como por ejemplo lo son los para poder ser utilizados por programadores inexpertos.
+Dado este problema aparece nuestro proyecto, como una herramienta sencilla e intuitiva que pueda mostrar de un modo natural el recorrido de un programa por sus diferentes ramas y los resultados que obtendr\'ia en cada uno de ellos. Esta herramienta ofrecer\'a una soluci\'on a la verificaci\'on de programas sencillos para estudiantes de iniciaci\'on, y de este modo acercar las herramientas de testing y depuraci\'on de un modo m\'as f\'acil y visual.
 
-En este caso concreto, la herramienta está desarrollada para el lenguaje de C++, puesto que es el utilizado en los primeros cursos de los grados de las Facultades de Informática, Estudios Estadísticos y Matemáticas, y concretamente es el utilizado en la asignatura de primer curso de Fundamentos de Programación en nuestra Facultad.
-
-Dado este problema aparece nuestro proyecto, como una herramienta sencilla e intuitiva que pueda mostrar de un modo natural el recorrido de un programa por sus diferentes ramas y los resultados que obtendría en cada uno de ellos. Esta herramienta ofrecerá una solución a la verificación de programas sencillos para estudiantes de iniciación, y de este modo acercar las herramientas de testing y depuración de un modo más visual y fácil.
+En este caso concreto, la herramienta est\'a desarrollada para el lenguaje de C++, puesto que es el utilizado en los primeros cursos de los grados de las Facultades de Inform\'tica, Estudios Estad\'isticos y Matem\'aticas, y concretamente es el utilizado en la asignatura de primer curso de Fundamentos de Programaci\'on en nuestra Facultad.
 
 %-------------------------------------------------------------------
 \section{Estado del arte y trabajos relacionados}
 %-------------------------------------------------------------------
 \label{cap1:sec:estytra}
+
+En esta secci\'on se presentan los recursos y herramientas software disponibles que se han planteado como opciones a tener en cuenta a la hora de obtener apoyo en la realizaci\'on de nuestro proyecto.
 
 %-------------------------------------------------------------------
 \subsection{C++ y Clang}
@@ -34,36 +34,38 @@ Dado este problema aparece nuestro proyecto, como una herramienta sencilla e int
 %-------------------------------------------------------------------
 \label{ap2:sec:c++}
 
-C++ es un lenguaje de programación diseñado a mediados de los años 1980 por Bjarne Stroustrup en los Laboratorios de Bell. C++ nació como extensión del lenguaje de programación C, al mismo tiempo que proporciona un cierto número de características que \"engalanan\" dicho lenguaje. El nombre de C++ fue propuesto por Rick Mascitti en el año 1983, cuando el lenguaje fue utilizado por primera vez fuera de un laboratorio científico. Hasta ese momento se había utilizado el nombre de \"C con clases\". 
+C++ es un lenguaje de programaci\'on dise\~nado a mediados de los a\~nos 1980 por Bjarne Stroustrup en los Laboratorios de Bell. C++ naci\'o como extensi\'on del lenguaje de programaci\'on C, al mismo tiempo que proporciona un cierto n\'umero de caracter\'isticas que engalanan dicho lenguaje. El nombre de C++ fue propuesto por Rick Mascitti en el a\~no 1983, cuando el lenguaje fue utilizado por primera vez fuera de un laboratorio cient\'ifico. Hasta ese momento se hab\'ia utilizado el nombre de C con clases. 
 
-Se puede decir que C++ es un lenguaje que abarca tres paradigmas de programación: la programación estructurada, la programación genérica y la programación orientada a objetos. Es un lenguaje de programación intermedio, puesto que se puede utilizar tanto para escribir software de bajo nivel, como drivers y componentes de sistemas operativos, como para el desarrollo rápido de aplicaciones.
+Se puede decir que C++ es un lenguaje que abarca tres paradigmas de programaci\'on: la programaci\'on estructurada, la programaci\'on gen\'erica y la programaci\'on orientada a objetos. Es un lenguaje de programaci\'on intermedio, puesto que se puede utilizar tanto para escribir software de bajo nivel, como drivers y componentes de sistemas operativos, como para el desarrollo r\'apido de aplicaciones.
 
-Actualmente existe un estándar, denominado ISO C++, al que se han adherido la mayoría de los fabricantes de compiladores más modernos. Existen también algunos intérpretes, tales como ROOT.
+Actualmente existe un est\'andar, denominado ISO C++, al que se han adherido la mayor\'ia de los fabricantes de compiladores m\'as modernos. Existen tambi\'en algunos int\'erpretes, tales como ROOT.
 
-Las príncipales características de este lenguaje son las facilidades que proporciona para la programación orientada a objetos y para el uso de plantillas o programación genérica. Además posee una serie de propiedades dificiles de encontrar en otros lenguajes como es la posibilidad de redefinir los operadores o poder crear nuevos tipos, que se comporten como tipos fundamentales.
+Las principales caracter\'isticas de este lenguaje son las facilidades que proporciona para la programaci\'on orientada a objetos y para el uso de plantillas o programaci\'on gen\'erica. Adem\'as posee una serie de propiedades dificiles de encontrar en otros lenguajes como es la posibilidad de redefinir los operadores o poder crear nuevos tipos, que se comporten como tipos fundamentales.
+
+La elecci\'on de desarrollar nuestra herramienta para el lenguaje de C++ se ha basado en dos motivos, el primero ha sido su popularidad, puesto que seg\'un el ranking TIBOE, el cual recoge los lenguajes de programaci\'on m\'as usados, se encuentra en cuarta posici\'on, y el segundo motivo ha sido el uso de este lenguaje en los primeros cursos de programaci\'on como ya hemos se\~nalado anteriormente.
 
 %-------------------------------------------------------------------
 \subsubsection*{Clang y LLVM}
 %-------------------------------------------------------------------
 \label{ap2:sec:clang}
 
-Clang es un front end de compilador para los lenguajes de programación C, C++, Objective-C y Objective-C++. Usa LLVM como su back-end y ha sido parte del ciclo de lanzamiento de LLVM desde la versión 2.6. Está diseñado para ofrecer un reemplazo de GNU Compiler Collection (GCC). Es open-source, y varias compañías de software están involucradas en su desarrollo, incluyendo a Google y Apple. Su código fuente está bajo la licencia University of Illinois/NCSA. El proyecto Clang incluye además un analizador estático de software y varias herramientas de análisis de código.
+Clang es un {\it front-end} de compilador para los lenguajes de programaci\'on C, C++, Objective-C y Objective-C++. Usa LLVM (anteriormente conocido como Low Level Virtual Machine, o M\'aquina Virtual de Nivel Bajo) como su {\it back-end} y ha sido parte del ciclo de lanzamiento de LLVM desde la versi\'on 2.6. Est\'a dise\~nado para ofrecer un reemplazo de GNU Compiler Collection (GCC). Es {\it open-source}, y varias compa\~n\'ias de software est\'an involucradas en su desarrollo, incluyendo a Google y Apple. Su c\'odigo fuente est\'a bajo la licencia University of Illinois/NCSA. El proyecto Clang incluye adem\'as un analizador est\'atico de software y varias herramientas de an\'alisis de c\'odigo.
 
-Por otro lado, LLVM (anteriormente conocido como Low Level Virtual Machine, o Máquina Virtual de Nivel Bajo) es una infraestructura para desarrollar compiladores, escrita a su vez en el lenguaje de programación C++, que está diseñada para optimizar el tiempo de compilación, el tiempo de enlazado, el tiempo de ejecución y el \"tiempo ocioso\" en cualquier lenguaje de programación que el usuario quiera definir. Implementado originalmente para compilar C y C++, el diseño agnóstico de LLVM con respecto al lenguaje, y el éxito del proyecto han engendrado una amplia variedad de lenguajes, incluyendo Objective-C, Fortran, Ada, Haskell, bytecode de Java, Python, Ruby y otros.
+Por otro lado, LLVM es una infraestructura para desarrollar compiladores, escrita a su vez en el lenguaje de programaci\'on C++, que est\'a dise\~nada para optimizar el tiempo de compilaci\'on, el tiempo de enlazado, el tiempo de ejecuci\'on y el tiempo ocioso en cualquier lenguaje de programaci\'on que el usuario quiera definir. Implementado originalmente para compilar C y C++, el dise\~no agn\'ostico de LLVM con respecto al lenguaje, y el \'exito del proyecto han engendrado una amplia variedad de lenguajes, incluyendo Objective-C, Fortran, Ada, Haskell, bytecode de Java, Python, Ruby y otros.
 
-LLVM suministra las capas intermedias de un sistema de compilado completo, tomando el código en formato intermedio (IF, en sus siglas en inglés) de un compilador y emitiendo un IF optimizado. Este nuevo IF puede ser convertido y enlazado en un código ensamblador dependiente de la máquina concreta para una plataforma objetivo. LLVM puede aceptar el IF generado por la cadena de herramientas GCC, permitiendo así que sea utilizado con todos los lenguages que a su vez son aceptados por GCC. LLVM también puede generar código máquina relocalizable en el momento de compilación o de enlazado, o incluso código máquina binario en el momento de ejecución.
+LLVM suministra las capas intermedias de un sistema de compilado completo, tomando el c\'odigo en formato intermedio (IF, en sus siglas en ingl\'es) de un compilador y emitiendo un IF optimizado. Este nuevo IF puede ser convertido y enlazado en un c\'odigo ensamblador dependiente de la m\'aquina concreta para una plataforma objetivo. LLVM puede aceptar el IF generado por la cadena de herramientas GCC, permitiendo as\'i que sea utilizado con todos los lenguages que a su vez son aceptados por GCC. LLVM tambi\'en puede generar c\'odigo m\'aquina relocalizable en el momento de compilaci\'on o de enlazado, o incluso c\'odigo m\'aquina binario en el momento de ejecuci\'on.
 
 %-------------------------------------------------------------------
-\subsection{Verificación y Análisis}
+\subsection{Verificaci\'on y An\'alisis}
 %-------------------------------------------------------------------
 \label{ap2:sec:veryana}
 
-Actualmente el software es uno de los productos más requeridos en el mundo. Tal demanda de software implica procesos de desarrollo más intensos, exhaustivos y menos prestos a errores. Siendo la corrección de fallos la etapa en la que más recursos se invierten y en la que hay más interés por mejorar su eficiencia. 
+Actualmente el software es uno de los productos m\'as requeridos en el mundo. Tal demanda de software implica procesos de desarrollo m\'as intensos, exhaustivos y menos propensos a errores. Siendo la correcci\'on de fallos la etapa en la que m\'as recursos se invierten y en la que hay m\'as inter\'es por mejorar su eficiencia. 
 
-A día de hoy en el mercado existen paquetes de herramientas capaces de ofrecer a los desarrolladores detección de errores y estudios sobre la ejecución de sus programas. Existen varias maneras de verificar la correctitud de un programa.
+A d\'ia de hoy en el mercado existen paquetes de herramientas capaces de ofrecer a los desarrolladores detecci\'on de errores y estudios sobre la ejecuci\'on de sus programas. Existen varias maneras de verificar la correctitud de un programa.
 
 %-------------------------------------------------------------------
-\subsubsection*{Lógicas}
+\subsubsection*{L\'ogicas}
 %-------------------------------------------------------------------
 \label{ap2:sec:logicas}
 
@@ -74,24 +76,24 @@ A día de hoy en el mercado existen paquetes de herramientas capaces de ofrecer a
 %-------------------------------------------------------------------
 \label{ap2:sec:tipos}
 
-Asignar tipos de datos (tipificar) da significado a colecciones de bits. Los tipos de datos normalmente tienen asociaciones tanto con valores en la memoria o con objetos como con variables. Como cualquier valor simplemente consiste en un conjunto de bits de un ordenador, el hardware no hace distinción entre dirección de memoria, código de instrucción, caracteres, enteros y números en coma flotante. Los tipos de datos informan a los programas y programadores cómo deben ser tratados esos bits.
+Asignar tipos de datos (tipificar) da significado a colecciones de bits. Los tipos de datos normalmente tienen asociaciones tanto con valores en la memoria o con objetos como con variables. Como cualquier valor simplemente consiste en un conjunto de bits de un ordenador, el hardware no hace distinci\'on entre direcci\'on de memoria, c\'odigo de instrucci\'on, caracteres, enteros y n\'umeros en coma flotante. Los tipos de datos informan a los programas y programadores c\'omo deben ser tratados esos bits.
 
-Al proceso de verificar e imponer los límites impuestos por los tipos de datos, conocido como comprobación o checkeo de tipificación, puede ocurrir tanto en la compilación (comprobación estática) o en la ejecución (comprobación dinámica). La elección entre sistemas de tipificación dinámico y estático requiere algunas contraprestaciones:
+Al proceso de verificar e imponer los l\'imites impuestos por los tipos de datos, conocido como comprobaci\'on o checkeo de tipificaci\'on, puede ocurrir tanto en la compilaci\'on (comprobaci\'on est\'atica) o en la ejecuci\'on (comprobaci\'on din\'amica). La elecci\'on entre sistemas de tipificaci\'on din\'amico y est\'atico requiere algunas contraprestaciones:
 
 \begin{itemize}
-\item El tipado estático busca errores en los tipos de datos durante la compilación. Esto debería incrementar la fiabilidad de los programas procesados. Sin embargo, los programadores, normalmente, están en desacuerdo en cómo los errores de tipos de datos más comunes ocurren, y en qué proporción de estos errores que se han escrito podrían haberse cazado con un tipado estático.  Los defensores de los lenguajes fuertemente tipados han sugerido que casi todos los errores pueden ser considerados errores de los tipos de datos.
-\item El tipado dinámico permite a los compiladores e intérpretes ejecutarse más rápidamente, debido a que los cambios en el código fuente en los lenguajes dinámicamente tipados puede resultar en menores comprobaciones y menos código que revisar. Esto también reduce el ciclo editar-compilar-comprobar-depurar. El tipado dinámico típicamente hace que la metaprogramación sea más poderosa y fácil de usar.
+\item El tipado est\'atico busca errores en los tipos de datos durante la compilaci\'on. Esto deber\'ia incrementar la fiabilidad de los programas procesados. Sin embargo, los programadores, normalmente, est\'an en desacuerdo en c\'omo los errores de tipos de datos m\'as comunes ocurren, y en qu\'e proporci\'on de estos errores que se han escrito podr\'ian haberse cazado con un tipado est\'atico.  Los defensores de los lenguajes fuertemente tipados han sugerido que casi todos los errores pueden ser considerados errores de los tipos de datos.
+\item El tipado din\'amico permite a los compiladores e int\'erpretes ejecutarse m\'as r\'apidamente, debido a que los cambios en el c\'odigo fuente en los lenguajes din\'amicamente tipados puede resultar en menores comprobaciones y menos c\'odigo que revisar. Esto tambi\'en reduce el ciclo editar-compilar-comprobar-depurar. El tipado din\'amico t\'ipicamente hace que la metaprogramaci\'on sea m\'as poderosa y f\'acil de usar.
 \end{itemize}
 
 
 %-------------------------------------------------------------------
-\subsubsection*{Análisis estático}
+\subsubsection*{An\'alisis est\'atico}
 %-------------------------------------------------------------------
 \label{ap2:sec:analis}
 
-El análisis estático de software es un tipo de análisis que se realiza sin ejecutar el programa. En la mayoría de los casos se realiza sobre el código fuente y en otros casos se realiza sobre el código objeto.
+El an\'alisis est\'atico de software es un tipo de an\'alisis que se realiza sin ejecutar el programa. En la mayor\'ia de los casos se realiza sobre el c\'odigo fuente y en otros casos se realiza sobre el c\'odigo objeto.
 
-Dicho término se aplica a los análisis realizados por parte de una herramienta automática sobre el programa sin que este se ejecute. La industria ha reconocido los métodos de análisis estático como elementos clave a la hora de mejorar la calidad de programas complejos. Un uso comercial creciente del análisis estático es la verificación de las propiedades de software utilizadas en sistemas informáticos críticos para la seguridad y la localización de código vulnerable, pero también se incluyen una viariedad de métodos formales que verifican ciertas propiedades del programa. Por ejemplo, el uso de este tipo de análisis está muy extendido en los campos de la medicina, la aviación o la energía nuclear, donde no se pueden permitir errores ni riestos.
+Dicho t\'ermino se aplica a los an\'alisis realizados por parte de una herramienta autom\'atica sobre el programa sin que este se ejecute. La industria ha reconocido los m\'etodos de an\'alisis est\'atico como elementos clave a la hora de mejorar la calidad de programas complejos. Un uso comercial creciente del an\'alisis est\'atico es la verificaci\'on de las propiedades de software utilizadas en sistemas inform\'aticos cr\'iticos para la seguridad y la localizaci\'on de c\'odigo vulnerable, pero tambi\'en se incluyen una viariedad de m\'etodos formales que verifican ciertas propiedades del programa. Por ejemplo, el uso de este tipo de an\'alisis est\'a muy extendido en los campos de la medicina, la aviaci\'on o la energ\'ia nuclear, donde no se pueden permitir errores ni riesgos.
 
 
 %-------------------------------------------------------------------
@@ -99,24 +101,24 @@ Dicho término se aplica a los análisis realizados por parte de una herramienta a
 %-------------------------------------------------------------------
 \label{ap2:sec:modelchecking}
 
-La verificación de modelos (o Model checking) es un método automático de verificación de un sistema formal, en la mayoría de las ocasiones derivado del hardware o del software de un sistema informático. El sistema es descrito mediante un modelo, que debe satisfacer una especificación formal descrita mediante una fórmula, a menudo escrita en alguna variedad de lógica temporal.
+La verificaci\'on de modelos (o Model checking) es un m\'etodo autom\'atico de verificaci\'on de un sistema formal, en la mayor\'ia de las ocasiones derivado del hardware o del software de un sistema inform\'atico. El sistema es descrito mediante un modelo, que debe satisfacer una especificaci\'on formal descrita mediante una f\'ormula, a menudo escrita en alguna variedad de l\'ogica temporal.
 
-El modelo suele estar expresado como un sistema de transiciones, es decir, un grafo dirigido, que consta de un conjunto de vértices y arcos. Un conjunto de proposiciones atómicas se asocia a cada nodo. Así pues, los nodos representan los estados posibles de un sistema, los arcos posibles evoluciones del mismo, mediante ejecuciones permitidas, que alteran el estado, mientras que las proposiciones representan las propiedades básicas que se satisfacen en cada punto de la ejecución.
+El modelo suele estar expresado como un sistema de transiciones, es decir, un grafo dirigido, que consta de un conjunto de v\'ertices y arcos. Un conjunto de proposiciones at\'omicas se asocia a cada nodo. As\'i pues, los nodos representan los estados posibles de un sistema, los arcos posibles evoluciones del mismo, mediante ejecuciones permitidas, que alteran el estado, mientras que las proposiciones representan las propiedades b\'asicas que se satisfacen en cada punto de la ejecuci\'on.
 
-Formalmente, el problema se representa de la siguiente manera: Dada una propiedad deseada, expresada como una fórmula en lógica temporal p, y un modelo M con un estado inicial s.
+Formalmente, el problema se representa de la siguiente manera: Dada una propiedad deseada, expresada como una f\'ormula en l\'ogica temporal p, y un modelo M con un estado inicial s.
 
-Los inventores del método, Edmund M. Clarke, E. Allen Emerson y Joseph Sifakis, recibieron el Premio Turing 2007 de la ACM, en reconocimiento de su fundamental contribución al campo de las ciencias de la computación.
+Los inventores del m\'etodo, Edmund M. Clarke, E. Allen Emerson y Joseph Sifakis, recibieron el Premio Turing 2007 de la ACM, en reconocimiento de su fundamental contribuci\'on al campo de las ciencias de la computaci\'on.
 
 %-------------------------------------------------------------------
-\subsubsection*{Ejecución simbólica}
+\subsubsection*{Ejecuci\'on simb\'olica}
 %-------------------------------------------------------------------
 \label{ap2:sec:SE}
 
-La ejecución simbólica o evaluación simbólica es un modo de analizar programas para determinar qué entradas causan cada parte del programa a ejecutar. En este tipo de programas, un intérprete recorre el programa donde cada variable asume un valor simbólico acotado. Este recorrido dará como resultado expresiones en términos de dichos símbolos de expresiones y variables y las limitaciones en cuanto a los símbolos de los posibles resultados de cada rama condicional. 
+La ejecuci\'on simb\'olica o evaluaci\'on simb\'olica es un modo de analizar programas para determinar qu\'e entradas causan cada parte del programa a ejecutar. En este tipo de programas, un int\'erprete recorre el programa donde cada variable asume un valor simb\'olico acotado. Este recorrido dar\'a como resultado expresiones en t\'erminos de dichos s\'imbolos de expresiones y variables y las limitaciones en cuanto a los s\'imbolos de los posibles resultados de cada rama condicional. 
 
-Dicho recorrido nos permite determinar las condiciones que deben ser verificadas por los datos de ingreso para que un camino particular se ejecute, y la relación entre los valores ingresados y producidos en la ejecución de un programa. 
+Dicho recorrido nos permite determinar las condiciones que deben ser verificadas por los datos de ingreso para que un camino particular se ejecute, y la relaci\'on entre los valores ingresados y producidos en la ejecuci\'on de un programa. 
 
-Este procedicimiento aplicado al hardware recibe el nombre de simulación simbólica.
+Este procedicimiento aplicado al hardware recibe el nombre de simulaci\'on simb\'olica.
 
 
 %-------------------------------------------------------------------
@@ -124,190 +126,126 @@ Este procedicimiento aplicado al hardware recibe el nombre de simulación simbóli
 %-------------------------------------------------------------------
 \label{ap1:sec:testing}
 
-En relación con la sección anterior nacen las pruebas de software(o testing en inglés) son las investigaciones empíricas y técnicas cuyo objetivo es proporcionar información objetiva e independiente sobre la calidad del producto a la parte interesada.
+Paralelamente a las herramientas de verificaci\'on y an\'alisis nacen las pruebas de software(o testing en ingl\'es) son las investigaciones emp\'iricas y t\'ecnicas cuyo objetivo es proporcionar informaci\'on objetiva e independiente sobre la calidad del producto a la parte interesada.
 
-Estas pruebas se diferencian de las herramientas de verificación y análisis en que las pruebas garantizan la correctitud de los programas para esos test, pero es posible que dichos test no abarquen todas las posibilidades o ramas de ejecución de un programa, de tal modo que el programa podría no estar correcto para todas sus posibilidades como si garantiza la verificación y el análisis. A continuación detallamos algunas de estas herramientas de testing.
+Estas pruebas se diferencian de las herramientas de verificaci\'on y an\'alisis en que las pruebas garantizan la correctitud de los programas para esos test, pero es imposible que dichos test abarquen todas las posibilidades o ramas de ejecuci\'on de un programa, de tal modo que el programa podr\'ia no estar correcto para todas sus posibilidades como si garantiza la verificaci\'on y el an\'alisis. A continuaci\'on detallamos algunas de estas herramientas que ayudan a automatizar distintas fases del proceso de testing.
 
 %-------------------------------------------------------------------
 \subsubsection*{Frameworks xUnit}
 %-------------------------------------------------------------------
 \label{ap2:sec:xUnit}
 
-Durante su trabajo en los laboratorios de Xerox Park, Kent Beck desarrollo un framework para realizar test unitarios en el lenguaje de programación {\it Smalltalk} que estaba desarrollando. Dicho framework se llamaba sUnit. sUnit Permitía agrupar los tests en suites, el lanzamiento jerárquico de éstos y realizar para cada test la comparación entre el valor obtenido y el valor esperado para determinar la corrección de la funcionalidad testeada. Este framework ha sido llevado a una gran variedad de lenguajes de programación ({\it JUnit}, {\it XSLTUnit}, {\it PhpUnit}, {\it PyUnit}/ldots). xUnit es el nombre con el que se designa genéricamente a todos estos frameworks.
+Durante su trabajo en los laboratorios de Xerox Park, Kent Beck desarrollo un framework para realizar test unitarios en el lenguaje de programaci\'on {\it Smalltalk} que estaba desarrollando. Dicho framework se llamaba sUnit. sUnit Permit\'ia agrupar los tests en suites, el lanzamiento jer\'arquico de \'estos y realizar para cada test la comparaci\'on entre el valor obtenido y el valor esperado para determinar la correcci\'on de la funcionalidad testeada. Este framework ha sido llevado a una gran variedad de lenguajes de programaci\'on ({\it JUnit}, {\it XSLTUnit}, {\it PhpUnit}, {\it PyUnit}/ldots). xUnit es el nombre con el que se designa gen\'ericamente a todos estos frameworks.
 
-Una de las características de los tests xUnit es la expansión y el alto grado de utilización de esta herramienta por todo el mundo.
+Una de las caracter\'isticas de los tests xUnit es la expansi\'on y el alto grado de utilizaci\'on de esta herramienta por todo el mundo.
 
 
 
 %-------------------------------------------------------------------
-\subsubsection*{Generación de tests}
+\subsubsection*{Generaci\'on de tests}
 %-------------------------------------------------------------------
 \label{ap2:sec:test}
 
-El objetivo de las pruebas es presentar información sobre la calidad del producto a las personas responsables, por tanto la información requerida puede ser de lo más variada. Esto hace que el proceso de testing sea dependiente del contexto, no existen las {\it mejores pruebas}, toda prueba puede ser ideal para una situación o completamente inutil o perjudicial para otra. A continuación detallamos algunas de los diferentes enfoques para la generación de tests:
+El objetivo de las pruebas es presentar informaci\'on sobre la calidad del producto a las personas responsables, por tanto la informaci\'on requerida puede ser de lo m\'as variada. Esto hace que el proceso de testing sea dependiente del contexto, no existen las {\it mejores pruebas}, toda prueba puede ser ideal para una situaci\'on o completamente inutil o perjudicial para otra. A continuaci\'on detallamos algunas de los diferentes enfoques para la generaci\'on de tests:
 \begin{itemize}
-\item Pruebas de caja blanca (white-box). Estas pruebas se centran en los detalles procedimentales del software, por lo que su diseño está fuertemente ligado al código fuente. El testeador escoge distintos valores de entrada para examinar cada uno de los posibles flujos de ejecución y cerciorarse de que se devuelven los valores de salida adecuados. Puesto que están basados en una implementación concreta, si esta se modifica, normalmente también tendrán que rediseñarse las pruebas. A pesar de que este enfoque permite diseñar pruebas que cubran una amplia variedad de casos podría pasar por alto partes incompletas de la especificación o requisitos faltantes.
-\item Pruebas de caja negra (black-box). Estas pruebas se centran en el estudio de las entradas y las salidas generadas, independientemente de su funcionamiento interno, es decir, nos interesa su forma de interactuar entendiendo {\it qué es lo que hace} pero sin importarnos el {\it cómo lo hace}. Unas pruebas de test basadas en este sistema será más fácil de entender ya que permitirá dar una visión más clara del conjunto, el sistema también será más robusto y fácil de mantener, en caso de fallo este podrá ser aislado y abordado más ágilmente.
-\item Testing aleatorio o random. Buscando ampliar el ámbito de pruebas de unidad, se han aplicado diversas técnicas que van desde la automatización de pasos, hasta los enfoques de generación de objetos de manera aleatoria. En este caso concreteo, la generación de tests de forma aleatoria es un caso particular de las pruebas de caja negra, donde las pruebas se realizan con entradas generadas de manera aleatoria e independiente. Los resultados se comparan con las especificaciones del software en prueba para verificar si los resultados pasan el test o no.
+\item Pruebas de caja blanca (white-box). Estas pruebas se centran en los detalles procedimentales del software, por lo que su dise\~no est\'a fuertemente ligado al c\'odigo fuente. El testeador escoge distintos valores de entrada para examinar cada uno de los posibles flujos de ejecuci\'on y cerciorarse de que se devuelven los valores de salida adecuados. Puesto que est\'an basados en una implementaci\'on concreta, si esta se modifica, normalmente tambi\'en tendr\'an que redise\~narse las pruebas. A pesar de que este enfoque permite dise\~nar pruebas que cubran una amplia variedad de casos podr\'ia pasar por alto partes incompletas de la especificaci\'on o requisitos faltantes.
+\item Pruebas de caja negra (black-box). Estas pruebas se centran en el estudio de las entradas y las salidas generadas, independientemente de su funcionamiento interno, es decir, nos interesa su forma de interactuar entendiendo {\it qu\'e es lo que hace} pero sin importarnos el {\it c\'omo lo hace}. Unas pruebas de test basadas en este sistema ser\'a m\'as f\'acil de entender ya que permitir\'a dar una visi\'on m\'as clara del conjunto, el sistema tambi\'en ser\'a m\'as robusto y f\'acil de mantener, en caso de fallo este podr\'a ser aislado y abordado m\'as \'agilmente.
+\item Testing aleatorio o random. Buscando ampliar el \'ambito de pruebas de unidad, se han aplicado diversas t\'ecnicas que van desde la automatizaci\'on de pasos, hasta los enfoques de generaci\'on de objetos de manera aleatoria. En este caso concreteo, la generaci\'on de tests de forma aleatoria es un caso particular de las pruebas de caja negra, donde las pruebas se realizan con entradas generadas de manera aleatoria e independiente. Los resultados se comparan con las especificaciones del software en prueba para verificar si los resultados pasan el test o no.
 
 \end{itemize}
 
 %-------------------------------------------------------------------
-\subsection{Programación con restricciones}
+\subsection{Programaci\'on con restricciones}
 %-------------------------------------------------------------------
 \label{ap1:sec:CP}
 
-La programación con restricciones es un paradigma de la programación en informática, donde las relaciones entre las variables son expresadas en terminos de restricciones o ecuaciones. Este paradigma representa uno de los mayores desarrollos en los lenguajes de programación desde 1990 y ha sido identificada como una dirección estratégica en la investigación en computación.
+La programaci\'on con restricciones es un paradigma de la programaci\'on en inform\'atica, donde las relaciones entre las variables son expresadas en terminos de restricciones o ecuaciones. Este paradigma representa uno de los mayores desarrollos en los lenguajes de programaci\'on desde 1990 y ha sido identificada como una direcci\'on estrat\'egica en la investigaci\'on en computaci\'on.
 
-Se trata de un paradigma de programación basado en la especificación de un conjunto de restricciones las cuales deben ser satisfechas por cualquier solución del problema planteado, en lugar de especificar los pasos para obtener dicha solución. El enfoque de este tipo de programación se basa principalmente en especificar un estado en el cual una gran cantidad de restricciones sean satisfechas simultaneamente. Un problema se define típicamente como un estado de la realidad	en el cual existe un número de variables con valor desconocido. Un programa basado en restricciones busca dichos valores para todas las variables.
+Se trata de un paradigma de programaci\'on basado en la especificaci\'on de un conjunto de restricciones las cuales deben ser satisfechas por cualquier soluci\'on del problema planteado, en lugar de especificar los pasos para obtener dicha soluci\'on. El enfoque de este tipo de programaci\'on se basa principalmente en especificar un estado en el cual una gran cantidad de restricciones sean satisfechas simultaneamente. Un problema se define t\'ipicamente como un estado de la realidad	en el cual existe un n\'umero de variables con valor desconocido. Un programa basado en restricciones busca dichos valores para todas las variables.
 
-La programación con restricciones se relaciona mucho con la programación lógica, de hecho cualquier programa lógico puede ser traducido a un programa con restricciones y viceversa, en muchas ocasiones los programas lógicos son traducidos a programas con restricciones puesto que la solución es mucho más eficiente. 
+La programaci\'on con restricciones se relaciona mucho con la programaci\'on l\'ogica, de hecho cualquier programa l\'ogico puede ser traducido a un programa con restricciones y viceversa, en muchas ocasiones los programas l\'ogicos son traducidos a programas con restricciones puesto que la soluci\'on es mucho m\'as eficiente. 
 
-Los lenguajes de programación con restricciones son típicamente ampliaciones de otro lenguaje. El primer lenguaje utilizado a tal efecto fue Prolog. Por esta razón este campo fue llamado inicialmente Programación Lógica con Restricciones.
+Los lenguajes de programaci\'on con restricciones son t\'ipicamente ampliaciones de otro lenguaje. El primer lenguaje utilizado a tal efecto fue Prolog. Por esta raz\'on este campo fue llamado inicialmente Programaci\'on L\'ogica con Restricciones.
 
-La programación lógica con restricciones es un caso particular de la programación con restricciones, en el cual la programación lógica se extiende para incluir conceptos de la programación con restricciones. Por tanto, un programa lógico con restricciones es un programa lógico que contiene restricciones en el cuerpo de sus claúsulas. Por ejemplo, la claúsula {\it A(X,Y) :- X+Y>0, B(X), C(Y)} es un ejemplo de una cláusula con restricciones donde {\it X+Y>0} es la restriccion y {\it B(X), C(Y)} son literales al igual que en programación lógica.
+La programaci\'on l\'ogica con restricciones es un caso particular de la programaci\'on con restricciones, en el cual la programaci\'on l\'ogica se extiende para incluir conceptos de la programaci\'on con restricciones. Por tanto, un programa l\'ogico con restricciones es un programa l\'ogico que contiene restricciones en el cuerpo de sus cla\'usulas. Por ejemplo, la cla\'usula {\it A(X,Y) :- X+Y>0, B(X), C(Y)} es un ejemplo de una cl\'ausula con restricciones donde {\it X+Y>0} es la restriccion y {\it B(X), C(Y)} son literales al igual que en programaci\'on l\'ogica.
 
-Al igual que en la programación lógica, los programas se ejecutan buscando demostrar un objetivo que puede contener restricciones además de los literales. Una prueba para un objetivo se compone de claúsulas cuyos cuerpos satisfacen las restricciones y literales que se pueden probar usando otras claúsulas. La ejecución se realiza a través de un intérprete, que empieza desde un objetivo y recursivamente escanea el resto de claúsulas para probar el objetivo.
-
-%-------------------------------------------------------------------
-%\subsubsection{Revisiones (Software Reviews)}
-%-------------------------------------------------------------------
-%\label{ap1:sec:revisiones}
-
-%Hechas por personas, por lo general involucradas en el proceso de desarrollo, expertas en la materia. Son reuniones en las que los revisores analizan el código y lo estudian en grupo con el objetivo de encontrar errores. Existen protocolos estandarizados por la asociación IEEE que rigen el orden de estas revisiones. Dependiendo de los conductores del análisis y del objetivo de este, cambia la denominación de la revisión.
-
-%-------------------------------------------------------------------
-%\subsubsection*{Peer Review}
-%-------------------------------------------------------------------
-%\label{ap1:peer}
-
-%Realizada por el propio autor del código o un compañero y su objetivo es evaluar el contenido técnico y la calidad del software.
-
-%-------------------------------------------------------------------
-%\subsubsection*{Management Reviews}
-%-------------------------------------------------------------------
-%\label{ap2:management}
-
-%Cuentan con la asistencia de los directivos o superiores, el objetivo es comprobar el trabajo realizado y sopesar el trabajo futuro.
-
-%-------------------------------------------------------------------
-%\subsubsection*{Audit Reviews}
-%-------------------------------------------------------------------
-%\label{ap2:audit}
-
-%La realiza personal externo al proyecto y busca irregularidades en cuanto a las especificaciones, estándares o acuerdos empresariales.
-
-%-------------------------------------------------------------------
-%\subsubsection{Análisis dinámico}
-%-------------------------------------------------------------------
-%\label{ap1:sec:dinamico}
-
-%Supone la ejecución del programa y observar su comportamiento. Para que el anáilisis sea efectivo de debe realizar con los suficientes casos de prueba. 
-%Estos casos de prueba representan los comportamientos que se esperan del programa en distintas condiciones de ejecución. Para asegurar la efectividad de las pruebas se pueden usar distintas técnicas como estudiar la cobertura del código (comprobar que en diferentes ejecuciones de un programa se pasa por todas las instruccciones al menos una vez) o el uso de programas fuzzers que ayudan a asegurar que una porción adecuada del conjunto de posibles comportamientos del programa ha sido observada.
-
-%-------------------------------------------------------------------
-%\subsubsection*{Verificacion de modelos(Model cheking)}
-%-------------------------------------------------------------------
-%\label{ap1:verificacion}
-
-%Método en el cual el programa y su especificación se expresan matemáticamente con el objetivo de verivicar su correctitud.
-
-%-------------------------------------------------------------------
-%\subsubsection*{Lógica de Hoare}
-%-------------------------------------------------------------------
-%\label{ap1:hoare}
-
-%Se emplea un sistema con un conjunto de reglas lógicas con las que razonar rigurosamente la correctitud del programa.
-
-%-------------------------------------------------------------------
-%\subsubsection*{Análisis del flujo de datos}
-%-------------------------------------------------------------------
-%\label{ap2:flujo}
-
-%Es una técnica en la que se recoge información acerca del conjunto de posibles valores calculados en distintos puntos del programa. Se utiliza para estudiar a que partes del programa se podría propagar un valor en particular asginado a una variable. 
-
-%-------------------------------------------------------------------
-%\subsubsection*{Interpretación abstracta}
-%-------------------------------------------------------------------
-%\label{ap3:abstracta}
-
-%Es un método que modela el efecto de las instrucciones del programa en la máquina mediante una ``ejecución'' basada en las propiedades matemáticas de cada instrucción. La máquina sobre la que ésta se lleva a cabo es una representación simplificada de la máquina verdadera. Esta máquina abstracta aproxima el comportamiento del sistema haciéndolo más fácil de analizar.
+Al igual que en la programaci\'on l\'ogica, los programas se ejecutan buscando demostrar un objetivo que puede contener restricciones adem\'as de los literales. Una prueba para un objetivo se compone de cla\'usulas cuyos cuerpos satisfacen las restricciones y literales que se pueden probar usando otras cla\'usulas. La ejecuci\'on se realiza a trav\'es de un int\'erprete, que empieza desde un objetivo y recursivamente escanea el resto de cla\'usulas para probar el objetivo.
 
 %-------------------------------------------------------------------
 \subsection{Trabajos relacionados}
 %-------------------------------------------------------------------
 \label{ap2:sec:trabajos}
 
-Como hemos mencionado anteriormente la ejecución simbólica, no es algo nuevo y ha adquirido protagonismo en los últimos años. Es por esto que podemos encontrar varios proyectos orientados al testing de diversos estilos, aquí describimos algunos de ellos para contextualizar nuestro proyecto.
+Como hemos mencionado anteriormente, la ejecuci\'on simb\'olica no es algo nuevo y ha adquirido protagonismo en los \'ultimos a\~nos. Es por esto que podemos encontrar varios proyectos orientados al testing de diversos estilos, aqu\'i describimos algunos de ellos para contextualizar nuestro proyecto.
 
 %-------------------------------------------------------------------
 \subsubsection{PEX}
 %-------------------------------------------------------------------
 \label{ap25:sec:pex}
 
-PEX es una herramienta desarrollada por Microsoft par a la generación automática de casos de prueba. Esta herramienta genera entradas de test para programas .NET, por tanto puede analizar cualquier programa que se ejecute en una máquina virtual .NET y soporta lenguajes como C\#, Visual Basic y F\#.
+PEX es una herramienta desarrollada por Microsoft para la generaci\'on autom\'atica de casos de prueba. Esta herramienta genera entradas de test para programas .NET, por tanto puede analizar cualquier programa que se ejecute en una m\'aquina virtual .NET y soporta lenguajes como C\#, Visual Basic y F\#.
 
-El enfoque de PEX se caracteriza por implementar la ejecución dinámica simbólica, pero también permite el uso de ejecucución concreta de valores para simplificar las restricciones, las cuales serían resuletas por el resolutor SMT. Por tanto, mediante un proceso iterativo, PEX realiza una ejecución concreta del método a analizar y examina la traza de ejecución buscando ramas no exploradas. Una vez ha encontrado una rama no explorada, usa la ejecu-ción simbólica y un sistema resolutor de restricciones para generar valores concretos que exploren dicha rama. Este proceso se repite hasta obtener el recubrimiento deseado.
+El enfoque de PEX se caracteriza por implementar la ejecuci\'on din\'amica simb\'olica, pero tambi\'en permite el uso de ejecucuci\'on concreta de valores para simplificar las restricciones, las cuales ser\'ian resuletas por el resolutor SMT. Por tanto, mediante un proceso iterativo, PEX realiza una ejecuci\'on concreta del m\'etodo a analizar y examina la traza de ejecuci\'on buscando ramas no exploradas. Una vez ha encontrado una rama no explorada, usa la ejecu-ci\'on simb\'olica y un sistema resolutor de restricciones para generar valores concretos que exploren dicha rama. Este proceso se repite hasta obtener el recubrimiento deseado.
 
-El hecho de combinar la ejecución simbólica con la concreta permite en muchos casos incrementar la escalabilidad y tratar con situaciones donde la ejecución no depende sólo del código sino de factores externos. Se entiende por factores externos el uso de librerías nativas, llamadas al sistema operativo o interacciones con el usuario. Ante este tipo de situaciones, la ejecución simbólica presenta grandes limitaciones y en general, no se puede aplicar.
+El hecho de combinar la ejecuci\'on simb\'olica con la concreta permite en muchos casos incrementar la escalabilidad y tratar con situaciones donde la ejecuci\'on no depende s\'olo del c\'odigo sino de factores externos. Se entiende por factores externos el uso de librer\'ias nativas, llamadas al sistema operativo o interacciones con el usuario. Ante este tipo de situaciones, la ejecuci\'on simb\'olica presenta grandes limitaciones y en general, no se puede aplicar.
 
-Esta herramienta se puede integrar en el entorno de desarrollo de Visual Studio facilitando su uso como un añadido (Add\-on).
+Esta herramienta se puede integrar en el entorno de desarrollo de Visual Studio facilitando su uso como un a\~nadido (Add\-on).
 
-Como proyecto interesante relacionado con PEX existe el juego Code Hunt también desarrollado por Microsoft. En este juego el jugador debe escribir código para avanzar en el juego. La relacióncon PEX es que lo que se muestra al jugador son las entradas y salidas, y mediante ejecución simbólica se evaluará el código escrito y de este modo poder avanzar.
+Como proyecto interesante relacionado con PEX existe el juego Code Hunt tambi\'en desarrollado por Microsoft. En este juego el jugador debe escribir c\'odigo para avanzar en el juego. La relaci\'oncon PEX es que lo que se muestra al jugador son las entradas y salidas, y mediante ejecuci\'on simb\'olica se evaluar\'a el c\'odigo escrito y de este modo poder avanzar.
 
 %-------------------------------------------------------------------
 \subsubsection{PET}
 %-------------------------------------------------------------------
 \label{ap25:sec:pet}
 
-PET (Partial Evaluation-based Test Case Generator for Bytecode) es una herramienta cuyo propósito es generar casos de prueba de forma automática para programas escritos en bytecode (código de bytes de Java). PET adopta el enfoque previamente comentado, esto es, ejecuta el bytecode simbólicamente y devuelve como salida un conjunto de casos de prueba (test-cases). Cada caso de prueba está asociado a una rama del árbol y se expresa como un conjunto de restricciones sobre los valores de entrada y una descripción de los contenidos de la memoria dinámica (o heap).
+PET (Partial Evaluation-based Test Case Generator for Bytecode) es una herramienta cuyo prop\'osito es generar casos de prueba de forma autom\'atica para programas escritos en bytecode (c\'odigo de bytes) de Java. PET adopta el enfoque previamente comentado, esto es, ejecuta el bytecode simb\'olicamente y devuelve como salida un conjunto de casos de prueba (test-cases). Cada caso de prueba est\'a asociado a una rama del \'arbol y se expresa como un conjunto de restricciones sobre los valores de entrada y una descripci\'on de los contenidos de la memoria din\'amica (o heap).
 
-Las restricciones de la memoria dinámica imponen condiciones sobre la forma y contenidos de las estructuras de datos del programa alojadas en esta misma. PET utiliza de un resolutor de restricciones que genera valores concretos a partir de estas restricciones, permitiendo la construcción de los
+Las restricciones de la memoria din\'amica imponen condiciones sobre la forma y contenidos de las estructuras de datos del programa alojadas en esta misma. PET utiliza de un resolutor de restricciones que genera valores concretos a partir de estas restricciones, permitiendo la construcci\'on de los
 tests propiamente dichos.
 
-PET puede usarse a través de una interfaz de línea de comandos o bien usando una interfaz web. Además soporta una variedad de opciones interesantes, como la elección de criterios de recubrimiento o la generación de tests jUnit. Estas opciones se describen con más detalle en el segundo capítulo.
+PET puede usarse a trav\'es de una interfaz de l\'inea de comandos o bien usando una interfaz web. Adem\'as soporta una variedad de opciones interesantes, como la elecci\'on de criterios de recubrimiento o la generaci\'on de tests jUnit. Estas opciones se describen con m\'as detalle en el segundo cap\'itulo.
 
 %-------------------------------------------------------------------
 \subsubsection{jSYX}
 %-------------------------------------------------------------------
 \label{ap25:sec:jsyx}
 
-jSYX es un proyecto desarrollado el curso pasado como trabajo de Sistemas Informáticos. Este proyecto se basa en una máquina virtual de Java que permite la ejecución simbólica de archivos .class de Java, de este modo puede ser utilizado para el desarrollo automático de Tests. 
+jSYX es un proyecto desarrollado el curso pasado como trabajo de Sistemas Inform\'aticos. Este proyecto se basa en una m\'aquina virtual de Java que permite la ejecuci\'on simb\'olica de archivos .class de Java, de este modo puede ser utilizado para el desarrollo autom\'atico de Tests. 
 
-El enfoque de jSYX es el uso de del Bytecode de Java como lenguaje de ejecución. Esta herramienta permite la ejecución recibiendo como parámetros una clase y su método, y de este modo permite la ejecución simbólicamente o de manera concreta. Por otra lado se podrá obtener información sobre el bytecode del archivo .class.
+El enfoque de jSYX es el uso de del Bytecode de Java como lenguaje de ejecuci\'on. Esta herramienta permite la ejecuci\'on recibiendo como par\'ametros una clase y su m\'etodo, y de este modo permite la ejecuci\'on simb\'olicamente o de manera concreta. Por otra lado se podr\'a obtener informaci\'on sobre el bytecode del archivo .class.
 
 %-------------------------------------------------------------------
 \subsubsection{jPET}
 %-------------------------------------------------------------------
 \label{ap25:sec:jpet}
 
-Al igual que el detallado en la sección anterior, jPET también se trata de un proyecto de Sistemas Informáticos, en este caso desarrollado durante el curso 2010/2011. Este proyecto se basa en PET, la herramienta detallada anteriormente, y es una extensión de dicha herramienta para poder utilizarse en programas Java de alto nivel e integrarse en Eclipse, con el objetivo de poder usar los resultados obtenidos por PET durante el proceso de desarrollo de software.
+Al igual que el detallado en la secci\'on anterior, jPET tambi\'en se trata de un proyecto de Sistemas Inform\'aticos, en este caso desarrollado durante el curso 2010/2011. Este proyecto se basa en PET, la herramienta detallada anteriormente, y es una extensi\'on de dicha herramienta para poder utilizarse en programas Java de alto nivel e integrarse en Eclipse, con el objetivo de poder usar los resultados obtenidos por PET durante el proceso de desarrollo de software.
 
-El enfoque de jPET es el tratamiento de la información generada por PET con el objetivo de presentarla al usuario de una manera más fácil, sencilla e intuitiva. Es por esto que incorpora un visor de casos de prueba para mostrar el contenido de memoria antes y después de la ejecución, una herramienta de depuración, para ver los resultados mostrando la secuencia de instrucciones que el caso de prueba ejecutaría, y es capaz de analizar sintácticamente precondiciones de métodos para evitar la generación de casos de prueba poco interesantes.
+El enfoque de jPET es el tratamiento de la informaci\'on generada por PET con el objetivo de presentarla al usuario de una manera m\'as f\'acil, sencilla e intuitiva. Es por esto que incorpora un visor de casos de prueba para mostrar el contenido de memoria antes y despu\'es de la ejecuci\'on, una herramienta de depuraci\'on, para ver los resultados mostrando la secuencia de instrucciones que el caso de prueba ejecutar\'ia, y es capaz de analizar sint\'acticamente precondiciones de m\'etodos para evitar la generaci\'on de casos de prueba poco interesantes.
 
 
 %-------------------------------------------------------------------
-\section{Objetivos}
+\section{Objetivos, la herramienta SymC++}
 %-------------------------------------------------------------------
 \label{cap1:sec:objetivos}
 
-En este proyecto se estudiará y desarrollará una herramienta de ``depuración simbólica'' que permitirá estudiar el funcionamiento de programas informáticos sin ser ejecutados, a base de observar todas sus posibles ramas de ejecución (hasta un cierto nivel) así como los correspondientes pares entrada-salida. Dicha herramienta podría ayudar enormemente a los estudiantes de iniciación a la programación, y en general a programadores inexpertos, a la hora de razonar acerca de la corrección de sus programas.
+En este proyecto se estudiar\'a y desarrollar\'a una herramienta de ``depuraci\'on simb\'olica'' que permitir\'a estudiar el funcionamiento de programas inform\'aticos sin ser ejecutados, a base de observar todas sus posibles ramas de ejecuci\'on (hasta un cierto nivel) as\'i como los correspondientes pares entrada-salida. Dicha herramienta podr\'ia ayudar enormemente a los estudiantes de iniciaci\'on a la programaci\'on, y en general a programadores inexpertos, a la hora de razonar acerca de la correcci\'on de sus programas.
 
-Sólo se utilizará como forma de comprobación, no como solucionador de errores ni sintácticos ni semánticos, es decir, no realiza la función de compilador; mostrará los resultados de ciertas posibles entradas para comprobar si ésa es la solución que esperabas, de no ser así, el alumno sabrá que el código estará mal planteado. Los alumnos que están empezando a programar en C++ saben si su programa compila gracias al entorno que estén utilizando pero les es más difícil de comprobar si su programa está correcto sin la ayuda de una interfaz o de algún medio para eso. Ahí es donde entra nuestra herramienta.
+S\'olo se utilizar\'a como forma de comprobaci\'on, no como solucionador de errores ni sint\'acticos ni sem\'anticos, es decir, no realiza la funci\'on de compilador; mostrar\'a los resultados de ciertas posibles entradas para comprobar si \'esa es la soluci\'on que esperabas, de no ser as\'i, el alumno sabr\'a que el c\'odigo estar\'a mal planteado. Los alumnos que est\'an empezando a programar en C++ saben si su programa compila gracias al entorno que est\'en utilizando pero les es m\'as dif\'icil de comprobar si su programa est\'a correcto sin la ayuda de una interfaz o de alg\'un medio para eso. Ah\'i es donde entra nuestra herramienta.
 
-La herramienta contará con una interfaz de usuario, proporcionando varias ventajas adicionales: el alumno podrá ver y actualizar cómodamente, en todo momento, el código que desee probar, podrá tanto escribir un código desde cero como importar un código ya creado, por otro lado, la herramienta marcará el recorrido que se ha realizado de forma que el alumno podrá corregir posibles errores más rápidamente, por ejemplo, al encontrar un recorrido que no era el deseado.
+La herramienta contar\'a con una interfaz de usuario, proporcionando varias ventajas adicionales: el alumno podr\'a ver y actualizar c\'omodamente, en todo momento, el c\'odigo que desee probar, podr\'a tanto escribir un c\'odigo desde cero como importar un c\'odigo ya creado, por otro lado, la herramienta marcar\'a el recorrido que se ha realizado de forma que el alumno podr\'a corregir posibles errores m\'as r\'apidamente, por ejemplo, al encontrar un recorrido que no era el deseado.
 
-Para ilustrar mejor el funcionamiento de nuestra herramienta detallamos aquí un pequeño ejemplo para una función cuya estructura es un pequeño decodificador:
+Para ilustrar mejor el funcionamiento de nuestra herramienta detallamos aqu\'i un peque\~no ejemplo para una funci\'on cuya estructura es un peque\~no decodificador:
 
-\lstinputlisting[caption=Código de ejemplo, style=customcpp]{Codigos/codigoEjemplo.cpp}
+\lstinputlisting[caption=C\'odigo de ejemplo, style=customcpp]{Codigos/codigoEjemplo.cpp}
 
-La ejecución de este programa en nuestra herramienta generaría la siguiente tabla de resultados:
+La ejecuci\'on de este programa en nuestra herramienta generar\'ia la siguiente tabla de resultados:
 
 \begin{table}
 \begin{center}
 \begin{tabular}{| l | l | l | l ||}
 \hline
-nº & Variable y valor & Traza \\
+nÂº & Variable y valor & Traza \\
 \hline
 1 & a=1 b=1 return=0 & 1,2,3 \\
 \hline
@@ -319,28 +257,25 @@ nº & Variable y valor & Traza \\
 \hline
 \end{tabular}
 \end{center}
-\caption{Tabla de resultados para el código ejemplo}
+\caption{Tabla de resultados para el c\'odigo ejemplo}
 \end{table}
 
-Lo que significaría que para el primer resultado, las entradas valen en este caso {\it 1, 1} haciendo referencia a que son valores mayores que 0, y el valor del return es el valor de salida, y los números que indican la traza son los números de las líneas que se han recorrido del programa para esta solución.
+Lo que significar\'ia que para el primer resultado, las entradas valen en este caso {\it 1, 1} haciendo referencia a que son valores mayores que 0, y el valor del return es el valor de salida, y los n\'umeros que indican la traza son los n\'umeros de las l\'ineas que se han recorrido del programa para esta soluci\'on.
 
-%-------------------------------------------------------------------
-\section{SymC++, una breve introducción}
-%-------------------------------------------------------------------
-\label{cap1:sec:symc++}
+La herramienta que hemos desarrollado la hemos denominado {\it SymC++} por su relaci\'on con la ejecuci\'on simb\'olica y por estar desarrollada pensando en el lenguaje de programaci\'on C++.
 
-Para poder obtener estos resultados, la herramienta hará uso de tres componentes principales, cuyo ciclo de ejecución será el detallado en la siguiente figura:
+Dicha herramienta har\'a uso de tres componentes principales, cuyo ciclo de ejecuci\'on detallamos en la siguiente figura:
 
 \figura{Vectorial/esquemaEjecucion}{width=.9\textwidth}{fig:esquemaEjecucion}%
-{Figura que muestra el ciclo de ejecución de nuestra herramienta.}
+{Figura que muestra el ciclo de ejecuci\'on de nuestra herramienta.}
 
-Por tanto como hemos nombrado en el parrafo anterior la herramienta consta de tres partes diferenciadas, una herramienta desarrollada a través de Clang para obtener el arbol de sintaxis anotado con la información que nos interesa, a esta herramienta la hemos llamado ast2xmltool, la cual detallamos en el siguiente capítulo. La parte central del proyecto, es decir, el intérprete prolog que se encarga de obtener la traza de ejecución para la diferentes ramas del programa a través de sus entradas y salidas, esta parte la detallaremos en el tercer capítulo. Y por último, la herramienta que funciona como enlace entre las dos partes nombradas anteriormente y el usuario, la cual hemos denominado SymC++ y la detallaremos en el cuarto capítulo de esta memoria.
+Por tanto como hemos nombrado en la secci\'on anterior la herramienta consta de tres partes diferenciadas, una herramienta desarrollada a trav\'es de Clang para obtener el arbol de sintaxis anotado con la informaci\'on que nos interesa, a esta herramienta la hemos llamado ast2xmltool, la cual detallamos en el siguiente cap\'itulo. La parte central del proyecto, es decir, el int\'erprete prolog que se encarga de obtener las posibles soluciones para cada una de las ramas del programa, as\'i como la traza de ejecuci\'on a trav\'es de sus entradas y salidas, esta parte la detallaremos en el tercer cap\'itulo. Y por \'ultimo, la herramienta que funciona como enlace entre las dos partes nombradas anteriormente y el usuario, la cual hemos denominado SymC++ y la detallaremos en el cuarto cap\'itulo de esta memoria.
 
 
 
-%Muchas veces, para ayudarnos en la búsqueda de posibles fallos, es aconsejable programar en módulos, es decir, utilizando subprogramas para encapsular el código mejor. Con nuestra herramienta podrás elegir el nombre de la función que quieres probar aunque haya muchas funciones escritas, esto es útil ya que podrás ir comprobando sólo las que quieras sin tener que cambiar el código.
+%Muchas veces, para ayudarnos en la b\'usqueda de posibles fallos, es aconsejable programar en m\'odulos, es decir, utilizando subprogramas para encapsular el c\'odigo mejor. Con nuestra herramienta podr\'as elegir el nombre de la funci\'on que quieres probar aunque haya muchas funciones escritas, esto es \'util ya que podr\'as ir comprobando s\'olo las que quieras sin tener que cambiar el c\'odigo.
 
-%Este proyecto es muy ambicioso y posee una gran envergadura que supera las posibilidades de un proyecto de fin de carrera para ser abordado desde cero. Es por esto que nosotros, durante el desarrollo de este proyecto planteamos una herramienta que debe ser continuada en cursos posteriores para poder acaparar todas la sintaxis de C++ y para que pueda ser considerada una herramienta de depuración completa.
+%Este proyecto es muy ambicioso y posee una gran envergadura que supera las posibilidades de un proyecto de fin de carrera para ser abordado desde cero. Es por esto que nosotros, durante el desarrollo de este proyecto planteamos una herramienta que debe ser continuada en cursos posteriores para poder acaparar todas la sintaxis de C++ y para que pueda ser considerada una herramienta de depuraci\'on completa.
 
 %-------------------------------------------------------------------
 %\section*{\ProximoCapitulo}
@@ -350,7 +285,7 @@ Por tanto como hemos nombrado en el parrafo anterior la herramienta consta de tr
 %...
 
 % Variable local para emacs, para  que encuentre el fichero maestro de
-% compilación y funcionen mejor algunas teclas rápidas de AucTeX
+% compilaci\'on y funcionen mejor algunas teclas r\'apidas de AucTeX
 %%%
 %%% Local Variables:
 %%% mode: latex
