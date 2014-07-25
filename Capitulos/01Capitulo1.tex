@@ -212,7 +212,7 @@ El enfoque de jPET es el tratamiento de la informaci\'on generada por PET con el
 
 En este proyecto se estudiar\'a y desarrollar\'a una herramienta de ``depuraci\'on simb\'olica'' que permitir\'a estudiar el funcionamiento de programas inform\'aticos sin ser ejecutados, a base de observar todas sus posibles ramas de ejecuci\'on (hasta un cierto nivel) as\'i como los correspondientes pares entrada-salida. Dicha herramienta podr\'ia ayudar enormemente a los estudiantes de iniciaci\'on a la programaci\'on, y en general a programadores inexpertos, a la hora de razonar acerca de la correcci\'on de sus programas.
 
-S\'olo se utilizar\'a como forma de comprobaci\'on, no como solucionador de errores ni sint\'acticos ni sem\'anticos, es decir, no realiza la funci\'on de compilador; mostrar\'a los resultados de ciertas posibles entradas para comprobar si \'esa es la soluci\'on que esperabas, de no ser as\'i, el alumno sabr\'a que el c\'odigo estar\'a mal planteado. Los alumnos que est\'an empezando a programar en C++ saben si su programa compila gracias al entorno que est\'en utilizando pero les es m\'as dif\'icil de comprobar si su programa est\'a correcto sin la ayuda de una interfaz o de alg\'un medio para eso. Ah\'i es donde entra nuestra herramienta.
+S\'olo se utilizar\'a como forma de comprobaci\'on, no como solucionador de errores ni sint\'acticos ni sem\'anticos, es decir, no realiza la funci\'on de compilador; mostrar\'a los resultados de la ejecuci\'on para ciertas posibles entradas para comprobar si \'esa es la soluci\'on que esperabas, de no ser as\'i, el alumno sabr\'a que el c\'odigo estar\'a mal planteado. Los alumnos que est\'an empezando a programar en C++ saben si su programa compila gracias al entorno que est\'en utilizando pero les es m\'as dif\'icil de comprobar si su programa est\'a correcto sin la ayuda de una interfaz o de alg\'una otra herramienta. Ah\'i es donde entra nuestra herramienta.
 
 La herramienta contar\'a con una interfaz de usuario, proporcionando varias ventajas adicionales: el alumno podr\'a ver y actualizar c\'omodamente, en todo momento, el c\'odigo que desee probar, podr\'a tanto escribir un c\'odigo desde cero como importar un c\'odigo ya creado, por otro lado, la herramienta marcar\'a el recorrido que se ha realizado de forma que el alumno podr\'a corregir posibles errores m\'as r\'apidamente, por ejemplo, al encontrar un recorrido que no era el deseado.
 
@@ -220,7 +220,7 @@ Para ilustrar mejor el funcionamiento de nuestra herramienta detallamos aqu\'i u
 
 \lstinputlisting[caption=C\'odigo de ejemplo, style=customcpp]{Codigos/codigoEjemplo.cpp}
 
-La ejecuci\'on de este programa en nuestra herramienta generar\'ia la siguiente tabla de resultados:
+La ejecuci\'on del programa mostrado en el c\'odigo anterior en nuestra herramienta generar\'ia la siguiente tabla de resultados:
 
 \begin{table}[h]
 \begin{center}
@@ -241,9 +241,9 @@ nº & Variable y valor & Traza \\
 \caption{Tabla de resultados para el c\'odigo ejemplo}
 \end{table}
 
-Lo que significar\'ia que para el primer resultado, las entradas valen en este caso {\it 1, 1} haciendo referencia a que son valores mayores que 0, y el valor del return es el valor de salida, y los n\'umeros que indican la traza son los n\'umeros de las l\'ineas que se han recorrido del programa para esta soluci\'on.
+Esta tabla de resultados muestra en la primera columna el n\'umero correspondiente a la soluci\'on, en la segunda columna se muestra el valor de las variables de la soluci\'on, las cuales hacen referenciaa las variables de entrada de la funci\'on y la variable de salida o return, y en la tercera columna se muestra la traza de ejecuci\'on, o lo que es lo mismo, los n\'umeros de l\'inea que ha recorrido el programa para llegar a dicha soluci\'on. Por tanto, para el primer resultado, las entradas valen en este caso {\it ``1, 1''} haciendo referencia a que son valores mayores que 0, y el valor del return es el valor de salida, por otro lado los n\'umeros que indican la traza son los n\'umeros de las l\'ineas que se han recorrido del programa para esta soluci\'on, en este caso {\it ``1, 2, 3''}, y así sucesivamente para lo otros tres resultados.
 
-La herramienta que hemos desarrollado la hemos denominado {\it SymC++} por su relaci\'on con la ejecuci\'on simb\'olica y por estar desarrollada pensando en el lenguaje de programaci\'on C++.
+Para llegar a esta soluci\'on, hemos desarrollado la herramienta denominada {\it SymC++}, el nombre surge de la relaci\'on con la ejecuci\'on simb\'olica y por estar desarrollada pensando en el lenguaje de programaci\'on C++.
 
 Dicha herramienta har\'a uso de tres componentes principales, cuyo ciclo de ejecuci\'on detallamos en la siguiente figura:
 
