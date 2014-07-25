@@ -9,7 +9,6 @@
 %-------------------------------------------------------------------
 \section{Motivaci\'on de la propuesta}
 %-------------------------------------------------------------------
-\label{cap1:sec:motivacion}
 
 El proyecto nace de la idea y necesidad de utilizar una herramienta \'util para los estudiantes de iniciaci\'on a la programaci\'on. El problema al que se enfrentan los estudiantes cuando los ejercicios a resolver crecen en complejidad, los programas tambi\'en y normalmente no se comportan como deben para todos los casos. Escribir programas totalmente correctos requiere el uso de una serie de metodolog\'ias que en general resultan muy complejas para los estudiantes en los primeros cursos. La mayor\'ia de ellos siguen una mec\'anica de prueba-error, es decir, escriben los programas sin pararse a pensar demasiado acerca de su correcci\'on, y luego los prueban para ver si se comportan como esperan. Estas pruebas normalmente no son lo suficientemente exhaustivas y por lo tanto los estudiantes no son ni siquiera conscientes de las incorrecciones de sus programas. Desgraciadamente, los mecanismos y herramientas que ayudan en el testing y depuraci\'on de programas son en general demasiado avanzados, como para poder ser utilizados por programadores inexpertos.
 
@@ -20,14 +19,12 @@ En este caso concreto, la herramienta est\'a desarrollada para el lenguaje de C+
 %-------------------------------------------------------------------
 \section{Estado del arte y trabajos relacionados}
 %-------------------------------------------------------------------
-\label{cap1:sec:estytra}
 
 En esta secci\'on se presentan los recursos y herramientas software disponibles que se han planteado como opciones a tener en cuenta a la hora de obtener apoyo en la realizaci\'on de nuestro proyecto.
 
 %-------------------------------------------------------------------
 \subsection{C++ y Clang}
 %-------------------------------------------------------------------
-\label{ap2:sec:c++yclang}
 
 %-------------------------------------------------------------------
 \subsubsection*{C++, un lenguaje con historia}
@@ -47,7 +44,6 @@ La elecci\'on de desarrollar nuestra herramienta para el lenguaje de C++ se ha b
 %-------------------------------------------------------------------
 \subsubsection*{Clang y LLVM}
 %-------------------------------------------------------------------
-\label{ap2:sec:clang}
 
 Clang es un {\it front-end} de compilador para los lenguajes de programaci\'on C, C++, Objective-C y Objective-C++. Usa LLVM (anteriormente conocido como Low Level Virtual Machine, o M\'aquina Virtual de Nivel Bajo) como su {\it back-end} y ha sido parte del ciclo de lanzamiento de LLVM desde la versi\'on 2.6. Est\'a dise\~nado para ofrecer un reemplazo de GNU Compiler Collection (GCC). Es {\it open-source}, y varias compa\~n\'ias de software est\'an involucradas en su desarrollo, incluyendo a Google y Apple. Su c\'odigo fuente est\'a bajo la licencia University of Illinois/NCSA. El proyecto Clang incluye adem\'as un analizador est\'atico de software y varias herramientas de an\'alisis de c\'odigo.
 
@@ -58,7 +54,6 @@ LLVM suministra las capas intermedias de un sistema de compilado completo, toman
 %-------------------------------------------------------------------
 \subsection{Verificaci\'on y An\'alisis}
 %-------------------------------------------------------------------
-\label{ap2:sec:veryana}
 
 Actualmente el software es uno de los productos m\'as requeridos en el mundo. Tal demanda de software implica procesos de desarrollo m\'as intensos, exhaustivos y menos propensos a errores. Siendo la correcci\'on de fallos la etapa en la que m\'as recursos se invierten y en la que hay m\'as inter\'es por mejorar su eficiencia. 
 
@@ -74,22 +69,20 @@ A d\'ia de hoy en el mercado existen paquetes de herramientas capaces de ofrecer
 %-------------------------------------------------------------------
 \subsubsection*{Sistemas de tipos}
 %-------------------------------------------------------------------
-\label{ap2:sec:tipos}
 
 Asignar tipos de datos (tipificar) da significado a colecciones de bits. Los tipos de datos normalmente tienen asociaciones tanto con valores en la memoria o con objetos como con variables. Como cualquier valor simplemente consiste en un conjunto de bits de un ordenador, el hardware no hace distinci\'on entre direcci\'on de memoria, c\'odigo de instrucci\'on, caracteres, enteros y n\'umeros en coma flotante. Los tipos de datos informan a los programas y programadores c\'omo deben ser tratados esos bits.
 
 Al proceso de verificar e imponer los l\'imites impuestos por los tipos de datos, conocido como comprobaci\'on o checkeo de tipificaci\'on, puede ocurrir tanto en la compilaci\'on (comprobaci\'on est\'atica) o en la ejecuci\'on (comprobaci\'on din\'amica). La elecci\'on entre sistemas de tipificaci\'on din\'amico y est\'atico requiere algunas contraprestaciones:
 
 \begin{itemize}
-\item El tipado est\'atico busca errores en los tipos de datos durante la compilaci\'on. Esto deber\'ia incrementar la fiabilidad de los programas procesados. Sin embargo, los programadores, normalmente, est\'an en desacuerdo en c\'omo los errores de tipos de datos m\'as comunes ocurren, y en qu\'e proporci\'on de estos errores que se han escrito podr\'ian haberse cazado con un tipado est\'atico.  Los defensores de los lenguajes fuertemente tipados han sugerido que casi todos los errores pueden ser considerados errores de los tipos de datos.
-\item El tipado din\'amico permite a los compiladores e int\'erpretes ejecutarse m\'as r\'apidamente, debido a que los cambios en el c\'odigo fuente en los lenguajes din\'amicamente tipados puede resultar en menores comprobaciones y menos c\'odigo que revisar. Esto tambi\'en reduce el ciclo editar-compilar-comprobar-depurar. El tipado din\'amico t\'ipicamente hace que la metaprogramaci\'on sea m\'as poderosa y f\'acil de usar.
+\item El \textbf{tipado est\'atico} busca errores en los tipos de datos durante la compilaci\'on. Esto deber\'ia incrementar la fiabilidad de los programas procesados. Sin embargo, los programadores, normalmente, est\'an en desacuerdo en c\'omo los errores de tipos de datos m\'as comunes ocurren, y en qu\'e proporci\'on de estos errores que se han escrito podr\'ian haberse cazado con un tipado est\'atico.  Los defensores de los lenguajes fuertemente tipados han sugerido que casi todos los errores pueden ser considerados errores de los tipos de datos.
+\item El \textbf{tipado din\'amico} permite a los compiladores e int\'erpretes ejecutarse m\'as r\'apidamente, debido a que los cambios en el c\'odigo fuente en los lenguajes din\'amicamente tipados puede resultar en menores comprobaciones y menos c\'odigo que revisar. Esto tambi\'en reduce el ciclo editar-compilar-comprobar-depurar. El tipado din\'amico t\'ipicamente hace que la metaprogramaci\'on sea m\'as poderosa y f\'acil de usar.
 \end{itemize}
 
 
 %-------------------------------------------------------------------
 \subsubsection*{An\'alisis est\'atico}
 %-------------------------------------------------------------------
-\label{ap2:sec:analis}
 
 El an\'alisis est\'atico de software es un tipo de an\'alisis que se realiza sin ejecutar el programa. En la mayor\'ia de los casos se realiza sobre el c\'odigo fuente y en otros casos se realiza sobre el c\'odigo objeto.
 
@@ -99,7 +92,6 @@ Dicho t\'ermino se aplica a los an\'alisis realizados por parte de una herramien
 %-------------------------------------------------------------------
 \subsubsection*{Chequeo de modelos (Model checking)}
 %-------------------------------------------------------------------
-\label{ap2:sec:modelchecking}
 
 La verificaci\'on de modelos (o Model checking) es un m\'etodo autom\'atico de verificaci\'on de un sistema formal, en la mayor\'ia de las ocasiones derivado del hardware o del software de un sistema inform\'atico. El sistema es descrito mediante un modelo, que debe satisfacer una especificaci\'on formal descrita mediante una f\'ormula, a menudo escrita en alguna variedad de l\'ogica temporal.
 
@@ -112,7 +104,6 @@ Los inventores del m\'etodo, Edmund M. Clarke, E. Allen Emerson y Joseph Sifakis
 %-------------------------------------------------------------------
 \subsubsection*{Ejecuci\'on simb\'olica}
 %-------------------------------------------------------------------
-\label{ap2:sec:SE}
 
 La ejecuci\'on simb\'olica o evaluaci\'on simb\'olica es un modo de analizar programas para determinar qu\'e entradas causan cada parte del programa a ejecutar. En este tipo de programas, un int\'erprete recorre el programa donde cada variable asume un valor simb\'olico acotado. Este recorrido dar\'a como resultado expresiones en t\'erminos de dichos s\'imbolos de expresiones y variables y las limitaciones en cuanto a los s\'imbolos de los posibles resultados de cada rama condicional. 
 
@@ -124,7 +115,6 @@ Este procedicimiento aplicado al hardware recibe el nombre de simulaci\'on simb\
 %-------------------------------------------------------------------
 \subsection{Testing}
 %-------------------------------------------------------------------
-\label{ap1:sec:testing}
 
 Paralelamente a las herramientas de verificaci\'on y an\'alisis nacen las pruebas de software(o testing en ingl\'es) son las investigaciones emp\'iricas y t\'ecnicas cuyo objetivo es proporcionar informaci\'on objetiva e independiente sobre la calidad del producto a la parte interesada.
 
@@ -133,7 +123,6 @@ Estas pruebas se diferencian de las herramientas de verificaci\'on y an\'alisis 
 %-------------------------------------------------------------------
 \subsubsection*{Frameworks xUnit}
 %-------------------------------------------------------------------
-\label{ap2:sec:xUnit}
 
 Durante su trabajo en los laboratorios de Xerox Park, Kent Beck desarrollo un framework para realizar test unitarios en el lenguaje de programaci\'on {\it Smalltalk} que estaba desarrollando. Dicho framework se llamaba sUnit. sUnit Permit\'ia agrupar los tests en suites, el lanzamiento jer\'arquico de \'estos y realizar para cada test la comparaci\'on entre el valor obtenido y el valor esperado para determinar la correcci\'on de la funcionalidad testeada. Este framework ha sido llevado a una gran variedad de lenguajes de programaci\'on ({\it JUnit}, {\it XSLTUnit}, {\it PhpUnit}, {\it PyUnit}/ldots). xUnit es el nombre con el que se designa gen\'ericamente a todos estos frameworks.
 
@@ -144,20 +133,18 @@ Una de las caracter\'isticas de los tests xUnit es la expansi\'on y el alto grad
 %-------------------------------------------------------------------
 \subsubsection*{Generaci\'on de tests}
 %-------------------------------------------------------------------
-\label{ap2:sec:test}
 
 El objetivo de las pruebas es presentar informaci\'on sobre la calidad del producto a las personas responsables, por tanto la informaci\'on requerida puede ser de lo m\'as variada. Esto hace que el proceso de testing sea dependiente del contexto, no existen las {\it mejores pruebas}, toda prueba puede ser ideal para una situaci\'on o completamente inutil o perjudicial para otra. A continuaci\'on detallamos algunas de los diferentes enfoques para la generaci\'on de tests:
 \begin{itemize}
-\item Pruebas de caja blanca (white-box). Estas pruebas se centran en los detalles procedimentales del software, por lo que su dise\~no est\'a fuertemente ligado al c\'odigo fuente. El testeador escoge distintos valores de entrada para examinar cada uno de los posibles flujos de ejecuci\'on y cerciorarse de que se devuelven los valores de salida adecuados. Puesto que est\'an basados en una implementaci\'on concreta, si esta se modifica, normalmente tambi\'en tendr\'an que redise\~narse las pruebas. A pesar de que este enfoque permite dise\~nar pruebas que cubran una amplia variedad de casos podr\'ia pasar por alto partes incompletas de la especificaci\'on o requisitos faltantes.
-\item Pruebas de caja negra (black-box). Estas pruebas se centran en el estudio de las entradas y las salidas generadas, independientemente de su funcionamiento interno, es decir, nos interesa su forma de interactuar entendiendo {\it qu\'e es lo que hace} pero sin importarnos el {\it c\'omo lo hace}. Unas pruebas de test basadas en este sistema ser\'a m\'as f\'acil de entender ya que permitir\'a dar una visi\'on m\'as clara del conjunto, el sistema tambi\'en ser\'a m\'as robusto y f\'acil de mantener, en caso de fallo este podr\'a ser aislado y abordado m\'as \'agilmente.
-\item Testing aleatorio o random. Buscando ampliar el \'ambito de pruebas de unidad, se han aplicado diversas t\'ecnicas que van desde la automatizaci\'on de pasos, hasta los enfoques de generaci\'on de objetos de manera aleatoria. En este caso concreteo, la generaci\'on de tests de forma aleatoria es un caso particular de las pruebas de caja negra, donde las pruebas se realizan con entradas generadas de manera aleatoria e independiente. Los resultados se comparan con las especificaciones del software en prueba para verificar si los resultados pasan el test o no.
+\item \textbf{Pruebas de caja blanca} (white-box). Estas pruebas se centran en los detalles procedimentales del software, por lo que su dise\~no est\'a fuertemente ligado al c\'odigo fuente. El testeador escoge distintos valores de entrada para examinar cada uno de los posibles flujos de ejecuci\'on y cerciorarse de que se devuelven los valores de salida adecuados. Puesto que est\'an basados en una implementaci\'on concreta, si esta se modifica, normalmente tambi\'en tendr\'an que redise\~narse las pruebas. A pesar de que este enfoque permite dise\~nar pruebas que cubran una amplia variedad de casos podr\'ia pasar por alto partes incompletas de la especificaci\'on o requisitos faltantes.
+\item \textbf{Pruebas de caja negra} (black-box). Estas pruebas se centran en el estudio de las entradas y las salidas generadas, independientemente de su funcionamiento interno, es decir, nos interesa su forma de interactuar entendiendo {\it qu\'e es lo que hace} pero sin importarnos el {\it c\'omo lo hace}. Unas pruebas de test basadas en este sistema ser\'a m\'as f\'acil de entender ya que permitir\'a dar una visi\'on m\'as clara del conjunto, el sistema tambi\'en ser\'a m\'as robusto y f\'acil de mantener, en caso de fallo este podr\'a ser aislado y abordado m\'as \'agilmente.
+\item \textbf{Testing aleatorio} o random. Buscando ampliar el \'ambito de pruebas de unidad, se han aplicado diversas t\'ecnicas que van desde la automatizaci\'on de pasos, hasta los enfoques de generaci\'on de objetos de manera aleatoria. En este caso concreteo, la generaci\'on de tests de forma aleatoria es un caso particular de las pruebas de caja negra, donde las pruebas se realizan con entradas generadas de manera aleatoria e independiente. Los resultados se comparan con las especificaciones del software en prueba para verificar si los resultados pasan el test o no.
 
 \end{itemize}
 
 %-------------------------------------------------------------------
 \subsection{Programaci\'on con restricciones}
 %-------------------------------------------------------------------
-\label{ap1:sec:CP}
 
 La programaci\'on con restricciones es un paradigma de la programaci\'on en inform\'atica, donde las relaciones entre las variables son expresadas en terminos de restricciones o ecuaciones. Este paradigma representa uno de los mayores desarrollos en los lenguajes de programaci\'on desde 1990 y ha sido identificada como una direcci\'on estrat\'egica en la investigaci\'on en computaci\'on.
 
@@ -174,14 +161,12 @@ Al igual que en la programaci\'on l\'ogica, los programas se ejecutan buscando d
 %-------------------------------------------------------------------
 \subsection{Trabajos relacionados}
 %-------------------------------------------------------------------
-\label{ap2:sec:trabajos}
 
 Como hemos mencionado anteriormente, la ejecuci\'on simb\'olica no es algo nuevo y ha adquirido protagonismo en los \'ultimos a\~nos. Es por esto que podemos encontrar varios proyectos orientados al testing de diversos estilos, aqu\'i describimos algunos de ellos para contextualizar nuestro proyecto.
 
 %-------------------------------------------------------------------
 \subsubsection{PEX}
 %-------------------------------------------------------------------
-\label{ap25:sec:pex}
 
 PEX es una herramienta desarrollada por Microsoft para la generaci\'on autom\'atica de casos de prueba. Esta herramienta genera entradas de test para programas .NET, por tanto puede analizar cualquier programa que se ejecute en una m\'aquina virtual .NET y soporta lenguajes como C\#, Visual Basic y F\#.
 
@@ -196,7 +181,6 @@ Como proyecto interesante relacionado con PEX existe el juego Code Hunt tambi\'e
 %-------------------------------------------------------------------
 \subsubsection{PET}
 %-------------------------------------------------------------------
-\label{ap25:sec:pet}
 
 PET (Partial Evaluation-based Test Case Generator for Bytecode) es una herramienta cuyo prop\'osito es generar casos de prueba de forma autom\'atica para programas escritos en bytecode (c\'odigo de bytes) de Java. PET adopta el enfoque previamente comentado, esto es, ejecuta el bytecode simb\'olicamente y devuelve como salida un conjunto de casos de prueba (test-cases). Cada caso de prueba est\'a asociado a una rama del \'arbol y se expresa como un conjunto de restricciones sobre los valores de entrada y una descripci\'on de los contenidos de la memoria din\'amica (o heap).
 
@@ -208,7 +192,6 @@ PET puede usarse a trav\'es de una interfaz de l\'inea de comandos o bien usando
 %-------------------------------------------------------------------
 \subsubsection{jSYX}
 %-------------------------------------------------------------------
-\label{ap25:sec:jsyx}
 
 jSYX es un proyecto desarrollado el curso pasado como trabajo de Sistemas Inform\'aticos. Este proyecto se basa en una m\'aquina virtual de Java que permite la ejecuci\'on simb\'olica de archivos .class de Java, de este modo puede ser utilizado para el desarrollo autom\'atico de Tests. 
 
@@ -217,7 +200,6 @@ El enfoque de jSYX es el uso de del Bytecode de Java como lenguaje de ejecuci\'o
 %-------------------------------------------------------------------
 \subsubsection{jPET}
 %-------------------------------------------------------------------
-\label{ap25:sec:jpet}
 
 Al igual que el detallado en la secci\'on anterior, jPET tambi\'en se trata de un proyecto de Sistemas Inform\'aticos, en este caso desarrollado durante el curso 2010/2011. Este proyecto se basa en PET, la herramienta detallada anteriormente, y es una extensi\'on de dicha herramienta para poder utilizarse en programas Java de alto nivel e integrarse en Eclipse, con el objetivo de poder usar los resultados obtenidos por PET durante el proceso de desarrollo de software.
 
@@ -227,7 +209,6 @@ El enfoque de jPET es el tratamiento de la informaci\'on generada por PET con el
 %-------------------------------------------------------------------
 \section{Objetivos, la herramienta SymC++}
 %-------------------------------------------------------------------
-\label{cap1:sec:objetivos}
 
 En este proyecto se estudiar\'a y desarrollar\'a una herramienta de ``depuraci\'on simb\'olica'' que permitir\'a estudiar el funcionamiento de programas inform\'aticos sin ser ejecutados, a base de observar todas sus posibles ramas de ejecuci\'on (hasta un cierto nivel) as\'i como los correspondientes pares entrada-salida. Dicha herramienta podr\'ia ayudar enormemente a los estudiantes de iniciaci\'on a la programaci\'on, y en general a programadores inexpertos, a la hora de razonar acerca de la correcci\'on de sus programas.
 
@@ -268,16 +249,19 @@ Dicha herramienta har\'a uso de tres componentes principales, cuyo ciclo de ejec
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=0.3\textwidth]%
+\includegraphics[width=0.9\textwidth]%
 {Imagenes/Vectorial/esquemaEjecucion}
 \caption{Figura que muestra el ciclo de ejecuci\'on de nuestra herramienta.}
 \end{center}
 \end{figure}
 
-%\figura{Vectorial/esquemaEjecucion}{width=.9\textwidth}{fig:esquemaEjecucion}%
-%{Figura que muestra el ciclo de ejecuci\'on de nuestra herramienta.}
+Por tanto como se puede observar en la figura anterior, la herramienta SymC++ consta de tres partes diferenciadas:
 
-Por tanto como hemos nombrado en la secci\'on anterior la herramienta consta de tres partes diferenciadas, una herramienta desarrollada a trav\'es de Clang para obtener el arbol de sintaxis anotado con la informaci\'on que nos interesa, a esta herramienta la hemos llamado ast2xmltool, la cual detallamos en el siguiente cap\'itulo. La parte central del proyecto, es decir, el int\'erprete prolog que se encarga de obtener las posibles soluciones para cada una de las ramas del programa, as\'i como la traza de ejecuci\'on a trav\'es de sus entradas y salidas, esta parte la detallaremos en el tercer cap\'itulo. Y por \'ultimo, la herramienta que funciona como enlace entre las dos partes nombradas anteriormente y el usuario, la cual hemos denominado SymC++ y la detallaremos en el cuarto cap\'itulo de esta memoria.
+\begin{itemize}
+\item \textbf{Ast2xml}: una herramienta desarrollada a trav\'es de Clang para obtener el arbol de sintaxis anotado con la informaci\'on que nos interesa, la cual detallamos en el siguiente cap\'itulo.
+\item \textbf{Int\'erprete simb\'olico}: la parte central del proyecto, es decir, el int\'erprete prolog que se encarga de obtener las posibles soluciones para cada una de las ramas del programa, as\'i como la traza de ejecuci\'on a trav\'es de sus entradas y salidas, esta parte la detallaremos en el tercer cap\'itulo.
+\item \textbf{Interfaz de usuario}: funciona como enlace entre las dos partes nombradas anteriormente y el usuario y la detallaremos en el cuarto cap\'itulo de esta memoria.
+\end{itemize}
 
 
 

@@ -13,7 +13,6 @@ Este capítulo no pretende ser un manual de usuario o de instalación, el cual se 
 %-------------------------------------------------------------------
 \section{Diseño}
 %-------------------------------------------------------------------
-\label{cap1:sec:disenio}
 
 A la hora de desarrollar la interfaz para el cliente, el principal problema al que nos enfrentamos era la búsqueda de una interfaz intuitiva, fácil y que ofreciera todas las funcionalidades de depuración que buscamos para los estudiantes a los que está orientada esta herramienta. 
 Es por esto que buscamos una vista de cliente, en la que toda la información resultante de la ejecución simbólica esté disponible en la vista principal.
@@ -25,7 +24,6 @@ Para la estructura de la interfaz, hemos utilizado un MigLayout, el cual se encu
 %-------------------------------------------------------------------
 \section{Funcionalidades}
 %-------------------------------------------------------------------
-\label{cap1:sec:funcionalidad}
 
 Las funcionalidades referentes a la interfaz del cliente son las básicas de cualquier editor de texto e incluso compilador de código. Hay que partir de la base, de que en nuestro proyecto lo más relevante no es la interfaz, sino todo el trabajo que hay detrás con la ejecución simbólica.
 
@@ -42,7 +40,6 @@ XML2JTree.java [3] (cse.unl.edu/~reich/XML/DOM/XML2JTree.java)
 %-------------------------------------------------------------------
 \section{Conexión con el resto de secciones}
 %-------------------------------------------------------------------
-\label{cap1:sec:conexion}
 
 Como ya se ha indicado, la interfaz sirve de enlace entre la herramienta Clang, el intérprete Prolog y el usuario. Puesto que las llamadas a estas partes sólo se realizan puntualmente y de un único modo, es decir, cuando el usuario decide lanzar la ejecución simbólica, se han creado scripts con comandos shell, los cuales son llamados desde java como procesos externos.
 
@@ -51,7 +48,6 @@ Hay que tener en cuenta, que la herramienta pedirá al inicio que se seleccione d
 %-------------------------------------------------------------------
 \section{Directorio de archivos}
 %-------------------------------------------------------------------
-\label{cap1:sec:directorio}
 
 El sistema de archivos de la aplicación está dividido en varios directorios:
 files : Directorio en el que se almacenan todos los archivos generados, tanto los XMLs generados por Clang y el intérprete, como el archivo de c++ que se va a ejecutar. En este directorio, se incluyen los archivos ``BuiltinsIO.h'' y ``BuiltinsSTD.h'' necesarios para el uso de las funciones de entrada y salida.

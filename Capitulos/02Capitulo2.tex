@@ -12,17 +12,14 @@ La herramienta ast2xml conforma junto con el xmlinterpreter el cuerpo central de
 %-------------------------------------------------------------------
 \section{AST2XMLtool}
 %-------------------------------------------------------------------
-\label{cap2:sec:AST2XMLtool}
 
 Al inicio del curso nos dimos cuenta de que nos podíamos aproximar al problema de distintas formas. Si bien, de una forma similar al proyecto Jsyx teniamos la posibilidad de basar nuestro proyecto en el uso de algo similar al bytecode de java pero relacionado con C++. 
 
 %-------------------------------------------------------------------
 \section{Historia de LLVM}
 %-------------------------------------------------------------------
-\label{cap2:sec:estado}
 
 LLVM nació como proyecto en el año 2000 en la Universidad de Illinois en Urbana-Champaign. En 2005, junto con Apple Inc., se empezó a adaptar el sistema para varios usos dentro del ecosistema de desarrollo de Apple. Actualmente LLVM está integrado en las últimas herramientas de desarrollo de Apple para sus sistemas operativos.
-
 
 El un principio ``LLVM'' eran las iniciales de ``Low Level Virtual Machine'' (Máquina Virtual de Bajo Nivel), pero esta denominación causó una confusión ampliamente difundida, puesto que las máquinas virtuales son solo una de las aplicaciones de LLVM. Cuando la extensión del proyecto se amplió incluso más, LLVM se convirtió en un proyecto que engloba una gran variedad de otros compiladores y tecnologías de bajo nivel. Por tanto, el proyecto abandonó las iniciales y actualmente, LLVM es la manera de referirse a todas esas utilidades.
 
@@ -32,14 +29,12 @@ El amplio interés que ha recibido LLVM ha llevado a una serie de tentativas para
 %-------------------------------------------------------------------
 \section{¿Cómo funciona Clang?}
 %-------------------------------------------------------------------
-\label{cap2:sec:clang}
 
 En la mayoría de los casos Clang ejecutará el preprocesado y parseará el código formando un árbol de sintáxis abstracta. Esta estructura de árbol es más manejable que el propio código con el añadido de que cualquier subestructura mantiene referencias al código fuente.
 
 %-------------------------------------------------------------------
 \section{Usando el árbol de sintaxis abstracta}
 %-------------------------------------------------------------------
-\label{cap2:sec:arbol}
 
 La herramienta AST2XML se apoya en la adaptación del código, por parte de Clang, en su arbol de sintaxis abstracta (Abstract Syntax Tree). La representación del AST que emplea Clang se diferencia de la de otros compiladores en cuanto a que mantiene la semejanza con el código escrito y con el estándar de C++.
 
@@ -53,14 +48,12 @@ Esta estructura es obtenida mediante el uso de las distintas utilidades incluida
 %-------------------------------------------------------------------
 \section{Manipulación de un AST con clang}
 %-------------------------------------------------------------------
-\label{cap2:sec:manipulacion}
 
 Como se puede apreciar en la figura, la representación que se obtiene directamente de clang puede llegar a parecer abrumadoramente compleja y redundante. En momentos iniciales del proyecto tomamos la decisión de que información como la ubicación de los elementos, los tipos de las variables, o incluso el tipo de los nodos no serían necesarias en cada momento. Decidimos pues optar por una representación más acotada, clara y concisa que, expresando lo mismo, fuera lo suficientemente sencilla de manipular por el intérprete de prolog.
 
 %-------------------------------------------------------------------
 \subsection{LibTooling}
 %-------------------------------------------------------------------
-\label{cap2:sec:libtooling}
 
 Es una librería que tiene un papel muy importante en la arquitectura de la herramienta. Libtooling da soporte al diseño de herramientas autónomas basadas en Clang, proveyendo de la infraestructura necesaria para la realización de análisis sintácticos y semánticos de programas. 
 En la implementación de nuestra herramienta destacan los roles de estos elementos que nos aporta la librería:
@@ -75,7 +68,6 @@ En la implementación de nuestra herramienta destacan los roles de estos elemento
 %-------------------------------------------------------------------
 \section{Estructura del AST}
 %-------------------------------------------------------------------
-\label{cap2:sec:estructura}
 
 La estructura que emplea Clang para representar el AST de un código se basa principalmente en la interacción de dos clases base muy flexibles a partir de las cuales se construyen todas los demás: Decl (Declarations), que engloba toda las declaraciones (funciones, variables, templates, etc/ldots ),Stmt (Statement) que abarca las instrucciones. 
 
@@ -85,7 +77,6 @@ La mayoría de las clases que se derivan de ellas se explican por sí mismas, como
 %-------------------------------------------------------------------
 \section{Recorriendo el AST}
 %-------------------------------------------------------------------
-\label{cap2:sec:recorriendo}
 
 El recorrido que hace el RecursiveASTVisitor a lo largo del AST se realiza mediante llamadas a funciones Traverse. Estas funciones son específicas para cada clase que funciona como nodo del AST, aunque existen sus versiones genéricas: TraverseDecl() y TraverseStmt().
 
@@ -95,7 +86,6 @@ El comportamiento de ambas es muy similar.
 %-------------------------------------------------------------------
 \section{Instrucciones como nodos de un fichero XML}
 %-------------------------------------------------------------------
-\label{cap2:sec:instrucciones}
 
 El fichero que se le devuelve al usuario tiene formato XML y contiene información acerca de las funciones que, en el código fuente, haya declarado el usuario. Dichas funciones se encuentran englobadas en nodos function que almacenan el nombre, el número de línea, el tipo devuelto, los parámetros y el cuerpo de la función en cuestión. De los parámetros registramos su tipo y el nombre de su declaración.
 
@@ -107,14 +97,12 @@ En el desarrollo del proyecto hemos tenido que, de la misma forma, asignar a cad
 %-------------------------------------------------------------------
 \section{Bloques de instrucciones}
 %-------------------------------------------------------------------
-\label{cap2:sec:bloques}
 
 Una noción que existe en el AST de Clang es la del CompoundStatement que representa a un bloque de código delimitado por llaves ({..}). Puesto que esperamos que el usuario haga uso de ellos sólo en compañia de otras estructuras (if, while, for o funciones), en el XML se representa con el nodo body. Que contiene los nodos de las instrucciones programadas.
 
 %-------------------------------------------------------------------
 \section*{Declaraciones e inicializaciones}
 %-------------------------------------------------------------------
-\label{ap11:decla}
 
 C + + es un lenguaje fuertemente tipado, y requiere que cada variable esté declarada junto con su tipo antes de su primer uso. En un caso práctico, esto informa al compilador el tamaño reservar en memoria para la variable y la forma de interpretar su valor. Si se declaran varias variables del mismo tipo, se puede realizar en una sola instrucción.
 
@@ -130,7 +118,6 @@ Los nodos declaration contienen información acerca del tipo de la variable, su n
 %-------------------------------------------------------------------
 \section*{Estructuras de control}
 %-------------------------------------------------------------------
-\label{ap11:control}
 
 Las instrucciones que producen ramificaciones en la ejecución de un programa, tales como: el if, el while o el for. Para poder realizar su ejecución correctamente mantenemos en sus respectivos nodos sus señas más características.
 
@@ -152,7 +139,6 @@ La estructura del nodo de la instrucción for mantiene el número de línea, y en s
 %-------------------------------------------------------------------
 \section*{Expresiones}
 %-------------------------------------------------------------------
-\label{ap11:expresiones}
 
 Las expresiones escritas en C++ se traducen a nuestro formato en XML en nodos descritos por sus operadores, la variable a la que hacen referencia o la constante que representan. 
 
@@ -163,7 +149,6 @@ Las expresiones que se refieren a variables almacenan el nombre de estas y de fo
 %-------------------------------------------------------------------
 \section*{Operadores de asignación}
 %-------------------------------------------------------------------
-\label{ap11:operadores1}
 
 Para representar las instrucciones de asignación nos expresamos mediante los nodos assignment y assignmentOperation, conteniendo el nombre de la variable, la línea y la expresión de la cual se calcula el valor. 
 
@@ -177,7 +162,6 @@ Esta distinción se hace con los estudiantes noveles de programación en mente con
 %-------------------------------------------------------------------
 \section*{Operadores unarios}
 %-------------------------------------------------------------------
-\label{ap11:operadores2}
 
 En C++ existen numerosos operadores unarios pero, considerando los conocimientos que hacen falta en etapas tempranas de la iniciación a la programación, nos hemos centrado en dar soporte a los operadores unarios de incremento, decremento, indicador de signo y el not lógico. 
 

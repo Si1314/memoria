@@ -9,38 +9,62 @@
 %-------------------------------------------------------------------
 \section{Requisitos previos}
 %-------------------------------------------------------------------
-\label{ap1:intro}
 
 Como ya hemos indicado en las secciones de la memoria, nuestro proyecto actualmente sólo funciona en sistemas operativos LINUX, por tanto en lo siguiente supondremos que se trabaja bajo este sistema operativo.
 
 Por otro lado para poder ejecutar el sistema que hemos desarrollado será necesario cumplir una serie de requisitos software previos. En concreto deberemos tener instalados los siguientes componentes:
 
 \begin{itemize}
-\item Java Runtime Environment o JRE de 32 bits, versión 1.6 o superior.\\
+\item \textbf{''Java Runtime Environment''} o JRE de 32 bits, versión 1.6 o superior.\\
 Para ello desde la propia página recomiendan, en lo relativo a requisitos hardware, contar con un Pentium 2 a 266 MHz o un procesador más rápido con al menos 128 MB de RAM física.\\
 Enlace de descarga: 
 \url{http://www.java.com/es/download/}
-\item Clang. Al comienzo del proyecto la última versión disponible era la 3.5, por lo que esta fue la que se utilizó. \\
+\item \textbf{''Clang''}. Al comienzo del proyecto la última versión disponible era la 3.5, por lo que esta fue la que se utilizó. \\
 Para poder compilar nuestra herramienta de generación del AST2XML, cuyos pasos detallados de instalación comentamos en la próxima sección, es necesario tener instalado Clang en nuestro sistema. Puesto que la instalación y requisitos ya están detallados en la propia web de Clang no vamos a detenernos a comentarlos uno a uno.
 \begin {itemize}
-\item Requisitos LLVM System \\
+\item \textbf{''Requisitos LLVM System''}: \\
 Enlace de requisitos:
 \url{http://llvm.org/docs/GettingStarted.html#requirements}
-\item Python. Para compilar Clang es necesario tener instalado Python en nuestro sistema. \\
+\item \textbf{''Python''}. Para compilar Clang es necesario tener instalado Python en nuestro sistema. \\
 Enlace de descarga:
 \url{https://www.python.org/download}
-\item Compilacion de Clang \\
+\item \textbf{''Compilacion de Clang''} \\
 Enlace con los pasos detallados
 \url {http://clang.llvm.org/get_started.html}
 \end {itemize} 
-
 \end {itemize}
 
 
 %-------------------------------------------------------------------
-\section{Instalación Clang}
+\section{Instalación herramienta ast2xml}
 %-------------------------------------------------------------------
-\label{ap2:clang}
+
+La herramienta ast2xml es necesaria compilarla en nuestro ordenador para poder utilizarla, puesto que es diferente para cada equipo. En esta sección damos por sentado que el usuario ya ha instalado Clang en su ordenador, a continuación detallamos los pasos para su compilación en nuestro sistema para luego poder utilizarla.
+
+\begin{itemize}
+\item Dirigirse a nuestro directorio LLVM. \\
+\textbf{cd (directorio llvm)/tools/clang/tools}
+\item Clonar el repositorio con nuestra herramienta en una carpeta del directorio.\\
+\textbf{git clone \url{https://github.com/Si1314/AST2XML.git} ast2xmltool}
+\item Copiar el Makefile.
+\item Ir al directorio de compilación.\\
+\textbf{cd (directorio de compilación)/tools/clang/tools}
+\item Crear un directorio específico para la herramienta (con el mismo nombre).\\
+\textbf{mkdir ast2xmltool}
+\item Copiar en él el archivo Makefile.
+\item Ir dentro del directorio.\\
+\textbf{cd ast2xmltool}
+\item Ejecutar el comando ``make''\\
+La herramienta estará compilada y enlazada si no hay ningún problema
+\item Volver al directorio de compilación.\\
+\textbf{cd (directorio de compilación)/Debug + Asserts/build}
+
+Aquí debería encontrarse la herramienta, así como el resto de herramientas proporcionadas por el paquete de clang.
+\end{itemize}
+
+%-------------------------------------------------------------------
+\section{Tutorial de uso}
+%-------------------------------------------------------------------
 
  
 % Variable local para emacs, para  que encuentre el fichero maestro de
