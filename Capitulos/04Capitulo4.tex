@@ -1,6 +1,6 @@
 %---------------------------------------------------------------------
 %
-%                          Capítulo 1
+%                          Capítulo 4
 %
 %---------------------------------------------------------------------
 
@@ -62,7 +62,7 @@ Cabe destacar, que para la comunicación entre la interfaz, tanto con AST2XML com
 \item Comando para la ejecución del Intérprete Simbólico.
 \end{itemize}
 
-Hay que tener en cuenta, que la herramienta pedirá al inicio que se seleccione dónde se encuentra instalada la herramienta Clang, la cual se guardará en un archivo de configuración. Por tanto, al lanzar la ejecución, tomará dicho directorio como herramienta y será la encargada de generar el archivo XML del árbol de ejecución.    
+Hay que tener en cuenta, una serie de requisitos para que la herramienta funcione correctamente. Es necesario que el usuario seleccione al abrir por primera vez SymC++ dónde ha instalado que la herramienta de AST2XML, la cual se guardará en un archivo de configuración. Por tanto, al lanzar la ejecución, tomará dicho directorio como herramienta y será la encargada de generar el archivo XML del árbol de ejecución, en este caso es responsabilidad del usuario seleccionar correctamente tal archivo para una correcta ejecución. Por otro lado para la ejecución de SymC++ es necesario un archivo con el código C++, por tanto si el usuario abre un archivo con el código, antes de la ejecución se realizará un autoguardado, por otro lado, en el caso de que el usuario haya escrito el código completo en nuestra herramienta, la herramienta pedirá al usuario que guarde dicho archivo antes de poder ejecutar.
 
 %-------------------------------------------------------------------
 \section{Directorio de archivos}
