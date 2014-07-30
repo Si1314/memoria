@@ -44,6 +44,8 @@ Por tanto, para implementar las funcionalidades descritas, así como otras varias
 \section{Estructura de la herramienta}
 %-------------------------------------------------------------------
 
+Para ilustrar mejor la estructura de la herramienta, así como para mostrar mejor la relación entre el usuario y la herramienta, y entre las diferentes secciones de la herramienta acompañamos la siguiente figura:
+
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.9\textwidth]%
@@ -52,7 +54,13 @@ Por tanto, para implementar las funcionalidades descritas, así como otras varias
 \end{center}
 \end{figure}
 
-Como ya se ha indicado, la interfaz sirve de enlace entre la herramienta Clang, el intérprete Prolog y el usuario. Puesto que las llamadas a estas partes sólo se realizan puntualmente y de un único modo, es decir, cuando el usuario decide lanzar la ejecución simbólica, se han creado scripts con comandos shell, los cuales son llamados desde java como procesos externos.
+Como se puede observar, la herramienta SymC++ necesita un código en C++ sobre el que realizar la ejecucución y una serie de parámetros para el intérprete, y a partir de ahí la propia interfaz de usuario envía todo lo necesario tango al AST2XML como al Intérprete Simbólico, para que a través de la salida generada, sea procesada de nuevo por la interfaz y se pueda mostrar al usuario.
+
+Cabe destacar, que para la comunicación entre la interfaz, tanto con AST2XML como con el Intérprete Simbólico, hemos creado dos scripts con comandos shell, los cuales son llamados desde java como procesos externos. Pero del mismo modo que estos comandos son lanzados desde la interfaz, también pueden ser ejecutados desde nuestro terminal de comandos, de este modo, podemos generar tanto el XML del árbol sintáctico anotado, como el XML con la solución del intérprete simbólico, sin necesidad de usar la interfaz de usuario. Esta solución da una mayor portabilidad a ambas herramientas, así como aportar una mayor flexibilidad al usuario para que pueda usar el método con el que se sienta más comodo. Los comandos los detallamos  a continuación:
+\begin{itemize}
+\item Comando para la ejecución de AST2XML.
+\item Comando para la ejecución del Intérprete Simbólico.
+\end{itemize}
 
 Hay que tener en cuenta, que la herramienta pedirá al inicio que se seleccione dónde se encuentra instalada la herramienta Clang, la cual se guardará en un archivo de configuración. Por tanto, al lanzar la ejecución, tomará dicho directorio como herramienta y será la encargada de generar el archivo XML del árbol de ejecución.    
 
