@@ -39,6 +39,7 @@ executeBranch(Entrada,[...Else...)|RestoInstrucciones],0,Salida)
 resolveExpression(Entrada,CuerpoExpresion,ValorRetorno,Salida),
 
 resolveExpression(Entrada1, Operando1, Resultado1, Salida1)
+
 resolveExpression(Entrada2, Operando2, Resultado2, Salida2)
 
 work(Operador, Resultado1, Resultado2,ResultadoFinal),
