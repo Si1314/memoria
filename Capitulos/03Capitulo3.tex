@@ -24,16 +24,7 @@ En Prolog, los predicados se contrastan en orden, la ejecución se basa en dos co
 
 La Programación por restricciones es un paradigma de la programación en informática donde las variables están relacionadas mediante restricciones (ecuaciones). Se emplea en la descripción y resolución de problemas combinatorios, especialmente en las áreas de planificación y programación de tareas (calendarización). La programación con restricciones se basa principalmente en buscar un estado en el cual una gran cantidad de restricciones sean satisfechas simultáneamente, expresándose un problema como un conjunto de restricciones iniciales a partir de las cuales el sistema construye las relaciones que expresan una solución.
 
-Actualmente existen muchos frentes de desarrollo relacionados con la programación con restricciones. Entre ellos destacan:
-\begin{itemize}
-\item Oz: Lenguaje multiparadigma y esotérico basado en la rama concurrente de la programación por restricciones. En el que se expresa música a partir de unas restricciones expresadas explícitamente por el programador. Se utiliza en proyectos tales como Mozart y Strasheela.
-\item Choco: Es una librería que añade satisfacción de restricciones a Java. Está construida en una estructura basada en la propagación de eventos. Ha sido utilizada en otros proyectos de ejecución simbólica como JsyX.
-\item Gecode: Es un proyecto abierto que cuenta con un conjunto de herramientas basado en C/C++ para el desarrollo de sistema y aplicaciones nativas que se apoyen en restricciones.
-\end{itemize}
-
-La programación por restricciones está íntimamente relacionada con la programación lógica, por eso existe la programación lógica con restricciones. Ésta es una extensión de la programación lógica en la que se añade el concepto de satisfacción de restricciones. 
-
-Una ventaja de la incorporación de las restricciones al lenguaje de programación es la sencillez al mostrar restricciones como datos de salida.
+Como ya se introdujo en el estado del arte, la programación con restricciones proporciona una herramienta en la que las variables están expresadas en términos de restricciones o ecuaciones. Para el desarrollo de esta herramienta hemos necesitado hacer uso de este paradigma de programación, el cual nos facilitaba mostrar restricciones como datos de salida.
 
 La librería clpfd ``Constraint Logic Programming over Finite Domains'' (Programación lógica basada en restricciones sobre dominios finitos) proporciona una aritmética completa para variables restringidas a valores enteros o elementos atómicos, se puede utilizar para modelar y resolver diversos problemas combinatorios tales como las tareas de planificación, programación y asignación.
 
