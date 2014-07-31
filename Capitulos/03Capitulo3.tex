@@ -35,7 +35,7 @@ La programación por restricciones está íntimamente relacionada con la programaci
 
 Una ventaja de la incorporación de las restricciones al lenguaje de programación es la sencillez al mostrar restricciones como datos de salida.
 
-La librería clpfd “Constraint Logic Programming over Finite Domains” (Programación lógica basada en restricciones sobre dominios finitos) proporciona una aritmética completa para variables restringidas a valores enteros o elementos atómicos, se puede utilizar para modelar y resolver diversos problemas combinatorios tales como las tareas de planificación, programación y asignación.
+La librería clpfd ``Constraint Logic Programming over Finite Domains'' (Programación lógica basada en restricciones sobre dominios finitos) proporciona una aritmética completa para variables restringidas a valores enteros o elementos atómicos, se puede utilizar para modelar y resolver diversos problemas combinatorios tales como las tareas de planificación, programación y asignación.
 
 Para el desarrollo de nuestro intérprete, como ya indicamos anteriormente, optamos por el  lenguaje de programación lógica Prolog, en gran parte debido a la familiaridad que nos supone, y al conjunto de facilidades relacionadas con el backtracking y la programación por restricciones que ya conocíamos de antemano.
 
@@ -99,7 +99,7 @@ Como ya sabemos, el intérprete recibirá un fichero XML como parámetro de entrada
 
 \lstinputlisting[caption=Árbol sintáctico de la función suma, style=customxml]{Codigos/ejemploCicloXML.xml}
 
-El primer paso es la conversión de la estructura XML en una lista de elementos mediante la función load_xml_file(+File,-DOM) que nos aporta la librería sgml. Para nuestro ejemplo, le pasaremos por el parámetro File el XML con el código anterior y nos devolverá en el parámetro de salida DOM una lista de elementos de la forma:
+El primer paso es la conversión de la estructura XML en una lista de elementos mediante la función load\_xml\_file(+File,-DOM) que nos aporta la librería sgml. Para nuestro ejemplo, le pasaremos por el parámetro File el XML con el código anterior y nos devolverá en el parámetro de salida DOM una lista de elementos de la forma:
 
 \lstinputlisting[caption=Elementos correspondientes a la función suma, style=customxml]{Codigos/ejemploCicloElementos.pl}
 
@@ -153,7 +153,7 @@ Lista que conserva el número de las líneas de las instrucciones por las que hemo
 Una función se define siguiendo el siguiente esquema:
 
 \begin{center}
-\textbf{<tipo_valor_retorno> <nombreFuncion>(<lista_parámetros>){ [sentencias] }}
+\textbf{<tipo\_valor\_retorno> <nombreFuncion>(<lista\_parámetros>){ [sentencias] }}
 \end{center}
 
 \lstinputlisting[caption=Instrucción para la definición de una función, style=custompl, firstline=1, lastline=1]{Codigos/codigosProlog.pl}
@@ -173,7 +173,7 @@ Este es el caso en el que ejecutamos cualquier tipo de bloque, ya sea el cuerpo 
 Para resolver el caso de una \textbf{llamada a función} el intérprete hará uso del precicado {\it callFunction}, que buscará la función a la que se está referenciando y la ejecutaremos de forma que consigamos el valor devuelto por la función como resultado de la expresión.
 
 \begin{center}
-\textbf{[tipo] <variable> = <nombreFuncion>(<lista_parámetros>) ;}
+\textbf{[tipo] <variable> = <nombreFuncion>(<lista\_parámetros>) ;}
 \end{center}
 
 El tipo: [tipo] será vacío en el caso en el que la variable ya hubiese sido declarada con anterioridad.
@@ -265,8 +265,8 @@ Los operadores se pueden clasificar atendiendo al número de operandos que afecta
 Los tipos unarios que reconoce la herramienta siguen la estructura:
 
 \begin{itemize}
-\item \textbf{+ <expresion>   - <expresion>}      Para asignar valores positivos o negativos a los valores a los que se aplica
-\item \textbf{<variable> ++   <variable> --}      Para incrementar o decrementar el valor de la variable ambos en una unidad
+\item \textbf{+<expresion>   -<expresion>}      Para asignar valores positivos o negativos a los valores a los que se aplica
+\item \textbf{<variable>++   <variable>- -}      Para incrementar o decrementar el valor de la variable ambos en una unidad
 \end{itemize}
 
 Actualizamos el valor de la variable en la tabla de variables y continuamos con la ejecución del resto de las instrucciones.
@@ -307,7 +307,7 @@ Existen también otros tipos de operadores lógicos que siguen el esquema:
 \textbf{<expresion> op <expresion>}
 \end{center}
 
-Siendo op los valores && o || ambos se resuelven en el predicado work detallado a continuación.
+Siendo op los valores \&\& o || ambos se resuelven en el predicado work detallado a continuación.
 
 
 \lstinputlisting[caption=Asignación de una variable, style=custompl, firstline=13, lastline=13]{Codigos/codigosProlog.pl}
@@ -328,7 +328,7 @@ En nuestro proyecto ``Operador'' únicamente podrá ser:
 \begin{center}
 \begin{tabular}{| l | l | l | l | l | l | l | l | l | l | l | l ||}
 \hline
-< & < & <= & > & >= & == & != & \&\& & || & + & - & * & / \\
+< & <= & > & >= & == & != & \&\& & || & + & - & * & / \\
 \hline
 \end{tabular}
 \end{center}
@@ -345,174 +345,350 @@ Las sentencias de selección permiten controlar el flujo del programa, selecciona
 \textbf{if (<condición>) <sentencias>\\else <sentencias>}
 \end{center}
 
-La estructura del if...else se puede ver fácilmente con el siguiente diagrama:
+La estructura del {\it if...else} se puede ver fácilmente con el siguiente diagrama:
 
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.9\textwidth]%
+{Imagenes/Vectorial/esquemaIf}
+\caption{Figura que muestra la estructura del if...else.}
+\end{center}
+\end{figure}
 
-
-%-------------------------------------------------------------------
-\subsubsection*{Operador unario}
-%-------------------------------------------------------------------
-
-La forma de ejecutar los operadores unarios tal que Operando operadorUnario la hemos planteado de forma que realizamos internamente una ejecución binaria de forma que Operando = Operando operadorUnario 1.
+El cuerpo del if y del else tiene que estar compuesto por una sentencia como mínimo, en el caso de que haya dos o más sentencias, éstas estarán delimitadas por llaves:
 
 \begin{center}
-ej: a++; pasaría a ser a=a+1
+\textbf{\{ <sentencias> \}}
 \end{center}
 
-Actualizamos el valor de la variable en la tabla de variables y continuamos con la ejecución del resto de las instrucciones
+Se ejecutará el siguiente predicado cuando se trate de una instrucción condicional:
+
+\lstinputlisting[caption=Instrucción para la estructura condicional if, style=custompl, firstline=21, lastline=21]{Codigos/codigosProlog.pl}
+
+Primero se resuelve la condición y seguidamente se llamará a executeBranch (detallada a continuación) con la solución obtenida, será ésta quien distinga si la condición ha salido verdadera o falsa. A continuación ejecutaremos el resto de las instrucciones para seguir con el resto del programa.
 
 %-------------------------------------------------------------------
-\subsubsection*{Console Out}
+\subsection*{executeBranch/4}
 %-------------------------------------------------------------------
 
-\lstinputlisting[caption=Consola de salida, style=custompl, firstline=17, lastline=17]{Codigos/codigosProlog.pl}
+Es un predicado cuya funcionalidad extiende la del execute cuando se trata del if para el caso del then y del else. Igualmente recibe un estado de entrada y devuelve otro de salida, recibe la lista de instrucciones.
 
-Nos sirve para sacar por pantalla la el resultado de la expresión por lo que llamaremos a la función resuelveExpresión con la Expresión como parámetro y el resultado devuelto será incluido en el Cout anteriormente mencionado de forma que al final saldrá por pantalla todo aquello que se encuentre en esa variable. Ejecutamos el resto de las instrucciones.
+\lstinputlisting[caption=Instrucción para la ejecución de estructuras condicionales, style=custompl, firstline=33, lastline=33]{Codigos/codigosProlog.pl}
 
-%-------------------------------------------------------------------
-\subsubsection*{Return}
-%-------------------------------------------------------------------
+Aquí diferenciamos los dos casos posibles: {\it Then} y {\it Else}
 
-\lstinputlisting[caption=Return, style=custompl, firstline=19, lastline=19]{Codigos/codigosProlog.pl}
+\begin{itemize}
+\item \textbf{Caso then:}\\
+Se ha cumplido la condición del if por lo que la variable ResulCond pasa a valer 1 realizando por tanto la ejecución del cuerpo del then y posteriormente se llamará a ejecutar al resto de las instrucciones.
 
-Instrucción de retorno del valor de una función. En la tabla de variables llevamos reservada una variable que nos servirá como variable de retorno por lo tanto en este predicado lo único que haremos será ejecutar con la llamada a execute del cuerpo del return y con el valor devuelto se actualizará esa variable reservada.
+\lstinputlisting[caption=Instrucción para la ejecución de la rama then, style=custompl, firstline=35, lastline=35]{Codigos/codigosProlog.pl}
 
-En este caso no llamaremos a ejecutar al resto de instrucciones ya que como se trata de una instrucción return es la última instrucción que se debería de contemplar en esta función por tanto no deberíamos de seguir con el flujo del programa.
+\item \textbf{Caso else:}\\
+No se ha cumplido la condición del if por lo que la variable ResulCond pasa a valer 0, en este caso realizaremos la ejecución del cuerpo del else y posteriormente se llamará a ejecutar al resto de las instrucciones.
 
-%-------------------------------------------------------------------
-\subsubsection*{If}
-%-------------------------------------------------------------------
+\lstinputlisting[caption=Instrucción para la ejecución de la rama else, style=custompl, firstline=37, lastline=37]{Codigos/codigosProlog.pl}
 
-\lstinputlisting[caption=Instrucción if, style=custompl, firstline=21, lastline=21]{Codigos/codigosProlog.pl}
-
-La estructura del if se puede ver fácilmente con el siguiente diagrama
-
-Primero resolveremos la condición y seguidamente llamaremos a executeBranch (detallada más adelante) con la solución obtenida, será ésta quien distinga si la condición ha salido verdadera o falsa. A continuación ejecutaremos el resto de las instrucciones para seguir con el resto del programa.
+\end{itemize}
 
 %-------------------------------------------------------------------
-\subsubsection*{While}
+\section{Bucles y control de terminación.}
 %-------------------------------------------------------------------
 
-\lstinputlisting[caption=Instrucción while, style=custompl, firstline=23, lastline=23]{Codigos/codigosProlog.pl}
+Los bucles nos permiten realizar tareas repetitivas, y se usan en la resolución de la mayor parte de los problemas. En nuestro caso hablaremos únicamente del ``while'' y del ``for''. En ambos casos, el número de vueltas máximo que pueden llegar a hacer es el marcado por el valor MaxDepth, y se hará uso de él en el caso en el que la condición siga siendo cierta en el momento en el que se alcanza dicho valor, de esta forma controlaremos la terminación de los bucles.
 
-La estructura del while se puede entender de forma gráfica con el siguiente
-diagrama:
+%-------------------------------------------------------------------
+\subsection*{Sentencia WHILE}
+%-------------------------------------------------------------------
+
+La sentencia {\it while} sigue el siguiente esquema:
+
+\begin{center}
+\textbf{while (<condición>) <sentencia>}
+\end{center}
+
+La estructura del while se puede entender de forma gráfica con el siguiente diagrama:
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.9\textwidth]%
+{Imagenes/Vectorial/esquemaWhile}
+\caption{Figura que muestra la estructura del bucle while.}
+\end{center}
+\end{figure}
+
+El predicado encargado de interpretar el bucle while es el que sigue:
+
+\lstinputlisting[caption=Instrucción para la ejecución del bucle while, style=custompl, firstline=23, lastline=23]{Codigos/codigosProlog.pl}
 
 Como en cualquier instrucción de flujo resolveremos la condición, en el caso del while, a diferencia del if, llamaremos al predicado executeLoop (explicada más adelante) con el cuerpo del while, será él quien distinga si la condición salió verdadera o falsa para ejecutar realmente el cuerpo del bucle o no. Llevaremos una variable de avance que será actualizada en el cuerpo del bucle y será quien determine cuándo parar. A continuación ejecutaremos el resto de las instrucciones para seguir con el resto del programa.
 
 %-------------------------------------------------------------------
-\subsubsection*{For}
+\subsection*{Sentencia FOR}
 %-------------------------------------------------------------------
 
-\lstinputlisting[caption=Instrucción for, style=custompl, firstline=25, lastline=25]{Codigos/codigosProlog.pl}
+La sentencia {\it for} sigue el siguiente esquema:
 
-Donde A es la inicialización de la variable de avance, B es la condición, C es el avance de la variable de avance y D es el cuerpo del for. Es parecido al while ya que resolveremos la condición y llamaremos al predicado executeLoop (explicada más adelante) con el cuerpo del for, será él quien distinga si la condición salió verdadera o falsa para ejecutar realmente el cuerpo del bucle o no. A continuación ejecutaremos el resto de las instrucciones para seguir con el resto del programa.
+La estructura de la sentencia for se puede entender mejor de forma gráfica con el siguiente diagrama:
 
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.9\textwidth]%
+{Imagenes/Vectorial/esquemaFor}
+\caption{Figura que muestra la estructura del bucle for.}
+\end{center}
+\end{figure}
+
+El predicado encargado de interpretar el bucle for es el que sigue:
+
+\lstinputlisting[caption=Instrucción para la ejecución del bucle for, style=custompl, firstline=25, lastline=25]{Codigos/codigosProlog.pl}
+
+Es parecido al while ya que resolveremos la condición y llamaremos al predicado executeLoop (explicada a continuación) con el cuerpo del for, será él quien distinga si la condición salió verdadera o falsa para ejecutar realmente el cuerpo del bucle o no. A continuación ejecutaremos el resto de las instrucciones para seguir con el resto del programa.
 
 %-------------------------------------------------------------------
-\section*{executeLoop/5}
+\subsection*{executeBranch/4}
 %-------------------------------------------------------------------
-\label{ap41:execute2}
 
-El predicado executeLoop es llamado por execute cuando se encuentra una instrucción de bucle while o for. Igualmente recibe un estado de entrada, la lista de instrucciones, un valor numérico y devuelve el estado de salida. El valor numérico nos servirá para limitar el número de vueltas que realice el bucle, de forma que no haya posibilidad de recursión infinita, o un número de vueltas tan elevado que sea inviable devolver una solución. El número lo determina el usuario mediante la interfaz con valor del maxDepth.
+El predicado executeLoop es llamado por execute cuando se encuentra una instrucción de bucle while o for. Igualmente recibe un estado de entrada, la lista de instrucciones, un valor numérico y devuelve el estado de salida. El valor numérico nos servirá para limitar el número de vueltas que realice el bucle, de forma que no haya posibilidad de recursión infinita, o un número de vueltas tan elevado que sea inviable devolver una solución. El número lo determina el usuario mediante la interfaz con valor del maxDepth como se dijo anteriormente.
 
 Hemos limitado el backtracking a la evaluación de condiciones ya que éstas son las que realmente definen el flujo del programa.
 
-Se pueden diferenciar 3 tipos de executeLoop: 
+Se pueden diferenciar 3 tipos de executeLoop:
 
-\begin {itemize}
-\item El primero: el caso en el que se llega a la última vuelta permitida por la variable maxDepth.
-
-\lstinputlisting[style=custompl, firstline=27, lastline=27]{Codigos/codigosProlog.pl}
-
+\begin{itemize}
+\item \textbf{Caso 1:} caso en el que se llega a la última vuelta permitida por la variable maxDepth.
+\lstinputlisting[caption=Instrucción para el caso en el que bucle finaliza por la variable maxDepth, style=custompl, firstline=27, lastline=27]{Codigos/codigosProlog.pl}
 Cuando maxDepth alcanza el valor 1 comprobamos que la condición se cumple y llamamos a ejecutar el resto de las instrucciones.
 
-\item El segundo: el caso en el que la condición no se hace cierta, es decir hemos llegado al fin del bucle por lo que llamamos a ejecutar al resto de las instrucciones.
+\item \textbf{Caso 2:} caso en el que la condición no se hace cierta, es decir hemos llegado al fin del bucle por lo que llamamos a ejecutar al resto de las instrucciones.
+\lstinputlisting[caption=Instrucción para el caso en el que llegamos al fin del bucle, style=custompl, firstline=29, lastline=29]{Codigos/codigosProlog.pl}
 
-\lstinputlisting[style=custompl, firstline=29, lastline=29]{Codigos/codigosProlog.pl}
-
-\item El tercero: el caso en el que la condición se hace cierta y aún no hemos llegado a la profundidad máxima permitida por lo que ejecutamos el cuerpo del bucle.
-
-\lstinputlisting[caption=Instrucción for, style=custompl, firstline=31, lastline=31]{Codigos/codigosProlog.pl}
-
-\end {itemize}
-
-%-------------------------------------------------------------------
-\section*{executeBranch/4}
-%-------------------------------------------------------------------
-
-Es un predicado cuya funcionalidad extiende la del execute del if para el caso del then y del else. Igualmente recibe un estado de entrada y devuelve otro de salida, recibe la lista de instrucciones.
-
-\lstinputlisting[style=custompl, firstline=33, lastline=33]{Codigos/codigosProlog.pl}
-
-Aquí diferenciamos los dos casos posibles: Then y Else
-\begin {itemize}
-\item Caso then: Se ha cumplido la condición del if por lo que la variable ResulCond pasa a valer 1 realizando por tanto la ejecución del cuerpo del then y posteriormente se llamará a ejecutar al resto de las instrucciones.
-
-\lstinputlisting[style=custompl, firstline=35, lastline=35]{Codigos/codigosProlog.pl}
-
-\item Caso else: No se ha cumplido la condición del if por lo que la variable ResulCond pasa a valer 0, en este caso realizaremos la ejecución del cuerpo del else y posteriormente se llamará a ejecutar al resto de las instrucciones.
-
-\lstinputlisting[style=custompl, firstline=37, lastline=37]{Codigos/codigosProlog.pl}
-
-\end {itemize}
-
-%-------------------------------------------------------------------
-\section*{resolveExpression/4}
-%-------------------------------------------------------------------
-
-Este predicado servirá para resolver las distintas expresiones que existan. La estructura de llamada de este predicado es la que sigue:
-
-
-
-Entrada y Salida corresponden a la tabla de variables que entra y la tabla de variables actualizada después de la resolución de la expresión. CuerpoExpresion es la expresión concreta que queremos resolver y ValorRetorno el valor resultante devuelto.
-
-Las expresiones que resolveremos serán:
-\begin{itemize}
-\item notOperator: encargada de negar la expresión.
-\begin{center}
-ej: A = !B
-\end{center}
-\item signOperator: para expresiones positivas y negativas.
-\begin{center}
-ej: A = -B
-\end{center}
-\item binaryOperator: resuelve operaciones binarias.
-\begin{center}
-OperandoResultante = Operando1 operador Operando2
-\end{center}
-\end{itemize}
-
-En este caso se resolverá cada expresión Operando1 y Operando2 de forma independiente mediante la llamada resursiva:
-
-
-
-Y combinando los dos resultados de la siguiente forma, únicamente cuando los resultados son expresiones sencillas ya sea variable o constante de forma que ya no se pueda mas que operar:
-
-
-
-cuya funcionalidad del predicado work es la mera ejecución de la expresión
-Resultado1 Operador Resultado2
-
-\begin{itemize}
-\item variable o const: son los dos casos de expresiones sencillas indivisibles.
-\begin{center}
-ej: R = a + 5 (ejemplo de Variable + constante)
-\end{center}
-\item consoleIn: para resolver la llamada a función. Buscaremos la función a la que se está referenciando y la ejecutaremos de forma que consigamos el valor devuelto por la función como resultado de la expresión.
-\begin{center}
-ej: R = foo(a,b);
-\end{center}
+\item \textbf{Caso 3:} caso en el que la condición se hace cierta y aún no hemos llegado a la profundidad máxima permitida por lo que ejecutamos el cuerpo del bucle.
+\lstinputlisting[caption=Instrucción para el caso en el que ejecutamos el cuerpo del bucle, style=custompl, firstline=31, lastline=31]{Codigos/codigosProlog.pl}
 \end{itemize}
 
 %-------------------------------------------------------------------
-\section*{work/3}
+\section{Instrucciones de Entrada/Salida.}
 %-------------------------------------------------------------------
 
-Sirve para realizar la ejecución de una expresión simple: A = B op C siendo B y C una variable o constante.
+Como ya dijimos anteriormente, iremos almacenando en cada paso el estado actual que está  formado por: Table (la tabla de variables), Cin (Entrada por consola), Cout (Salida por consola), Trace (Traza o camino que llevamos ejecutado).
 
-En nuestro proyecto op únicamente podrá ser:
+%-------------------------------------------------------------------
+\subsection*{ConsoleIn (Entrada)}
+%-------------------------------------------------------------------
 
+Para recoger una expresión sencilla que viene como entrada por consola lo haremos mediante el predicado:
+
+\lstinputlisting[caption=Instrucción para la ejecución de la consola de entrada, style=custompl, firstline=47, lastline=47]{Codigos/codigosProlog.pl}
+
+Recogeremos el valor contenido en la variable Value y lo concatenaremos al resto de la entrada que llevemos almacenado en Cin.
+
+%-------------------------------------------------------------------
+\subsection*{ConsoleOut (Salida)}
+%-------------------------------------------------------------------
+
+Para devolver un valor por consola lo haremos mediante el predicado:
+
+\lstinputlisting[caption=Instrucción para la ejecución de la consola de salida, style=custompl, firstline=17, lastline=17]{Codigos/codigosProlog.pl}
+
+Nos sirve para sacar por pantalla el resultado de la expresión, por lo que llamaremos a la función {\it resuelveExpresión} con la cxpresión como parámetro y el resultado devuelto será incluido en el Cout anteriormente mencionado de forma que al final saldrá por pantalla todo aquello que se encuentre en esa variable. Ejecutamos el resto de las instrucciones.
+
+%-------------------------------------------------------------------
+\section{Instrucciones de retorno.}
+%-------------------------------------------------------------------
+
+%-------------------------------------------------------------------
+\subsection*{Instrucción RETURN}
+%-------------------------------------------------------------------
+
+Ésta es la sentencia de salida de una función, cuando se ejecuta, se devuelve el control a la rutina que llamó a la función. Además, se usa para especificar el valor de retorno de la función. La instrucción de return sigue el siguiente esquema:
+
+\begin{center}
+\textbf{return [<expresión>] ;}
+\end{center}
+
+La instrucción de retorno del valor de una función se recoge en el predicado:
+
+\lstinputlisting[caption=Instrucción para la ejecución de la sentencia return, style=custompl, firstline=19, lastline=19]{Codigos/codigosProlog.pl}
+
+En la tabla de variables llevamos reservada una variable que nos servirá como variable de retorno por lo tanto en este predicado lo único que haremos será ejecutar con la llamada a execute del cuerpo del return y con el valor devuelto se actualizará esa variable reservada. En este caso no llamaremos a ejecutar al resto de instrucciones ya que, como se trata de una instrucción de retorno, es la última instrucción que se debería de contemplar en esta función por tanto no deberíamos de seguir con el flujo del programa.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%-------------------------------------------------------------------
+%%%%%%%%\subsubsection*{Operador unario}
+%%%%%%%%%-------------------------------------------------------------------
+%%%%%%%%
+%%%%%%%%La forma de ejecutar los operadores unarios tal que Operando operadorUnario la %%%%%%%%hemos planteado de forma que realizamos internamente una ejecución binaria de %%%%%%%%forma que Operando = Operando operadorUnario 1.
+%%%%%%%%
+%%%%%%%%\begin{center}
+%%%%%%%%ej: a++; pasaría a ser a=a+1
+%%%%%%%%\end{center}
+%%%%%%%%
+%%%%%%%%Actualizamos el valor de la variable en la tabla de variables y continuamos con %%%%%%%%la ejecución del resto de las instrucciones
+%%%%%%%%
+%%%%%%%%%-------------------------------------------------------------------
+%%%%%%%%\subsubsection*{Console Out}
+%%%%%%%%%-------------------------------------------------------------------
+%%%%%%%%
+%%%%%%%%\lstinputlisting[caption=Consola de salida, style=custompl, firstline=17, %%%%%%%%lastline=17]{Codigos/codigosProlog.pl}
+%%%%%%%%
+%%%%%%%%Nos sirve para sacar por pantalla la el resultado de la expresión por lo que %%%%%%%%llamaremos a la función resuelveExpresión con la Expresión como parámetro y el %%%%%%%%resultado devuelto será incluido en el Cout anteriormente mencionado de forma que %%%%%%%%al final saldrá por pantalla todo aquello que se encuentre en esa variable. %%%%%%%%Ejecutamos el resto de las instrucciones.
+%%%%%%%%
+%%%%%%%%%-------------------------------------------------------------------
+%%%%%%%%\subsubsection*{Return}
+%%%%%%%%%-------------------------------------------------------------------
+%%%%%%%%
+%%%%%%%%\lstinputlisting[caption=Return, style=custompl, firstline=19, lastline=19]{%%%%%%%%Codigos/codigosProlog.pl}
+%%%%%%%%
+%%%%%%%%Instrucción de retorno del valor de una función. En la tabla de variables %%%%%%%%llevamos reservada una variable que nos servirá como variable de retorno por lo %%%%%%%%tanto en este predicado lo único que haremos será ejecutar con la llamada a %%%%%%%%execute del cuerpo del return y con el valor devuelto se actualizará esa variable %%%%%%%%reservada.
+%%%%%%%%
+%%%%%%%%En este caso no llamaremos a ejecutar al resto de instrucciones ya que como se %%%%%%%%trata de una instrucción return es la última instrucción que se debería de %%%%%%%%contemplar en esta función por tanto no deberíamos de seguir con el flujo del %%%%%%%%programa.
+%%%%%%%%
+%%%%%%%%%-------------------------------------------------------------------
+%%%%%%%%\subsubsection*{If}
+%%%%%%%%%-------------------------------------------------------------------
+%%%%%%%%
+%%%%%%%%
+%%%%%%%%La estructura del if se puede ver fácilmente con el siguiente diagrama
+%%%%%%%%
+%%%%%%%%Primero resolveremos la condición y seguidamente llamaremos a executeBranch (%%%%%%%%detallada más adelante) con la solución obtenida, será ésta quien distinga si la %%%%%%%%condición ha salido verdadera o falsa. A continuación ejecutaremos el resto de %%%%%%%%las instrucciones para seguir con el resto del programa.
+%%%%%%%%
+%%%%%%%%%-------------------------------------------------------------------
+%%%%%%%%\subsubsection*{While}
+%%%%%%%%%-------------------------------------------------------------------
+%%%%%%%%
+%%%%%%%%\lstinputlisting[caption=Instrucción while, style=custompl, firstline=23, %%%%%%%%lastline=23]{Codigos/codigosProlog.pl}
+%%%%%%%%
+%%%%%%%%La estructura del while se puede entender de forma gráfica con el siguiente
+%%%%%%%%diagrama:
+%%%%%%%%
+%%%%%%%%Como en cualquier instrucción de flujo resolveremos la condición, en el caso del %%%%%%%%while, a diferencia del if, llamaremos al predicado executeLoop (explicada más %%%%%%%%adelante) con el cuerpo del while, será él quien distinga si la condición salió %%%%%%%%verdadera o falsa para ejecutar realmente el cuerpo del bucle o no. Llevaremos %%%%%%%%una variable de avance que será actualizada en el cuerpo del bucle y será quien %%%%%%%%determine cuándo parar. A continuación ejecutaremos el resto de las instrucciones %%%%%%%%para seguir con el resto del programa.
+%%%%%%%%
+%%%%%%%%%-------------------------------------------------------------------
+%%%%%%%%\subsubsection*{For}
+%%%%%%%%%-------------------------------------------------------------------
+%%%%%%%%
+%%%%%%%%\lstinputlisting[caption=Instrucción for, style=custompl, firstline=25, %%%%%%%%lastline=25]{Codigos/codigosProlog.pl}
+%%%%%%%%
+%%%%%%%%Donde A es la inicialización de la variable de avance, B es la condición, C es el %%%%%%%%avance de la variable de avance y D es el cuerpo del for. Es parecido al while ya %%%%%%%%que resolveremos la condición y llamaremos al predicado executeLoop (explicada %%%%%%%%más adelante) con el cuerpo del for, será él quien distinga si la condición salió %%%%%%%%verdadera o falsa para ejecutar realmente el cuerpo del bucle o no. A %%%%%%%%continuación ejecutaremos el resto de las instrucciones para seguir con el resto %%%%%%%%del programa.
+%%%%%%%%
+%%%%%%%%
+%%%%%%%%%-------------------------------------------------------------------
+%%%%%%%%\section*{executeLoop/5}
+%%%%%%%%%-------------------------------------------------------------------
+%%%%%%%%\label{ap41:execute2}
+%%%%%%%%
+%%%%%%%%El predicado executeLoop es llamado por execute cuando se encuentra una %%%%%%%%instrucción de bucle while o for. Igualmente recibe un estado de entrada, la %%%%%%%%lista de instrucciones, un valor numérico y devuelve el estado de salida. El %%%%%%%%valor numérico nos servirá para limitar el número de vueltas que realice el %%%%%%%%bucle, de forma que no haya posibilidad de recursión infinita, o un número de %%%%%%%%vueltas tan elevado que sea inviable devolver una solución. El número lo %%%%%%%%determina el usuario mediante la interfaz con valor del maxDepth.
+%%%%%%%%
+%%%%%%%%Hemos limitado el backtracking a la evaluación de condiciones ya que éstas son %%%%%%%%las que realmente definen el flujo del programa.
+%%%%%%%%
+%%%%%%%%Se pueden diferenciar 3 tipos de executeLoop: 
+%%%%%%%%
+%%%%%%%%\begin {itemize}
+%%%%%%%%\item El primero: el caso en el que se llega a la última vuelta permitida por la %%%%%%%%variable maxDepth.
+%%%%%%%%
+%%%%%%%%\lstinputlisting[style=custompl, firstline=27, lastline=27]{Codigos/codigosProlog.%%%%%%%%pl}
+%%%%%%%%
+%%%%%%%%Cuando maxDepth alcanza el valor 1 comprobamos que la condición se cumple y %%%%%%%%llamamos a ejecutar el resto de las instrucciones.
+%%%%%%%%
+%%%%%%%%\item El segundo: el caso en el que la condición no se hace cierta, es decir %%%%%%%%hemos llegado al fin del bucle por lo que llamamos a ejecutar al resto de las %%%%%%%%instrucciones.
+%%%%%%%%
+%%%%%%%%\lstinputlisting[style=custompl, firstline=29, lastline=29]{Codigos/codigosProlog.%%%%%%%%pl}
+%%%%%%%%
+%%%%%%%%\item El tercero: el caso en el que la condición se hace cierta y aún no hemos %%%%%%%%llegado a la profundidad máxima permitida por lo que ejecutamos el cuerpo del %%%%%%%%bucle.
+%%%%%%%%
+%%%%%%%%\lstinputlisting[caption=Instrucción for, style=custompl, firstline=31, %%%%%%%%lastline=31]{Codigos/codigosProlog.pl}
+%%%%%%%%
+%%%%%%%%\end {itemize}
+%%%%%%%%
+%%%%%%%%%-------------------------------------------------------------------
+%%%%%%%%\section*{executeBranch/4}
+%%%%%%%%%-------------------------------------------------------------------
+%%%%%%%%
+%%%%%%%%Es un predicado cuya funcionalidad extiende la del execute del if para el caso %%%%%%%%del then y del else. Igualmente recibe un estado de entrada y devuelve otro de %%%%%%%%salida, recibe la lista de instrucciones.
+%%%%%%%%
+%%%%%%%%\lstinputlisting[style=custompl, firstline=33, lastline=33]{Codigos/codigosProlog.%%%%%%%%pl}
+%%%%%%%%
+%%%%%%%%Aquí diferenciamos los dos casos posibles: Then y Else
+%%%%%%%%\begin {itemize}
+%%%%%%%%\item Caso then: Se ha cumplido la condición del if por lo que la variable %%%%%%%%ResulCond pasa a valer 1 realizando por tanto la ejecución del cuerpo del then y %%%%%%%%posteriormente se llamará a ejecutar al resto de las instrucciones.
+%%%%%%%%
+%%%%%%%%\lstinputlisting[style=custompl, firstline=35, lastline=35]{Codigos/codigosProlog.%%%%%%%%pl}
+%%%%%%%%
+%%%%%%%%\item Caso else: No se ha cumplido la condición del if por lo que la variable %%%%%%%%ResulCond pasa a valer 0, en este caso realizaremos la ejecución del cuerpo del %%%%%%%%else y posteriormente se llamará a ejecutar al resto de las instrucciones.
+%%%%%%%%
+%%%%%%%%\lstinputlisting[style=custompl, firstline=37, lastline=37]{Codigos/codigosProlog.%%%%%%%%pl}
+%%%%%%%%
+%%%%%%%%\end {itemize}
+%%%%%%%%
+%%%%%%%%%-------------------------------------------------------------------
+%%%%%%%%\section*{resolveExpression/4}
+%%%%%%%%%-------------------------------------------------------------------
+%%%%%%%%
+%%%%%%%%Este predicado servirá para resolver las distintas expresiones que existan. La %%%%%%%%estructura de llamada de este predicado es la que sigue:
+%%%%%%%%
+%%%%%%%%
+%%%%%%%%
+%%%%%%%%Entrada y Salida corresponden a la tabla de variables que entra y la tabla de %%%%%%%%variables actualizada después de la resolución de la expresión. CuerpoExpresion %%%%%%%%es la expresión concreta que queremos resolver y ValorRetorno el valor resultante %%%%%%%%devuelto.
+%%%%%%%%
+%%%%%%%%Las expresiones que resolveremos serán:
+%%%%%%%%\begin{itemize}
+%%%%%%%%\item notOperator: encargada de negar la expresión.
+%%%%%%%%\begin{center}
+%%%%%%%%ej: A = !B
+%%%%%%%%\end{center}
+%%%%%%%%\item signOperator: para expresiones positivas y negativas.
+%%%%%%%%\begin{center}
+%%%%%%%%ej: A = -B
+%%%%%%%%\end{center}
+%%%%%%%%\item binaryOperator: resuelve operaciones binarias.
+%%%%%%%%\begin{center}
+%%%%%%%%OperandoResultante = Operando1 operador Operando2
+%%%%%%%%\end{center}
+%%%%%%%%\end{itemize}
+%%%%%%%%
+%%%%%%%%En este caso se resolverá cada expresión Operando1 y Operando2 de forma %%%%%%%%independiente mediante la llamada resursiva:
+%%%%%%%%
+%%%%%%%%
+%%%%%%%%
+%%%%%%%%Y combinando los dos resultados de la siguiente forma, únicamente cuando los %%%%%%%%resultados son expresiones sencillas ya sea variable o constante de forma que ya %%%%%%%%no se pueda mas que operar:
+%%%%%%%%
+%%%%%%%%
+%%%%%%%%
+%%%%%%%%cuya funcionalidad del predicado work es la mera ejecución de la expresión
+%%%%%%%%Resultado1 Operador Resultado2
+%%%%%%%%
+%%%%%%%%\begin{itemize}
+%%%%%%%%\item variable o const: son los dos casos de expresiones sencillas indivisibles.
+%%%%%%%%\begin{center}
+%%%%%%%%ej: R = a + 5 (ejemplo de Variable + constante)
+%%%%%%%%\end{center}
+%%%%%%%%\item consoleIn: para resolver la llamada a función. Buscaremos la función a la %%%%%%%%que se está referenciando y la ejecutaremos de forma que consigamos el valor %%%%%%%%devuelto por la función como resultado de la expresión.
+%%%%%%%%\begin{center}
+%%%%%%%%ej: R = foo(a,b);
+%%%%%%%%\end{center}
+%%%%%%%%\end{itemize}
+%%%%%%%%
+%%%%%%%%%-------------------------------------------------------------------
+%%%%%%%%\section*{work/3}
+%%%%%%%%%-------------------------------------------------------------------
+%%%%%%%%
+%%%%%%%%Sirve para realizar la ejecución de una expresión simple: A = B op C siendo B y C %%%%%%%%una variable o constante.
+%%%%%%%%
+%%%%%%%%En nuestro proyecto op únicamente podrá ser:
+%%%%%%%%
 
 
 % Variable local para emacs, para  que encuentre el fichero maestro de

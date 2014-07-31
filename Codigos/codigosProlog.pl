@@ -44,6 +44,6 @@ resolveExpression(Entrada2, Operando2, Resultado2, Salida2)
 
 work(Operador, Resultado1, Resultado2,ResultadoFinal),
 
-
+resolveExpression(EntryS,('consoleIn',[_=int],_),Value,OutS)
 
 
