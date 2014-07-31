@@ -1,0 +1,97 @@
+%---------------------------------------------------------------------
+%
+%                          Apéndice 1
+%
+%---------------------------------------------------------------------
+
+\chapter{Gram\'atica reducida C++}
+
+En \'este ap\'endice mostramos la gram\'atica de C++ reducida, con las reglas que utiliza nuestra herramienta.
+
+%-------------------------------------------------------------------
+\section{Reglas gram\'aticales}
+%-------------------------------------------------------------------
+
+\begin{itemize}
+\item ElementosEntrada : ElementoEntrada
+\item ElementoEntrada : whitespace | comentario | token
+\item comentario : ``/'' ``'' caracter\_ASCII - \{ ``/'' \} `` '' ``/'' | ``/'' ``/'' caracter\_ASCII - \{ ``\\n'' \}
+\item digito : 0 | 1 | 2 |3 | 4 | 5 | 6 | 7 | 8 | 9
+\item letra : a | b | c | d | e | f | g | h | i | j | k | l | m | n | \~n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | \~N | O | P | Q | R | S | T | U | V | W | X | Y | Z | \'A | \'E | \'I | \'O | \'U
+\item whitespace : espacio en blanco
+\item ascii Caracteres del est\'andar ASCII
+\item caracter\_ASCII : ascii | \~N | \~n
+\item token : identificador | palabra\_reservada | literal | delimitador | operador
+\item identificador : ``'' [ letra | d\'igito | ``'' | ``\$'' ]* letra [ letra | d\'igito | ``'' | ``\$'' ]* ``\$'' [ letra | d\'igito | ``'' | ``\$'' ]*
+\item palabra\_reservada : ``class'' | ``else'' | ``for'' | ``if'' | ``int'' | ``return'' | ``void'' | ``while''
+\end{itemize}
+
+%-------------------------------------------------------------------
+\section{Literales y operadores}
+%-------------------------------------------------------------------
+
+\begin{itemize}
+\item literal : literal\_integer
+\item literal\_integer : [``+'' | ``-''] [digito - \{0\}]* digito* | [``+'' | ``-''] ``0''
+\item delimitador : ( | ) | \{ | \} | ; | , | .
+\item operador : operadorInfijo | operadorPrefijo | operadorPostfijo
+\item operadorInfijo : || | \&\& | == | != | < | > | <= | >= | + | - | * | /
+\item operadorPrefijo : ! | + | -
+\item operadorPostfijo : ++ | --
+\item operadorAsignaci\'on : = | += | -= | *= | /=
+\item operadorUnario : \& | * | + | \- | !
+\end{itemize}
+
+%-------------------------------------------------------------------
+\section{Tipos de datos}
+%-------------------------------------------------------------------
+
+\begin{itemize}
+\item tipo : tipo\_primitivo identificador
+\item tipo\_primitivo : ``int''
+\item listaArgumentos : expresionAsignacion | listaArgumentos , expresionAsignacion
+\end{itemize}
+
+%-------------------------------------------------------------------
+\section{Expresiones}
+%-------------------------------------------------------------------
+
+\begin{itemize}
+\item expresi\'on : expresionAsignacion | expresion , expresionAsignacion
+\item expresionAsignaci\'on : expresionCondicional | expresionUnaria operadorAsignacion expresionAsignacion
+\item expresionCondicional : expresionOrLogico
+\item expresionOrLogico : expresionAndLogico | expresionOrLogico || expresionAndLogico
+\item expresionAndLogico : expresionIgualdad | expresionAndLogico \&\& expresionIgualdad
+\item expresionIgualdad : expresionRelacional | expresionIgualdad == expresionRelacional | expresionIgualdad != expresionRelacional
+\item expresionRelacional : expresionAditiva | expresionRelacional < expresionAditiva |  expresionRelacional > expresionAditiva | expresionRelacional <= expresionAditiva | expresionRelacional >= expresionAditiva
+\item expresionAditiva : expresionMultiplicativa | expresionAditiva + expresionMultiplicativa | expresionAditiva \- expresionMultiplicativa
+\item expresionMultiplicativa : expresionConversion | expresionMultiplicativa * expresionConversion | expresionMultiplicativa / expresionConversion
+\item expresionConversion : expresionUnaria | ( nombreTipo ) expresionConversion
+\item expresionUnaria : expresionSufijo | ++ expresionUnaria | operadorUnario expresionConversion
+\item expresionSufijo : expresionPrimaria | expresionSufijo [ expresion ] | expresionSufijo ( listaArgumentos? ) | expresionSufijo ++
+\item expresionPrimaria : identificador | digito | literalCadena | ( expresion )
+\end{itemize}
+
+%-------------------------------------------------------------------
+\section{Expresiones constantes}
+%-------------------------------------------------------------------
+
+\begin{itemize}
+\item expresionConstante : expresionCondicional
+\end{itemize}
+
+%-------------------------------------------------------------------
+\section{Sentencias}
+%-------------------------------------------------------------------
+
+\begin{itemize}
+\item sentencia : sentenciaCompuesta | sentenciaExpresion | sentenciaSeleccion | sentenciaIteracion | sentenciaSalto
+\item default : sentencia
+\item sentenciaCompuesta : \{ listaDeclaraciones? listaSentencias? \}
+\item listaDeclaraciones : declaracion | listaDeclaraciones declaracion
+\item listaSentencias : sentencia | listaSentencias sentencia
+\item sentenciaExpresion : expresion? ;
+\item sentenciaSeleccion : if ( expresion ) sentencia | if ( expresion ) sentencia else sentencia
+\item sentenciaIteracion : while ( expresion ) sentencia | for ( expresion? ; expresion? ; expresion? ) sentencia
+\item sentenciaSalto : return expresion? ;
+\end{itemize}
