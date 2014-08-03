@@ -3,7 +3,7 @@
 **Pagina 2:**
 
 **1.** 
-[...] a mediados de los años 1980 -> [...] a mediados de los años 80
+"[...] a mediados de los años 1980" sería mas bien: "[...] a mediados de los años 80"
 
 **2.** 
 No se puede separar la palabra adherido así, tendría que ser:
@@ -31,8 +31,6 @@ yo lo pondría al reves:
 Ya que creo que si no se pierde el hilo de la frase.
 
 
-**Pagina ?:**
-
 **4.** 
 "Al proceso de verificar e imponer los límites impuestos por los[...]" No sé si queda raro poner tan de seguido el verbo "imponer".
 
@@ -45,13 +43,13 @@ Me suena raro esto: "La ejecución simbólica o evaluación simbólica es un mod
 **34.** 
 No me gusta mucho como quedaesta parte:
 
-+<expresion>-<expresion> y <variable>++ <variable>- -
++expresion -expresion y variable++ variab" sería mas bien:- -
 
 
 Eliminar la parte de **Gramática reducida C++** a no ser que alguien lo termine... en el momento en el que se explica por ejemplo la sentencia if habría que poner: 
 
-if (<condición>) <sentencias>
-else <sentencias>
+if (condici" sería mas bien:) sentenci" sería mas bien:
+else sentenci" sería mas bien:
 
 
 **42.**
