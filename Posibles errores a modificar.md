@@ -41,15 +41,15 @@ Me suena raro esto: "La ejecución simbólica o evaluación simbólica es un mod
 
 
 **34.** 
-No me gusta mucho como quedaesta parte:
+No me gusta mucho como queda esta parte:
 
-+expresion -expresion y variable++ variab" sería mas bien:- -
++expresion -expresion y variable++ variable- -
 
 
 Eliminar la parte de **Gramática reducida C++** a no ser que alguien lo termine... en el momento en el que se explica por ejemplo la sentencia if habría que poner: 
 
-if (condici" sería mas bien:) sentenci" sería mas bien:
-else sentenci" sería mas bien:
+if (condicion) sentencia
+else sentencia
 
 
 **42.**
