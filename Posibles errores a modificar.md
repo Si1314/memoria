@@ -1,0 +1,58 @@
+## Posibles errores a modificar
+
+**Pagina 2:**
+
+**1.** 
+[...] a mediados de los años 1980 -> [...] a mediados de los años 80
+
+**2.** 
+No se puede separar la palabra adherido así, tendría que ser:
+
+
+adhe-
+
+rido
+
+pero nunca:
+
+
+ad-
+
+herido
+
+
+**3.** 
+"Es un lenguaje de programación intermedio, puesto que se puede utilizar tanto para escribir software de bajo nivel, como drivers y componentes de sistemas operativos, como para el desarrollo rápido de aplicaciones."
+
+yo lo pondría al reves:
+
+"Es un lenguaje de programación intermedio, puesto que se puede utilizar tanto para el desarrollo rápido de aplicaciones como para escribir software de bajo nivel, como drivers y componentes de sistemas operativos."
+
+Ya que creo que si no se pierde el hilo de la frase.
+
+
+**Pagina ?:**
+
+**4.** 
+"Al proceso de verificar e imponer los límites impuestos por los[...]" No sé si queda raro poner tan de seguido el verbo "imponer".
+
+**5.** 
+Me suena raro esto: "La ejecución simbólica o evaluación simbólica es un modo de analizar programas para **determinar qué entradas causan cada parte del programa a ejecutar**."
+
+
+
+
+**34.** 
+No me gusta mucho como quedaesta parte:
+
++<expresion>-<expresion> y <variable>++ <variable>- -
+
+
+Eliminar la parte de **Gramática reducida C++** a no ser que alguien lo termine... en el momento en el que se explica por ejemplo la sentencia if habría que poner: 
+
+if (<condición>) <sentencias>
+else <sentencias>
+
+
+**42.**
+Cambiar "Instrucciones de retorno." por "Instrucción de retorno." ya que aunque lo tenía en plural, como me he dado cuenta de que solo hay uno pues sería en singular.
