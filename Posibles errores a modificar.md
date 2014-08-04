@@ -3,9 +3,11 @@
 **Pagina 2:**
 
 **1.** 
+>CORREGIDO
 "[...] a mediados de los años 1980" sería mas bien: "[...] a mediados de los años 80"
 
 **2.** 
+>CORREGIDO
 No se puede separar la palabra adherido así, tendría que ser:
 
 
@@ -22,6 +24,7 @@ herido
 
 
 **3.** 
+>CORREGIDO
 "Es un lenguaje de programación intermedio, puesto que se puede utilizar tanto para escribir software de bajo nivel, como drivers y componentes de sistemas operativos, como para el desarrollo rápido de aplicaciones."
 
 yo lo pondría al reves:
@@ -31,7 +34,8 @@ yo lo pondría al reves:
 Ya que creo que si no se pierde el hilo de la frase.
 
 
-**4.** 
+**4.**
+>CORREGIDO (creo) 
 "Al proceso de verificar e imponer los límites impuestos por los[...]" No sé si queda raro poner tan de seguido el verbo "imponer".
 
 **5.** 
@@ -41,6 +45,7 @@ Me suena raro esto: "La ejecución simbólica o evaluación simbólica es un mod
 
 
 **34.** 
+>ESTO TAMPOCO ME GUSTA...PERO ES QUE LATEX NO ME HACE MUCHO CASO CON ESTO
 No me gusta mucho como queda esta parte:
 
 +expresion -expresion y variable++ variable- -
@@ -53,4 +58,5 @@ else sentencia
 
 
 **42.**
+>CORREGIDO
 Cambiar "Instrucciones de retorno." por "Instrucción de retorno." ya que aunque lo tenía en plural, como me he dado cuenta de que solo hay uno pues sería en singular.
