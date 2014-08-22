@@ -1,186 +1,390 @@
 %---------------------------------------------------------------------
 %
-%                          Cap�tulo 2
+%                          Capítulo 2
 %
 %---------------------------------------------------------------------
 
 \chapter{Herramienta de Clang}
 
-La herramienta ast2xml conforma junto con el xmlinterpreter el cuerpo central del proyecto. Si bien ast2xml no cumple el papel m�s importante, suple las necesidades b�sicas de obtener a partir del c�digo fuente una representaci�n m�s manejable y sencilla de visualizar. Ha sido desarrollada a partir del proyecto abierto e internacional LLVM, pero se apoya principalmente en su compilador Clang.
+En este capítulo analizaremos en profundidad la herramienta construida para realizar el primer paso hacia una ejecución simbólica de un programa por nuestro proyecto. Discutiremos las decisiones de diseño y los métodos empleados para organizar los datos de una manera intuitiva y cómoda de manipular en la siguiente etapa del proceso. 
+
+La herramienta AST2XML conforma junto con el intérprete simbólico el cuerpo central del proyecto. Si bien esta herramienta no cumple el papel más importante, suple las necesidades básicas de obtener a partir del código fuente una representación más manejable y sencilla de visualizar. Ha sido desarrollada a partir del proyecto abierto e internacional Low Level Virtual Machine (a partir de ahora: LLVM), pero se apoya principalmente en su compilador CLANG.
+
+Al inicio del curso observamos que nos podíamos aproximar al problema de distintas formas. Si bien, de una forma similar al proyecto jSyx teniamos la posibilidad de basar nuestro proyecto en el uso de algo similar al bytecode de java pero relacionado con C++. De hecho tal aproximación hacia el análisis simbólico existe en la máquina virtual simbólica Klee, el cual deriva del proyecto LLVM. 
+
+Independientemente de ello, optamos por una aproximación diferente, que es separar expresamente el intérprete de la herramienta que analiza el código. Por tanto viendo las posibilidades que aporta el proyecto LLVM decidimos enfocarlo de manera similar.
 
 
 %-------------------------------------------------------------------
-\section{AST2XMLtool}
+\section{Historia de LLVM y CLANG}
 %-------------------------------------------------------------------
 
-Al inicio del curso nos dimos cuenta de que nos pod�amos aproximar al problema de distintas formas. Si bien, de una forma similar al proyecto Jsyx teniamos la posibilidad de basar nuestro proyecto en el uso de algo similar al bytecode de java pero relacionado con C++. 
-
 %-------------------------------------------------------------------
-\section{Historia de LLVM}
+\subsection{LLVM}
 %-------------------------------------------------------------------
 
-LLVM naci� como proyecto en el a�o 2000 en la Universidad de Illinois en Urbana-Champaign. En 2005, junto con Apple Inc., se empez� a adaptar el sistema para varios usos dentro del ecosistema de desarrollo de Apple. Actualmente LLVM est� integrado en las �ltimas herramientas de desarrollo de Apple para sus sistemas operativos.
-
-El un principio ``LLVM'' eran las iniciales de ``Low Level Virtual Machine'' (M�quina Virtual de Bajo Nivel), pero esta denominaci�n caus� una confusi�n ampliamente difundida, puesto que las m�quinas virtuales son solo una de las aplicaciones de LLVM. Cuando la extensi�n del proyecto se ampli� incluso m�s, LLVM se convirti� en un proyecto que engloba una gran variedad de otros compiladores y tecnolog�as de bajo nivel. Por tanto, el proyecto abandon� las iniciales y actualmente, LLVM es la manera de referirse a todas esas utilidades.
-
-
-El amplio inter�s que ha recibido LLVM ha llevado a una serie de tentativas para desarrollar front-ends totalmente nuevos para una variedad de lenguajes. El que ha recibido la mayor atenci�n es Clang, un nuevo compilador que soporta otros lenguajes de la familia de C (Objective-C, C++, etc..). Apoyado principalmente por Apple, se espera que Clang sustituya al compilador del sistema GCC.
+El un principio ``LLVM'' eran las iniciales de ``Low Level Virtual Machine'' (Máquina Virtual de Bajo Nivel). LLVM nació como proyecto en el año 2000 en la Universidad de Illinois en UrbanaChampaign. En 2005, junto con Apple Inc., se empezó a adaptar el sistema para varios usos dentro del ecosistema de desarrollo de Apple. La denominación inicial del proyecto con las siglas LLVM causó una confusión ampliamente difundida, puesto que las máquinas virtuales son sólo una de sus aplicaciones posibles. Cuando la extensión del proyecto se amplió incluso más, LLVM se convirtió en un proyecto que engloba una gran varriedad de otros compiladores y tecnologías de bajo nivel. Por tanto el proyecto abandonó las iniciales y actualmente, LLVM es la manera de referirse a todas esas utilidades. Actualmente LLVM está integrado en las últimas herramientas de desarrollo de Apple para sus sistemas operativos.
 
 %-------------------------------------------------------------------
-\section{�C�mo funciona Clang?}
+\subsection{CLANG}
 %-------------------------------------------------------------------
 
-En la mayor�a de los casos Clang ejecutar� el preprocesado y parsear� el c�digo formando un �rbol de sint�xis abstracta. Esta estructura de �rbol es m�s manejable que el propio c�digo con el a�adido de que cualquier subestructura mantiene referencias al c�digo fuente.
+El amplio interés que ha recibido LLVM ha llevado a una serie de tentativas para desarrollar frontends totalmente nuevos para una variedad de lenguajes. El que ha recibido la mayor atención es CLANG, un nuevo compilador que soporta otros lenguajes de la familia de C (ObjectiveC, C++, etc..).
+
+En un principio estaba proyectado que LLVM se apoyara en el compilador de C de GNU (a partir de ahora GCC) pero los desarrolladores de Apple fueron encontrando numerosas dificultades técnicas. Principalmente el problema fue que al ser una plataforma desarrollada durante mucho tiempo GCC presentaba una estructura demasiado compleja sobre la que ir añadiendo las modificaciones necesarias para solventar los problemas de compatibilidad.
+
+CLANG está diseñado para trabajar en una capa de abstracción por encima de LLVM. Una de los principales objetivos del diseño de CLANG es dar soporte a la compilación incremental1 con la idea de conseguir una completa integración de esta a los entornos de desarrollo con interfaz gráfica.
+
+CLANG está construido siguiendo una estructura modular basada en la inclusión de numerosas bibliotecas con lo que intenta alejarse de otros compiladores de diseño monolítico. Este diseño modular se adapta a la escalabilidad que se buscaba originalmente en el proyecto. CLANG también fue diseñado para conservar mucha más información durante la compilación que GCC y mantener la forma original del código. Asimismo se ha dado importancia a los informes de error que son bastante detallados.
+
+Actualmente es apoyado principalmente por Apple y se espera que CLANG sustituya al comiplador del sistema GCC.
 
 %-------------------------------------------------------------------
-\section{Usando el �rbol de sintaxis abstracta}
+\section{Uso de Clang}
 %-------------------------------------------------------------------
 
-La herramienta AST2XML se apoya en la adaptaci�n del c�digo, por parte de Clang, en su arbol de sintaxis abstracta (Abstract Syntax Tree). La representaci�n del AST que emplea Clang se diferencia de la de otros compiladores en cuanto a que mantiene la semejanza con el c�digo escrito y con el est�ndar de C++.
+En la mayoría de los casos CLANG ejecutará el preprocesado y parseará el código formando un árbol de sintáxis abstracta (de ahora en adelante: AST). Esta estructura de árbol es más manejable que el propio código con el añadido de que cualquier subestructura mantiene referencias al código fuente.
 
-Un �rbol de sintaxis abstracta (AST) es una representaci�n de �rbol de la estructura sint�ctica abstracta (simplificada) del c�digo fuente ampliamente utilizada en los distintos compiladores del mercado. Cada nodo del �rbol denota una construcci�n que ocurre en el c�digo fuente. La representaci�n del AST que emplea Clang se diferencia de la de otros compiladores en cuanto a que mantiene la semejanza con el c�digo escrito y con el est�ndar de C++.
+En nuestro proyecto el uso de CLANG ha sido bastante localizado dentro de las funcionalidades que ofrece.
 
-Esta estructura es obtenida mediante el uso de las distintas utilidades incluidas en el apartado de desarrollo de Clang. Mediante dichas facilidades se recorre el AST de forma recursiva conservando los detalles m�s importantes del c�digo en un fichero que se devuelve al usuario.
+%-------------------------------------------------------------------
+\subsection{AST}
+%-------------------------------------------------------------------
+
+Un AST es una representación de árbol de la estructura sintáctica abstracta simplificada del código fuente. Esta estructura es ampliamente utilizada en los distintos compiladores del mercado. Cada nodo del árbol denota una construcción de lo que se encuenta en el código fuente.
+
+La herramienta AST2XML se apoya en la adaptación del código, por parte del AST propio de CLANG, a un formato XML. La representación del AST que emplea CLANG se diferencia de la de otros compiladores en cuanto a que mantiene la semejanza con el código escrito y con el estándar de C++.
 
 \figura{Vectorial/figura1}{width=.5\textwidth}{fig:figura1}%
-{Figura Ejemplo del AST que emplea Clang a partir de un c�digo espec�fico.}
+{Figura Ejemplo del AST que emplea Clang a partir de un código específico.}
+
+Como se puede apreciar en la figura, la representación que se obtiene directamente de CLANG puede llegar a parecer abrumadoramente compleja y redundante. En momentos iniciales del proyecto tomamos la decisión de que información como la ubicación de los elementos, los tipos de las variables, o incluso el tipo de los nodos no serían necesarias en cada momento. Para ello hizo falta una implementación muy precisa de un tipo de herramienta que se puede construir para CLANG.
 
 %-------------------------------------------------------------------
-\section{Manipulaci�n de un AST con clang}
+\subsection{La biblioteca LibTooling}
 %-------------------------------------------------------------------
 
-Como se puede apreciar en la figura, la representaci�n que se obtiene directamente de clang puede llegar a parecer abrumadoramente compleja y redundante. En momentos iniciales del proyecto tomamos la decisi�n de que informaci�n como la ubicaci�n de los elementos, los tipos de las variables, o incluso el tipo de los nodos no ser�an necesarias en cada momento. Decidimos pues optar por una representaci�n m�s acotada, clara y concisa que, expresando lo mismo, fuera lo suficientemente sencilla de manipular por el int�rprete de prolog.
+La biblioteca LibTooling tiene un papel muy importante en la arquitectura de la herramienta. Libtooling da soporte al diseño de herramientas autónomas basadas en CLANG, proveyendo de la infraestructura necesaria para la realización de análisis sintácticos y semánticos de programas.
+
+En la implementación de nuestra herramienta destacan los roles de estos elementos que nos aporta la biblioteca:
+
+\begin{itemize}
+\item \textbf{CommonOptionParser:} Es una utilidad que se encarga del análisis de
+los argumentos que recibe la llamada del ejecutable ast2xml. Aporta los
+mensajes por defecto de las utilidades básicas de las herramientas que
+se pueden implementar.
+\item \textbf{ToXMLVisitor:} Es el núcleo de la herramienta. Hereda de la interfaz RecursiveASTVisitor, que como su nombre indica, se encarga de hacer un recorrido recursivo y en profundidad de la estructura. Dentro de nuestro visitor hay que implementar los diferentes métodos específicos que se amoldan a los distíntos nodos que vaya a visitar dentro del AST.
+\item \textbf{ToXMLASTConsumer:} Es la clase que desencadena la ejecución del visitor.
+\item \textbf{ToXMLFrontendAction:} Es la clase que encapsula el comportamiento de nuestra herramienta. Hereda de la clase abstracta ASTFrontendAction del paquete FrontendAction. Devuelve una instancia de nuestro consumidor en el momento de comenzar a recorrer el AST.
+\end{itemize}
 
 %-------------------------------------------------------------------
-\subsection{LibTooling}
+\section{Estructura y recorrido del AST}
 %-------------------------------------------------------------------
 
-Es una librer�a que tiene un papel muy importante en la arquitectura de la herramienta. Libtooling da soporte al dise�o de herramientas aut�nomas basadas en Clang, proveyendo de la infraestructura necesaria para la realizaci�n de an�lisis sint�cticos y sem�nticos de programas. 
-En la implementaci�n de nuestra herramienta destacan los roles de estos elementos que nos aporta la librer�a:
+La estructura que emplea CLANG para representar el AST de un código se basa principalmente en la interacción de dos clases base muy flexibles a partir de las cuales se construyen todas los demás: Decl (Declarations), que engloba toda las declaraciones (funciones, variables, templates, etc… ), Stmt (Statement) que abarca las instrucciones. La mayoría de las clases que se derivan de ellas se explican por sí mismas, como por ejemplo: BinaryOperator (operador binario), FunctionDecl (declaración de función), etc..
 
-\begin {itemize}
-\item CommonOptionParser: Es una utilidad que se encarga del an�lisis de los argumentos que recibe la llamada del ejecutable ast2xml. Aporta los mensajes por defecto de las utilidades b�sicas de las herramientas que se pueden implementar.
-\item ToXMLVisitor: Es el n�cleo de la herramienta. Hereda de la interfaz RecursiveASTVisitor, que como su nombre indica, se encarga de hacer un recorrido recursivo y en profundidad de la estructura. Dentro de nuestro visitor hay que implementar los diferentes m�todos espec�ficos que se amoldan a los dist�ntos nodos que vaya a visitar dentro del AST.
-\item ToXMLASTConsumer: Es la clase que desencadena la ejecuci�n del visitor.
-\item ToXMLFrontendAction: Es la clase que encapsula el comportamiento de nuestra herramienta. Hereda de la clase abstracta ASTFrontendAction del paquete FrontendAction. Devuelve una instancia de nuestro consumidor en el momento de comenzar a recorrer el AST.
-\end {itemize}
+En el desarrollo de la herramienta implementada empleamos un objeto de la clase propia ToXMLVisitor que hereda de la clase RecursiveASTVisitor cuyo comportamiento está previamente definido dentro de las bibliotecas propias de CLANG.
 
-%-------------------------------------------------------------------
-\section{Estructura del AST}
-%-------------------------------------------------------------------
+El recorrido que hace el RecursiveASTVisitor a lo largo del AST se realiza mediante llamadas a funciones Traverse. Estas funciones son específicas para cada clase que funciona como nodo del AST, aunque existen sus versiones genéricas: TraverseDecl() y TraverseStmt().
 
-La estructura que emplea Clang para representar el AST de un c�digo se basa principalmente en la interacci�n de dos clases base muy flexibles a partir de las cuales se construyen todas los dem�s: Decl (Declarations), que engloba toda las declaraciones (funciones, variables, templates, etc/ldots ),Stmt (Statement) que abarca las instrucciones. 
+El comportamiento de ambas funciones es muy similar. En el caso de la función TraverseStmt, la instancia del RecursiceASTVisitor realiza llamadas recursivas a los nodos del AST mediante las funciones TraverseXXXStmt. Siendo XXX el nombre de la clase del nodo en cuestión. En cada llamada el RecursiceASTVisitor hace una comprobación del tipo del nodo y de si la función necesaria está declarada. En caso de no estar declarada explícitamente en el código se prosigue con la búsqueda accediendo a los nodos más profundos.
 
-La mayor�a de las clases que se derivan de ellas se explican por s� mismas, como por ejemplo: BinaryOperator (operador binario), FunctionDecl (declaraci�n de funci�n), etc/ldots 
-
+Para realizar un recorrido satisfactorio es necesario implementar en el código de la herramienta las distintas funciones Traverse de los nodos de interés. Ésto es posible ya que las clases de las cuales los nodos son instancias particulares heredan de las super clases Decl y Stmt. Con nuestra herramienta transformamos cada nodo del AST en un nodo XML, manteniendo la semántica y la estructura del código.
 
 %-------------------------------------------------------------------
-\section{Recorriendo el AST}
+\subsection{Funciones}
 %-------------------------------------------------------------------
 
-El recorrido que hace el RecursiveASTVisitor a lo largo del AST se realiza mediante llamadas a funciones Traverse. Estas funciones son espec�ficas para cada clase que funciona como nodo del AST, aunque existen sus versiones gen�ricas: TraverseDecl() y TraverseStmt().
-
-El comportamiento de ambas es muy similar.
-
+En los ficheros de código que se espera que introduzcan los usuarios la estructura más grande a tener en cuenta es la declaración de funciones. El compilador se comporta de igual manera tanto si se trata de la declaración de una función a la que se va a invocar, como si es el caso del main del código.
 
 %-------------------------------------------------------------------
-\section{Instrucciones como nodos de un fichero XML}
+\subsubsection*{FunctionDecl}
 %-------------------------------------------------------------------
 
-El fichero que se le devuelve al usuario tiene formato XML y contiene informaci�n acerca de las funciones que, en el c�digo fuente, haya declarado el usuario. Dichas funciones se encuentran englobadas en nodos function que almacenan el nombre, el n�mero de l�nea, el tipo devuelto, los par�metros y el cuerpo de la funci�n en cuesti�n. De los par�metros registramos su tipo y el nombre de su declaraci�n.
-
-\figura{Vectorial/figura2}{width=.5\textwidth}{fig:figura2}%
-{Figura con ejemplo de la disposici�n b�sica de un nodo function.}
-
-En el desarrollo del proyecto hemos tenido que, de la misma forma, asignar a cada declaraci�n, instrucci�n y expresi�n de C++ contempladas en nuestro dominio un nodo XML que mantuviera su significado y de la misma forma no incrementara la complejidad del texto. 
+La clase FunctionDecl se corresponde con la declaración de una función. Es un nodo del AST de CLANG que almacena información correspondiente a la situación en el código de ésta, el tipo devuelto, enlaces a sus parámetros y al cuerpo de la función. Este nodo se corresponde directamente en el XML devuelto por la herramienta con los nodos function.
 
 %-------------------------------------------------------------------
-\section{Bloques de instrucciones}
+\subsubsection*{ParmVarDecl}
 %-------------------------------------------------------------------
 
-Una noci�n que existe en el AST de Clang es la del CompoundStatement que representa a un bloque de c�digo delimitado por llaves ({..}). Puesto que esperamos que el usuario haga uso de ellos s�lo en compa�ia de otras estructuras (if, while, for o funciones), en el XML se representa con el nodo body. Que contiene los nodos de las instrucciones programadas.
+Un objeto ParmVarDecl almacena información referente a un parámetro necesario en la llamada de una función. Esta clase se corresponde con el nodo XML param, el cual contiene el tipo y el nombre del parámetro dentro de la función. Los nodos param sólo aparecen dentro de un nodo params.
 
 %-------------------------------------------------------------------
-\section*{Declaraciones e inicializaciones}
+\subsubsection*{CompoundStmt}
 %-------------------------------------------------------------------
 
-C + + es un lenguaje fuertemente tipado, y requiere que cada variable est� declarada junto con su tipo antes de su primer uso. En un caso pr�ctico, esto informa al compilador el tama�o reservar en memoria para la variable y la forma de interpretar su valor. Si se declaran varias variables del mismo tipo, se puede realizar en una sola instrucci�n.
+Una noción que existe en el AST de CLANG es la del CompoundStatement que representa a un bloque de código delimitado por llaves ({..}). Puesto que esperamos que el usuario haga uso de ellos sólo en compañia de otras estructuras (if, while, for o funciones), en el XML se representa con el nodo body. Un nodo body está compuesto por la serie de nodos correspondientes a las instrucciones que lo conforman.
 
-Cuando se declara una variable, adquiere un valor indeterminado hasta que se le asigne alguno expl�citamente. En C++ se contemplan tres maneras de inicializar el valor de una variable, aunque en nuestro proyecto, de cara a el uso de nuestra herramienta por parte de alumnos que est�n aprendiendo a programar, admitimos �nicamente la forma m�s sencilla. 
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.9\textwidth]%
+{Imagenes/Vectorial/nodoFunction}
+\caption{Figura con ejemplo de la disposición básica de un nodo function.}
+\end{center}
+\end{figure}
 
-Un nodo declarations contiene las declaraciones de las variables de un mismo tipo que han sido declaradas en la misma l�nea. Obtienen su informaci�n del nodo del AST de clang DeclStmt. 
+%-------------------------------------------------------------------
+\subsubsection*{ReturnStmt}
+%-------------------------------------------------------------------
 
-Los nodos declaration contienen informaci�n acerca del tipo de la variable, su nombre, la l�nea en la que se encuentra la declaraci�n y la expresi�n cuyo valor se le va a asignar. La informaci�n surge de los nodos VarDecl que emplea el AST de clang. 
+La instrucción Return se traduce en nuestro formato a un nodod return el cual contiene su línea del código y un nodo interno que contiene la expresión que devuelve la función.
 
-\figura{Vectorial/Todo}{width=.5\textwidth}{fig:todo1}%
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.9\textwidth]%
+{Imagenes/Vectorial/nodoReturn}
+\caption{Figura con ejemplo de la disposición básica de un nodo return.}
+\end{center}
+\end{figure}
+
+%-------------------------------------------------------------------
+\subsection{Declaraciones e inicializaciones}
+%-------------------------------------------------------------------
+
+C++ es un lenguaje fuertemente tipado, y requiere que cada variable esté declarada junto con su tipo antes de su primer uso. En un caso práctico, esto informa al compilador el tamaño reservar en memoria para la variable y la forma de interpretar su valor. Si se declaran varias variables del mismo tipo, se puede realizar en una sola instrucción.
+
+%-------------------------------------------------------------------
+\subsubsection*{DeclStmt}
+%-------------------------------------------------------------------
+
+Cuando se declara una variable, adquiere un valor indeterminado hasta que se le asigne alguno explícitamente. En C++ se contemplan tres maneras de inicializar el valor de una variable, aunque en nuestro proyecto, de cara a el uso de nuestra herramienta por parte de alumnos que están aprendiendo a programar, admitimos únicamente la forma más sencilla.
+
+Un nodo declarations contiene las declaraciones de las variables de un mismo tipo que han sido declaradas en la misma línea. Obtienen su información del nodo del AST de CLANG DeclStmt.
+
+%-------------------------------------------------------------------
+\subsubsection*{VarDecl}
+%-------------------------------------------------------------------
+
+Los nodos declaration contienen información acerca del tipo de la variable, su nombre, la línea en la que se encuentra la declaración y la expresión cuyo valor se le va a asignar. La información surge de los nodos VarDecl que emplea el AST de CLANG.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.9\textwidth]%
+{Imagenes/Vectorial/nodoDeclaration}
+\caption{Figura con ejemplo de la disposición básica de un nodo declaration.}
+\end{center}
+\end{figure}
+
+%-------------------------------------------------------------------
+\subsection{Estructuras de control}
+%-------------------------------------------------------------------
+
+Las instrucciones que producen ramificaciones en la ejecución de un programa, tales como: el if, el while o el for. Para poder realizar su ejecución correctamente mantenemos en sus respectivos nodos sus señas más características.
+
+%-------------------------------------------------------------------
+\subsubsection*{IfStmt}
+%-------------------------------------------------------------------
+
+El nodo XML if obtiene su información a partir del nodo del AST de CLANG IfStmt. Almacena el número de línea, y los nodos correspondientes a la condición que dirige su ejecución, al cuerpo del then y al cuerpo del else (en caso de estar especificado en el código).
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.9\textwidth]%
+{Imagenes/Vectorial/nodoIf}
+\caption{Figura con ejemplo de la disposición básica de un nodo If.}
+\end{center}
+\end{figure}
+
+%-------------------------------------------------------------------
+\subsubsection*{WhileStmt}
+%-------------------------------------------------------------------
+
+La instrucción while se traduce a un nodo que alberga como atributo el número de línea donde comienza la instrucción, y los nodos de la expresión de su condición y el bloque de instrucciones de su cuerpo. Toda esta información es una fracción de la que contiene el nodo del AST de clang WhileStmt.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.9\textwidth]%
+{Imagenes/Vectorial/nodoWhile}
+\caption{Figura con ejemplo de la disposición básica de un nodo While.}
+\end{center}
+\end{figure}
+
+%-------------------------------------------------------------------
+\subsubsection*{ForStmt}
+%-------------------------------------------------------------------
+
+El bucle For se representa en el fichero XML con un nodo for. Este nodo obtiene su información a partir del nodo del AST de clang ForStmt. La información que contiene refiere al número de línea en el que comienza, y a los nodos de la declaración de su variable de control, la condición de parada, la instrucción de avance y el cuerpo del bucle. Es importante recalcar que para el uso correcto de la herramienta, más específicamente para el uso del intérprete simbólico, el bucle for introducido por el usuario en el código fuente debe contener dichas partes de forma explícita.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.9\textwidth]%
+{Imagenes/Vectorial/nodoFor}
+\caption{Figura con ejemplo de la disposición básica de un nodo For.}
+\end{center}
+\end{figure}
+
+%-------------------------------------------------------------------
+\subsection{Expresiones}
+%-------------------------------------------------------------------
+
+Las expresiones escritas en C++ se traducen a nuestro formato en XML en nodos descritos por sus operadores, la variable a la que hacen referencia o la constante que representan.
+
+En caso de que estos nodos hagan referencia a un operador, contienen información acerca del tipo de este (binario, unario, asignación, etc...) y de las expresiones que contienen.
+
+Las expresiones que se refieren a variables almacenan el nombre de estas y deforma equivalente las que representan constantes guardan su valor. Un caso particular de expresión sería el de las llamadas a funciones.
+
+%-------------------------------------------------------------------
+\subsubsection*{ParenExpr}
+%-------------------------------------------------------------------
+
+La clase ParenExpr representa una expresión rodeada por paréntesis por ejemplo ``(1)''. Esta estructura no es muy relevante en nuestra herramienta porque en el paso del análisis en el que CLANG construye el AST, ya tiene en cuenta la prioridad de los operandos. Esto convierte a la clase ParenExpr en una utilidad auxiliar que sin duda puede resultar útil en caso de querer modificar o añadir nuevos elementos al AST en otro tipo de análisis con otra herramienta.
+
+%-------------------------------------------------------------------
+\subsubsection*{BinaryOperator}
+%-------------------------------------------------------------------
+
+La clase BinaryOperator engloba los diversos operadores binarios de C++. Abarca las operaciones con punteros, la asignación, distintas operaciones numéricas, booleanas, de comparación e incluso a nivel de bit. CLANG se refiere a los distintos operadores mediante un tipo enumerado denominado OpCode, pero en nuestra herramienta optamos por hacer una distinción entre la asignación y los demás operadores. De esta forma una asignación se vería traducidad a un nodo XML assignment que contiene el nombre de la variable que recibe el valor, su ubicación en el código y un nodo interno para la expresión de dicho valor. De esta forma no se contempla que haya una asignación dentro de otra. Asimismo cualquier otra expresión aparece como un nodo binaryOperator que aparte de conservar el tipo y el operador, contiene los dos nodos internos que refieren a las expresiones que hacen a su vez el papel de sus dos operandos. Esta distinción se hace con los estudiantes noveles de programación en mente con la finalidad de que, en caso de estudiar detenidamente el XML final de su código, tengan una visión más clara de su funcionamiento.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.9\textwidth]%
+{Imagenes/Vectorial/nodoOpBinario}
+\caption{Figura con ejemplo de la disposición básica de un nodo con un operador binario.}
+\end{center}
+\end{figure}
+
+%-------------------------------------------------------------------
+\subsubsection*{CompoundAssignOperator}
+%-------------------------------------------------------------------
+
+CLANG hace distinción entre los operadores binarios corrientes, y los que a su vez almacenan el valor resultante de la operación en una de las variables involucradas. Operaciones de este este tipo se resuelven mediante procesos de bajo nivel distintos a los de BinaryOperator por lo que para ello la clase CompoundAssignOperator resulta bastante útil. Un nodo CompoundAssignOperator se traduce a un nodo assignmentoperator en el fichero XML devuelto. En este nodo damos cuenta del nombre de la variable de la que participa en la operación y posteriormente recoge el valor, el tipo de la operación, la ubicación en el código y un nodo anidado que correspondería a la expresión que pudiera aparecer en el código correspondiendo al segundo operando.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.9\textwidth]%
+{Imagenes/Vectorial/nodoOpAsignacion}
+\caption{Figura con ejemplo de la disposición básica de un nodo con un operador de asignación.}
+\end{center}
+\end{figure}
+
+%-------------------------------------------------------------------
+\subsubsection*{UnaryOperator}
+%-------------------------------------------------------------------
+
+En C++ existen numerosos operadores unarios pero, considerando los conocimientos que hacen falta en etapas tempranas de la iniciación a la programación, nos hemos centrado en dar soporte a los operadores unarios de incremento, decremento, indicador de signo y el not lógico. Distinguimos los operadores de incremento y decremento se presentan a los programadores en un principio como parte esencial de los bucles cumpliendo la función de instrucción de avance. Estos operadores se traducen a un nodo unaryOperator que indica el tipo de la operación: ‘+’ en caso de incremento, ‘’ en caso contrario.
+
+\figura{Vectorial/Todo}{width=.5\textwidth}%
 {Figura utilizada para marcar una imagen por hacer.}
 
-%-------------------------------------------------------------------
-\section*{Estructuras de control}
-%-------------------------------------------------------------------
+Por otro lado el indicador de signo cumple un papel importante a la hora de operar con valores negativos y de ayuda explícita al programador junior en caso de que quiera asegurar el valor de su variable. El nodo XML correspondiente es el nodo signOperator, que indica si es positivo o negativo y que contiene un subnodo correspondiente a la expresión cuyo signo se modifica.
 
-Las instrucciones que producen ramificaciones en la ejecuci�n de un programa, tales como: el if, el while o el for. Para poder realizar su ejecuci�n correctamente mantenemos en sus respectivos nodos sus se�as m�s caracter�sticas.
-
-El nodo de la instrucci�n if contiene el n�mero de l�nea, y los nodos correspondientes a la condici�n que dirige su ejecuci�n, al cuerpo del then y al cuerpo del else (en caso de estar especificado en el c�digo). 
-
-\figura{Vectorial/Todo}{width=.5\textwidth}{fig:todo2}%
+\figura{Vectorial/Todo}{width=.5\textwidth}%
 {Figura utilizada para marcar una imagen por hacer.}
 
-La instrucci�n while se traduce a un nodo que alberga como atributo el n�mero de l�nea donde comienza la instrucci�n, y los nodos de la expresi�n de su condici�n y el bloque de instrucciones de su cuerpo. Toda esta informaci�n es una fracci�n de la que contiene el nodo del AST de clang WhileStmt.
-
-\figura{Vectorial/Todo}{width=.5\textwidth}{fig:todo3}%
-{Figura utilizada para marcar una imagen por hacer.}
-
-La estructura del nodo de la instrucci�n for mantiene el n�mero de l�nea, y en su interior los nodos de la declaraci�n de su variable de control, la condici�n, la instrucci�n de avance y el cuerpo del bucle. Obtiene su informaci�n a partir del nodo del AST de clang ForStmt.
-
- \figura{Vectorial/Todo}{width=.5\textwidth}{fig:todo4}%
-{Figura utilizada para marcar una imagen por hacer.}
+El not lógico no aporta más expresividad pero permite simplificar programación de expresiones booleanas. Este operador aparece en el formato XML como un nodo signOperator. Este nodo contiene el nodo de la expresión cuyo valor booleano invierte.
 
 %-------------------------------------------------------------------
-\section*{Expresiones}
+\subsubsection*{ImplicitCastExpr}
 %-------------------------------------------------------------------
 
-Las expresiones escritas en C++ se traducen a nuestro formato en XML en nodos descritos por sus operadores, la variable a la que hacen referencia o la constante que representan. 
-
-En caso de que estos nodos hagan referencia a un operador, contienen informaci�n acerca del tipo de este (binario, unario, asignaci�n, etc/ldots) y de las expresiones que contienen. 
-
-Las expresiones que se refieren a variables almacenan el nombre de estas y de forma equivalente las que representan constantes guardan su valor. Un caso particular de expresi�n ser�a el de las llamadas a funciones.
+Esta clase nos permite representar explícitamente las conversiones de tipo (castings) que no tienen representación en el código original. Un ejemplo en la práctica sería a la hora de determinar el tipo de una variable de la cual solo sabemos el indentificador de forma que case con el tipo de la operación a la que va a ser sometida. En el lenguaje C, los conversiones implícitas de tipo siempre producen valores temporales que van asociados al lado derecho de una expresión (rvalues), por ejemplo: ``x = y;'', la variable y es un rvalue. Aún así, en C++ una conversión implícita puede estar asociada a valores que pueden ir a la izquierda de una expresión (lvalues), por ejemplo: ``x = 7;'', x es un lvalue.
 
 %-------------------------------------------------------------------
-\section*{Operadores de asignaci�n}
+\subsubsection*{DeclRefExprClass}
 %-------------------------------------------------------------------
 
-Para representar las instrucciones de asignaci�n nos expresamos mediante los nodos assignment y assignmentOperation, conteniendo el nombre de la variable, la l�nea y la expresi�n de la cual se calcula el valor. 
+La clase DeclRefExprClass se corresponde con una referencia a una variable, función, valor de tipo enumerado, etc. que haya sido declarado con anterioridad. Un objeto de esta clase almacena numerosos detalles de como una declaración se referencia dentro de una expresión. En nuestro proyecto este nodo nos permite conocer el identificador de una variable cualquiera que participe en una expresión. La correspondencia con el fichero XML tiene forma de nodo variable.
 
-A pesar de que esta distinci�n no existe como tal en Clang, la hacemos evidente para diferenciar las asignaciones corrientes (AssignmentOperator en Clang) de las asignaciones con operadores (CompountAssignmentOperator en Clang).
-
-\figura{Vectorial/Todo}{width=.5\textwidth}{fig:todo5}%
-{Figura utilizada para marcar una imagen por hacer.}
-
-Esta distinci�n se hace con los estudiantes noveles de programaci�n en mente con la finalidad de que, en caso de estudiar detenidamente el XML final de su c�digo, tengan una visi�n m�s clara de su funcionamiento.
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.9\textwidth]%
+{Imagenes/Vectorial/nodoAsig}
+\caption{Figura con ejemplo de la disposición básica de un nodo con una asignacion a otra variable.}
+\end{center}
+\end{figure}
 
 %-------------------------------------------------------------------
-\section*{Operadores unarios}
+\subsubsection*{IntegerLiteral}
 %-------------------------------------------------------------------
 
-En C++ existen numerosos operadores unarios pero, considerando los conocimientos que hacen falta en etapas tempranas de la iniciaci�n a la programaci�n, nos hemos centrado en dar soporte a los operadores unarios de incremento, decremento, indicador de signo y el not l�gico. 
+Un nodo IntegerLiteral es utilizado por el compilador para determinar el valor y el tipo asociado al tamaño que ocupa en memoria un valor entero que aparece explícitamente en el código. En el formato XML correspondiente al código fuente que acepta nuestra herramienta se traduce en un nodo const en el que se almacena el valor de dicha constante.
 
-Distinguimos los operadores de incremento y decremento se presentan a los programadores en un principio como parte esencial de los bucles cumpliendo la funci�n de instrucci�n de avance. 
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.9\textwidth]%
+{Imagenes/Vectorial/nodoAsigValor}
+\caption{Figura con ejemplo de la disposición básica de un nodo con una asignacion a un valor.}
+\end{center}
+\end{figure}
 
-\figura{Vectorial/Todo}{width=.5\textwidth}{fig:todo6}%
-{Figura utilizada para marcar una imagen por hacer.}
+%-------------------------------------------------------------------
+\subsubsection*{StringLiteral}
+%-------------------------------------------------------------------
 
-Por otro lado el indicador de signo cumple un papel importante a la hora de operar con valores negativos y de ayuda expl�cita al programador junior en caso de que quiera asegurar el valor de su variable.
+La clase StringLiteral sirve para representar cualquier expresion de tipo string (cadenas de caracteres). Es una clase muy versátil pues otorga al programador distintas utilidades para manipular strings a distintos niveles. En nuestra herramienta la presencia de strings definidos por el usuario está limitada a la salida por consola. Un string se traduce a un nodo string cuyo valor almacena la cadena de caracteres correspondiente
 
-\figura{Vectorial/Todo}{width=.5\textwidth}{fig:todo7}%
-{Figura utilizada para marcar una imagen por hacer.}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.9\textwidth]%
+{Imagenes/Vectorial/nodoString}
+\caption{Figura con ejemplo de la disposición básica de un nodo con un valor string.}
+\end{center}
+\end{figure}
 
-El not l�gico no aporta m�s expresividad pero permite simplificar programaci�n de expresiones booleanas. 
+%-------------------------------------------------------------------
+\subsubsection*{CallExpr}
+%-------------------------------------------------------------------
 
-\figura{Vectorial/Todo}{width=.5\textwidth}{fig:todo8}%
-{Figura utilizada para marcar una imagen por hacer.}
+La clase CallExpr representa la llamada a una función. En C++ las llamadas a funciones son consideradas expresiones que devuelven un valor del tipo asociado a dicha función. Una llamada a función se traduce a un nodo callFunction que refiere al nombre de la función y contiene varios nodos arg con las expresiones que el programador haya determinado.
 
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.9\textwidth]%
+{Imagenes/Vectorial/nodoCallFunction}
+\caption{Figura con ejemplo de la disposición básica de un nodo con la llamada a una función.}
+\end{center}
+\end{figure}
 
+%-------------------------------------------------------------------
+\subsection{Interacción de entrada y salida}
+%-------------------------------------------------------------------
+
+En el diseño de nuestra herramienta damos mucha importancia a la utilidad que pueda suponer para el usuario final: un programador novel. Es por ello que para que una vez hecho el análisis simbólico, en caso de que el usuario quisiera reconstruir el flujo de ejecución del programa, una utilidad que simule el comportamiento interactivo de una consola puede convertirse en una buena herramienta de depuración.
+
+A lo largo de la existencia de C y sus posteriores revisiones han idos surgiendo numerosas bibliotecas que se encargan de encapsular la entrada y salida para agilizar la tarea del programador. Entre estas bibliotecas destacan la biblioteca estándar de C++ y la biblioteca estándar de C.
+
+La biblioteca estándar de C (libc) es una recopilación de ficheros cabecera y bibliotecas con rutinas, estandarizados por un comité de la Organización Internacional para la Estandarización (ISO). Estas rutinas implementan las operaciones comunes del lenguaje de forma que todos los programas implementados en C se basan en ella para funcionar. Dentro de los ficheros cabecera de la biblioteca el fichero stdio.h contiene las definiciones necesarias para las operaciones de entrada y salida.
+
+La biblioteca estándar de C++ (Standard Template Lybrary, STL) incluye una colección de funciones y clases definidas en el núcleo del lenguaje y está ideada para dar soporte a la mayoría de funcionalidades del lenguaje. Iostream (acrónimo de Input/Output Stream) es el componente responsable del control de flujo de entrada y salida y refiere a un conjunto de plantillas de clases que manejan las capacidades de entrada y salida de C++ por medio de flujos (streams). Todos los objetos derivados de iostream son parte del espacio de nombres (namespace) std.
+
+Para simplificar el acceso a las operaciones de entrada y salida teniendo en cuenta su necesaria adaptación a un formato XML y su posterior procesado por el intérprete simbólico hemos definido dos sencillas bibliotecas que eliminan las diferencias entre las dos bibliotecas más generalizadas de la programación en C++ aportando la funcionalidad básica que pueda necesitar el usuario: introducción y emisión de valores enteros o strings.
+
+Las bibliotecas implementadas son BuiltinsSTD.h y BuiltinsIO.h basadas en la entrada y salida de la biblioteca estándar de C++ y C respectivamente.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.9\textwidth]%
+{Imagenes/Vectorial/ejemploFuncES}
+\caption{Figura ejemplo con las funciones incluidas en las bibliotecas.}
+\end{center}
+\end{figure}
+
+%-------------------------------------------------------------------
+\section{Tecnología adicional}
+%-------------------------------------------------------------------
+
+Como se ha explicado previamente en nuestra herramienta un factor clave es la producción de un fichero XML equivalente al código introducido con la finalidad de realizar la ejecución simbólica a partir de él. Desde un principio se descartó la posibilidad de implementar una herramienta por nuestra cuenta con las capacidades requeridas, como opción final nos decidimos por emplear alguna de ya existente cuya utilización nos estuviera permitida, optamos por la librería TinyXML2.
+
+%-------------------------------------------------------------------
+\subsection*{TinyXML2}
+%-------------------------------------------------------------------
+
+TinyXML2 es una librería de software libre creada para la manipulación de ficheros XML. TinyXML2 está sujeta a los términos de la licencia zlib de distribución de software.
+
+Elegimos TinyXML2 como una opción viable ya que como indica su nombre es una herramienta de tamaño reducido y de características ajustadas a la eficiencia que buscábamos. En el proceso de generar el fichero XML esta librería nos ofreció directivas bastante sencillas, así como una manipulación directa y ágil de los nodos XML.
+
+A grandes razgos la generación del fichero que devuelve AST2XML comienza con la creación de un “documento en blanco” y la generación de un puntero auxiliar. El documento guarda la funcionalidad relativa a la generación de nuevas estructuras XML y es el que finalmente gestiona el volcado de información al fichero resultante. El puntero auxiliar se utiliza como almacenamiento temporal de los nodos XML una vez estos ya han sido finalizados.
+
+%-------------------------------------------------------------------
+\section{Uso de AST2XML}
+%-------------------------------------------------------------------
+
+Una vez compilado la herramienta, se puede ejecutar esta mediante el comando:
+
+El primer y el tercer parámetro que se emplean en la llamada representan al fichero de código del que se quiere obtener una representación en XML y el fichero resultante.
+
+El segundo parámetro es una directiva de la ejecución propia de herramientas de LLVM que indica la inexistencia de una base de datos de compilación que podría ser necesaria al hacer ejecutar otra herramienta.
 
 %-------------------------------------------------------------------
 %section*{\NotasBibliograficas}
@@ -192,14 +396,14 @@ El not l�gico no aporta m�s expresividad pero permite simplificar programaci�n d
 %-------------------------------------------------------------------
 %\TocNotasBibliograficas
 
-%Citamos algo para que aparezca en la bibliograf�a\ldots
+%Citamos algo para que aparezca en la bibliografía\ldots
 %\citep{ldesc2e}
 
 %\medskip
 
-%Y tambi�n ponemos el acr�nimo \ac{CVS} para que no cruja.
+%Y también ponemos el acrónimo \ac{CVS} para que no cruja.
 
-%Ten en cuenta que si no quieres acr�nimos (o no quieres que te falle la compilaci�n en ``release'' mientras no tengas ninguno) basta con que no definas la constante \verb+\acronimosEnRelease+ (en \texttt{config.tex}).
+%Ten en cuenta que si no quieres acrónimos (o no quieres que te falle la compilación en ``release'' mientras no tengas ninguno) basta con que no definas la constante \verb+\acronimosEnRelease+ (en \texttt{config.tex}).
 
 
 %-------------------------------------------------------------------
@@ -210,7 +414,7 @@ El not l�gico no aporta m�s expresividad pero permite simplificar programaci�n d
 %...
 
 % Variable local para emacs, para  que encuentre el fichero maestro de
-% compilaci�n y funcionen mejor algunas teclas r�pidas de AucTeX
+% compilación y funcionen mejor algunas teclas rápidas de AucTeX
 %%%
 %%% Local Variables:
 %%% mode: latex
