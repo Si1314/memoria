@@ -6,7 +6,7 @@
 
 \chapter{Herramienta de Clang}
 
-En este cap\'itulo analizaremos en profundidad la herramienta construida para realizar el primer paso hacia una ejecuci\'on simb\'olica de un programa por nuestro proyecto. Discutiremos las decisiones de diseño y los m\'etodos empleados para organizar los datos de una manera intuitiva y c\'omoda de manipular en la siguiente etapa del proceso. 
+En este cap\'itulo analizaremos en profundidad la herramienta construida para realizar el primer paso hacia una ejecuci\'on simb\'olica de un programa por nuestro proyecto. Discutiremos las decisiones de dise\~no y los m\'etodos empleados para organizar los datos de una manera intuitiva y c\'omoda de manipular en la siguiente etapa del proceso. 
 
 La herramienta AST2XML conforma junto con el int\'erprete simb\'olico el cuerpo central del proyecto. Si bien esta herramienta no cumple el papel m\'as importante, suple las necesidades b\'asicas de obtener a partir del c\'odigo fuente una representaci\'on m\'as manejable y sencilla de visualizar. Ha sido desarrollada a partir del proyecto abierto e internacional Low Level Virtual Machine (a partir de ahora: LLVM), pero se apoya principalmente en su compilador CLANG.
 
@@ -23,19 +23,19 @@ Independientemente de ello, optamos por una aproximaci\'on diferente, que es sep
 \subsection{LLVM}
 %-------------------------------------------------------------------
 
-El un principio ``LLVM'' eran las iniciales de ``Low Level Virtual Machine'' (M\'aquina Virtual de Bajo Nivel). LLVM naci\'o como proyecto en el año 2000 en la Universidad de Illinois en UrbanaChampaign. En 2005, junto con Apple Inc., se empez\'o a adaptar el sistema para varios usos dentro del ecosistema de desarrollo de Apple. La denominaci\'on inicial del proyecto con las siglas LLVM caus\'o una confusi\'on ampliamente difundida, puesto que las m\'aquinas virtuales son s\'olo una de sus aplicaciones posibles. Cuando la extensi\'on del proyecto se ampli\'o incluso m\'as, LLVM se convirti\'o en un proyecto que engloba una gran varriedad de otros compiladores y tecnolog\'ias de bajo nivel. Por tanto el proyecto abandon\'o las iniciales y actualmente, LLVM es la manera de referirse a todas esas utilidades. Actualmente LLVM est\'a integrado en las \'ultimas herramientas de desarrollo de Apple para sus sistemas operativos.
+El un principio ``LLVM'' eran las iniciales de ``Low Level Virtual Machine'' (M\'aquina Virtual de Bajo Nivel). LLVM naci\'o como proyecto en el a\~no 2000 en la Universidad de Illinois en UrbanaChampaign. En 2005, junto con Apple Inc., se empez\'o a adaptar el sistema para varios usos dentro del ecosistema de desarrollo de Apple. La denominaci\'on inicial del proyecto con las siglas LLVM caus\'o una confusi\'on ampliamente difundida, puesto que las m\'aquinas virtuales son s\'olo una de sus aplicaciones posibles. Cuando la extensi\'on del proyecto se ampli\'o incluso m\'as, LLVM se convirti\'o en un proyecto que engloba una gran varriedad de otros compiladores y tecnolog\'ias de bajo nivel. Por tanto el proyecto abandon\'o las iniciales y actualmente, LLVM es la manera de referirse a todas esas utilidades. Actualmente LLVM est\'a integrado en las \'ultimas herramientas de desarrollo de Apple para sus sistemas operativos.
 
 %-------------------------------------------------------------------
 \subsection{CLANG}
 %-------------------------------------------------------------------
 
-El amplio inter\'es que ha recibido LLVM ha llevado a una serie de tentativas para desarrollar frontends totalmente nuevos para una variedad de lenguajes. El que ha recibido la mayor atenci\'on es CLANG, un nuevo compilador que soporta otros lenguajes de la familia de C (ObjectiveC, C++, etc..).
+El amplio inter\'es que ha recibido LLVM ha llevado a una serie de tentativas para desarrollar frontends totalmente nuevos para una variedad de lenguajes. El que ha recibido la mayor atenci\'on es CLANG, un nuevo compilador que soporta otros lenguajes de la familia de C (ObjectiveC, C++, \etc ...).
 
-En un principio estaba proyectado que LLVM se apoyara en el compilador de C de GNU (a partir de ahora GCC) pero los desarrolladores de Apple fueron encontrando numerosas dificultades t\'ecnicas. Principalmente el problema fue que al ser una plataforma desarrollada durante mucho tiempo GCC presentaba una estructura demasiado compleja sobre la que ir añadiendo las modificaciones necesarias para solventar los problemas de compatibilidad.
+En un principio estaba proyectado que LLVM se apoyara en el compilador de C de GNU (a partir de ahora GCC) pero los desarrolladores de Apple fueron encontrando numerosas dificultades t\'ecnicas. Principalmente el problema fue que al ser una plataforma desarrollada durante mucho tiempo GCC presentaba una estructura demasiado compleja sobre la que ir a\~nadiendo las modificaciones necesarias para solventar los problemas de compatibilidad.
 
-CLANG est\'a diseñado para trabajar en una capa de abstracci\'on por encima de LLVM. Una de los principales objetivos del diseño de CLANG es dar soporte a la compilaci\'on incremental1 con la idea de conseguir una completa integraci\'on de esta a los entornos de desarrollo con interfaz gr\'afica.
+CLANG est\'a dise\~nado para trabajar en una capa de abstracci\'on por encima de LLVM. Una de los principales objetivos del dise\~no de CLANG es dar soporte a la compilaci\'on incremental1 con la idea de conseguir una completa integraci\'on de esta a los entornos de desarrollo con interfaz gr\'afica.
 
-CLANG est\'a construido siguiendo una estructura modular basada en la inclusi\'on de numerosas bibliotecas con lo que intenta alejarse de otros compiladores de diseño monol\'itico. Este diseño modular se adapta a la escalabilidad que se buscaba originalmente en el proyecto. CLANG tambi\'en fue diseñado para conservar mucha m\'as informaci\'on durante la compilaci\'on que GCC y mantener la forma original del c\'odigo. Asimismo se ha dado importancia a los informes de error que son bastante detallados.
+CLANG est\'a construido siguiendo una estructura modular basada en la inclusi\'on de numerosas bibliotecas con lo que intenta alejarse de otros compiladores de dise\~no monol\'itico. Este dise\~no modular se adapta a la escalabilidad que se buscaba originalmente en el proyecto. CLANG tambi\'en fue dise\~nado para conservar mucha m\'as informaci\'on durante la compilaci\'on que GCC y mantener la forma original del c\'odigo. Asimismo se ha dado importancia a los informes de error que son bastante detallados.
 
 Actualmente es apoyado principalmente por Apple y se espera que CLANG sustituya al comiplador del sistema GCC.
 
@@ -43,7 +43,7 @@ Actualmente es apoyado principalmente por Apple y se espera que CLANG sustituya 
 \section{Uso de Clang}
 %-------------------------------------------------------------------
 
-En la mayor\'ia de los casos CLANG ejecutar\'a el preprocesado y parsear\'a el c\'odigo formando un \'arbol de sint\'axis abstracta (de ahora en adelante: AST). Esta estructura de \'arbol es m\'as manejable que el propio c\'odigo con el añadido de que cualquier subestructura mantiene referencias al c\'odigo fuente.
+En la mayor\'ia de los casos CLANG ejecutar\'a el preprocesado y parsear\'a el c\'odigo formando un \'arbol de sint\'axis abstracta (de ahora en adelante: AST). Esta estructura de \'arbol es m\'as manejable que el propio c\'odigo con el a\~nadido de que cualquier subestructura mantiene referencias al c\'odigo fuente.
 
 En nuestro proyecto el uso de CLANG ha sido bastante localizado dentro de las funcionalidades que ofrece.
 
@@ -64,7 +64,7 @@ Como se puede apreciar en la figura, la representaci\'on que se obtiene directam
 \subsection{La biblioteca LibTooling}
 %-------------------------------------------------------------------
 
-La biblioteca LibTooling tiene un papel muy importante en la arquitectura de la herramienta. Libtooling da soporte al diseño de herramientas aut\'onomas basadas en CLANG, proveyendo de la infraestructura necesaria para la realizaci\'on de an\'alisis sint\'acticos y sem\'anticos de programas.
+La biblioteca LibTooling tiene un papel muy importante en la arquitectura de la herramienta. Libtooling da soporte al dise\~no de herramientas aut\'onomas basadas en CLANG, proveyendo de la infraestructura necesaria para la realizaci\'on de an\'alisis sint\'acticos y sem\'anticos de programas.
 
 En la implementaci\'on de nuestra herramienta destacan los roles de estos elementos que nos aporta la biblioteca:
 
@@ -82,7 +82,7 @@ se pueden implementar.
 \section{Estructura y recorrido del AST}
 %-------------------------------------------------------------------
 
-La estructura que emplea CLANG para representar el AST de un c\'odigo se basa principalmente en la interacci\'on de dos clases base muy flexibles a partir de las cuales se construyen todas los dem\'as: Decl (Declarations), que engloba toda las declaraciones (funciones, variables, templates, etc… ), Stmt (Statement) que abarca las instrucciones. La mayor\'ia de las clases que se derivan de ellas se explican por s\'i mismas, como por ejemplo: BinaryOperator (operador binario), FunctionDecl (declaraci\'on de funci\'on), etc..
+La estructura que emplea CLANG para representar el AST de un c\'odigo se basa principalmente en la interacci\'on de dos clases base muy flexibles a partir de las cuales se construyen todas los dem\'as: Decl (Declarations), que engloba toda las declaraciones (funciones, variables, templates, \etc ...), Stmt (Statement) que abarca las instrucciones. La mayor\'ia de las clases que se derivan de ellas se explican por s\'i mismas, como por ejemplo: BinaryOperator (operador binario), FunctionDecl (declaraci\'on de funci\'on), \etc ...
 
 En el desarrollo de la herramienta implementada empleamos un objeto de la clase propia ToXMLVisitor que hereda de la clase RecursiveASTVisitor cuyo comportamiento est\'a previamente definido dentro de las bibliotecas propias de CLANG.
 
@@ -114,7 +114,7 @@ Un objeto ParmVarDecl almacena informaci\'on referente a un par\'ametro necesari
 \subsubsection*{CompoundStmt}
 %-------------------------------------------------------------------
 
-Una noci\'on que existe en el AST de CLANG es la del CompoundStatement que representa a un bloque de c\'odigo delimitado por llaves ({..}). Puesto que esperamos que el usuario haga uso de ellos s\'olo en compañia de otras estructuras (if, while, for o funciones), en el XML se representa con el nodo body. Un nodo body est\'a compuesto por la serie de nodos correspondientes a las instrucciones que lo conforman.
+Una noci\'on que existe en el AST de CLANG es la del CompoundStatement que representa a un bloque de c\'odigo delimitado por llaves ({...}). Puesto que esperamos que el usuario haga uso de ellos s\'olo en compa\~nia de otras estructuras (if, while, for o funciones), en el XML se representa con el nodo body. Un nodo body est\'a compuesto por la serie de nodos correspondientes a las instrucciones que lo conforman.
 
 \begin{figure}[h]
 \begin{center}
@@ -142,7 +142,7 @@ La instrucci\'on Return se traduce en nuestro formato a un nodod return el cual 
 \subsection{Declaraciones e inicializaciones}
 %-------------------------------------------------------------------
 
-C++ es un lenguaje fuertemente tipado, y requiere que cada variable est\'e declarada junto con su tipo antes de su primer uso. En un caso pr\'actico, esto informa al compilador el tamaño reservar en memoria para la variable y la forma de interpretar su valor. Si se declaran varias variables del mismo tipo, se puede realizar en una sola instrucci\'on.
+C++ es un lenguaje fuertemente tipado, y requiere que cada variable est\'e declarada junto con su tipo antes de su primer uso. En un caso pr\'actico, esto informa al compilador el tama\~no reservar en memoria para la variable y la forma de interpretar su valor. Si se declaran varias variables del mismo tipo, se puede realizar en una sola instrucci\'on.
 
 %-------------------------------------------------------------------
 \subsubsection*{DeclStmt}
@@ -170,7 +170,7 @@ Los nodos declaration contienen informaci\'on acerca del tipo de la variable, su
 \subsection{Estructuras de control}
 %-------------------------------------------------------------------
 
-Las instrucciones que producen ramificaciones en la ejecuci\'on de un programa, tales como: el if, el while o el for. Para poder realizar su ejecuci\'on correctamente mantenemos en sus respectivos nodos sus señas m\'as caracter\'isticas.
+Las instrucciones que producen ramificaciones en la ejecuci\'on de un programa, tales como: el if, el while o el for. Para poder realizar su ejecuci\'on correctamente mantenemos en sus respectivos nodos sus se\~nas m\'as caracter\'isticas.
 
 %-------------------------------------------------------------------
 \subsubsection*{IfStmt}
@@ -220,7 +220,7 @@ El bucle For se representa en el fichero XML con un nodo for. Este nodo obtiene 
 
 Las expresiones escritas en C++ se traducen a nuestro formato en XML en nodos descritos por sus operadores, la variable a la que hacen referencia o la constante que representan.
 
-En caso de que estos nodos hagan referencia a un operador, contienen informaci\'on acerca del tipo de este (binario, unario, asignaci\'on, etc...) y de las expresiones que contienen.
+En caso de que estos nodos hagan referencia a un operador, contienen informaci\'on acerca del tipo de este (binario, unario, asignaci\'on, \etc ...) y de las expresiones que contienen.
 
 Las expresiones que se refieren a variables almacenan el nombre de estas y deforma equivalente las que representan constantes guardan su valor. Un caso particular de expresi\'on ser\'ia el de las llamadas a funciones.
 
@@ -228,7 +228,7 @@ Las expresiones que se refieren a variables almacenan el nombre de estas y defor
 \subsubsection*{ParenExpr}
 %-------------------------------------------------------------------
 
-La clase ParenExpr representa una expresi\'on rodeada por par\'entesis por ejemplo ``(1)''. Esta estructura no es muy relevante en nuestra herramienta porque en el paso del an\'alisis en el que CLANG construye el AST, ya tiene en cuenta la prioridad de los operandos. Esto convierte a la clase ParenExpr en una utilidad auxiliar que sin duda puede resultar \'util en caso de querer modificar o añadir nuevos elementos al AST en otro tipo de an\'alisis con otra herramienta.
+La clase ParenExpr representa una expresi\'on rodeada por par\'entesis por ejemplo ``(1)''. Esta estructura no es muy relevante en nuestra herramienta porque en el paso del an\'alisis en el que CLANG construye el AST, ya tiene en cuenta la prioridad de los operandos. Esto convierte a la clase ParenExpr en una utilidad auxiliar que sin duda puede resultar \'util en caso de querer modificar o a\~nadir nuevos elementos al AST en otro tipo de an\'alisis con otra herramienta.
 
 %-------------------------------------------------------------------
 \subsubsection*{BinaryOperator}
@@ -284,7 +284,7 @@ Esta clase nos permite representar expl\'icitamente las conversiones de tipo (ca
 \subsubsection*{DeclRefExprClass}
 %-------------------------------------------------------------------
 
-La clase DeclRefExprClass se corresponde con una referencia a una variable, funci\'on, valor de tipo enumerado, etc. que haya sido declarado con anterioridad. Un objeto de esta clase almacena numerosos detalles de como una declaraci\'on se referencia dentro de una expresi\'on. En nuestro proyecto este nodo nos permite conocer el identificador de una variable cualquiera que participe en una expresi\'on. La correspondencia con el fichero XML tiene forma de nodo variable.
+La clase DeclRefExprClass se corresponde con una referencia a una variable, funci\'on, valor de tipo enumerado, \etc. que haya sido declarado con anterioridad. Un objeto de esta clase almacena numerosos detalles de como una declaraci\'on se referencia dentro de una expresi\'on. En nuestro proyecto este nodo nos permite conocer el identificador de una variable cualquiera que participe en una expresi\'on. La correspondencia con el fichero XML tiene forma de nodo variable.
 
 \begin{figure}[h]
 \begin{center}
@@ -298,7 +298,7 @@ La clase DeclRefExprClass se corresponde con una referencia a una variable, func
 \subsubsection*{IntegerLiteral}
 %-------------------------------------------------------------------
 
-Un nodo IntegerLiteral es utilizado por el compilador para determinar el valor y el tipo asociado al tamaño que ocupa en memoria un valor entero que aparece expl\'icitamente en el c\'odigo. En el formato XML correspondiente al c\'odigo fuente que acepta nuestra herramienta se traduce en un nodo const en el que se almacena el valor de dicha constante.
+Un nodo IntegerLiteral es utilizado por el compilador para determinar el valor y el tipo asociado al tama\~no que ocupa en memoria un valor entero que aparece expl\'icitamente en el c\'odigo. En el formato XML correspondiente al c\'odigo fuente que acepta nuestra herramienta se traduce en un nodo const en el que se almacena el valor de dicha constante.
 
 \begin{figure}[h]
 \begin{center}
@@ -340,7 +340,7 @@ La clase CallExpr representa la llamada a una funci\'on. En C++ las llamadas a f
 \subsection{Interacci\'on de entrada y salida}
 %-------------------------------------------------------------------
 
-En el diseño de nuestra herramienta damos mucha importancia a la utilidad que pueda suponer para el usuario final: un programador novel. Es por ello que para que una vez hecho el an\'alisis simb\'olico, en caso de que el usuario quisiera reconstruir el flujo de ejecuci\'on del programa, una utilidad que simule el comportamiento interactivo de una consola puede convertirse en una buena herramienta de depuraci\'on.
+En el dise\~no de nuestra herramienta damos mucha importancia a la utilidad que pueda suponer para el usuario final: un programador novel. Es por ello que para que una vez hecho el an\'alisis simb\'olico, en caso de que el usuario quisiera reconstruir el flujo de ejecuci\'on del programa, una utilidad que simule el comportamiento interactivo de una consola puede convertirse en una buena herramienta de depuraci\'on.
 
 A lo largo de la existencia de C y sus posteriores revisiones han idos surgiendo numerosas bibliotecas que se encargan de encapsular la entrada y salida para agilizar la tarea del programador. Entre estas bibliotecas destacan la biblioteca est\'andar de C++ y la biblioteca est\'andar de C.
 
@@ -372,7 +372,7 @@ Como se ha explicado previamente en nuestra herramienta un factor clave es la pr
 
 TinyXML2 es una librer\'ia de software libre creada para la manipulaci\'on de ficheros XML. TinyXML2 est\'a sujeta a los t\'erminos de la licencia zlib de distribuci\'on de software.
 
-Elegimos TinyXML2 como una opci\'on viable ya que como indica su nombre es una herramienta de tamaño reducido y de caracter\'isticas ajustadas a la eficiencia que busc\'abamos. En el proceso de generar el fichero XML esta librer\'ia nos ofreci\'o directivas bastante sencillas, as\'i como una manipulaci\'on directa y \'agil de los nodos XML.
+Elegimos TinyXML2 como una opci\'on viable ya que como indica su nombre es una herramienta de tama\~no reducido y de caracter\'isticas ajustadas a la eficiencia que busc\'abamos. En el proceso de generar el fichero XML esta librer\'ia nos ofreci\'o directivas bastante sencillas, as\'i como una manipulaci\'on directa y \'agil de los nodos XML.
 
 A grandes razgos la generaci\'on del fichero que devuelve AST2XML comienza con la creaci\'on de un “documento en blanco” y la generaci\'on de un puntero auxiliar. El documento guarda la funcionalidad relativa a la generaci\'on de nuevas estructuras XML y es el que finalmente gestiona el volcado de informaci\'on al fichero resultante. El puntero auxiliar se utiliza como almacenamiento temporal de los nodos XML una vez estos ya han sido finalizados.
 
@@ -396,7 +396,7 @@ El segundo par\'ametro es una directiva de la ejecuci\'on propia de herramientas
 %-------------------------------------------------------------------
 %\TocNotasBibliograficas
 
-%Citamos algo para que aparezca en la bibliograf\'ia\ldots
+%Citamos algo para que aparezca en la bibliograf\'ia...
 %\citep{ldesc2e}
 
 %\medskip
