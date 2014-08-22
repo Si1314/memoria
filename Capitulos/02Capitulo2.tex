@@ -29,7 +29,7 @@ El un principio ``LLVM'' eran las iniciales de ``Low Level Virtual Machine'' (M\
 \subsection{CLANG}
 %-------------------------------------------------------------------
 
-El amplio inter\'es que ha recibido LLVM ha llevado a una serie de tentativas para desarrollar frontends totalmente nuevos para una variedad de lenguajes. El que ha recibido la mayor atenci\'on es CLANG, un nuevo compilador que soporta otros lenguajes de la familia de C (ObjectiveC, C++, \etc ...).
+El amplio inter\'es que ha recibido LLVM ha llevado a una serie de tentativas para desarrollar frontends totalmente nuevos para una variedad de lenguajes. El que ha recibido la mayor atenci\'on es CLANG, un nuevo compilador que soporta otros lenguajes de la familia de C (ObjectiveC, C++, etc ...).
 
 En un principio estaba proyectado que LLVM se apoyara en el compilador de C de GNU (a partir de ahora GCC) pero los desarrolladores de Apple fueron encontrando numerosas dificultades t\'ecnicas. Principalmente el problema fue que al ser una plataforma desarrollada durante mucho tiempo GCC presentaba una estructura demasiado compleja sobre la que ir a\~nadiendo las modificaciones necesarias para solventar los problemas de compatibilidad.
 
@@ -82,7 +82,7 @@ se pueden implementar.
 \section{Estructura y recorrido del AST}
 %-------------------------------------------------------------------
 
-La estructura que emplea CLANG para representar el AST de un c\'odigo se basa principalmente en la interacci\'on de dos clases base muy flexibles a partir de las cuales se construyen todas los dem\'as: Decl (Declarations), que engloba toda las declaraciones (funciones, variables, templates, \etc ...), Stmt (Statement) que abarca las instrucciones. La mayor\'ia de las clases que se derivan de ellas se explican por s\'i mismas, como por ejemplo: BinaryOperator (operador binario), FunctionDecl (declaraci\'on de funci\'on), \etc ...
+La estructura que emplea CLANG para representar el AST de un c\'odigo se basa principalmente en la interacci\'on de dos clases base muy flexibles a partir de las cuales se construyen todas los dem\'as: Decl (Declarations), que engloba toda las declaraciones (funciones, variables, templates, etc ...), Stmt (Statement) que abarca las instrucciones. La mayor\'ia de las clases que se derivan de ellas se explican por s\'i mismas, como por ejemplo: BinaryOperator (operador binario), FunctionDecl (declaraci\'on de funci\'on), etc ...
 
 En el desarrollo de la herramienta implementada empleamos un objeto de la clase propia ToXMLVisitor que hereda de la clase RecursiveASTVisitor cuyo comportamiento est\'a previamente definido dentro de las bibliotecas propias de CLANG.
 
@@ -220,7 +220,7 @@ El bucle For se representa en el fichero XML con un nodo for. Este nodo obtiene 
 
 Las expresiones escritas en C++ se traducen a nuestro formato en XML en nodos descritos por sus operadores, la variable a la que hacen referencia o la constante que representan.
 
-En caso de que estos nodos hagan referencia a un operador, contienen informaci\'on acerca del tipo de este (binario, unario, asignaci\'on, \etc ...) y de las expresiones que contienen.
+En caso de que estos nodos hagan referencia a un operador, contienen informaci\'on acerca del tipo de este (binario, unario, asignaci\'on, etc ...) y de las expresiones que contienen.
 
 Las expresiones que se refieren a variables almacenan el nombre de estas y deforma equivalente las que representan constantes guardan su valor. Un caso particular de expresi\'on ser\'ia el de las llamadas a funciones.
 
@@ -262,15 +262,13 @@ CLANG hace distinci\'on entre los operadores binarios corrientes, y los que a su
 \subsubsection*{UnaryOperator}
 %-------------------------------------------------------------------
 
-En C++ existen numerosos operadores unarios pero, considerando los conocimientos que hacen falta en etapas tempranas de la iniciaci\'on a la programaci\'on, nos hemos centrado en dar soporte a los operadores unarios de incremento, decremento, indicador de signo y el not l\'ogico. Distinguimos los operadores de incremento y decremento se presentan a los programadores en un principio como parte esencial de los bucles cumpliendo la funci\'on de instrucci\'on de avance. Estos operadores se traducen a un nodo unaryOperator que indica el tipo de la operaci\'on: ‘+’ en caso de incremento, ‘’ en caso contrario.
+En C++ existen numerosos operadores unarios pero, considerando los conocimientos que hacen falta en etapas tempranas de la iniciaci\'on a la programaci\'on, nos hemos centrado en dar soporte a los operadores unarios de incremento, decremento, indicador de signo y el not l\'ogico. Distinguimos los operadores de incremento y decremento se presentan a los programadores en un principio como parte esencial de los bucles cumpliendo la funci\'on de instrucci\'on de avance. Estos operadores se traducen a un nodo unaryOperator que indica el tipo de la operaci\'on: ``+'' en caso de incremento, ``'' en caso contrario.
 
-\figura{Vectorial/Todo}{width=.5\textwidth}%
-{Figura utilizada para marcar una imagen por hacer.}
+
 
 Por otro lado el indicador de signo cumple un papel importante a la hora de operar con valores negativos y de ayuda expl\'icita al programador junior en caso de que quiera asegurar el valor de su variable. El nodo XML correspondiente es el nodo signOperator, que indica si es positivo o negativo y que contiene un subnodo correspondiente a la expresi\'on cuyo signo se modifica.
 
-\figura{Vectorial/Todo}{width=.5\textwidth}%
-{Figura utilizada para marcar una imagen por hacer.}
+
 
 El not l\'ogico no aporta m\'as expresividad pero permite simplificar programaci\'on de expresiones booleanas. Este operador aparece en el formato XML como un nodo signOperator. Este nodo contiene el nodo de la expresi\'on cuyo valor booleano invierte.
 
@@ -284,7 +282,7 @@ Esta clase nos permite representar expl\'icitamente las conversiones de tipo (ca
 \subsubsection*{DeclRefExprClass}
 %-------------------------------------------------------------------
 
-La clase DeclRefExprClass se corresponde con una referencia a una variable, funci\'on, valor de tipo enumerado, \etc. que haya sido declarado con anterioridad. Un objeto de esta clase almacena numerosos detalles de como una declaraci\'on se referencia dentro de una expresi\'on. En nuestro proyecto este nodo nos permite conocer el identificador de una variable cualquiera que participe en una expresi\'on. La correspondencia con el fichero XML tiene forma de nodo variable.
+La clase DeclRefExprClass se corresponde con una referencia a una variable, funci\'on, valor de tipo enumerado, etc. que haya sido declarado con anterioridad. Un objeto de esta clase almacena numerosos detalles de como una declaraci\'on se referencia dentro de una expresi\'on. En nuestro proyecto este nodo nos permite conocer el identificador de una variable cualquiera que participe en una expresi\'on. La correspondencia con el fichero XML tiene forma de nodo variable.
 
 \begin{figure}[h]
 \begin{center}
@@ -374,7 +372,7 @@ TinyXML2 es una librer\'ia de software libre creada para la manipulaci\'on de fi
 
 Elegimos TinyXML2 como una opci\'on viable ya que como indica su nombre es una herramienta de tama\~no reducido y de caracter\'isticas ajustadas a la eficiencia que busc\'abamos. En el proceso de generar el fichero XML esta librer\'ia nos ofreci\'o directivas bastante sencillas, as\'i como una manipulaci\'on directa y \'agil de los nodos XML.
 
-A grandes razgos la generaci\'on del fichero que devuelve AST2XML comienza con la creaci\'on de un “documento en blanco” y la generaci\'on de un puntero auxiliar. El documento guarda la funcionalidad relativa a la generaci\'on de nuevas estructuras XML y es el que finalmente gestiona el volcado de informaci\'on al fichero resultante. El puntero auxiliar se utiliza como almacenamiento temporal de los nodos XML una vez estos ya han sido finalizados.
+A grandes razgos la generaci\'on del fichero que devuelve AST2XML comienza con la creaci\'on de un ``documento en blanco'' y la generaci\'on de un puntero auxiliar. El documento guarda la funcionalidad relativa a la generaci\'on de nuevas estructuras XML y es el que finalmente gestiona el volcado de informaci\'on al fichero resultante. El puntero auxiliar se utiliza como almacenamiento temporal de los nodos XML una vez estos ya han sido finalizados.
 
 %-------------------------------------------------------------------
 \section{Uso de AST2XML}
