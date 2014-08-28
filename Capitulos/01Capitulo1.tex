@@ -6,6 +6,15 @@
 
 \chapter{Introducci\'on}
 
+\begin{FraseCelebre}
+\begin{Frase}
+If debugging is the process of removing bugs, then programming must be the process of putting them in...
+\end{Frase}
+\begin{Fuente}
+Edsger Dijkstra.
+\end{Fuente}
+\end{FraseCelebre}
+
 %-------------------------------------------------------------------
 \section{Motivaci\'on de la propuesta}
 %-------------------------------------------------------------------
@@ -60,13 +69,6 @@ Actualmente el software es uno de los productos m\'as requeridos en el mundo. Ta
 A d\'ia de hoy en el mercado existen paquetes de herramientas capaces de ofrecer a los desarrolladores detecci\'on de errores y estudios sobre la ejecuci\'on de sus programas. Existen varias maneras de verificar la correctitud de un programa.
 
 %-------------------------------------------------------------------
-\subsubsection*{L\'ogicas}
-%-------------------------------------------------------------------
-\label{ap2:sec:logicas}
-
-
-
-%-------------------------------------------------------------------
 \subsubsection*{Sistemas de tipos}
 %-------------------------------------------------------------------
 
@@ -105,20 +107,28 @@ Los inventores del m\'etodo, Edmund M. Clarke, E. Allen Emerson y Joseph Sifakis
 \subsubsection*{Ejecuci\'on simb\'olica}
 %-------------------------------------------------------------------
 
-La ejecuci\'on simb\'olica o evaluaci\'on simb\'olica es un modo de analizar programas para determinar qu\'e entradas causan cada parte del programa a ejecutar. En este tipo de programas, un int\'erprete recorre el programa donde cada variable asume un valor simb\'olico acotado. Este recorrido dar\'a como resultado expresiones en t\'erminos de dichos s\'imbolos de expresiones y variables y las limitaciones en cuanto a los s\'imbolos de los posibles resultados de cada rama condicional. 
+La ejecuci\'on simb\'olica o evaluaci\'on simb\'olica es una t\'ecnica de analisis de programas para determinar qu\'e entradas causan cada parte del programa a ejecutar. Un int\'erprete recorre el programa donde cada variable asume un valor simb\'olico acotado. Este recorrido dar\'a como resultado expresiones en t\'erminos de dichos s\'imbolos de expresiones y variables y las limitaciones en cuanto a los s\'imbolos de los posibles resultados de cada rama condicional. Por tanto, obtendremos los resultados dependiendo del recorrido que hayan tomado las variables simb\'olicas. Dicho recorrido nos permite determinar las condiciones que deben ser verificadas por los datos de ingreso para que un camino particular se ejecute, y la relaci\'on entre los valores ingresados y producidos en la ejecuci\'on de un programa.
 
-Dicho recorrido nos permite determinar las condiciones que deben ser verificadas por los datos de ingreso para que un camino particular se ejecute, y la relaci\'on entre los valores ingresados y producidos en la ejecuci\'on de un programa. 
+El proceso de generaci\'on de casos de prueba por ejecuci\'on simb\'olica produce un conjunto de sistemas de restricciones que pueden entenderse como clases de equivalencia de entradas. As\'i, el conjunto posiblemente infinito de entradas de una clase de equivalencia llevar\'ia al programa a recorrer el mismo camino de ejecuci\'on. Estas clases de equivalencia se pueden entender por tanto como casos de prueba. Puesto que la ejecuci\'on simb\'olica razona en t\'erminos de caminos de ejecuci\'on, nos permite obtener un caso de prueba para cada camino de ejecuci\'on del programa, pudiendo garantizar as\'i un buen recubrimiento con un n\'umero reducido de casos de prueba.
 
 Este procedicimiento aplicado al hardware recibe el nombre de simulaci\'on simb\'olica.
+
+Por otro lado, a\'un no se ha aplicado con \'exito en el contexto de programas concurrentes. Este problema plantea sin duda nuevos retos, al tener que combinar la complejidad inherente a la ejecuci\'on simb\'olica con aspectos de los programas concurrentes tales como la suspensi\'on de tareas, la sincronizaci\'on, las posibles estrategias de planificaci\'on de tareas, etc.
+
+La ejecuci\'on simb\'olica se encuentra en el n\'ucleo de multitud de herramientas, tales como generadores autom\'aticos de casos de prueba, verificadores, o visualizadores y depuradores de programas. Entre ellos vamos a destacar algunos de ellos:
+
+\begin{itemize}
+\item \textbf{}
+\end{itemize}
 
 
 %-------------------------------------------------------------------
 \subsection{Testing}
 %-------------------------------------------------------------------
 
-Paralelamente a las herramientas de verificaci\'on y an\'alisis nacen las pruebas de software(o testing en ingl\'es) son las investigaciones emp\'iricas y t\'ecnicas cuyo objetivo es proporcionar informaci\'on objetiva e independiente sobre la calidad del producto a la parte interesada.
+Paralelamente a las herramientas de verificaci\'on y an\'alisis nacen las pruebas de software(o testing en ingl\'es) son las investigaciones emp\'iricas y t\'ecnicas cuyo objetivo es proporcionar informaci\'on objetiva e independiente sobre la calidad del producto a la parte interesada.  
 
-Estas pruebas se diferencian de las herramientas de verificaci\'on y an\'alisis en que las pruebas garantizan la correctitud de los programas para esos test, pero es imposible que dichos test abarquen todas las posibilidades o ramas de ejecuci\'on de un programa, de tal modo que el programa podr\'ia no estar correcto para todas sus posibilidades como si garantiza la verificaci\'on y el an\'alisis. A continuaci\'on detallamos algunas de estas herramientas que ayudan a automatizar distintas fases del proceso de testing.
+Estas pruebas se diferencian de las herramientas de verificaci\'on y an\'alisis en que garantizan la correctitud de los programas para esos test, pero es imposible que dichos test abarquen todas las posibilidades o ramas de ejecuci\'on de un programa, de tal modo que el programa podr\'ia no estar correcto para todas sus posibilidades como si garantiza la verificaci\'on y el an\'alisis. A continuaci\'on detallamos algunas de estas herramientas que ayudan a automatizar distintas fases del proceso de testing.
 
 %-------------------------------------------------------------------
 \subsubsection*{Frameworks xUnit}
@@ -135,11 +145,11 @@ Una de las caracter\'isticas de los tests xUnit es la expansi\'on y el alto grad
 %-------------------------------------------------------------------
 
 El objetivo de las pruebas es presentar informaci\'on sobre la calidad del producto a las personas responsables, por tanto la informaci\'on requerida puede ser de lo m\'as variada. Esto hace que el proceso de testing sea dependiente del contexto, no existen las {\it mejores pruebas}, toda prueba puede ser ideal para una situaci\'on o completamente inutil o perjudicial para otra. A continuaci\'on detallamos algunas de los diferentes enfoques para la generaci\'on de tests:
+
 \begin{itemize}
 \item \textbf{Pruebas de caja blanca} (white-box). Estas pruebas se centran en los detalles procedimentales del software, por lo que su dise\~no est\'a fuertemente ligado al c\'odigo fuente. El testeador escoge distintos valores de entrada para examinar cada uno de los posibles flujos de ejecuci\'on y cerciorarse de que se devuelven los valores de salida adecuados. Puesto que est\'an basados en una implementaci\'on concreta, si esta se modifica, normalmente tambi\'en tendr\'an que redise\~narse las pruebas. A pesar de que este enfoque permite dise\~nar pruebas que cubran una amplia variedad de casos podr\'ia pasar por alto partes incompletas de la especificaci\'on o requisitos faltantes.
 \item \textbf{Pruebas de caja negra} (black-box). Estas pruebas se centran en el estudio de las entradas y las salidas generadas, independientemente de su funcionamiento interno, es decir, nos interesa su forma de interactuar entendiendo {\it qu\'e es lo que hace} pero sin importarnos el {\it c\'omo lo hace}. Unas pruebas de test basadas en este sistema ser\'a m\'as f\'acil de entender ya que permitir\'a dar una visi\'on m\'as clara del conjunto, el sistema tambi\'en ser\'a m\'as robusto y f\'acil de mantener, en caso de fallo este podr\'a ser aislado y abordado m\'as \'agilmente.
 \item \textbf{Testing aleatorio} o random. Buscando ampliar el \'ambito de pruebas de unidad, se han aplicado diversas t\'ecnicas que van desde la automatizaci\'on de pasos, hasta los enfoques de generaci\'on de objetos de manera aleatoria. En este caso concreteo, la generaci\'on de tests de forma aleatoria es un caso particular de las pruebas de caja negra, donde las pruebas se realizan con entradas generadas de manera aleatoria e independiente. Los resultados se comparan con las especificaciones del software en prueba para verificar si los resultados pasan el test o no.
-
 \end{itemize}
 
 %-------------------------------------------------------------------
@@ -217,9 +227,9 @@ El enfoque de jPET es el tratamiento de la informaci\'on generada por PET con el
 \section{Objetivos, la herramienta SymC++}
 %-------------------------------------------------------------------
 
-En este proyecto se estudiar\'a y desarrollar\'a una herramienta de ``depuraci\'on simb\'olica'' que permitir\'a estudiar el funcionamiento de programas inform\'aticos sin ser ejecutados, a base de observar todas sus posibles ramas de ejecuci\'on (hasta un cierto nivel) as\'i como los correspondientes pares entrada-salida. Dicha herramienta podr\'ia ayudar enormemente a los estudiantes de iniciaci\'on a la programaci\'on, y en general a programadores inexpertos, a la hora de razonar acerca de la correcci\'on de sus programas.
+La elaboraci\'on de este proyecto tiene como objetivo principal el desarrollo de una herramienta propia de ``depuraci\'on simb\'olica'' que permite la depuraci\'on de programas inform\'aticos sin la necesidad de ser ejecutados, de manera que esta herramienta pueda ser utilizada como un medio de apoyo a los estudiantes de iniciaci\'on a la programaci\'on, y en general a programadores inexpertos, a la hora de razonar acerca de la correcci\'on de sus programas
 
-S\'olo se utilizar\'a como forma de comprobaci\'on, no como solucionador de errores ni sint\'acticos ni sem\'anticos, es decir, no realiza la funci\'on de compilador; mostrar\'a los resultados de la ejecuci\'on para ciertas posibles entradas para comprobar si \'esa es la soluci\'on que esperabas, de no ser as\'i, el alumno sabr\'a que el c\'odigo estar\'a mal planteado. Los alumnos que est\'an empezando a programar en C++ saben si su programa compila gracias al entorno que est\'en utilizando pero les es m\'as dif\'icil de comprobar si su programa est\'a correcto sin la ayuda de una interfaz o de alg\'una otra herramienta. Ah\'i es donde entra nuestra herramienta.
+S\'olo se utilizar\'a como forma de comprobaci\'on, no como solucionador de errores tanto sint\'acticos como sem\'anticos, es decir, no realiza la funci\'on de compilador; mostrar\'a los resultados de la ejecuci\'on para ciertas posibles entradas y as\'i comprobar si \'esa es la soluci\'on que esperabas, de no ser as\'i, el alumno sabr\'a que el c\'odigo estar\'a mal planteado. Los alumnos que est\'an empezando a programar en C++ saben si su programa compila gracias al entorno que est\'en utilizando pero les es m\'as dif\'icil de comprobar si su programa est\'a correcto sin la ayuda de una interfaz o de alg\'una otra herramienta. Ah\'i es donde entra nuestra herramienta.
 
 La herramienta contar\'a con una interfaz de usuario, proporcionando varias ventajas adicionales: el alumno podr\'a ver y actualizar c\'omodamente, en todo momento, el c\'odigo que desee probar, podr\'a tanto escribir un c\'odigo desde cero como importar un c\'odigo ya creado, por otro lado, la herramienta marcar\'a el recorrido que se ha realizado de forma que el alumno podr\'a corregir posibles errores m\'as r\'apidamente, por ejemplo, al encontrar un recorrido que no era el deseado.
 
@@ -248,7 +258,7 @@ nº & Variable y valor & Traza \\
 \caption{Tabla de resultados para el c\'odigo ejemplo}
 \end{table}
 
-Esta tabla de resultados muestra en la primera columna el n\'umero correspondiente a la soluci\'on, en la segunda columna se muestra el valor de las variables de la soluci\'on, las cuales hacen referenciaa las variables de entrada de la funci\'on y la variable de salida o return, y en la tercera columna se muestra la traza de ejecuci\'on, o lo que es lo mismo, los n\'umeros de l\'inea que ha recorrido el programa para llegar a dicha soluci\'on. Por tanto, para el primer resultado, las entradas valen en este caso {\it ``1, 1''} haciendo referencia a que son valores mayores que 0, y el valor del return es el valor de salida, por otro lado los n\'umeros que indican la traza son los n\'umeros de las l\'ineas que se han recorrido del programa para esta soluci\'on, en este caso {\it ``1, 2, 3''}, y así sucesivamente para lo otros tres resultados.
+Esta tabla de resultados muestra en la primera columna el n\'umero correspondiente a la soluci\'on, en la segunda columna se muestra el valor de las variables de la soluci\'on, las cuales hacen referenciaa las variables de entrada de la funci\'on y la variable de salida o return, y en la tercera columna se muestra la traza de ejecuci\'on, o lo que es lo mismo, los n\'umeros de l\'inea que ha recorrido el programa para llegar a dicha soluci\'on. Por tanto, para el primer resultado, las entradas valen en este caso {\it ``1, 1''} haciendo referencia a que son valores mayores que 0, y el valor del return es el valor de salida, por otro lado los n\'umeros que indican la traza son los n\'umeros de las l\'ineas que se han recorrido del programa para esta soluci\'on, en este caso {\it ``1, 2, 3''}, y as\'i sucesivamente para lo otros tres resultados.
 
 Para llegar a esta soluci\'on, hemos desarrollado la herramienta denominada {\it SymC++}, el nombre surge de la relaci\'on con la ejecuci\'on simb\'olica y por estar desarrollada pensando en el lenguaje de programaci\'on C++.
 

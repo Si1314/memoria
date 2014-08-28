@@ -13,20 +13,18 @@
 \chapter{Resumen}
 \cabeceraEspecial{Resumen}
 
-La ejecución simbólica o evaluación simbólica es un modo de analizar programas para determinar qué entradas causan cada parte del programa a ejecutar. En este tipo de programas, un intérprete recorre el programa donde cada variable asume un valor simbólico acotado. Este recorrido dará como resultado expresiones en términos de dichos símbolos de expresiones y variables y las limitaciones en cuanto a los símbolos de los posibles resultados de cada rama condicional. 
+En este proyecto se estudia y desarrolla una herramienta de ``depuraci\'on simb\'olica'' que permite conocer el funcionamiento de programas inform\'aticos sin ser ejecutados, en base a observar todas sus posibles ramas de ejecuci\'on (hasta un cierto nivel) as\'i como los correspondientes pares entrada-salida. Dicha herramienta podr\'a ayudar enormemente a los estudiantes de iniciaci\'on a la programaci\'on, y en general a programadores inexpertos, a la hora de razonar acerca de la correcci\'on de sus programas.
 
-Dicho recorrido nos permite determinar las condiciones que deben ser verificadas por los datos de ingreso para que un camino particular se ejecute, y la relación entre los valores ingresados y producidos en la ejecución de un programa. 
+Para ello haremos uso de la ejecución simbólica, esta herramienta es una de las técnicas más potentes para hacer razonamientos estáticos acerca del comportamiento de los programas. Se basa en la ejecución de un programa usando valores simbólicos (o variables) en lugar de valores concretos. Esto permite hacer razonamientos sobre programas en base a observar los comportamientos de sus diferentes caminos de ejecución así como determinar las condiciones que deben ser verificadas por los datos de ingreso para que un camino particular se ejecute, y la relación entre los valores ingresados y producidos en la ejecución de un programa. 
 
-Durante este proyecto hemos desarrollado una herramienta llamada \\SymC++ que se basa en la ejecución simbólica para generar test en programas escritos en C++, escribiendo como parámetros el nombre del método, el intervalo de números enteros y la profundidad de los bucles, para ejecutar la función simbólicamente y obtener información de las diferentes ramas generadas. Por otro lado, se podrá obtener información a través de los XMLs generados por el árbol de ejecución o los resultados obtenidos.
-
-El objetivo del proyecto es dotar a los estudiantes de iniciación a la programación de una herramienta que les permita depurar sus programas por un método diferente a la prueba y error.
+Durante este proyecto hemos desarrollado una herramienta denominada {\it SymC++} basada en la ejecución simbólica para la generación de test de programas escritos en C++. Esta herramienta necesitará una serie de parámetros de entrada sobre la función a testear y así obtener información de las diferentes ramas generadas. Por último lado, todos los resultados se generarán en formato XML lo cual facilita la portabilidad y depuración sin necesidad de la interfaz de usuario.
 
 %-------------------------------------------------------------------
 \section*{Palabras clave}
 %-------------------------------------------------------------------
 \label{ap1:palClave}
 
-Ejecución simbólica, Evaluación simbólica, C++, XML, depuración, intérprete, valor simbólico.
+Ejecución simbólica, ramas de ejecuciónd, C++, XML, depuración, valor simbólico.
 
 \endinput
 % Variable local para emacs, para  que encuentre el fichero maestro de
