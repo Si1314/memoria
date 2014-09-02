@@ -23,7 +23,7 @@ El proyecto nace de la idea y necesidad de utilizar una herramienta \'util para 
 
 Dado este problema aparece nuestro proyecto, como una herramienta sencilla e intuitiva que pueda mostrar de un modo natural el recorrido de un programa por sus diferentes ramas y los resultados que obtendr\'ia en cada uno de ellos. Esta herramienta ofrecer\'a una soluci\'on a la verificaci\'on de programas sencillos para estudiantes de iniciaci\'on, y de este modo acercar las herramientas de testing y depuraci\'on de un modo m\'as f\'acil y visual.
 
-En este caso concreto, la herramienta est\'a desarrollada para el lenguaje de C++, puesto que es el utilizado en los primeros cursos de los grados de las Facultades de Inform\'tica, Estudios Estad\'isticos y Matem\'aticas, y concretamente es el utilizado en la asignatura de primer curso de Fundamentos de Programaci\'on en nuestra Facultad.
+La herramienta est\'a desarrollada para el lenguaje de C++, puesto que es el utilizado en los primeros cursos de los grados de las Facultades de Inform\'atica, Estudios Estad\'isticos y Matem\'aticas, y concretamente es el utilizado en la asignatura de primer curso de Fundamentos de Programaci\'on en nuestra Facultad.
 
 %-------------------------------------------------------------------
 \section{Estado del arte y trabajos relacionados}
@@ -148,7 +148,7 @@ El objetivo de las pruebas es presentar informaci\'on sobre la calidad del produ
 
 \begin{itemize}
 \item \textbf{Pruebas de caja blanca} (white-box). Estas pruebas se centran en los detalles procedimentales del software, por lo que su dise\~no est\'a fuertemente ligado al c\'odigo fuente. El testeador escoge distintos valores de entrada para examinar cada uno de los posibles flujos de ejecuci\'on y cerciorarse de que se devuelven los valores de salida adecuados. Puesto que est\'an basados en una implementaci\'on concreta, si esta se modifica, normalmente tambi\'en tendr\'an que redise\~narse las pruebas. A pesar de que este enfoque permite dise\~nar pruebas que cubran una amplia variedad de casos podr\'ia pasar por alto partes incompletas de la especificaci\'on o requisitos faltantes.
-\item \textbf{Pruebas de caja negra} (black-box). Estas pruebas se centran en el estudio de las entradas y las salidas generadas, independientemente de su funcionamiento interno, es decir, nos interesa su forma de interactuar entendiendo {\it qu\'e es lo que hace} pero sin importarnos el {\it c\'omo lo hace}. Unas pruebas de test basadas en este sistema ser\'a m\'as f\'acil de entender ya que permitir\'a dar una visi\'on m\'as clara del conjunto, el sistema tambi\'en ser\'a m\'as robusto y f\'acil de mantener, en caso de fallo este podr\'a ser aislado y abordado m\'as \'agilmente.
+\item \textbf{Pruebas de caja negra} (black-box). Estas pruebas se centran en el estudio de las entradas y las salidas generadas, independientemente de su funcionamiento interno, es decir, nos interesa su forma de interactuar entendiendo {\it qu\'e es lo que hace} pero sin importarnos el {\it c\'omo lo hace}. Las pruebas basadas en este sistema ser\'an m\'as f\'aciles de entender ya que permitir\'an dar una visi\'on m\'as clara del conjunto, el sistema tambi\'en ser\'a m\'as robusto y f\'acil de mantener, en caso de fallo este podr\'a ser aislado y abordado m\'as \'agilmente.
 \item \textbf{Testing aleatorio} o random. Buscando ampliar el \'ambito de pruebas de unidad, se han aplicado diversas t\'ecnicas que van desde la automatizaci\'on de pasos, hasta los enfoques de generaci\'on de objetos de manera aleatoria. En este caso concreteo, la generaci\'on de tests de forma aleatoria es un caso particular de las pruebas de caja negra, donde las pruebas se realizan con entradas generadas de manera aleatoria e independiente. Los resultados se comparan con las especificaciones del software en prueba para verificar si los resultados pasan el test o no.
 \end{itemize}
 
@@ -227,7 +227,7 @@ El enfoque de jPET es el tratamiento de la informaci\'on generada por PET con el
 \section{Objetivos, la herramienta SymC++}
 %-------------------------------------------------------------------
 
-La elaboraci\'on de este proyecto tiene como objetivo principal el desarrollo de una herramienta propia de ``depuraci\'on simb\'olica'' que permite la depuraci\'on de programas inform\'aticos sin la necesidad de ser ejecutados, de manera que esta herramienta pueda ser utilizada como un medio de apoyo a los estudiantes de iniciaci\'on a la programaci\'on, y en general a programadores inexpertos, a la hora de razonar acerca de la correcci\'on de sus programas
+La elaboraci\'on de este proyecto tiene como objetivo principal el desarrollo de una herramienta propia de ``depuraci\'on simb\'olica'' que permite la depuraci\'on de programas inform\'aticos sin la necesidad de ser ejecutados al mismo tiempo que permite trabajar a nivel de m\'etodos permiti\'endonos verificar funcionalidades sueltas. Esta herramienta pueda ser utilizada como un medio de apoyo a los estudiantes de iniciaci\'on a la programaci\'on, y en general a programadores inexpertos, a la hora de razonar acerca de la correcci\'on de sus programas
 
 S\'olo se utilizar\'a como forma de comprobaci\'on, no como solucionador de errores tanto sint\'acticos como sem\'anticos, es decir, no realiza la funci\'on de compilador; mostrar\'a los resultados de la ejecuci\'on para ciertas posibles entradas y as\'i comprobar si \'esa es la soluci\'on que esperabas, de no ser as\'i, el alumno sabr\'a que el c\'odigo estar\'a mal planteado. Los alumnos que est\'an empezando a programar en C++ saben si su programa compila gracias al entorno que est\'en utilizando pero les es m\'as dif\'icil de comprobar si su programa est\'a correcto sin la ayuda de una interfaz o de alg\'una otra herramienta. Ah\'i es donde entra nuestra herramienta.
 
@@ -237,9 +237,9 @@ Para ilustrar mejor el funcionamiento de nuestra herramienta detallamos aqu\'i u
 
 \lstinputlisting[caption=C\'odigo de ejemplo, style=customcpp]{Codigos/codigoEjemplo.cpp}
 
-La ejecuci\'on del programa mostrado en el c\'odigo anterior en nuestra herramienta generar\'ia la siguiente tabla de resultados:
+La ejecuci\'on del programa mostrado en el c\'odigo anterior en nuestra herramienta generar\'ia la tabla de resultados 1.1.
 
-\begin{table}[ht]
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{| l | l | l | l ||}
 \hline
