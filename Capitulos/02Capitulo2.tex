@@ -118,7 +118,9 @@ Un objeto ParmVarDecl almacena informaci\'on referente a un par\'ametro necesari
 
 Una noci\'on que existe en el AST de CLANG es la del CompoundStatement que representa a un bloque de c\'odigo delimitado por llaves ({...}). Puesto que esperamos que el usuario haga uso de ellos s\'olo en compa\~nia de otras estructuras (if, while, for o funciones), en el XML se representa con el nodo body. Un nodo body est\'a compuesto por la serie de nodos correspondientes a las instrucciones que lo conforman.
 
-\begin{figure}[h]
+La disposici\'on b\'asica de un nodo function se puede observar en la figura 2.2.
+
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=0.9\textwidth]%
 {Imagenes/Vectorial/nodoFunction}
@@ -132,7 +134,9 @@ Una noci\'on que existe en el AST de CLANG es la del CompoundStatement que repre
 
 La instrucci\'on Return se traduce en nuestro formato a un nodod return el cual contiene su l\'inea del c\'odigo y un nodo interno que contiene la expresi\'on que devuelve la funci\'on.
 
-\begin{figure}[h]
+La disposici\'on b\'asica de un nodo return se puede observar en la figura 2.3.
+
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=0.9\textwidth]%
 {Imagenes/Vectorial/nodoReturn}
@@ -160,7 +164,9 @@ Un nodo declarations contiene las declaraciones de las variables de un mismo tip
 
 Los nodos declaration contienen informaci\'on acerca del tipo de la variable, su nombre, la l\'inea en la que se encuentra la declaraci\'on y la expresi\'on cuyo valor se le va a asignar. La informaci\'on surge de los nodos VarDecl que emplea el AST de CLANG.
 
-\begin{figure}[h]
+La disposici\'on b\'asica de un nodo declaration se puede observar en la figura 2.4.
+
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=0.9\textwidth]%
 {Imagenes/Vectorial/nodoDeclaration}
@@ -180,7 +186,9 @@ Las instrucciones que producen ramificaciones en la ejecuci\'on de un programa, 
 
 El nodo XML if obtiene su informaci\'on a partir del nodo del AST de CLANG IfStmt. Almacena el n\'umero de l\'inea, y los nodos correspondientes a la condici\'on que dirige su ejecuci\'on, al cuerpo del then y al cuerpo del else (en caso de estar especificado en el c\'odigo).
 
-\begin{figure}[h]
+La disposici\'on b\'asica de un nodo IF se puede observar en la figura 2.5.
+
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=0.9\textwidth]%
 {Imagenes/Vectorial/nodoIf}
@@ -194,7 +202,9 @@ El nodo XML if obtiene su informaci\'on a partir del nodo del AST de CLANG IfStm
 
 La instrucci\'on while se traduce a un nodo que alberga como atributo el n\'umero de l\'inea donde comienza la instrucci\'on, y los nodos de la expresi\'on de su condici\'on y el bloque de instrucciones de su cuerpo. Toda esta informaci\'on es una fracci\'on de la que contiene el nodo del AST de clang WhileStmt.
 
-\begin{figure}[h]
+La disposici\'on b\'asica de un nodo WHILE se puede observar en la figura 2.6.
+
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=0.9\textwidth]%
 {Imagenes/Vectorial/nodoWhile}
@@ -208,7 +218,9 @@ La instrucci\'on while se traduce a un nodo que alberga como atributo el n\'umer
 
 El bucle For se representa en el fichero XML con un nodo for. Este nodo obtiene su informaci\'on a partir del nodo del AST de clang ForStmt. La informaci\'on que contiene refiere al n\'umero de l\'inea en el que comienza, y a los nodos de la declaraci\'on de su variable de control, la condici\'on de parada, la instrucci\'on de avance y el cuerpo del bucle. Es importante recalcar que para el uso correcto de la herramienta, m\'as espec\'ificamente para el uso del int\'erprete simb\'olico, el bucle for introducido por el usuario en el c\'odigo fuente debe contener dichas partes de forma expl\'icita.
 
-\begin{figure}[h]
+La disposici\'on b\'asica de un nodo FOR se puede observar en la figura 2.7.
+
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=0.9\textwidth]%
 {Imagenes/Vectorial/nodoFor}
@@ -238,7 +250,9 @@ La clase ParenExpr representa una expresi\'on rodeada por par\'entesis por ejemp
 
 La clase BinaryOperator engloba los diversos operadores binarios de C++. Abarca las operaciones con punteros, la asignaci\'on, distintas operaciones num\'ericas, booleanas, de comparaci\'on e incluso a nivel de bit. CLANG se refiere a los distintos operadores mediante un tipo enumerado denominado OpCode, pero en nuestra herramienta optamos por hacer una distinci\'on entre la asignaci\'on y los dem\'as operadores. De esta forma una asignaci\'on se ver\'ia traducidad a un nodo XML assignment que contiene el nombre de la variable que recibe el valor, su ubicaci\'on en el c\'odigo y un nodo interno para la expresi\'on de dicho valor. De esta forma no se contempla que haya una asignaci\'on dentro de otra. Asimismo cualquier otra expresi\'on aparece como un nodo binaryOperator que aparte de conservar el tipo y el operador, contiene los dos nodos internos que refieren a las expresiones que hacen a su vez el papel de sus dos operandos. Esta distinci\'on se hace con los estudiantes noveles de programaci\'on en mente con la finalidad de que, en caso de estudiar detenidamente el XML final de su c\'odigo, tengan una visi\'on m\'as clara de su funcionamiento.
 
-\begin{figure}[h]
+La disposici\'on b\'asica de un operador binario se puede observar en la figura 2.8.
+
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=0.9\textwidth]%
 {Imagenes/Vectorial/nodoOpBinario}
@@ -252,7 +266,9 @@ La clase BinaryOperator engloba los diversos operadores binarios de C++. Abarca 
 
 CLANG hace distinci\'on entre los operadores binarios corrientes, y los que a su vez almacenan el valor resultante de la operaci\'on en una de las variables involucradas. Operaciones de este este tipo se resuelven mediante procesos de bajo nivel distintos a los de BinaryOperator por lo que para ello la clase CompoundAssignOperator resulta bastante \'util. Un nodo CompoundAssignOperator se traduce a un nodo assignmentoperator en el fichero XML devuelto. En este nodo damos cuenta del nombre de la variable de la que participa en la operaci\'on y posteriormente recoge el valor, el tipo de la operaci\'on, la ubicaci\'on en el c\'odigo y un nodo anidado que corresponder\'ia a la expresi\'on que pudiera aparecer en el c\'odigo correspondiendo al segundo operando.
 
-\begin{figure}[h]
+La disposici\'on b\'asica de un operador de asignaci\'on se puede observar en la figura 2.9.
+
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=0.9\textwidth]%
 {Imagenes/Vectorial/nodoOpAsignacion}
@@ -278,7 +294,7 @@ El not l\'ogico no aporta m\'as expresividad pero permite simplificar programaci
 \subsubsection*{ImplicitCastExpr}
 %-------------------------------------------------------------------
 
-Esta clase nos permite representar expl\'icitamente las conversiones de tipo (castings) que no tienen representaci\'on en el c\'odigo original. Un ejemplo en la pr\'actica ser\'ia a la hora de determinar el tipo de una variable de la cual solo sabemos el indentificador de forma que case con el tipo de la operaci\'on a la que va a ser sometida. En el lenguaje C, los conversiones impl\'icitas de tipo siempre producen valores temporales que van asociados al lado derecho de una expresi\'on (rvalues), por ejemplo: ``x = y;'', la variable y es un rvalue. A\'un as\'i, en C++ una conversi\'on impl\'icita puede estar asociada a valores que pueden ir a la izquierda de una expresi\'on (lvalues), por ejemplo: ``x = 7;'', x es un lvalue.
+Esta clase nos permite representar expl\'icitamente las conversiones de tipo (castings) que no tienen representaci\'on en el c\'odigo original. Un ejemplo en la pr\'actica ser\'ia a la hora de determinar el tipo de una variable de la cual solo sabemos el indentificador de forma que case con el tipo de la operaci\'on a la que va a ser sometida. En el lenguaje C, los conversiones impl\'icitas de tipo siempre producen valores temporales que van asociados al lado derecho de una expresi\'on (rvalues), por ejemplo: ``x = y'', la variable y es un rvalue. A\'un as\'i, en C++ una conversi\'on impl\'icita puede estar asociada a valores que pueden ir a la izquierda de una expresi\'on (lvalues), por ejemplo: ``x = 7'', x es un lvalue.
 
 %-------------------------------------------------------------------
 \subsubsection*{DeclRefExprClass}
@@ -286,7 +302,9 @@ Esta clase nos permite representar expl\'icitamente las conversiones de tipo (ca
 
 La clase DeclRefExprClass se corresponde con una referencia a una variable, funci\'on, valor de tipo enumerado, etc. que haya sido declarado con anterioridad. Un objeto de esta clase almacena numerosos detalles de como una declaraci\'on se referencia dentro de una expresi\'on. En nuestro proyecto este nodo nos permite conocer el identificador de una variable cualquiera que participe en una expresi\'on. La correspondencia con el fichero XML tiene forma de nodo variable.
 
-\begin{figure}[h]
+La disposici\'on b\'asica de un nodo con una asignaci\'on a otra variable se puede observar en la figura 2.10.
+
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=0.9\textwidth]%
 {Imagenes/Vectorial/nodoAsig}
@@ -300,7 +318,9 @@ La clase DeclRefExprClass se corresponde con una referencia a una variable, func
 
 Un nodo IntegerLiteral es utilizado por el compilador para determinar el valor y el tipo asociado al tama\~no que ocupa en memoria un valor entero que aparece expl\'icitamente en el c\'odigo. En el formato XML correspondiente al c\'odigo fuente que acepta nuestra herramienta se traduce en un nodo const en el que se almacena el valor de dicha constante.
 
-\begin{figure}[h]
+La disposici\'on b\'asica de un nodo con una asignaci\'on a un valor se puede observar en la figura 2.11.
+
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=0.9\textwidth]%
 {Imagenes/Vectorial/nodoAsigValor}
@@ -314,7 +334,9 @@ Un nodo IntegerLiteral es utilizado por el compilador para determinar el valor y
 
 La clase StringLiteral sirve para representar cualquier expresion de tipo string (cadenas de caracteres). Es una clase muy vers\'atil pues otorga al programador distintas utilidades para manipular strings a distintos niveles. En nuestra herramienta la presencia de strings definidos por el usuario est\'a limitada a la salida por consola. Un string se traduce a un nodo string cuyo valor almacena la cadena de caracteres correspondiente
 
-\begin{figure}[h]
+La disposici\'on b\'asica de un nodo con un valor string se puede observar en la figura 2.12.
+
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=0.9\textwidth]%
 {Imagenes/Vectorial/nodoString}
@@ -328,7 +350,9 @@ La clase StringLiteral sirve para representar cualquier expresion de tipo string
 
 La clase CallExpr representa la llamada a una funci\'on. En C++ las llamadas a funciones son consideradas expresiones que devuelven un valor del tipo asociado a dicha funci\'on. Una llamada a funci\'on se traduce a un nodo callFunction que refiere al nombre de la funci\'on y contiene varios nodos arg con las expresiones que el programador haya determinado.
 
-\begin{figure}[h]
+La disposici\'on b\'asica de un nodo con la llamada a una funci\'on se puede observar en la figura 2.13.
+
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=0.9\textwidth]%
 {Imagenes/Vectorial/nodoCallFunction}
@@ -352,7 +376,9 @@ Para simplificar el acceso a las operaciones de entrada y salida teniendo en cue
 
 Las bibliotecas implementadas son BuiltinsSTD.h y BuiltinsIO.h basadas en la entrada y salida de la biblioteca est\'andar de C++ y C respectivamente.
 
-\begin{figure}[h]
+La figura 2.14 muestra las funciones incluidas por las bibliotecas.
+
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=0.9\textwidth]%
 {Imagenes/Vectorial/ejemploFuncES}

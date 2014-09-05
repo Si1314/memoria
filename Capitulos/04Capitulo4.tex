@@ -25,14 +25,80 @@ Desde sus inicios el entorno Java ya contaba con una biblioteca de componentes g
 Hoy en día existen multitud de aplicaciones gráficas de usuario basadas en Java. El entorno de ejecución Java (JRE) se ha convertido en un componente habitual en los PC de usuario de los sistemas operativos más usados en el mundo. Además, muchas aplicaciones Java lo incluyen dentro del propio paquete de la aplicación de modo que se ejecuten en cualquier ordenador.
 
 %-------------------------------------------------------------------
+\section{Diseño y tecnologías utilizadas}
+%-------------------------------------------------------------------
+
+A la hora de desarrollar la interfaz para el cliente, el principal problema al que nos enfrentamos era la búsqueda de una interfaz intuitiva, fácil y que ofreciera todas las funcionalidades de depuración que buscamos para los estudiantes a los que está orientada esta herramienta. 
+
+Es por esto que buscamos una vista de cliente, en la que toda la información resultante de la ejecución simbólica esté disponible en la vista principal.
+
+Como ya hemos señalado, la interfaz la hemos desarrollado en el lenguaje de programación Java, pero además hemos utilizado otras librerías. Una de las librerías utilizadas ha sido ``Synthetica Look And Feel''. Se trata de una librería con un conjunto de estilos basados en ``Synth'', que es parte de la versión 1.5 de la plataforma Java. Synthetica ofrece muchos esstilos diferentes a través de temas para los componentes básicos de swing con bordes redondeados, menús emergentes en sombra y bonitos iconos. Por otra parte le permite modificar temas actuales y crear su propia apariencia única mediante la edición de un archivo de configuración basado en XML. Esta librería se encuentra bajo licencia gratuita para usos no comerciales, gracias a ella hemos podido dar una mayor vistosidad a la aplicación además de facilitarnos algunas cuestiones relativas al diseño.
+
+Por otro lado, en java, cuando hacemos ventanas, la clase que decide cómo se reparten los botones y el resto de controles dentro de la ventana se llama ``Layout''. Esta clase es la que decide en qué posición van los botones y demás componentes, si van alineados, en forma de matriz, cuáles se hacen grandes al agrandar la ventana, etc. Además el Layout decide qué tamaño es el ideal para la ventana en función de los componentes que lleva dentro. Las ventanas vienen con un Layout por defecto, pero en nuestro caso hemos optado por cambiarlo por ``MigLayout'', el cual se encuentra bajo licencia pública GNU GPL. Se trata de un gestor de diseño extremadamente flexible, el cual se puede utilizar para organizar multitud de componentes utilizando una única y consistente API. Este layout nos ha facilitado la distribución de la pantalla y del mismo modo, ofrece una mayor simplicidad y escalabilidad para la herramienta.
+
+Por otro lado, en este caso relacionado con las licencias de los elementos que aparecen en nuestra interfaz, todas las imágenes referentes a los botones también están bajo licencia gratuita para usos no comerciales. 
+
+%-------------------------------------------------------------------
+\section{Interfaz y sus funcionalidades}
+%-------------------------------------------------------------------
+
+Como se puede observar en la figura 4.1, la interfaz tiene un diseño muy sencillo. Por una parte se pueden observar las principales funcionalidades en una barra de herramientas horizontal justo debajo de la barra de menús, este diseño es similar al utilizado en la mayoría de editores y compiladores de código. Por otra parte, se observar un gran espacio para el editor de texto donde el usuario podrá introducir su código C++ bien a mano o bien cargando ya un archivo con código C++. Y para concluir el diseño, una barra vertical  a la derecha de la interfaz con secciones donde aparecerá la solución de la ejecución simbólica del Código.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.9\textwidth]%
+{Imagenes/Interfaz/principal}
+\caption{Figura que muestra el diseño principal de la herramienta.}
+\end{center}
+\end{figure}
+
+Las funcionalidades referentes a la interfaz del cliente son las básicas de cualquier editor de texto e incluso compilador de código. Hay que partir de la base, de que en nuestro proyecto lo más relevante no es la interfaz, sino todo el trabajo que hay detrás con la ejecución simbólica.
+
+Por una parte, tenemos el editor de texto como podemos observar en la figura 4.2. Se trata de una sección para introducir código, para darle un aspecto más cómodo para el programador, le hemos añadido la opción de que aparezcan los números de línea en el lateral izquierdo. Esta funcionalidad hace para el usuario que escribir código sea más fácil, además para la vista de resultados más adelante podrá observar cuales de las líneas han sido recorridas por el intérprete y cuales no. 
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.8\textwidth]%
+{Imagenes/Interfaz/editor}
+\caption{Figura que muestra la sección del editor de texto.}
+\end{center}
+\end{figure}
+
+Por otra parte, tenemos la parte derecha de la interfaz referente a los resultados del intérprete como podemos observar en la figura 4.3. Obtamos por un diseño así para que el usuario pueda ver de un vistazo la solución completa del intérprete, pudiendo comparar los resultados con el texto escrito en el editor. De este modo la comprobación es más rápida y sencilla que si las soluciones se viesen en una ventana aparte.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.4\textwidth]%
+{Imagenes/Interfaz/soluciones}
+\caption{Figura que muestra la sección de soluciones del intérprete.}
+\end{center}
+\end{figure}
+
+Centrándonos en esta sección para la visualización de las soluciones, tenemos por una parte, la tabla con los resultados. Aquí se puede observar con un vistazo rápido como los valores de las variables de entrada de la función y los resultados en las variable de ``return''. Se crearan tantas filas de la tabla como resultados posibles pueda tener la función, es decir, un registro por cada una de las ramas de ejecución exploradas por el intérprete. 
+
+Por otra parte, si queremos ampliar la información referente a una solución concreta será necesario que seleccionemos en la tabla de resultados con un ``doble click'' cual es el caso del que queremos ampliar la información. Una vez lo seleccionemos se rellenaran el resto de las secciones hasta este momento vacías. En primer lugar se resaltará en la sección de código las líneas que han sido recorridas por el intérprete con un color rojo, al mismo tiempo que en la casilla de la traza de ejecución aparecerán los números de dichas líneas de código. En segundo lugar, en caso de utilizar la consola de entrada/salida, aparecerá en sus casillas los valores teóricos que habría introducido el usuario, así como los valores de salida.
+
+En último lugar, como herramienta de depuración y para facilitar también al usuario entender los resultados, existe la opción de mostrar los XMLs, como se puede observar en la figura 4.4, que generan la herramienta ast2xml y el intérprete prolog.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.8\textwidth]%
+{Imagenes/Interfaz/displayxml}
+\caption{Figura que muestra la vista de un XML para su depuración por parte del usuario.}
+\end{center}
+\end{figure}
+
+Más adelante en la sección de apéndices detallamos con un tutorial de uso como utilizar nuestra herramienta.
+
+%-------------------------------------------------------------------
 \section{Estructura de la herramienta}
 %-------------------------------------------------------------------
 
 Para ilustrar mejor la estructura, así como para mostrar mejor la relación entre el usuario y la herramienta, y entre las diferentes secciones que la componen acompañamos la siguiente figura:
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
-\includegraphics[width=0.9\textwidth]%
+\includegraphics[width=0.8\textwidth]%
 {Imagenes/Vectorial/esquemaHerramienta}
 \caption{Figura que muestra las conexiones entre todas las partes de la herramienta.}
 \end{center}
@@ -57,49 +123,54 @@ Para la comunicación entre la interfaz, tanto con AST2XML como con el Intérprete
 \end{center}
 \end{itemize}
 
-Hay que tener en cuenta, una serie de requisitos para que la herramienta funcione correctamente. Es necesario que el usuario seleccione al abrir por primera vez SymC++ dónde ha instalado que la herramienta de AST2XML, la cual se guardará en un archivo de configuración. Por tanto, al lanzar la ejecución, tomará dicho directorio como herramienta y será la encargada de generar el archivo XML del árbol de ejecución, en este caso es responsabilidad del usuario seleccionar correctamente tal archivo para una correcta ejecución. Por otro lado para la ejecución de SymC++ es necesario un archivo con el código C++, por tanto si el usuario abre un archivo con el código, antes de la ejecución se realizará un autoguardado, por otro lado, en el caso de que el usuario haya escrito el código completo en nuestra herramienta, la herramienta pedirá al usuario que guarde dicho archivo antes de poder ejecutar.
-
-
-
-
-
 %-------------------------------------------------------------------
-\section{Diseño}
+\subsection{Ciclo de ejecución de la herramienta}
 %-------------------------------------------------------------------
 
-A la hora de desarrollar la interfaz para el cliente, el principal problema al que nos enfrentamos era la búsqueda de una interfaz intuitiva, fácil y que ofreciera todas las funcionalidades de depuración que buscamos para los estudiantes a los que está orientada esta herramienta. 
-Es por esto que buscamos una vista de cliente, en la que toda la información resultante de la ejecución simbólica esté disponible en la vista principal.
-Para el desarrollo de la interfaz hemos utilizado una librería de ``Synthetica Look And Feel'', librería bajo licencia gratuita para usos no comerciales. Esta librería nos ha permitido dar una mayor vistosidad a la aplicación además de facilitarnos algunas cuestiones relativas al diseño.
-Por otro lado, todas las imágenes referentes a los botones también están bajo licencia gratuita para usos no comerciales. 
+En primer lugar, para la ejecución de la herramienta SymC++ es necesario que el usuario seleccione al abrir la interfaz por primera vez dónde ha instalado la herramienta ast2xml, la cual se guardará en un archivo de configuración. Este archivo se podrá cambiar desde la interfaz cuando el usuario lo desee. Por tanto, al lanzar la ejecución, tomará dicho directorio como herramienta y será la encargada de generar el archivo XML del árbol de ejecución, en este caso es responsabilidad del usuario seleccionar correctamente tal archivo para una correcta ejecución.
 
-Para la estructura de la interfaz, hemos utilizado ``MigLayout'', el cual se encuentra bajo licencia pública GNU GPL. Este layout nos facilita la distribución de la pantalla y del mismo modo, ofrece una mayor simplicidad y escalabilidad para la herramienta.
+En la figura 4.6 se muestra un pequeño esquema de ejecución, con los archivos que se generan y el ciclo que se sigue, que vamos a detallar a continuación.
 
-%-------------------------------------------------------------------
-\section{Funcionalidades}
-%-------------------------------------------------------------------
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=0.7\textwidth]%
+{Imagenes/Vectorial/esquemaEjecucion}
+\caption{Figura que muestra el ciclo de ejecución general de la arquitectura.}
+\end{center}
+\end{figure}
 
-Las funcionalidades referentes a la interfaz del cliente son las básicas de cualquier editor de texto e incluso compilador de código. Hay que partir de la base, de que en nuestro proyecto lo más relevante no es la interfaz, sino todo el trabajo que hay detrás con la ejecución simbólica.
+Una vez que el usuario tiene escrito el código que quiere probar en el editor de texto llega el momento de ejecutarlo a través de nuestra herramienta SymC++. Cuando el usuario seleccione la opción de ejecutar, la herramienta realizará una serie de pasos hasta conseguir la solución del intérprete.
 
-Como funcionalidades de depuración cabe destacar la visión en formato árbol de los XMLs generados tanto por Clang como por Prolog, los cuales contienen toda la información relativa al árbol sintáctico anotado del archivo C++ y al resultado de la ejecución simbólica respectivamente.
+En primer lugar, es necesario que el archivo con el código C++ esté guardado para que la herramienta ast2xml pueda obtener su árbol sintáctico. Por tanto, si el usuario ha introducido todo el código a mano en el editor se abrirá el directorio de archivos para guardar el código donde el usuario desee. En caso de que el código se haya cargado desde un archivo, se procederá a realizar un guardado automático en el archivo desde el que se cargó.
 
-Referente a la visión del área de texto, para darle un aspecto de editor de código hemos añadido la visibilidad del número de línea.
+Una vez que el código se ha guardado correctamente se procede a enviar dicho archivo a la herramienta ast2xml que obtendrá el árbol sintáctico anotado del programa guardado en el archivo. Hay que destacar en este punto, que SymC++ no es un compilador, por tanto se generará dicho árbol sintáctico anotado esté el código correcto o no, puesto que lo que queremos es probar dicho código a través de la ejecución simbólica.
 
-Por tanto, para implementar las funcionalidades descritas, así como otras varias hemos utilizado las siguientes clases de código, todas bajo la licencia GNU, las cuales les hemos realizado las modificaciones necesarias para cumplir nuestro diseño :
-
+El siguiente paso que realiza SymC++ es pedir al usuario los valores necesarios para su ejecución simbólica, se trata de:
 \begin{itemize}
-\item LineNumbers.java [1] (http://javaknowledge.info/jtextpane-line-number/)
-\item MultiLineCellRenderer.java [2] (http://www.java2s.com/Code/Java/Swing-Components/MultiLineCellExample.htm)
-\item XML2JTree.java [3] (cse.unl.edu/~reich/XML/DOM/XML2JTree.java)
+\item \textbf{``nombre de la función''}: si el archivo tiene varias funciones como es lo normal en cualquier archivo de código, solo se realizará la ejecución simbólica de la función que desee el usuario y no de todo el programa. 
+\item \textbf{``valores máximos y mínimos''}: al realizar la ejecución simbólica podemos optar por solo recorrer los numeros del 0 al 10 o del -10 al 0, o los que el usuario desee para sus test. Pudiendo optar por un rango de valores más o menos acotado.
+\item \textbf{``profundidad de los bucles''}: En caso de encontrarnos con un bucle, se pueden llegar a producir bucles infinitos dependiendo del rango de valores utilizado. Por tanto, con esta variable marcamos el número de veces que como máximo se recorre un bucle.
 \end{itemize}
 
+Una vez, que el usuario rellena los campos necesarios se procede a la ejecución simbólica, dicha ejecución se realiza a través del árbol sintáctico anotado en formato XML que ha generado la herramienta ast2xml y los valores introducidos. Los resultados generados por el intérprete se envían a la interfaz en formato XML.
 
+El último paso, es el que realiza la interfaz, tiene que procesar y parsear el XML generado por el intérprete para mostrar la información de una manera visible al usuario. 
 
+Todo este ciclo detallado paso a paso, se puede observar en la figura 4.7.
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=0.7\textwidth]%
+{Imagenes/Vectorial/diagramaFlujoEjecucion}
+\caption{Figura que muestra el diagrama de flujo de la ejecución.}
+\end{center}
+\end{figure}
 
 %-------------------------------------------------------------------
 \section{Directorio de archivos}
 %-------------------------------------------------------------------
 
-El sistema de archivos de la aplicación está dividido en varios directorios:
+La herramienta precisa de un directorio de archivos para su correcto funcionamiento, dicho sistema de archivos está dividido en varios directorios los cuales detallamos a continuación:
 \begin{itemize}
 \item files : Directorio en el que se almacenan todos los archivos generados, tanto los XMLs generados por Clang y el intérprete, como el archivo de c++ que se va a ejecutar. En este directorio, se incluyen los archivos ``BuiltinsIO.h'' y ``BuiltinsSTD.h'' necesarios para el uso de las funciones de entrada y salida.
 \item tools: En este directorio se incluyen los archivos prolog necesarios para que el intérprete funcione y los comandos shell que realizan la llamada tanto a la herramienta Clang como al intérprete Prolog.
