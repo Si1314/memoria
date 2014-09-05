@@ -13,11 +13,11 @@
 \chapter{Abstract}
 \cabeceraEspecial{Abstract}
 
-This project is researching and developping a tool based on symbolic debugging that allows to know the running of software without being executed based on observing all possible branches of execution (up to a level) and the correspond pair input-output. This tool is designed with the idea of helping students of introduction to programming, and generally to inexperienced developers to reason about the correctness of their programs.
+This project studies and develops a tool based on symbolic debugging that allows reasoning about programs behavior statically, i.e., without being executed, by means of observing all possible branches of execution (up to a level) and their corresponding input-output behaviors. The tool is designed with the idea of helping students of introduction to programming, and, in general,  inexperienced developers to reason about the correctness of their programs.
 
-The core of the tool is based on symbolic execution, one of the most powerfull technologies for static studies of the programs behaviour. The symbolic execution is a program analysis which uses symbolics values (or variables) instead of concrete values. This provides understand the program execution through observing the behaviour of the different execution branches and to determine the conditions that must be verified by the input data to obtain a particular result, and the relationship beetween the input and produced values in the execution of the program.
+The core of the tool is based on symbolic execution, one of the most powerful technologies for statically studying programs behavior. Symbolic execution consists in executing a program using symbolic values (or variables) instead of concrete values. This allows understanding the program execution by means of observing the behavior of the different execution branches and to determine the conditions that must be verified by the input data to obtain a particular result, and the relationship between the input and produced values in the execution of the program.
 
-The developed tool, called SymC++, recibes a number of input parameters of the function to be tested, assuming a C++ code, obtaining information from the different branches generated. These results are generated in XML format wich facilitates portability and scalability of the project, providing a debugger that can be adapted to different user interface.
+The developed tool, called SymC++, receives a set of input parameters of the function to be tested (a C++ function), and obtains information about the generated execution branches. The results are output in XML format, which facilitates portability and scalability, hence providing a debugger that can be adapted to different user interfaces.
 
 %-------------------------------------------------------------------
 \section*{Key words}
