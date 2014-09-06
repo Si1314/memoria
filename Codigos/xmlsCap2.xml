@@ -1,0 +1,105 @@
+<function name="foo" type="int" line="3">
+	<params>
+		<param type="int" name="a"/>
+		<param type="int" name="b"/>
+		...
+	</params>
+	<body>
+		...
+	</body>
+</function>
+
+<return line="5">
+	<binaryOperator type="arithmetic" operator="+">
+		<variable name="y"/>
+		<variable name="x"/>
+	</binaryOperator>
+
+<declarations>
+	<declaration type="int" name="w" line="2"/>
+	<declaration type="int" name="q" line="2"/>
+	<declaration type="int" name="l" line="2"/>
+</declarations>
+<declarations>
+	<declaration type="int" name="j" line="3">
+		<const value="0"/>
+	</declaration>
+</declarations>
+
+<if line="36">
+	<binaryOperator type="comparison" operator="&gt">
+		<variable name="y"/>
+		<const value="0"/>
+	</binaryOperator>
+	<then>
+		<body>
+			...
+		</body>
+	</then>
+	<else>
+		<body>
+			...
+		</body>
+	</else>
+</if>
+
+<while line="17">
+	<binaryOperator type="comparision" operator="&gt">
+		<variable name="w"/>
+		<const value="0"/>
+	</binaryOperator>
+	<body>
+		...
+	</body>
+</while>
+
+<for line="54">
+	<declarations>
+		<declaration type="int" name="i" line="54">
+			<const value="0"/>
+		</declaration>
+	</declarations>
+	<binaryOperator type="comparision" operator="&lt">
+		<variable name="i"/>
+		<variable name="x"/>
+	</binaryOperator>
+	<assigment name="i" line="54">
+		<binaryOperator type="arithmetic" operator="+">
+			<variable name="i"/>
+			<const value="1"/>
+		</binaryOperator>
+	</assigment>
+	<body>
+		...
+	</body>
+</for>
+
+<assigment name="a" line="63">
+	<binaryOperator type="arithmetic" operator="+">
+		<variable name="b"/>
+		<variable name="c"/>
+	</binaryOperator>
+</assigment>
+
+<assigmentOperator name="a" type="arithmetic" operator="*" line="48">
+	<variable name="b"/>
+</assigmentOperator>
+
+<assigment name="w" line="14">
+	<variable name="y"/>
+</assigment>
+
+<assigment name="r" line="43">
+	<const value="1"/>
+</assigment>
+
+<string value="Hola mundo"/>
+
+<assigment name="a" line="68">
+	<callFunction name="foo" type="int">
+		<arg>
+			<variable name="b"/>
+		</arg>
+	</callFunction>
+</assigment>
+
