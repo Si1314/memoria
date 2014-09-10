@@ -31,7 +31,7 @@ El un principio ``LLVM'' eran las iniciales de ``Low Level Virtual Machine'' (M\
 \subsection{CLANG}
 %-------------------------------------------------------------------
 
-El amplio inter\'es que ha recibido LLVM ha llevado a una serie de tentativas para desarrollar frontends totalmente nuevos para una variedad de lenguajes. El que ha recibido la mayor atenci\'on es CLANG, un nuevo compilador que soporta otros lenguajes de la familia de C (ObjectiveC, C++, etc ...).
+El amplio inter\'es que ha recibido LLVM ha llevado a una serie de tentativas para desarrollar frontends totalmente nuevos para una variedad de lenguajes. El que ha recibido la mayor atenci\'on es CLANG, un nuevo compilador que soporta otros lenguajes de la familia de C (ObjectiveC, C++, etc.).
 
 En un principio estaba proyectado que LLVM se apoyara en el compilador de C de GNU [19] (a partir de ahora GCC) pero los desarrolladores de Apple fueron encontrando numerosas dificultades t\'ecnicas. Principalmente el problema fue que al ser una plataforma desarrollada durante mucho tiempo GCC presentaba una estructura demasiado compleja sobre la que ir a\~nadiendo las modificaciones necesarias para solventar los problemas de compatibilidad.
 
@@ -117,9 +117,9 @@ Un objeto ParmVarDecl almacena informaci\'on referente a un par\'ametro necesari
 
 Una noci\'on que existe en el AST de CLANG es la del CompoundStatement que representa a un bloque de c\'odigo delimitado por llaves ({...}). Puesto que esperamos que el usuario haga uso de ellos s\'olo en compa\~nia de otras estructuras (if, while, for o funciones), en el XML se representa con el nodo body. Un nodo body est\'a compuesto por la serie de nodos correspondientes a las instrucciones que lo conforman.
 
-La disposici\'on b\'asica de un nodo function se puede observar en los siguientes listados de c\'odigo, 2.2 con el c\'odigo C++ origen y 2.3 con el c\'odigo XML con la disposici\'on b\'asica de un nodo function.
+La disposici\'on b\'asica de un nodo function se puede observar en los siguientes listados de c\'odigo, 2.2 con el c\'odigo C++ origen y 2.3 con el c\'odigo XML con la disposici\'on b\'asica de un nodo function.\\\\
 
-\lstinputlisting[caption=C\'odigo C++ ejemplo para un nodo function, style=customxml, firstline=1, lastline=3]{Codigos/ccCap2.cpp}
+\lstinputlisting[caption=C\'odigo C++ ejemplo para un nodo function., style=customxml, firstline=1, lastline=3]{Codigos/ccCap2.cpp}
 \lstinputlisting[caption=C\'odigo XML obtenido\, ejemplo de la disposici\'on b\'asica de un nodo function, style=customxml, firstline=1, lastline=10]{Codigos/xmlsCap2.xml}
 
 %-------------------------------------------------------------------
@@ -211,7 +211,7 @@ Las expresiones que se refieren a variables almacenan el nombre de estas y defor
 \subsubsection*{ParenExpr}
 %-------------------------------------------------------------------
 
-La clase ParenExpr representa una expresi\'on rodeada por par\'entesis por ejemplo ``(1)''. Esta estructura no es muy relevante en nuestra herramienta porque en el paso del an\'alisis en el que CLANG construye el AST, ya tiene en cuenta la prioridad de los operandos. Esto convierte a la clase ParenExpr en una utilidad auxiliar que sin duda puede resultar \'util en caso de querer modificar o a\~nadir nuevos elementos al AST en otro tipo de an\'alisis con otra herramienta.
+La clase ParenExpr representa una expresi\'on rodeada por par\'entesis por ejemplo ``(1)''. Esta estructura no es muy relevante en nuestra herramienta porque en el paso del an\'alisis en el que CLANG construye el AST, ya tiene en cuenta la prioridad de los operandos. Esto convierte a la clase ParenExpr en una utilidad auxiliar que sin duda puede resultar \'util en caso de querer modificar o a\~nadir nuevos elementos al AST en otro tipo de an\'alisis con otra herramienta. \\
 
 %-------------------------------------------------------------------
 \subsubsection*{BinaryOperator}
@@ -219,7 +219,7 @@ La clase ParenExpr representa una expresi\'on rodeada por par\'entesis por ejemp
 
 La clase BinaryOperator engloba los diversos operadores binarios de C++. Abarca las operaciones con punteros, la asignaci\'on, distintas operaciones num\'ericas, booleanas, de comparaci\'on e incluso a nivel de bit. CLANG se refiere a los distintos operadores mediante un tipo enumerado denominado OpCode, pero en nuestra herramienta optamos por hacer una distinci\'on entre la asignaci\'on y los dem\'as operadores. De esta forma una asignaci\'on se ver\'ia traducidad a un nodo XML assignment que contiene el nombre de la variable que recibe el valor, su ubicaci\'on en el c\'odigo y un nodo interno para la expresi\'on de dicho valor. De esta forma no se contempla que haya una asignaci\'on dentro de otra. Asimismo cualquier otra expresi\'on aparece como un nodo binaryOperator que aparte de conservar el tipo y el operador, contiene los dos nodos internos que refieren a las expresiones que hacen a su vez el papel de sus dos operandos. Esta distinci\'on se hace con los estudiantes noveles de programaci\'on en mente con la finalidad de que, en caso de estudiar detenidamente el XML final de su c\'odigo, tengan una visi\'on m\'as clara de su funcionamiento.
 
-La disposici\'on b\'asica de un nodo con operador binario se puede observar en los siguientes listados de c\'odigo, 2.14 con el c\'odigo C++ origen y 2.15 con el c\'odigo XML con la disposici\'on b\'asica de un nodo para un operador binario.
+La disposici\'on b\'asica de un nodo con operador binario se puede observar en los siguientes listados de c\'odigo, 2.14 con el c\'odigo C++ origen y 2.15 con el c\'odigo XML con la disposici\'on b\'asica de un nodo para un operador binario. \\\\\\
 
 \lstinputlisting[caption=C\'odigo C++ ejemplo para un nodo de un operador binario, style=customxml, firstline=24, lastline=24]{Codigos/ccCap2.cpp}
 \lstinputlisting[caption=C\'odigo XML obtenido\, ejemplo de la disposici\'on b\'asica de un nodo con operador binario, style=customxml, firstline=77, lastline=82]{Codigos/xmlsCap2.xml}
@@ -279,7 +279,7 @@ La disposici\'on b\'asica de un nodo con una asignaci\'on a un valor se puede ob
 
 La clase StringLiteral sirve para representar cualquier expresion de tipo string (cadenas de caracteres). Es una clase muy vers\'atil pues otorga al programador distintas utilidades para manipular strings a distintos niveles. En nuestra herramienta la presencia de strings definidos por el usuario est\'a limitada a la salida por consola. Un string se traduce a un nodo string cuyo valor almacena la cadena de caracteres correspondiente
 
-La disposici\'on b\'asica de un nodo con un valor string se puede observar en los siguientes listados de c\'odigo, 2.22 con el c\'odigo C++ origen y 2.23 con el c\'odigo XML con la disposici\'on b\'asica de un nodo con un valor string.
+La disposici\'on b\'asica de un nodo con un valor string se puede observar en los siguientes listados de c\'odigo, 2.22 con el c\'odigo C++ origen y 2.23 con el c\'odigo XML con la disposici\'on b\'asica de un nodo con un valor string.\\\\
 
 \lstinputlisting[caption=C\'odigo C++ ejemplo para un nodo con uun valor string, style=customxml, firstline=32, lastline=32]{Codigos/ccCap2.cpp}
 \lstinputlisting[caption=C\'odigo XML obtenido\, ejemplo de la disposici\'on b\'asica de un nodo con un valor string, style=customxml, firstline=96, lastline=96]{Codigos/xmlsCap2.xml}
@@ -290,7 +290,7 @@ La disposici\'on b\'asica de un nodo con un valor string se puede observar en lo
 
 La clase CallExpr representa la llamada a una funci\'on. En C++ las llamadas a funciones son consideradas expresiones que devuelven un valor del tipo asociado a dicha funci\'on. Una llamada a funci\'on se traduce a un nodo callFunction que refiere al nombre de la funci\'on y contiene varios nodos arg con las expresiones que el programador haya determinado.
 
-La disposici\'on b\'asica de un nodo con con la llamada a una funci\'on se puede observar en los siguientes listados de c\'odigo, 2.24 con el c\'odigo C++ origen y 2.25 con el c\'odigo XML con la disposici\'on b\'asica de un nodo con con la llamada a una funci\'on.
+La disposici\'on b\'asica de un nodo con con la llamada a una funci\'on se puede observar en los siguientes listados de c\'odigo, 2.24 con el c\'odigo C++ origen y 2.25 con el c\'odigo XML con la disposici\'on b\'asica de un nodo con con la llamada a una funci\'on.\\\\
 
 \lstinputlisting[caption=C\'odigo C++ ejemplo para un nodo con la llamada a una funci\'on, style=customxml, firstline=34, lastline=34]{Codigos/ccCap2.cpp}
 \lstinputlisting[caption=C\'odigo XML obtenido\, ejemplo de la disposici\'on b\'asica de un nodo con la llamada a una funci\'on, style=customxml, firstline=98, lastline=104]{Codigos/xmlsCap2.xml}
