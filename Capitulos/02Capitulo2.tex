@@ -31,7 +31,7 @@ El un principio ``LLVM'' eran las iniciales de ``Low Level Virtual Machine'' (M\
 \subsection{CLANG}
 %-------------------------------------------------------------------
 
-El amplio inter\'es que ha recibido LLVM ha llevado a una serie de tentativas para desarrollar frontends totalmente nuevos para una variedad de lenguajes. El que ha recibido la mayor atenci\'on es CLANG, un nuevo compilador que soporta otros lenguajes de la familia de C (ObjectiveC, C++, etc ...).
+El amplio inter\'es que ha recibido LLVM ha llevado a una serie de tentativas para desarrollar frontends totalmente nuevos para una variedad de lenguajes. El que ha recibido la mayor atenci\'on es CLANG, un nuevo compilador que soporta otros lenguajes de la familia de C (ObjectiveC, C++, etc.).
 
 En un principio estaba proyectado que LLVM se apoyara en el compilador de C de GNU [19] (a partir de ahora GCC) pero los desarrolladores de Apple fueron encontrando numerosas dificultades t\'ecnicas. Principalmente el problema fue que al ser una plataforma desarrollada durante mucho tiempo GCC presentaba una estructura demasiado compleja sobre la que ir a\~nadiendo las modificaciones necesarias para solventar los problemas de compatibilidad.
 
@@ -57,8 +57,7 @@ Un AST es una representaci\'on de \'arbol de la estructura sint\'actica abstract
 
 La herramienta AST2XML se apoya en la adaptaci\'on del c\'odigo, por parte del AST propio de CLANG, a un formato XML. La representaci\'on del AST que emplea CLANG se diferencia de la de otros compiladores en cuanto a que mantiene la semejanza con el c\'odigo escrito y con el est\'andar de C++.
 
-\figura{Vectorial/figura1}{width=.9\textwidth}{fig:figura1}%
-{Figura Ejemplo del AST que emplea Clang a partir de un c\'odigo espec\'ifico.}
+\lstinputlisting[caption=Ejemplo del AST que emplea Clang a partir de un c\'odigo espec\'ifico., style=customxml, firstline=108, lastline=131]{Codigos/xmlsCap2.xml}
 
 Como se puede apreciar en la figura, la representaci\'on que se obtiene directamente de CLANG puede llegar a parecer abrumadoramente compleja y redundante. En momentos iniciales del proyecto tomamos la decisi\'on de que informaci\'on como la ubicaci\'on de los elementos, los tipos de las variables, o incluso el tipo de los nodos no ser\'ian necesarias en cada momento. Para ello hizo falta una implementaci\'on muy precisa de un tipo de herramienta que se puede construir para CLANG.
 
@@ -118,9 +117,9 @@ Un objeto ParmVarDecl almacena informaci\'on referente a un par\'ametro necesari
 
 Una noci\'on que existe en el AST de CLANG es la del CompoundStatement que representa a un bloque de c\'odigo delimitado por llaves ({...}). Puesto que esperamos que el usuario haga uso de ellos s\'olo en compa\~nia de otras estructuras (if, while, for o funciones), en el XML se representa con el nodo body. Un nodo body est\'a compuesto por la serie de nodos correspondientes a las instrucciones que lo conforman.
 
-La disposici\'on b\'asica de un nodo function se puede observar en los siguientes listados de c\'odigo, 2.1 con el c\'odigo C++ origen y 2.2 con el c\'odigo XML con la disposici\'on b\'asica de un nodo function.
+La disposici\'on b\'asica de un nodo function se puede observar en los siguientes listados de c\'odigo, 2.2 con el c\'odigo C++ origen y 2.3 con el c\'odigo XML con la disposici\'on b\'asica de un nodo function.\\\\
 
-\lstinputlisting[caption=C\'odigo C++ ejemplo para un nodo function, style=customxml, firstline=1, lastline=3]{Codigos/ccCap2.cpp}
+\lstinputlisting[caption=C\'odigo C++ ejemplo para un nodo function., style=customxml, firstline=1, lastline=3]{Codigos/ccCap2.cpp}
 \lstinputlisting[caption=C\'odigo XML obtenido\, ejemplo de la disposici\'on b\'asica de un nodo function, style=customxml, firstline=1, lastline=10]{Codigos/xmlsCap2.xml}
 
 %-------------------------------------------------------------------
@@ -129,7 +128,7 @@ La disposici\'on b\'asica de un nodo function se puede observar en los siguiente
 
 La instrucci\'on Return se traduce en nuestro formato a un nodod return el cual contiene su l\'inea del c\'odigo y un nodo interno que contiene la expresi\'on que devuelve la funci\'on.
 
-La disposici\'on b\'asica de un nodo return se puede observar en los siguientes listados de c\'odigo, 2.3 con el c\'odigo C++ origen y 2.4 con el c\'odigo XML con la disposici\'on b\'asica de un nodo return.
+La disposici\'on b\'asica de un nodo return se puede observar en los siguientes listados de c\'odigo, 2.4 con el c\'odigo C++ origen y 2.5 con el c\'odigo XML con la disposici\'on b\'asica de un nodo return.
 
 \lstinputlisting[caption=C\'odigo C++ ejemplo para un nodo return, style=customxml, firstline=5, lastline=5]{Codigos/ccCap2.cpp}
 \lstinputlisting[caption=C\'odigo XML obtenido\, ejemplo de la disposici\'on b\'asica de un nodo return, style=customxml, firstline=12, lastline=16]{Codigos/xmlsCap2.xml}
@@ -154,7 +153,7 @@ Un nodo declarations contiene las declaraciones de las variables de un mismo tip
 
 Los nodos declaration contienen informaci\'on acerca del tipo de la variable, su nombre, la l\'inea en la que se encuentra la declaraci\'on y la expresi\'on cuyo valor se le va a asignar. La informaci\'on surge de los nodos VarDecl que emplea el AST de CLANG.
 
-La disposici\'on b\'asica de un nodo declaration se puede observar en los siguientes listados de c\'odigo, 2.5 con el c\'odigo C++ origen y 2.6 con el c\'odigo XML con la disposici\'on b\'asica de un nodo declaration.
+La disposici\'on b\'asica de un nodo declaration se puede observar en los siguientes listados de c\'odigo, 2.6 con el c\'odigo C++ origen y 2.7 con el c\'odigo XML con la disposici\'on b\'asica de un nodo declaration.
 
 \lstinputlisting[caption=C\'odigo C++ ejemplo para un nodo declaration, style=customxml, firstline=7, lastline=8]{Codigos/ccCap2.cpp}
 \lstinputlisting[caption=C\'odigo XML obtenido\, ejemplo de la disposici\'on b\'asica de un nodo declaration, style=customxml, firstline=18, lastline=27]{Codigos/xmlsCap2.xml}
@@ -171,7 +170,7 @@ Las instrucciones que producen ramificaciones en la ejecuci\'on de un programa, 
 
 El nodo XML if obtiene su informaci\'on a partir del nodo del AST de CLANG IfStmt. Almacena el n\'umero de l\'inea, y los nodos correspondientes a la condici\'on que dirige su ejecuci\'on, al cuerpo del then y al cuerpo del else (en caso de estar especificado en el c\'odigo).
 
-La disposici\'on b\'asica de un nodo If se puede observar en los siguientes listados de c\'odigo, 2.7 con el c\'odigo C++ origen y 2.8 con el c\'odigo XML con la disposici\'on b\'asica de un nodo If.
+La disposici\'on b\'asica de un nodo If se puede observar en los siguientes listados de c\'odigo, 2.8 con el c\'odigo C++ origen y 2.9 con el c\'odigo XML con la disposici\'on b\'asica de un nodo If.
 
 \lstinputlisting[caption=C\'odigo C++ ejemplo para un nodo If, style=customxml, firstline=10, lastline=14]{Codigos/ccCap2.cpp}
 \lstinputlisting[caption=C\'odigo XML obtenido\, ejemplo de la disposici\'on b\'asica de un nodo If, style=customxml, firstline=29, lastline=44]{Codigos/xmlsCap2.xml}
@@ -182,7 +181,7 @@ La disposici\'on b\'asica de un nodo If se puede observar en los siguientes list
 
 La instrucci\'on while se traduce a un nodo que alberga como atributo el n\'umero de l\'inea donde comienza la instrucci\'on, y los nodos de la expresi\'on de su condici\'on y el bloque de instrucciones de su cuerpo. Toda esta informaci\'on es una fracci\'on de la que contiene el nodo del AST de clang WhileStmt.
 
-La disposici\'on b\'asica de un nodo While se puede observar en los siguientes listados de c\'odigo, 2.9 con el c\'odigo C++ origen y 2.10 con el c\'odigo XML con la disposici\'on b\'asica de un nodo While.
+La disposici\'on b\'asica de un nodo While se puede observar en los siguientes listados de c\'odigo, 2.10 con el c\'odigo C++ origen y 2.11 con el c\'odigo XML con la disposici\'on b\'asica de un nodo While.
 
 \lstinputlisting[caption=C\'odigo C++ ejemplo para un nodo While, style=customxml, firstline=16, lastline=18]{Codigos/ccCap2.cpp}
 \lstinputlisting[caption=C\'odigo XML obtenido\, ejemplo de la disposici\'on b\'asica de un nodo While, style=customxml, firstline=46, lastline=54]{Codigos/xmlsCap2.xml}
@@ -193,7 +192,7 @@ La disposici\'on b\'asica de un nodo While se puede observar en los siguientes l
 
 El bucle For se representa en el fichero XML con un nodo for. Este nodo obtiene su informaci\'on a partir del nodo del AST de clang ForStmt. La informaci\'on que contiene refiere al n\'umero de l\'inea en el que comienza, y a los nodos de la declaraci\'on de su variable de control, la condici\'on de parada, la instrucci\'on de avance y el cuerpo del bucle. Es importante recalcar que para el uso correcto de la herramienta, m\'as espec\'ificamente para el uso del int\'erprete simb\'olico, el bucle for introducido por el usuario en el c\'odigo fuente debe contener dichas partes de forma expl\'icita.
 
-La disposici\'on b\'asica de un nodo For se puede observar en los siguientes listados de c\'odigo, 2.11 con el c\'odigo C++ origen y 2.12 con el c\'odigo XML con la disposici\'on b\'asica de un nodo For.
+La disposici\'on b\'asica de un nodo For se puede observar en los siguientes listados de c\'odigo, 2.12 con el c\'odigo C++ origen y 2.13 con el c\'odigo XML con la disposici\'on b\'asica de un nodo For.
 
 \lstinputlisting[caption=C\'odigo C++ ejemplo para un nodo For, style=customxml, firstline=20, lastline=22]{Codigos/ccCap2.cpp}
 \lstinputlisting[caption=C\'odigo XML obtenido\, ejemplo de la disposici\'on b\'asica de un nodo For, style=customxml, firstline=56, lastline=75]{Codigos/xmlsCap2.xml}
@@ -212,7 +211,7 @@ Las expresiones que se refieren a variables almacenan el nombre de estas y defor
 \subsubsection*{ParenExpr}
 %-------------------------------------------------------------------
 
-La clase ParenExpr representa una expresi\'on rodeada por par\'entesis por ejemplo ``(1)''. Esta estructura no es muy relevante en nuestra herramienta porque en el paso del an\'alisis en el que CLANG construye el AST, ya tiene en cuenta la prioridad de los operandos. Esto convierte a la clase ParenExpr en una utilidad auxiliar que sin duda puede resultar \'util en caso de querer modificar o a\~nadir nuevos elementos al AST en otro tipo de an\'alisis con otra herramienta.
+La clase ParenExpr representa una expresi\'on rodeada por par\'entesis por ejemplo ``(1)''. Esta estructura no es muy relevante en nuestra herramienta porque en el paso del an\'alisis en el que CLANG construye el AST, ya tiene en cuenta la prioridad de los operandos. Esto convierte a la clase ParenExpr en una utilidad auxiliar que sin duda puede resultar \'util en caso de querer modificar o a\~nadir nuevos elementos al AST en otro tipo de an\'alisis con otra herramienta. \\
 
 %-------------------------------------------------------------------
 \subsubsection*{BinaryOperator}
@@ -220,7 +219,7 @@ La clase ParenExpr representa una expresi\'on rodeada por par\'entesis por ejemp
 
 La clase BinaryOperator engloba los diversos operadores binarios de C++. Abarca las operaciones con punteros, la asignaci\'on, distintas operaciones num\'ericas, booleanas, de comparaci\'on e incluso a nivel de bit. CLANG se refiere a los distintos operadores mediante un tipo enumerado denominado OpCode, pero en nuestra herramienta optamos por hacer una distinci\'on entre la asignaci\'on y los dem\'as operadores. De esta forma una asignaci\'on se ver\'ia traducidad a un nodo XML assignment que contiene el nombre de la variable que recibe el valor, su ubicaci\'on en el c\'odigo y un nodo interno para la expresi\'on de dicho valor. De esta forma no se contempla que haya una asignaci\'on dentro de otra. Asimismo cualquier otra expresi\'on aparece como un nodo binaryOperator que aparte de conservar el tipo y el operador, contiene los dos nodos internos que refieren a las expresiones que hacen a su vez el papel de sus dos operandos. Esta distinci\'on se hace con los estudiantes noveles de programaci\'on en mente con la finalidad de que, en caso de estudiar detenidamente el XML final de su c\'odigo, tengan una visi\'on m\'as clara de su funcionamiento.
 
-La disposici\'on b\'asica de un nodo con operador binario se puede observar en los siguientes listados de c\'odigo, 2.13 con el c\'odigo C++ origen y 2.14 con el c\'odigo XML con la disposici\'on b\'asica de un nodo para un operador binario.
+La disposici\'on b\'asica de un nodo con operador binario se puede observar en los siguientes listados de c\'odigo, 2.14 con el c\'odigo C++ origen y 2.15 con el c\'odigo XML con la disposici\'on b\'asica de un nodo para un operador binario. \\\\\\
 
 \lstinputlisting[caption=C\'odigo C++ ejemplo para un nodo de un operador binario, style=customxml, firstline=24, lastline=24]{Codigos/ccCap2.cpp}
 \lstinputlisting[caption=C\'odigo XML obtenido\, ejemplo de la disposici\'on b\'asica de un nodo con operador binario, style=customxml, firstline=77, lastline=82]{Codigos/xmlsCap2.xml}
@@ -231,7 +230,7 @@ La disposici\'on b\'asica de un nodo con operador binario se puede observar en l
 
 CLANG hace distinci\'on entre los operadores binarios corrientes, y los que a su vez almacenan el valor resultante de la operaci\'on en una de las variables involucradas. Operaciones de este este tipo se resuelven mediante procesos de bajo nivel distintos a los de BinaryOperator por lo que para ello la clase CompoundAssignOperator resulta bastante \'util. Un nodo CompoundAssignOperator se traduce a un nodo assignmentoperator en el fichero XML devuelto. En este nodo damos cuenta del nombre de la variable de la que participa en la operaci\'on y posteriormente recoge el valor, el tipo de la operaci\'on, la ubicaci\'on en el c\'odigo y un nodo anidado que corresponder\'ia a la expresi\'on que pudiera aparecer en el c\'odigo correspondiendo al segundo operando.
 
-La disposici\'on b\'asica de un nodo con operador de asignaci\'on se puede observar en los siguientes listados de c\'odigo, 2.15 con el c\'odigo C++ origen y 2.16 con el c\'odigo XML con la disposici\'on b\'asica de un nodo para un operador de asignaci\'on.
+La disposici\'on b\'asica de un nodo con operador de asignaci\'on se puede observar en los siguientes listados de c\'odigo, 2.16 con el c\'odigo C++ origen y 2.17 con el c\'odigo XML con la disposici\'on b\'asica de un nodo para un operador de asignaci\'on.
 
 \lstinputlisting[caption=C\'odigo C++ ejemplo para un nodo de un operador de asignaci\'on, style=customxml, firstline=26, lastline=26]{Codigos/ccCap2.cpp}
 \lstinputlisting[caption=C\'odigo XML obtenido\, ejemplo de la disposici\'on b\'asica de un nodo con operador de asignaci\'on, style=customxml, firstline=84, lastline=86]{Codigos/xmlsCap2.xml}
@@ -258,7 +257,7 @@ Esta clase nos permite representar expl\'icitamente las conversiones de tipo (ca
 
 La clase DeclRefExprClass se corresponde con una referencia a una variable, funci\'on, valor de tipo enumerado, etc. que haya sido declarado con anterioridad. Un objeto de esta clase almacena numerosos detalles de como una declaraci\'on se referencia dentro de una expresi\'on. En nuestro proyecto este nodo nos permite conocer el identificador de una variable cualquiera que participe en una expresi\'on. La correspondencia con el fichero XML tiene forma de nodo variable.
 
-La disposici\'on b\'asica de un nodo con una asignaci\'on a otra variable se puede observar en los siguientes listados de c\'odigo, 2.17 con el c\'odigo C++ origen y 2.18 con el c\'odigo XML con la disposici\'on b\'asica de un nodo con una asignaci\'on a otra variable.
+La disposici\'on b\'asica de un nodo con una asignaci\'on a otra variable se puede observar en los siguientes listados de c\'odigo, 2.18 con el c\'odigo C++ origen y 2.19 con el c\'odigo XML con la disposici\'on b\'asica de un nodo con una asignaci\'on a otra variable.
 
 \lstinputlisting[caption=C\'odigo C++ ejemplo para un nodo con una asignaci\'on a otra variable, style=customxml, firstline=28, lastline=28]{Codigos/ccCap2.cpp}
 \lstinputlisting[caption=C\'odigo XML obtenido\, ejemplo de la disposici\'on b\'asica de un nodo con una asignaci\'on a otra variable, style=customxml, firstline=88, lastline=90]{Codigos/xmlsCap2.xml}
@@ -269,7 +268,7 @@ La disposici\'on b\'asica de un nodo con una asignaci\'on a otra variable se pue
 
 Un nodo IntegerLiteral es utilizado por el compilador para determinar el valor y el tipo asociado al tama\~no que ocupa en memoria un valor entero que aparece expl\'icitamente en el c\'odigo. En el formato XML correspondiente al c\'odigo fuente que acepta nuestra herramienta se traduce en un nodo const en el que se almacena el valor de dicha constante.
 
-La disposici\'on b\'asica de un nodo con una asignaci\'on a un valor se puede observar en los siguientes listados de c\'odigo, 2.19 con el c\'odigo C++ origen y 2.20 con el c\'odigo XML con la disposici\'on b\'asica de un nodo con una asignaci\'on a un valor.
+La disposici\'on b\'asica de un nodo con una asignaci\'on a un valor se puede observar en los siguientes listados de c\'odigo, 2.20 con el c\'odigo C++ origen y 2.21 con el c\'odigo XML con la disposici\'on b\'asica de un nodo con una asignaci\'on a un valor.
 
 \lstinputlisting[caption=C\'odigo C++ ejemplo para un nodo con una asignaci\'on a un valor, style=customxml, firstline=30, lastline=30]{Codigos/ccCap2.cpp}
 \lstinputlisting[caption=C\'odigo XML obtenido\, ejemplo de la disposici\'on b\'asica de un nodo con una asignaci\'on a un valor, style=customxml, firstline=92, lastline=94]{Codigos/xmlsCap2.xml}
@@ -280,7 +279,7 @@ La disposici\'on b\'asica de un nodo con una asignaci\'on a un valor se puede ob
 
 La clase StringLiteral sirve para representar cualquier expresion de tipo string (cadenas de caracteres). Es una clase muy vers\'atil pues otorga al programador distintas utilidades para manipular strings a distintos niveles. En nuestra herramienta la presencia de strings definidos por el usuario est\'a limitada a la salida por consola. Un string se traduce a un nodo string cuyo valor almacena la cadena de caracteres correspondiente
 
-La disposici\'on b\'asica de un nodo con un valor string se puede observar en los siguientes listados de c\'odigo, 2.21 con el c\'odigo C++ origen y 2.22 con el c\'odigo XML con la disposici\'on b\'asica de un nodo con un valor string.
+La disposici\'on b\'asica de un nodo con un valor string se puede observar en los siguientes listados de c\'odigo, 2.22 con el c\'odigo C++ origen y 2.23 con el c\'odigo XML con la disposici\'on b\'asica de un nodo con un valor string.\\\\
 
 \lstinputlisting[caption=C\'odigo C++ ejemplo para un nodo con uun valor string, style=customxml, firstline=32, lastline=32]{Codigos/ccCap2.cpp}
 \lstinputlisting[caption=C\'odigo XML obtenido\, ejemplo de la disposici\'on b\'asica de un nodo con un valor string, style=customxml, firstline=96, lastline=96]{Codigos/xmlsCap2.xml}
@@ -291,7 +290,7 @@ La disposici\'on b\'asica de un nodo con un valor string se puede observar en lo
 
 La clase CallExpr representa la llamada a una funci\'on. En C++ las llamadas a funciones son consideradas expresiones que devuelven un valor del tipo asociado a dicha funci\'on. Una llamada a funci\'on se traduce a un nodo callFunction que refiere al nombre de la funci\'on y contiene varios nodos arg con las expresiones que el programador haya determinado.
 
-La disposici\'on b\'asica de un nodo con con la llamada a una funci\'on se puede observar en los siguientes listados de c\'odigo, 2.23 con el c\'odigo C++ origen y 2.24 con el c\'odigo XML con la disposici\'on b\'asica de un nodo con con la llamada a una funci\'on.
+La disposici\'on b\'asica de un nodo con con la llamada a una funci\'on se puede observar en los siguientes listados de c\'odigo, 2.24 con el c\'odigo C++ origen y 2.25 con el c\'odigo XML con la disposici\'on b\'asica de un nodo con con la llamada a una funci\'on.\\\\
 
 \lstinputlisting[caption=C\'odigo C++ ejemplo para un nodo con la llamada a una funci\'on, style=customxml, firstline=34, lastline=34]{Codigos/ccCap2.cpp}
 \lstinputlisting[caption=C\'odigo XML obtenido\, ejemplo de la disposici\'on b\'asica de un nodo con la llamada a una funci\'on, style=customxml, firstline=98, lastline=104]{Codigos/xmlsCap2.xml}
@@ -312,9 +311,14 @@ Para simplificar el acceso a las operaciones de entrada y salida teniendo en cue
 
 Las bibliotecas implementadas son BuiltinsSTD.h y BuiltinsIO.h basadas en la entrada y salida de la biblioteca est\'andar de C++ y C respectivamente.
 
-La figura 2.25 muestra las funciones incluidas por las bibliotecas.
+\begin{center}
+ConsoleIn\_Int
 
-\lstinputlisting[caption=Figura ejemplo con las funciones incluidas en las bibliotecas., style=customxml, firstline=106, lastline=108]{Codigos/xmlsCap2.xml}
+ConsoleOut\_Int
+
+ConsoleOut\_String
+
+\end{center}
 
 %-------------------------------------------------------------------
 \section{Tecnolog\'ia adicional}
@@ -336,9 +340,10 @@ A grandes razgos la generaci\'on del fichero que devuelve AST2XML comienza con l
 \section{Uso de AST2XML}
 %-------------------------------------------------------------------
 
-Una vez compilado la herramienta, se puede ejecutar esta mediante el comando:
+Una vez compilado la herramienta, se puede ejecutar esta mediante el comando que hay en el c\'odigo 2.26:
 
-\lstinputlisting[caption=Uso de AST2XML., style=customxml, firstline=110, lastline=110]{Codigos/xmlsCap2.xml}
+\lstinputlisting[caption=Uso de AST2XML., style=customxml, firstline=106, lastline=106]{Codigos/xmlsCap2.xml}
+
 
 El primer y el tercer par\'ametro que se emplean en la llamada representan al fichero de c\'odigo del que se quiere obtener una representaci\'on en XML y el fichero resultante.
 
