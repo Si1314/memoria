@@ -42,25 +42,25 @@ En esta secci\'on se presentan los recursos y herramientas software disponibles 
 %-------------------------------------------------------------------
 \label{ap2:sec:c++}
 
-C++ es un lenguaje de programaci\'on dise\~nado a mediados de los a\~nos 80 por Bjarne Stroustrup en los Laboratorios de Bell. C++ naci\'o como extensi\'on del lenguaje de programaci\'on C, al mismo tiempo que proporciona un cierto n\'umero de caracter\'isticas que engalanan dicho lenguaje. El nombre de C++ fue propuesto por Rick Mascitti en el a\~no 1983, cuando el lenguaje fue utilizado por primera vez fuera de un laboratorio cient\'ifico. Hasta ese momento se hab\'ia utilizado el nombre de C con clases. 
+C++ es un lenguaje de programaci\'on dise\~nado a mediados de los a\~nos 80 por Bjarne Stroustrup en los Laboratorios de Bell. [1] C++ naci\'o como extensi\'on del lenguaje de programaci\'on C, al mismo tiempo que proporciona un cierto n\'umero de caracter\'isticas que engalanan dicho lenguaje. El nombre de C++ fue propuesto por Rick Mascitti en el a\~no 1983, cuando el lenguaje fue utilizado por primera vez fuera de un laboratorio cient\'ifico. Hasta ese momento se hab\'ia utilizado el nombre de C con clases. 
 
 Se puede decir que C++ es un lenguaje que abarca tres paradigmas de programaci\'on: la programaci\'on estructurada, la programaci\'on gen\'erica y la programaci\'on orientada a objetos. Es un lenguaje de programaci\'on intermedio, puesto que se puede utilizar tanto para el desarrollo r\'apido de aplicaciones, como para escribir software de bajo nivel, como drivers y componentes de sistemas operativos.
 
-Actualmente existe un est\'andar, denominado ISO C++, al que se han adherido la mayor\'ia de los fabricantes de compiladores m\'as modernos. Existen tambi\'en algunos int\'erpretes, tales como ROOT.
+Actualmente existe un est\'andar, denominado ISO C++, al que se han adherido la mayor\'ia de los fabricantes de compiladores m\'as modernos. Existen tambi\'en algunos int\'erpretes, tales como ROOT. [2]
 
 Las principales caracter\'isticas de este lenguaje son las facilidades que proporciona para la programaci\'on orientada a objetos y para el uso de plantillas o programaci\'on gen\'erica. Adem\'as posee una serie de propiedades dificiles de encontrar en otros lenguajes como es la posibilidad de redefinir los operadores o poder crear nuevos tipos, que se comporten como tipos fundamentales.
 
-La elecci\'on de desarrollar nuestra herramienta para el lenguaje de C++ se ha basado en dos motivos, el primero ha sido su popularidad, puesto que seg\'un el ranking TIBOE, el cual recoge los lenguajes de programaci\'on m\'as usados, se encuentra en cuarta posici\'on, y el segundo motivo ha sido el uso de este lenguaje en los primeros cursos de programaci\'on como ya hemos se\~nalado anteriormente.
+La elecci\'on de desarrollar nuestra herramienta para el lenguaje de C++ se ha basado en dos motivos, el primero ha sido su popularidad, puesto que seg\'un el ranking TIOBE, el cual recoge los lenguajes de programaci\'on m\'as usados, se encuentra en cuarta posici\'on, y el segundo motivo ha sido el uso de este lenguaje en los primeros cursos de programaci\'on como ya hemos se\~nalado anteriormente. [3]
 
 %-------------------------------------------------------------------
 \subsubsection*{Clang y LLVM}
 %-------------------------------------------------------------------
 
-Clang es un {\it front-end} de compilador para los lenguajes de programaci\'on C, C++, Objective-C y Objective-C++. Usa LLVM (anteriormente conocido como Low Level Virtual Machine, o M\'aquina Virtual de Nivel Bajo) como su {\it back-end} y ha sido parte del ciclo de lanzamiento de LLVM desde la versi\'on 2.6. Est\'a dise\~nado para ofrecer un reemplazo de GNU Compiler Collection (GCC). Es {\it open-source}, y varias compa\~n\'ias de software est\'an involucradas en su desarrollo, incluyendo a Google y Apple. Su c\'odigo fuente est\'a bajo la licencia University of Illinois/NCSA. El proyecto Clang incluye adem\'as un analizador est\'atico de software y varias herramientas de an\'alisis de c\'odigo.
+Clang es un {\it front-end} de compilador para los lenguajes de programaci\'on C, C++, Objective-C y Objective-C++. Usa LLVM (anteriormente conocido como Low Level Virtual Machine, o M\'aquina Virtual de Nivel Bajo) como su {\it back-end} y ha sido parte del ciclo de lanzamiento de LLVM desde la versi\'on 2.6. Est\'a dise\~nado para ofrecer un reemplazo de GNU Compiler Collection (GCC). Es {\it open-source}, y varias compa\~n\'ias de software est\'an involucradas en su desarrollo, incluyendo a Google y Apple. Su c\'odigo fuente est\'a bajo la licencia University of Illinois/NCSA. El proyecto Clang incluye adem\'as un analizador est\'atico de software y varias herramientas de an\'alisis de c\'odigo. [4]
 
 Por otro lado, LLVM es una infraestructura para desarrollar compiladores, escrita a su vez en el lenguaje de programaci\'on C++, que est\'a dise\~nada para optimizar el tiempo de compilaci\'on, el tiempo de enlazado, el tiempo de ejecuci\'on y el tiempo ocioso en cualquier lenguaje de programaci\'on que el usuario quiera definir. Implementado originalmente para compilar C y C++, el dise\~no agn\'ostico de LLVM con respecto al lenguaje, y el \'exito del proyecto han engendrado una amplia variedad de lenguajes, incluyendo Objective-C, Fortran, Ada, Haskell, bytecode de Java, Python, Ruby y otros.
 
-LLVM suministra las capas intermedias de un sistema de compilado completo, tomando el c\'odigo en formato intermedio (IF, en sus siglas en ingl\'es) de un compilador y emitiendo un IF optimizado. Este nuevo IF puede ser convertido y enlazado en un c\'odigo ensamblador dependiente de la m\'aquina concreta para una plataforma objetivo. LLVM puede aceptar el IF generado por la cadena de herramientas GCC, permitiendo as\'i que sea utilizado con todos los lenguages que a su vez son aceptados por GCC. LLVM tambi\'en puede generar c\'odigo m\'aquina relocalizable en el momento de compilaci\'on o de enlazado, o incluso c\'odigo m\'aquina binario en el momento de ejecuci\'on.
+LLVM suministra las capas intermedias de un sistema de compilado completo, tomando el c\'odigo en formato intermedio (IF, en sus siglas en ingl\'es) de un compilador y emitiendo un IF optimizado. Este nuevo IF puede ser convertido y enlazado en un c\'odigo ensamblador dependiente de la m\'aquina concreta para una plataforma objetivo. LLVM puede aceptar el IF generado por la cadena de herramientas GCC, permitiendo as\'i que sea utilizado con todos los lenguages que a su vez son aceptados por GCC. LLVM tambi\'en puede generar c\'odigo m\'aquina relocalizable en el momento de compilaci\'on o de enlazado, o incluso c\'odigo m\'aquina binario en el momento de ejecuci\'on. [5]
 
 %-------------------------------------------------------------------
 \subsection{Verificaci\'on y An\'alisis}
@@ -68,7 +68,7 @@ LLVM suministra las capas intermedias de un sistema de compilado completo, toman
 
 Actualmente el software es uno de los productos m\'as requeridos en el mundo. Tal demanda de software implica procesos de desarrollo m\'as intensos, exhaustivos y menos propensos a errores. Siendo la correcci\'on de fallos la etapa en la que m\'as recursos se invierten y en la que hay m\'as inter\'es por mejorar su eficiencia. 
 
-A d\'ia de hoy en el mercado existen paquetes de herramientas capaces de ofrecer a los desarrolladores detecci\'on de errores y estudios sobre la ejecuci\'on de sus programas. Existen varias maneras de verificar la correctitud de un programa.
+A d\'ia de hoy en el mercado existen paquetes de herramientas capaces de ofrecer a los desarrolladores detecci\'on de errores y estudios sobre la ejecuci\'on de sus programas. Existen varias maneras de verificar la correctitud de un programa. [6]
 
 %-------------------------------------------------------------------
 \subsubsection*{Sistemas de tipos}
@@ -94,7 +94,7 @@ Dicho t\'ermino se aplica a los an\'alisis realizados por parte de una herramien
 
 
 %-------------------------------------------------------------------
-\subsubsection*{Chequeo de modelos (Model checking)}
+\subsubsection*{Verificaci\'on de modelos (Model checking)}
 %-------------------------------------------------------------------
 
 La verificaci\'on de modelos (o Model checking) es un m\'etodo autom\'atico de verificaci\'on de un sistema formal, en la mayor\'ia de las ocasiones derivado del hardware o del software de un sistema inform\'atico. El sistema es descrito mediante un modelo, que debe satisfacer una especificaci\'on formal descrita mediante una f\'ormula, a menudo escrita en alguna variedad de l\'ogica temporal.
@@ -103,7 +103,7 @@ El modelo suele estar expresado como un sistema de transiciones, es decir, un gr
 
 Formalmente, el problema se representa de la siguiente manera: Dada una propiedad deseada, expresada como una f\'ormula en l\'ogica temporal p, y un modelo M con un estado inicial s.
 
-Los inventores del m\'etodo, Edmund M. Clarke, E. Allen Emerson y Joseph Sifakis, recibieron el Premio Turing 2007 de la ACM, en reconocimiento de su fundamental contribuci\'on al campo de las ciencias de la computaci\'on.
+Los inventores del m\'etodo, Edmund M. Clarke, E. Allen Emerson y Joseph Sifakis, recibieron el Premio Turing 2007 de la ACM, en reconocimiento de su fundamental contribuci\'on al campo de las ciencias de la computaci\'on. [7]
 
 %-------------------------------------------------------------------
 \subsubsection*{Ejecuci\'on simb\'olica}
@@ -113,7 +113,7 @@ La ejecuci\'on simb\'olica o evaluaci\'on simb\'olica es una de las t\'ecnicas  
 
 El proceso de generaci\'on de casos de prueba por ejecuci\'on simb\'olica produce un conjunto de sistemas de restricciones que pueden entenderse como clases de equivalencia de entradas. As\'i, el conjunto posiblemente infinito de entradas de una clase de equivalencia llevar\'ia al programa a recorrer el mismo camino de ejecuci\'on. Estas clases de equivalencia se pueden entender por tanto como casos de prueba. Puesto que la ejecuci\'on simb\'olica razona en t\'erminos de caminos de ejecuci\'on, nos permite obtener un caso de prueba para cada camino de ejecuci\'on del programa, pudiendo garantizar as\'i un buen recubrimiento con un n\'umero reducido de casos de prueba.
 
-Este procedicimiento aplicado al hardware recibe el nombre de simulaci\'on simb\'olica.
+Este procedicimiento aplicado al hardware recibe el nombre de simulaci\'on simb\'olica. [8]
 
 Por otro lado, a\'un no se ha aplicado con \'exito en el contexto de programas concurrentes. Este problema plantea sin duda nuevos retos, al tener que combinar la complejidad inherente a la ejecuci\'on simb\'olica con aspectos de los programas concurrentes tales como la suspensi\'on de tareas, la sincronizaci\'on, las posibles estrategias de planificaci\'on de tareas, etc.
 
@@ -136,7 +136,7 @@ Estas pruebas se diferencian de las herramientas de verificaci\'on y an\'alisis 
 \subsubsection*{Frameworks xUnit}
 %-------------------------------------------------------------------
 
-Durante su trabajo en los laboratorios de Xerox Park, Kent Beck desarrollo un framework para realizar test unitarios en el lenguaje de programaci\'on {\it Smalltalk} que estaba desarrollando. Dicho framework se llamaba sUnit. sUnit Permit\'ia agrupar los tests en suites, el lanzamiento jer\'arquico de \'estos y realizar para cada test la comparaci\'on entre el valor obtenido y el valor esperado para determinar la correcci\'on de la funcionalidad testeada. Este framework ha sido llevado a una gran variedad de lenguajes de programaci\'on ({\it JUnit}, {\it XSLTUnit}, {\it PhpUnit}, {\it PyUnit}/ldots). xUnit es el nombre con el que se designa gen\'ericamente a todos estos frameworks.
+Durante su trabajo en los laboratorios de Xerox Park, Kent Beck desarrollo un framework para realizar test unitarios en el lenguaje de programaci\'on {\it Smalltalk} que estaba desarrollando. Dicho framework se llamaba sUnit. sUnit Permit\'ia agrupar los tests en suites, el lanzamiento jer\'arquico de \'estos y realizar para cada test la comparaci\'on entre el valor obtenido y el valor esperado para determinar la correcci\'on de la funcionalidad testeada. Este framework ha sido llevado a una gran variedad de lenguajes de programaci\'on ({\it JUnit}, {\it XSLTUnit}, {\it PhpUnit}, {\it PyUnit}/ldots). xUnit es el nombre con el que se designa gen\'ericamente a todos estos frameworks. [9]
 
 Una de las caracter\'isticas de los tests xUnit es la expansi\'on y el alto grado de utilizaci\'on de esta herramienta por todo el mundo.
 
@@ -146,7 +146,7 @@ Una de las caracter\'isticas de los tests xUnit es la expansi\'on y el alto grad
 \subsubsection*{Generaci\'on de tests}
 %-------------------------------------------------------------------
 
-El objetivo de las pruebas es presentar informaci\'on sobre la calidad del producto a las personas responsables, por tanto la informaci\'on requerida puede ser de lo m\'as variada. Esto hace que el proceso de testing sea dependiente del contexto, no existen las {\it mejores pruebas}, toda prueba puede ser ideal para una situaci\'on o completamente inutil o perjudicial para otra. A continuaci\'on detallamos algunas de los diferentes enfoques para la generaci\'on de tests:
+El objetivo de las pruebas es presentar informaci\'on sobre la calidad del producto a las personas responsables, por tanto la informaci\'on requerida puede ser de lo m\'as variada. Esto hace que el proceso de testing sea dependiente del contexto, no existen las {\it mejores pruebas}, toda prueba puede ser ideal para una situaci\'on o completamente inutil o perjudicial para otra. A continuaci\'on detallamos algunas de los diferentes enfoques para la generaci\'on de tests: [10]
 
 \begin{itemize}
 \item \textbf{Pruebas de caja blanca} (white-box). Estas pruebas se centran en los detalles procedimentales del software, por lo que su dise\~no est\'a fuertemente ligado al c\'odigo fuente. El testeador escoge distintos valores de entrada para examinar cada uno de los posibles flujos de ejecuci\'on y cerciorarse de que se devuelven los valores de salida adecuados. Puesto que est\'an basados en una implementaci\'on concreta, si esta se modifica, normalmente tambi\'en tendr\'an que redise\~narse las pruebas. A pesar de que este enfoque permite dise\~nar pruebas que cubran una amplia variedad de casos podr\'ia pasar por alto partes incompletas de la especificaci\'on o requisitos faltantes.
@@ -164,9 +164,9 @@ Se trata de un paradigma de programaci\'on basado en la especificaci\'on de un c
 
 Actualmente existen muchos frentes de desarrollo relacionados con la programaci\'on con restricciones. Entre ellos destacan:
 \begin{itemize}
-\item Oz: Lenguaje multiparadigma y esot\'erico basado en la rama concurrente de la programaci\'on por restricciones. En el que se expresa m\'usica a partir de unas restricciones expresadas expl\'icitamente por el programador. Se utiliza en proyectos tales como Mozart y Strasheela.
-\item Choco: Es una librer\'ia que a\~nade satisfacci\'on de restricciones a Java. Est\'a construida en una estructura basada en la propagaci\'on de eventos. Ha sido utilizada en otros proyectos de ejecuci\'on simb\'olica como JsyX.
-\item Gecode: Es un proyecto abierto que cuenta con un conjunto de herramientas basado en C/C++ para el desarrollo de sistema y aplicaciones nativas que se apoyen en restricciones.
+\item Oz: Lenguaje multiparadigma y esot\'erico basado en la rama concurrente de la programaci\'on por restricciones. En el que se expresa m\'usica a partir de unas restricciones expresadas expl\'icitamente por el programador. Se utiliza en proyectos tales como Mozart y Strasheela. [11]
+\item Choco: Es una librer\'ia que a\~nade satisfacci\'on de restricciones a Java. Est\'a construida en una estructura basada en la propagaci\'on de eventos. Ha sido utilizada en otros proyectos de ejecuci\'on simb\'olica como JsyX. [12]
+\item Gecode: Es un proyecto abierto que cuenta con un conjunto de herramientas basado en C/C++ para el desarrollo de sistema y aplicaciones nativas que se apoyen en restricciones. [13]
 \end{itemize}
 
 La programaci\'on con restricciones se relaciona mucho con la programaci\'on l\'ogica, de hecho cualquier programa l\'ogico puede ser traducido a un programa con restricciones y viceversa, en muchas ocasiones los programas l\'ogicos son traducidos a programas con restricciones puesto que la soluci\'on es mucho m\'as eficiente. 
@@ -195,7 +195,7 @@ El hecho de combinar la ejecuci\'on simb\'olica con la concreta permite en mucho
 
 Esta herramienta se puede integrar en el entorno de desarrollo de Visual Studio facilitando su uso como un a\~nadido (Add\-on).
 
-Como proyecto interesante relacionado con PEX existe el juego Code Hunt tambi\'en desarrollado por Microsoft. En este juego el jugador debe escribir c\'odigo para avanzar en el juego. La relaci\'oncon PEX es que lo que se muestra al jugador son las entradas y salidas, y mediante ejecuci\'on simb\'olica se evaluar\'a el c\'odigo escrito y de este modo poder avanzar.
+Como proyecto interesante relacionado con PEX existe el juego Code Hunt tambi\'en desarrollado por Microsoft. En este juego el jugador debe escribir c\'odigo para avanzar en el juego. La relaci\'oncon PEX es que lo que se muestra al jugador son las entradas y salidas, y mediante ejecuci\'on simb\'olica se evaluar\'a el c\'odigo escrito y de este modo poder avanzar. [14]
 
 %-------------------------------------------------------------------
 \subsubsection{PET}
@@ -206,7 +206,7 @@ PET (Partial Evaluation-based Test Case Generator for Bytecode) es una herramien
 Las restricciones de la memoria din\'amica imponen condiciones sobre la forma y contenidos de las estructuras de datos del programa alojadas en esta misma. PET utiliza de un resolutor de restricciones que genera valores concretos a partir de estas restricciones, permitiendo la construcci\'on de los
 tests propiamente dichos.
 
-PET puede usarse a trav\'es de una interfaz de l\'inea de comandos o bien usando una interfaz web. Adem\'as soporta una variedad de opciones interesantes, como la elecci\'on de criterios de recubrimiento o la generaci\'on de tests jUnit. Estas opciones se describen con m\'as detalle en el segundo cap\'itulo.
+PET puede usarse a trav\'es de una interfaz de l\'inea de comandos o bien usando una interfaz web. Adem\'as soporta una variedad de opciones interesantes, como la elecci\'on de criterios de recubrimiento o la generaci\'on de tests jUnit. Estas opciones se describen con m\'as detalle en el segundo cap\'itulo. [15]
 
 %-------------------------------------------------------------------
 \subsubsection{jSYX}
@@ -214,7 +214,7 @@ PET puede usarse a trav\'es de una interfaz de l\'inea de comandos o bien usando
 
 jSYX es un proyecto desarrollado el curso pasado como trabajo de Sistemas Inform\'aticos. Este proyecto se basa en una m\'aquina virtual de Java que permite la ejecuci\'on simb\'olica de archivos .class de Java, de este modo puede ser utilizado para el desarrollo autom\'atico de Tests. 
 
-El enfoque de jSYX es el uso de del Bytecode de Java como lenguaje de ejecuci\'on. Esta herramienta permite la ejecuci\'on recibiendo como par\'ametros una clase y su m\'etodo, y de este modo permite la ejecuci\'on simb\'olicamente o de manera concreta. Por otra lado se podr\'a obtener informaci\'on sobre el bytecode del archivo .class.
+El enfoque de jSYX es el uso de del Bytecode de Java como lenguaje de ejecuci\'on. Esta herramienta permite la ejecuci\'on recibiendo como par\'ametros una clase y su m\'etodo, y de este modo permite la ejecuci\'on simb\'olicamente o de manera concreta. Por otra lado se podr\'a obtener informaci\'on sobre el bytecode del archivo .class. [16]
 
 %-------------------------------------------------------------------
 \subsubsection{jPET}
@@ -222,7 +222,7 @@ El enfoque de jSYX es el uso de del Bytecode de Java como lenguaje de ejecuci\'o
 
 Al igual que el detallado en la secci\'on anterior, jPET tambi\'en se trata de un proyecto de Sistemas Inform\'aticos, en este caso desarrollado durante el curso 2010/2011. Este proyecto se basa en PET, la herramienta detallada anteriormente, y es una extensi\'on de dicha herramienta para poder utilizarse en programas Java de alto nivel e integrarse en Eclipse, con el objetivo de poder usar los resultados obtenidos por PET durante el proceso de desarrollo de software.
 
-El enfoque de jPET es el tratamiento de la informaci\'on generada por PET con el objetivo de presentarla al usuario de una manera m\'as f\'acil, sencilla e intuitiva. Es por esto que incorpora un visor de casos de prueba para mostrar el contenido de memoria antes y despu\'es de la ejecuci\'on, una herramienta de depuraci\'on, para ver los resultados mostrando la secuencia de instrucciones que el caso de prueba ejecutar\'ia, y es capaz de analizar sint\'acticamente precondiciones de m\'etodos para evitar la generaci\'on de casos de prueba poco interesantes.
+El enfoque de jPET es el tratamiento de la informaci\'on generada por PET con el objetivo de presentarla al usuario de una manera m\'as f\'acil, sencilla e intuitiva. Es por esto que incorpora un visor de casos de prueba para mostrar el contenido de memoria antes y despu\'es de la ejecuci\'on, una herramienta de depuraci\'on, para ver los resultados mostrando la secuencia de instrucciones que el caso de prueba ejecutar\'ia, y es capaz de analizar sint\'acticamente precondiciones de m\'etodos para evitar la generaci\'on de casos de prueba poco interesantes. [17] [18]
 
 
 %-------------------------------------------------------------------
@@ -260,7 +260,7 @@ nº & Variable y valor & Traza \\
 \caption{Tabla de resultados para el c\'odigo ejemplo}
 \end{table}
 
-Esta tabla de resultados muestra en la primera columna el n\'umero correspondiente a la soluci\'on, en la segunda columna se muestra el valor de las variables de la soluci\'on, las cuales hacen referenciaa las variables de entrada de la funci\'on y la variable de salida o return, y en la tercera columna se muestra la traza de ejecuci\'on, o lo que es lo mismo, los n\'umeros de l\'inea que ha recorrido el programa para llegar a dicha soluci\'on. Por tanto, para el primer resultado, las entradas valen en este caso {\it ``1, 1''} haciendo referencia a que son valores mayores que 0, y el valor del return es el valor de salida, por otro lado los n\'umeros que indican la traza son los n\'umeros de las l\'ineas que se han recorrido del programa para esta soluci\'on, en este caso {\it ``1, 2, 3''}, y as\'i sucesivamente para lo otros tres resultados.
+Esta tabla de resultados muestra en la primera columna el n\'umero correspondiente a la soluci\'on, en la segunda columna se muestra el valor de las variables de la soluci\'on, las cuales hacen referencia a las variables de entrada de la funci\'on y la variable de salida o return, y en la tercera columna se muestra la traza de ejecuci\'on, o lo que es lo mismo, los n\'umeros de l\'inea que ha recorrido el programa para llegar a dicha soluci\'on. Por tanto, para el primer resultado, las entradas valen en este caso {\it ``1, 1''} haciendo referencia a que son valores mayores que 0, y el valor del return es el valor de salida, por otro lado los n\'umeros que indican la traza son los n\'umeros de las l\'ineas que se han recorrido del programa para esta soluci\'on, en este caso {\it ``1, 2, 3''}, y as\'i sucesivamente para lo otros tres resultados.
 
 Para llegar a esta soluci\'on, hemos desarrollado la herramienta denominada {\it SymC++}, el nombre surge de la relaci\'on con la ejecuci\'on simb\'olica y por estar desarrollada pensando en el lenguaje de programaci\'on C++.
 

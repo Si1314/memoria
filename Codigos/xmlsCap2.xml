@@ -103,3 +103,11 @@
 	</callFunction>
 </assigment>
 
+ConsoleIn_Int
+ConsoleOut_Int
+ConsoleOut_String
+
+/ast2xml "inputCPP_file" -- "outputXML_file"
+
+interpreter(EntryFile, OutFile, Inf, Sup, MaxDepth, FunctionName).
+interpreter(EntryFile, OutFile, FunctionName).

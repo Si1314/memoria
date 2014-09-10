@@ -16,7 +16,7 @@ En este cap\'itulo hablaremos sobre la parte principal de nuestro proyecto, el I
 
 La Programaci\'on L\'ogica tiene sus or\'igenes m\'as cercanos en los trabajos de prueba autom\'atica de teoremas de los años sesenta. J. A. Robinson propone en 1965 una regla de inferencia a la que llama resoluci\'on, mediante la cual la demostraci\'on de un teorema puede ser llevada a cabo de manera autom\'atica. La resoluci\'on es una regla que se aplica sobre cierto tipo de f\'ormulas del C\'alculo de Predicados de Primer Orden, llamadas cl\'ausulas y la demostraci\'on de teoremas bajo esta regla de inferencia se lleva a cabo por reducci\'on al absurdo. La realizaci\'on del paradigma de la programaci\'on l\'ogica es el lenguaje Prolog.
 
-Prolog es un lenguaje de programaci\'on ideado a principios de los años 70 en la Universidad de Aix-Marseille I (Marsella, Francia). No tiene como objetivo la traducci\'on de un lenguaje de programaci\'on, sino la clasificaci\'on algor\'itmica de lenguajes naturales. [1]
+Prolog es un lenguaje de programaci\'on ideado a principios de los años 70 en la Universidad de Aix-Marseille I (Marsella, Francia). No tiene como objetivo la traducci\'on de un lenguaje de programaci\'on, sino la clasificaci\'on algor\'itmica de lenguajes naturales. [27]
 
 La idea es especificar formalmente los enunciados utilizando la l\'ogica de predicados de manera que Prolog sea capaz de interpretar e inferir soluciones a partir de esos enunciados.
 
@@ -28,7 +28,7 @@ La Programaci\'on por restricciones es un paradigma de la programaci\'on en info
 
 Como ya se introdujo en el estado del arte, la programaci\'on con restricciones proporciona una herramienta en la que las variables est\'an expresadas en t\'erminos de restricciones o ecuaciones. Para el desarrollo de esta herramienta hemos necesitado hacer uso de este paradigma de programaci\'on, el cual nos facilitaba mostrar restricciones como datos de salida.
 
-La librer\'ia clpfd ``Constraint Logic Programming over Finite Domains'' (Programaci\'on l\'ogica basada en restricciones sobre dominios finitos) proporciona una aritm\'etica completa para variables restringidas a valores enteros o elementos at\'omicos, se puede utilizar para modelar y resolver diversos problemas combinatorios tales como las tareas de planificaci\'on, programaci\'on y asignaci\'on.
+La librer\'ia clpfd ``Constraint Logic Programming over Finite Domains'' (Programaci\'on l\'ogica basada en restricciones sobre dominios finitos) proporciona una aritm\'etica completa para variables restringidas a valores enteros o elementos at\'omicos, se puede utilizar para modelar y resolver diversos problemas combinatorios tales como las tareas de planificaci\'on, programaci\'on y asignaci\'on. [28]
 
 Para el desarrollo de nuestro int\'erprete, como ya indicamos anteriormente, optamos por el  lenguaje de programaci\'on l\'ogica Prolog, en gran parte debido a la familiaridad que nos supone, y al conjunto de facilidades relacionadas con el backtracking y la programaci\'on por restricciones que ya conoc\'iamos de antemano.
 
@@ -92,7 +92,7 @@ Como ya sabemos, el int\'erprete recibir\'a un fichero XML como par\'ametro de e
 
 \lstinputlisting[caption=\'arbol sint\'actico de la funci\'on suma, style=customxml]{Codigos/ejemploCicloXML.xml}
 
-El primer paso es la conversi\'on de la estructura XML en una lista de elementos mediante la funci\'on load\_xml\_file(+File,-DOM) que nos aporta la librer\'ia sgml. Para nuestro ejemplo, le pasaremos por el par\'ametro File el XML con el c\'odigo anterior y nos devolver\'a en el par\'ametro de salida DOM una lista de elementos de la forma:
+El primer paso es la conversi\'on de la estructura XML en una lista de elementos mediante la funci\'on load\_xml\_file(+File,-DOM) que nos aporta la librer\'ia SGML [29]. Para nuestro ejemplo, le pasaremos por el par\'ametro File el XML con el c\'odigo anterior y nos devolver\'a en el par\'ametro de salida DOM una lista de elementos de la forma:
 
 \lstinputlisting[caption=Elementos correspondientes a la funci\'on suma, style=customxml]{Codigos/ejemploCicloElementos.pl}
 
@@ -515,6 +515,20 @@ La instrucci\'on de retorno del valor de una funci\'on se recoge en el predicado
 
 En la tabla de variables llevamos reservada una variable que nos servir\'a como variable de retorno por lo tanto en este predicado lo \'unico que haremos ser\'a ejecutar con la llamada a execute del cuerpo del return y con el valor devuelto se actualizar\'a esa variable reservada. En este caso no llamaremos a ejecutar al resto de instrucciones ya que, como se trata de una instrucci\'on de retorno, es la \'ultima instrucci\'on que se deber\'ia de contemplar en esta funci\'on por tanto no deber\'iamos de seguir con el flujo del programa.
 
+
+%-------------------------------------------------------------------
+\section{Uso del Int\'erprete}
+%-------------------------------------------------------------------
+
+El int\'erprete se puede ejecutar mediante el siguiente comando:
+
+\lstinputlisting[caption=Uso espec\'ifico., style=customxml, firstline=112, lastline=112]{Codigos/xmlsCap2.xml}
+
+Donde se puede simular con valores espec\'ificos en las variables Inf, Sup y MaxDepth.
+
+\lstinputlisting[caption=Uso gen\'erico., style=customxml, firstline=113, lastline=113]{Codigos/xmlsCap2.xml}
+
+Donde Inf toma el valor -5, Sup toma el valor 5 y MaxDepth toma el valor 10. [30]
 
 % Variable local para emacs, para  que encuentre el fichero maestro de
 % compilaci\'on y funcionen mejor algunas teclas r\'apidas de AucTeX
