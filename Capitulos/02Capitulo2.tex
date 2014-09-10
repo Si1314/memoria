@@ -57,8 +57,7 @@ Un AST es una representaci\'on de \'arbol de la estructura sint\'actica abstract
 
 La herramienta AST2XML se apoya en la adaptaci\'on del c\'odigo, por parte del AST propio de CLANG, a un formato XML. La representaci\'on del AST que emplea CLANG se diferencia de la de otros compiladores en cuanto a que mantiene la semejanza con el c\'odigo escrito y con el est\'andar de C++.
 
-\figura{Vectorial/figura1}{width=.9\textwidth}{fig:figura1}%
-{Figura Ejemplo del AST que emplea Clang a partir de un c\'odigo espec\'ifico.}
+\lstinputlisting[caption=Figura Ejemplo del AST que emplea Clang a partir de un c\'odigo espec\'ifico., style=customxml, firstline=108, lastline=131]{Codigos/xmlsCap2.xml}
 
 Como se puede apreciar en la figura, la representaci\'on que se obtiene directamente de CLANG puede llegar a parecer abrumadoramente compleja y redundante. En momentos iniciales del proyecto tomamos la decisi\'on de que informaci\'on como la ubicaci\'on de los elementos, los tipos de las variables, o incluso el tipo de los nodos no ser\'ian necesarias en cada momento. Para ello hizo falta una implementaci\'on muy precisa de un tipo de herramienta que se puede construir para CLANG.
 
@@ -312,9 +311,14 @@ Para simplificar el acceso a las operaciones de entrada y salida teniendo en cue
 
 Las bibliotecas implementadas son BuiltinsSTD.h y BuiltinsIO.h basadas en la entrada y salida de la biblioteca est\'andar de C++ y C respectivamente.
 
-La figura 2.25 muestra las funciones incluidas por las bibliotecas.
+\begin{center}
+ConsoleIn\_Int
 
-\lstinputlisting[caption=Figura ejemplo con las funciones incluidas en las bibliotecas., style=customxml, firstline=106, lastline=108]{Codigos/xmlsCap2.xml}
+ConsoleOut\_Int
+
+ConsoleOut\_String
+
+\end{center}
 
 %-------------------------------------------------------------------
 \section{Tecnolog\'ia adicional}
@@ -338,7 +342,8 @@ A grandes razgos la generaci\'on del fichero que devuelve AST2XML comienza con l
 
 Una vez compilado la herramienta, se puede ejecutar esta mediante el comando:
 
-\lstinputlisting[caption=Uso de AST2XML., style=customxml, firstline=110, lastline=110]{Codigos/xmlsCap2.xml}
+\lstinputlisting[caption=Uso de AST2XML., style=customxml, firstline=106, lastline=106]{Codigos/xmlsCap2.xml}
+
 
 El primer y el tercer par\'ametro que se emplean en la llamada representan al fichero de c\'odigo del que se quiere obtener una representaci\'on en XML y el fichero resultante.
 

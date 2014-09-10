@@ -522,11 +522,15 @@ En la tabla de variables llevamos reservada una variable que nos servir\'a como 
 
 El int\'erprete se puede ejecutar mediante el siguiente comando:
 
-\lstinputlisting[caption=Uso espec\'ifico., style=customxml, firstline=112, lastline=112]{Codigos/xmlsCap2.xml}
+\begin{center}
+interpreter(EntryFile, OutFile, Inf, Sup, MaxDepth, FunctionName).
+\end{center}
 
 Donde se puede simular con valores espec\'ificos en las variables Inf, Sup y MaxDepth.
 
-\lstinputlisting[caption=Uso gen\'erico., style=customxml, firstline=113, lastline=113]{Codigos/xmlsCap2.xml}
+\begin{center}
+interpreter(EntryFile, OutFile, FunctionName).
+\end{center}
 
 Donde Inf toma el valor -5, Sup toma el valor 5 y MaxDepth toma el valor 10. [30]
 
