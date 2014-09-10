@@ -234,7 +234,7 @@ Se sigue la ejecuci\'on con la llamada de {\it execute} del resto de las instruc
 Este apartado explica los predicados que se utilizar\'an a la hora de resolver expresiones aritm\'eticas y sentencia de selecci\'on if / if...else.
 
 %-------------------------------------------------------------------
-\subsection*{resolveExpression/4}
+\subsection*{resolveExpression}
 %-------------------------------------------------------------------
 
 Este predicado servir\'a para resolver las distintas expresiones que existan. La estructura de llamada de este predicado es la que sigue:
@@ -315,10 +315,10 @@ Siendo op los valores \&\& o || ambos se resuelven en el predicado work detallad
 
 \lstinputlisting[caption=Asignaci\'on de una variable, style=custompl, firstline=13, lastline=13]{Codigos/codigosProlog.pl}
 
-Este es un caso especial de la asignaci\'on ya que se trata de una asignaci\'on mediante un operador binario. Esta ejecuci\'on la haremos con la llamada a resolveExpression (explicada m\'as adelante) del cuerpo de la asignaci\'on. Como en el resto de los casos pasamos a continuaci\'on a ejecutar el resto de las instrucciones para seguir con el flujo del programa.
+Este es un caso especial de la asignaci\'on ya que se trata de una asignaci\'on mediante un operador binario. Esta ejecuci\'on la haremos con la llamada a resolveExpression (explicada m\'as adelante) del cuerpo de la asignaci\'on. Como en el resto de los casos pasamos a continuaci\'on a ejecutar el resto de las instrucciones para seguir con el flujo del programa.\\\\
 
 %-------------------------------------------------------------------
-\subsection*{work/3}
+\subsection*{work}
 %-------------------------------------------------------------------
 
 \lstinputlisting[caption=Instrucci\'on para la ejecuci\'on de expresiones, style=custompl, firstline=45, lastline=45]{Codigos/codigosProlog.pl}
@@ -371,7 +371,7 @@ Se ejecutar\'a el siguiente predicado cuando se trate de una instrucci\'on condi
 Primero se resuelve la condici\'on y seguidamente se llamar\'a a executeBranch (detallada a continuaci\'on) con la soluci\'on obtenida, ser\'a \'esta quien distinga si la condici\'on ha salido verdadera o falsa. A continuaci\'on ejecutaremos el resto de las instrucciones para seguir con el resto del programa.
 
 %-------------------------------------------------------------------
-\subsection*{executeBranch/4}
+\subsection*{executeBranch}
 %-------------------------------------------------------------------
 
 Es un predicado cuya funcionalidad extiende la del execute cuando se trata del if para el caso del then y del else. Igualmente recibe un estado de entrada y devuelve otro de salida, recibe la lista de instrucciones.
@@ -448,7 +448,7 @@ El predicado encargado de interpretar el bucle for es el que sigue:
 Es parecido al while ya que resolveremos la condici\'on y llamaremos al predicado executeLoop (explicada a continuaci\'on) con el cuerpo del for, ser\'a \'el quien distinga si la condici\'on sali\'o verdadera o falsa para ejecutar realmente el cuerpo del bucle o no. A continuaci\'on ejecutaremos el resto de las instrucciones para seguir con el resto del programa.
 
 %-------------------------------------------------------------------
-\subsection*{executeBranch/4}
+\subsection*{executeBranch}
 %-------------------------------------------------------------------
 
 El predicado executeLoop es llamado por execute cuando se encuentra una instrucci\'on de bucle while o for. Igualmente recibe un estado de entrada, la lista de instrucciones, un valor num\'erico y devuelve el estado de salida. El valor num\'erico nos servir\'a para limitar el n\'umero de vueltas que realice el bucle, de forma que no haya posibilidad de recursi\'on infinita, o un n\'umero de vueltas tan elevado que sea inviable devolver una soluci\'on. El n\'umero lo determina el usuario mediante la interfaz con valor del maxDepth como se dijo anteriormente.
