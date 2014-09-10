@@ -13,6 +13,9 @@ A level-1 auxiliary file: Capitulos/05Capitulo5.aux
 A level-1 auxiliary file: Apendices/01ApendiceA.aux
 A level-1 auxiliary file: Cascaras/bibliografia.aux
 The style file: TeXiS/TeXiS.bst
+A level-1 auxiliary file: Cascaras/fin.aux
 I found no \citation commands---while reading file Memoria SymC++.aux
 Database file #1: nuestros.bib
+Database file #2: latex.bib
+Database file #3: otros.bib
 (There was 1 error message)
