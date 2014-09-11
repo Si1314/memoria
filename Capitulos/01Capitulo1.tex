@@ -136,7 +136,9 @@ Estas pruebas se diferencian de las herramientas de verificaci\'on y an\'alisis 
 \subsubsection*{Frameworks xUnit}
 %-------------------------------------------------------------------
 
-Durante su trabajo en los laboratorios de Xerox Park, Kent Beck desarrollo un framework para realizar test unitarios en el lenguaje de programaci\'on {\it Smalltalk} que estaba desarrollando. Dicho framework se llamaba sUnit. sUnit Permit\'ia agrupar los tests en suites, el lanzamiento jer\'arquico de \'estos y realizar para cada test la comparaci\'on entre el valor obtenido y el valor esperado para determinar la correcci\'on de la funcionalidad testeada. Este framework ha sido llevado a una gran variedad de lenguajes de programaci\'on ({\it JUnit}, {\it XSLTUnit}, {\it PhpUnit}, {\it PyUnit}/ldots). xUnit es el nombre con el que se designa gen\'ericamente a todos estos frameworks. [9]
+Durante su trabajo en los laboratorios de Xerox Park, Kent Beck desarrollo un framework para realizar test unitarios en el lenguaje de programaci\'on {\it Smalltalk} que estaba desarrollando. Dicho framework se llamaba sUnit. 
+
+sUnit Permit\'ia agrupar los tests en suites, el lanzamiento jer\'arquico de \'estos y realizar para cada test la comparaci\'on entre el valor obtenido y el valor esperado para determinar la correcci\'on de la funcionalidad testeada. Este framework ha sido llevado a una gran variedad de lenguajes de programaci\'on ({\it JUnit}, {\it XSLTUnit}, {\it PhpUnit}, {\it PyUnit}/ldots). xUnit es el nombre con el que se designa gen\'ericamente a todos estos frameworks. [9]
 
 Una de las caracter\'isticas de los tests xUnit es la expansi\'on y el alto grado de utilizaci\'on de esta herramienta por todo el mundo.
 
@@ -146,7 +148,9 @@ Una de las caracter\'isticas de los tests xUnit es la expansi\'on y el alto grad
 \subsubsection*{Generaci\'on de tests}
 %-------------------------------------------------------------------
 
-El objetivo de las pruebas es presentar informaci\'on sobre la calidad del producto a las personas responsables, por tanto la informaci\'on requerida puede ser de lo m\'as variada. Esto hace que el proceso de testing sea dependiente del contexto, no existen las {\it mejores pruebas}, toda prueba puede ser ideal para una situaci\'on o completamente inutil o perjudicial para otra. A continuaci\'on detallamos algunas de los diferentes enfoques para la generaci\'on de tests: [10]
+El objetivo de las pruebas es presentar informaci\'on sobre la calidad del producto a las personas responsables, por tanto la informaci\'on requerida puede ser de lo m\'as variada. Esto hace que el proceso de testing sea dependiente del contexto, no existen las {\it mejores pruebas}, toda prueba puede ser ideal para una situaci\'on o completamente inutil o perjudicial para otra. 
+
+A continuaci\'on detallamos algunas de los diferentes enfoques para la generaci\'on de tests: [10]
 
 \begin{itemize}
 \item \textbf{Pruebas de caja blanca} (white-box). Estas pruebas se centran en los detalles procedimentales del software, por lo que su dise\~no est\'a fuertemente ligado al c\'odigo fuente. El testeador escoge distintos valores de entrada para examinar cada uno de los posibles flujos de ejecuci\'on y cerciorarse de que se devuelven los valores de salida adecuados. Puesto que est\'an basados en una implementaci\'on concreta, si esta se modifica, normalmente tambi\'en tendr\'an que redise\~narse las pruebas. A pesar de que este enfoque permite dise\~nar pruebas que cubran una amplia variedad de casos podr\'ia pasar por alto partes incompletas de la especificaci\'on o requisitos faltantes.
@@ -245,7 +249,7 @@ La ejecuci\'on del programa mostrado en el c\'odigo anterior en nuestra herramie
 \begin{center}
 \begin{tabular}{| l | l | l | l ||}
 \hline
-$n^{\circ} & Variable y valor & Traza \\
+$n^{\circ}$ & Variable y valor & Traza \\
 \hline
 1 & a=1 b=1 return=0 & 1,2,3 \\
 \hline

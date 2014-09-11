@@ -76,7 +76,7 @@ mensajes por defecto de las utilidades b\'asicas de las herramientas que
 se pueden implementar.
 \item \textbf{ToXMLVisitor:} Es el n\'ucleo de la herramienta. Hereda de la interfaz RecursiveASTVisitor [21], que como su nombre indica, se encarga de hacer un recorrido recursivo y en profundidad de la estructura. Dentro de nuestro visitor hay que implementar los diferentes m\'etodos espec\'ificos que se amoldan a los dist\'intos nodos que vaya a visitar dentro del AST.
 \item \textbf{ToXMLASTConsumer:} Es la clase que desencadena la ejecuci\'on del visitor.
-\item \textbf{ToXMLFrontendAction:} Es la clase que encapsula el comportamiento de nuestra herramienta. Hereda de la clase abstracta ASTFrontendAction del paquete FrontendAction. Devuelve una instancia de nuestro consumidor en el momento de comenzar a recorrer el AST.
+\item \textbf{ToXMLFrontendAction:} Es la clase que encapsula el comportamiento de nuestra herramienta. Esta clase hereda de la clase abstracta ASTFrontendAction del paquete FrontendAction. Devuelve una instancia de nuestro consumidor en el momento de comenzar a recorrer el AST.
 \end{itemize}
 
 %-------------------------------------------------------------------
@@ -205,7 +205,8 @@ Las expresiones escritas en C++ se traducen a nuestro formato en XML en nodos de
 
 En caso de que estos nodos hagan referencia a un operador, contienen informaci\'on acerca del tipo de este (binario, unario, asignaci\'on, etc ...) y de las expresiones que contienen.
 
-Las expresiones que se refieren a variables almacenan el nombre de estas y deforma equivalente las que representan constantes guardan su valor. Un caso particular de expresi\'on ser\'ia el de las llamadas a funciones.
+Las expresiones que se refieren a variables almacenan el nombre de estas y deforma equivalente las que representan constantes guardan su valor. 
+Un caso particular de expresi\'on ser\'ia el de las llamadas a funciones.
 
 %-------------------------------------------------------------------
 \subsubsection*{ParenExpr}

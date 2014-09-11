@@ -38,16 +38,10 @@ Para el desarrollo de nuestro int\'erprete, como ya indicamos anteriormente, opt
 
 Como ya hemos indicado antes, AST2XML devuelve un archivo en formato XML con una versi\'on simplificada del \'arbol sint\'actico que emplea Clang con el que realizaremos la ejecuci\'on simb\'olica. Para llevar a cabo una ejecuci\'on simb\'olica es necesario tener un sistema capaz de establecer restricciones l\'ogicas y matem\'aticas y que aparte las pueda resolver.
 
-El int\'erprete est\'a encapsulado en dos m\'odulos para hacer m\'as f\'acil su diseño: {\it VariablesTable.pl} e {\it Interpreter.pl}. 
+El int\'erprete est\'a dividido en m\'odulos encapsulando los distintos aspectos del diseño: {\it Frontend.pl}, {\it Body} y {\it Functions} . 
 
 %-------------------------------------------------------------------
-\subsection*{VariablesTable.pl}
-%-------------------------------------------------------------------
-
-El int\'erprete ir\'a guardando las variables y su respectivo valor en una tabla de variables representado en prolog mediante una lista, de forma que todas las posibles operaciones que se puedan aplicar sobre ella est\'en encapsuladas en un mismo m\'odulo. Por ejemplo, funciones como añadir un elemento a la tabla (add), obtener el valor de una variable (getValue), modificar el nombre de una variable (updateNames), etc. son funciones que s\'olo se aplican sobre la tabla de variables.
-
-%-------------------------------------------------------------------
-\subsection*{Interpreter.pl}
+\subsection*{Frontend.pl}
 %-------------------------------------------------------------------
 
 Por otro lado, este m\'odulo representa el Int\'erprete que ser\'a llamado por la interfaz y el que devolver\'a la soluci\'on. Los par\'ametros de entrada son: fichero de entrada, fichero de salida, Inf, Sup, MaxDepth y nombre de funci\'on.
@@ -64,7 +58,7 @@ Indica el nombre del fichero .xml donde est\'a el c\'odigo traducido por clang.
 \subsubsection*{Fichero de salida}
 %-------------------------------------------------------------------
 
-Indica el nombre del fichero .xml de salida que el int\'erprete devolver\'a con las soluciones para una determinada funci\'on.
+Indica el nombre del fichero .xml de salida que el int\'erprete devolver\'a con las soluciones para una determinada funci\'on.\\
 
 \lstinputlisting[caption=Ejemplo de XML obtenido por Clang, style=customxml]{Codigos/ejemploXMLProlog.xml}
 
@@ -78,7 +72,47 @@ Inf y Sup son los valores que representan el l\'imite del dominio de los valores
 \subsubsection*{Nombre de la funci\'on}
 %-------------------------------------------------------------------
 
-Para indicar el nombre de la funci\'on que vamos a querer probar entre todas las funciones posibles contenidas en el fichero pasado en ``Fichero de entrada''. \\
+Para indicar el nombre de la funci\'on que vamos a querer probar entre todas las funciones posibles contenidas en el fichero pasado en ``Fichero de entrada''.
+
+%-------------------------------------------------------------------
+\subsection*{Body}
+%-------------------------------------------------------------------
+
+Contiene los módulos auxiliares {\it InterpreterAuxiliar.pl}, {\it Executers.pl} y {\it Expressions.pl}.
+
+%-------------------------------------------------------------------
+\subsubsection*{InterpreterAuxiliar.pl}
+%-------------------------------------------------------------------
+
+Contiene el predicado que específicamente realiza la ejecución simbólica de la función indicada por el usuario a través de {\it frontend.pl}.
+
+%-------------------------------------------------------------------
+\subsubsection*{Executers.pl}
+%-------------------------------------------------------------------
+
+Contiene todos los predicados {\bf execute} que se encargan de simular la ejecución de cada instrucción del programa.
+
+%-------------------------------------------------------------------
+\subsubsection*{Expressions.pl}
+%-------------------------------------------------------------------
+
+Contiene todos los predicados {\bf resolveExpression} que se encargan de calcular el valor resultante de cada expresión del programa.
+
+%-------------------------------------------------------------------
+\subsection*{Functions}
+%-------------------------------------------------------------------
+
+Contiene los módulos auxiliares: {\it VariablesTable.pl} y {\it AuxiliaryFunctions.pl}.
+
+%-------------------------------------------------------------------
+\subsubsection*{VariablesTable.pl}
+%-------------------------------------------------------------------
+El int\'erprete ir\'a guardando las variables y su respectivo valor en una tabla de variables representado en prolog mediante una lista, de forma que todas las posibles operaciones que se puedan aplicar sobre ella est\'en encapsuladas en un mismo m\'odulo. Por ejemplo, funciones como añadir un elemento a la tabla (add), obtener el valor de una variable (getValue), modificar el nombre de una variable (updateNames), etc. son funciones que s\'olo se aplican sobre la tabla de variables.
+
+%-------------------------------------------------------------------
+\subsubsection*{AuxiliaryFunctions.pl}
+%-------------------------------------------------------------------
+En esta librería están presentes las distintas funciones auxiliares que ayudan a hacer más comprensible el código de las librerías Expressions y Executers. Destaca la implementación del estado en el que se apoyan dichas librerías.
 
 %-------------------------------------------------------------------
 \section{Ciclo de ejecuci\'on}
@@ -111,7 +145,7 @@ El resto de par\'ametros que el int\'erprete recibir\'a son:
 \begin{itemize}
 \item \textbf{Outfile}: para indicar el nombre del archivo en el que se guardar\'a el resultado de la ejecuci\'on, tanto las posibles entradas como sus respectivas salidas generadas.
 \item \textbf{Inf, Sup}: par\'ametros que nos servir\'a para delimitar el valor posible de las salidas.
-\item \textbf{MaxDepth}: para poner un n\'umero m\'aximo de vueltas que puede llegar a hacer un bucle si la condici\'on sigue siendo cierta en el momento en el que se alcanza dicho valor.\\\\\\
+\item \textbf{MaxDepth}: para poner un n\'umero m\'aximo de vueltas que puede llegar a hacer un bucle si la condici\'on sigue siendo cierta en el momento en el que se alcanza dicho valor.
 \end{itemize}
 
 %-------------------------------------------------------------------
@@ -132,7 +166,7 @@ Llevamos la tabla de variables correspondientes al estado en el que nos encontra
 \item \textbf{Cin, Cout} \\
 Listas con los valores de entrada (Cin) o salida (Cout) si procede.
 \item \textbf{Trace} \\
-Lista que conserva el n\'umero de las l\'ineas de las instrucciones por las que hemos pasado para poder m\'as tarde marcarlas en la interfaz.
+Lista que conserva el n\'umero de las l\'ineas de las instrucciones por las que hemos pasado para poder m\'as tarde marcarlas en la interfaz.\\\\
 \end{itemize}
 
 %-------------------------------------------------------------------
@@ -189,9 +223,7 @@ y la posibilidad de guardar en la tabla de variables varias declaraciones a la v
 
 \lstinputlisting[caption=Intrucci\'on para las declaraciones de varias variables en grupo, style=custompl, firstline=7, lastline=7]{Codigos/codigosProlog.pl}
 
-En este \'ultimo caso, internamente, se llamar\'a a la funci\'on encargada de guardar una a una las variables con sus tipos asignados pero sin valor ya que se trata \'unicamente de una declaraci\'on y no de una asignaci\'on.
-
-A continuaci\'on se seguir\'a con la ejecuci\'on del resto de las instrucciones
+En este \'ultimo caso, internamente, se llamar\'a a la funci\'on encargada de guardar una a una las variables con sus tipos asignados pero sin valor ya que se trata \'unicamente de una declaraci\'on y no de una asignaci\'on. A continuaci\'on se seguir\'a con la ejecuci\'on del resto de las instrucciones
 
 %-------------------------------------------------------------------
 \subsection*{Asignaci\'on de una variable}
@@ -503,7 +535,7 @@ Nos sirve para sacar por pantalla el resultado de la expresi\'on, por lo que lla
 \subsection*{Instrucci\'on RETURN}
 %-------------------------------------------------------------------
 
-\'esta es la sentencia de salida de una funci\'on, cuando se ejecuta, se devuelve el control a la rutina que llam\'o a la funci\'on. Adem\'as, se usa para especificar el valor de retorno de la funci\'on. La instrucci\'on de return sigue el siguiente esquema:
+\'Esta es la sentencia de salida de una funci\'on, cuando se ejecuta, se devuelve el control a la rutina que llam\'o a la funci\'on. Adem\'as, se usa para especificar el valor de retorno de la funci\'on. La instrucci\'on de return sigue el siguiente esquema:
 
 \begin{center}
 \textbf{return [<expresi\'on>] ;}
